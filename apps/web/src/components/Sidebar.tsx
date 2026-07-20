@@ -62,10 +62,9 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
       },
       {
         name: 'Practice Mode',
-        href: '#practice',
+        href: '/generate',
         icon: Sparkles,
         enabled: true,
-        isMock: true,
       },
       {
         name: 'Assessments',

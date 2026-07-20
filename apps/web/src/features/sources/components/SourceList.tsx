@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import Link from 'next/link'
 import { useAuthStore } from '@/features/auth/store/authStore'
 import { renameSource, deleteSource, processDocument } from '../../../../app/actions/sources'
 import type { Source } from '../types/source.types'
@@ -258,6 +259,15 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
 
                   <div className="flex items-center gap-3 justify-between sm:justify-end flex-shrink-0">
                     {getStatusBadge(item.status, item.id)}
+
+                    {!isProcessing && item.status === 'COMPLETED' && (
+                      <Link
+                        href={`/generate?sourceId=${item.id}`}
+                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-600/20 hover:bg-teal-600 text-teal-400 hover:text-white border border-teal-500/20 hover:border-transparent text-xs font-semibold transition duration-300"
+                      >
+                        <Play className="w-3.5 h-3.5" /> Generate Quiz
+                      </Link>
+                    )}
 
                     {!isProcessing && item.status === 'PENDING' && (
                       <button

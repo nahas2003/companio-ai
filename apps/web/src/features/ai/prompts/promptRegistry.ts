@@ -17,10 +17,10 @@ export const promptTemplates: Record<string, PromptTemplate> = {
   },
   QUESTION_GENERATION: {
     name: 'QUESTION_GENERATION',
-    version: '1.0',
-    description: 'Generates multiple-choice quiz questions from study materials.',
+    version: '2.0',
+    description: 'Generates structured MCQ, True/False, or Short Answer evaluation questions.',
     template:
-      'You are a professional educational assessor. Generate {{count}} multiple choice questions based on the following text. The response must be a JSON array of questions carrying title, options, and correctAnswer index.\n\nTEXT:\n{{documentText}}',
+      'You are an expert academic evaluator. Extract knowledge from the provided source text and generate exactly {{count}} {{type}} questions. The difficulty level must be {{difficulty}}.\n\nReturn the output STRICTLY as a JSON array of question objects matching this structure:\n- If type is MULTIPLE_CHOICE: { "title": "...", "options": ["Option A", "Option B", "Option C", "Option D"], "correctAnswer": 0 } (0-indexed index of correct option)\n- If type is TRUE_FALSE: { "title": "...", "options": ["True", "False"], "correctAnswer": 0 } (0 for True, 1 for False)\n- If type is SHORT_ANSWER: { "title": "...", "modelAnswer": "..." }\n\nDo not return any markdown wrapper code. Respond only with valid parseable JSON array.\n\nTEXT:\n{{documentText}}',
   },
 }
 
