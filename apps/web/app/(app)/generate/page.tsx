@@ -1,10 +1,11 @@
 'use client'
 
 import * as React from 'react'
-import { useSearchParams } from 'next/navigation'
+import { useSearchParams, useRouter } from 'next/navigation'
 import { useAuthStore } from '@/features/auth/store/authStore'
 import { getSources } from '../../actions/sources'
 import { generateQuestionsAction } from '../../actions/generation'
+import { saveQuestionsToBankAction } from '../../actions/questionBank'
 import type { Source } from '@/features/sources/types/source.types'
 import type {
   Difficulty,
@@ -24,6 +25,8 @@ import {
   AlertCircle,
   Play,
   RotateCcw,
+  FolderPlus,
+  X,
 } from 'lucide-react'
 import { Button } from '@companio/ui'
 
@@ -46,6 +49,7 @@ export default function GenerateQuestionsPage() {
 
 function GenerateContent() {
   const searchParams = useSearchParams()
+  const router = useRouter()
   const { session } = useAuthStore()
 
   const [sources, setSources] = React.useState<Source[]>([])
@@ -63,6 +67,49 @@ function GenerateContent() {
   const [generatedQuestions, setGeneratedQuestions] = React.useState<GeneratedQuestion[]>([])
   const [errorMsg, setErrorMsg] = React.useState<string | null>(null)
   const [revealedAnswers, setRevealedAnswers] = React.useState<Record<number, boolean>>({})
+
+  // Saving states
+  const [saving, setSaving] = React.useState(false)
+  const [showSaveModal, setShowSaveModal] = React.useState(false)
+  const [bankName, setBankName] = React.useState('')
+  const [bankDesc, setBankDesc] = React.useState('')
+
+  const triggerSaveModal = () => {
+    const selectedSource = sources.find((s) => s.id === selectedSourceId)
+    const baseName = selectedSource ? selectedSource.fileName.split('.')[0] : 'Study Material'
+    setBankName(`Quiz: ${baseName}`)
+    setBankDesc(`Generated practice questions on ${baseName} (${questionType.replace('_', ' ')})`)
+    setShowSaveModal(true)
+  }
+
+  const handleSaveToBank = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!session || !selectedSourceId || generatedQuestions.length === 0 || !bankName.trim()) return
+
+    try {
+      setSaving(true)
+      const res = await saveQuestionsToBankAction(session.access_token, {
+        sourceId: selectedSourceId,
+        bankName: bankName.trim(),
+        description: bankDesc.trim(),
+        difficulty,
+        type: questionType,
+        questions: generatedQuestions,
+      })
+
+      if (res.success) {
+        setShowSaveModal(false)
+        router.push('/question-bank')
+      } else {
+        alert(res.error || 'Failed to save questions to bank.')
+      }
+    } catch (err: any) {
+      console.error(err)
+      alert(err.message || 'An error occurred while saving.')
+    } finally {
+      setSaving(false)
+    }
+  }
 
   // Load completed sources
   const loadSources = React.useCallback(async () => {
@@ -308,13 +355,21 @@ function GenerateContent() {
             </div>
           ) : (
             <div className="space-y-5">
-              <div className="flex items-center justify-between">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <h2 className="text-xl font-bold flex items-center gap-2">
                   ✨ Generated Practice Deck ({generatedQuestions.length} items)
                 </h2>
-                <span className="text-xs font-bold text-slate-400 bg-white/5 border border-white/5 px-3 py-1 rounded-full uppercase tracking-wider">
-                  {questionType.replace('_', ' ')}
-                </span>
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-bold text-slate-400 bg-white/5 border border-white/5 px-3 py-1 rounded-full uppercase tracking-wider">
+                    {questionType.replace('_', ' ')}
+                  </span>
+                  <button
+                    onClick={triggerSaveModal}
+                    className="flex items-center gap-1.5 px-3.5 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition duration-300"
+                  >
+                    <FolderPlus className="w-3.5 h-3.5" /> Save to Bank
+                  </button>
+                </div>
               </div>
 
               <div className="flex flex-col gap-4">
@@ -388,6 +443,77 @@ function GenerateContent() {
           )}
         </div>
       </div>
+
+      {/* Save to Question Bank Modal */}
+      {showSaveModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
+          <div className="bg-slate-900 border border-white/10 rounded-3xl p-6 max-w-md w-full space-y-4 shadow-2xl animate-in fade-in zoom-in duration-200">
+            <div className="flex items-center justify-between">
+              <h3 className="text-lg font-bold flex items-center gap-2 text-white">
+                <FolderPlus className="w-5 h-5 text-teal-400" /> Save Practice Deck
+              </h3>
+              <button
+                onClick={() => setShowSaveModal(false)}
+                className="text-slate-400 hover:text-white transition"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            <form onSubmit={handleSaveToBank} className="space-y-4 text-left">
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                  Question Bank Name
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Biology midterm questions"
+                  value={bankName}
+                  onChange={(e) => setBankName(e.target.value)}
+                  className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-slate-950 text-white text-sm outline-none focus:border-teal-500/50"
+                />
+              </div>
+
+              <div className="space-y-1.5">
+                <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                  Description (Optional)
+                </label>
+                <textarea
+                  placeholder="e.g. Chapter 4 quiz deck covering organelle functions"
+                  value={bankDesc}
+                  onChange={(e) => setBankDesc(e.target.value)}
+                  rows={3}
+                  className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-slate-950 text-white text-sm outline-none focus:border-teal-500/50 resize-none"
+                />
+              </div>
+
+              <div className="flex items-center gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={() => setShowSaveModal(false)}
+                  disabled={saving}
+                  className="flex-1 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-slate-400 hover:text-white font-semibold text-xs transition"
+                >
+                  Cancel
+                </button>
+                <button
+                  type="submit"
+                  disabled={saving}
+                  className="flex-1 py-2.5 bg-teal-600 hover:bg-teal-500 rounded-xl text-white font-semibold text-xs flex items-center justify-center gap-2 transition"
+                >
+                  {saving ? (
+                    <RefreshCw className="w-4 h-4 animate-spin" />
+                  ) : (
+                    <FolderPlus className="w-3.5 h-3.5" />
+                  )}
+                  {saving ? 'Saving...' : 'Save Deck'}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

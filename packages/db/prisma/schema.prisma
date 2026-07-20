@@ -24,6 +24,7 @@ model User {
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
   sources     Source[]
+  questionBanks QuestionBank[]
 
   @@map("users")
 }
@@ -45,6 +46,7 @@ model Source {
 
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   content     DocumentContent?
+  questionBanks QuestionBank[]
 
   @@map("sources")
 }
@@ -75,4 +77,41 @@ model AiUsageLog {
   createdAt     DateTime @default(now()) @map("created_at")
 
   @@map("ai_usage_logs")
+}
+
+model QuestionBank {
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id")
+  sourceId    String?  @map("source_id")
+  name        String
+  description String?
+  archived    Boolean  @default(false)
+  deleted     Boolean  @default(false)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  source      Source?  @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  questions   Question[]
+
+  @@map("question_banks")
+}
+
+model Question {
+  id             String   @id @default(uuid())
+  questionBankId String   @map("question_bank_id")
+  title          String
+  type           String   // MULTIPLE_CHOICE, TRUE_FALSE, SHORT_ANSWER
+  difficulty     String   // EASY, MEDIUM, HARD
+  options        String[] // For MCQ/TF
+  correctAnswer  Int?     @map("correct_answer") // For MCQ/TF
+  modelAnswer    String?  @map("model_answer") // For Short Answer
+  archived       Boolean  @default(false)
+  deleted        Boolean  @default(false)
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  questionBank   QuestionBank @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
+
+  @@map("questions")
 }

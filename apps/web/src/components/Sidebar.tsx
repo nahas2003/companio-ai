@@ -55,10 +55,9 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
       },
       {
         name: 'Question Bank',
-        href: '#question-bank',
+        href: '/question-bank',
         icon: BookOpen,
         enabled: true,
-        isMock: true,
       },
       {
         name: 'Practice Mode',
