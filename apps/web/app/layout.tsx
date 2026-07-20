@@ -6,10 +6,14 @@ export const metadata: Metadata = {
   description: 'Generate assessments, practice sessions, and track results with AI.',
 }
 
+import { AuthInitializer } from '@/components/AuthInitializer'
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className="antialiased min-h-screen bg-slate-50 text-slate-900">{children}</body>
+      <body className="antialiased min-h-screen bg-slate-50 text-slate-900">
+        <AuthInitializer>{children}</AuthInitializer>
+      </body>
     </html>
   )
 }
