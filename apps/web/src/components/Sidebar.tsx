@@ -10,7 +10,7 @@ import {
   User,
   Shield,
   BookOpen,
-  Sparkles,
+  FileText,
   GraduationCap,
   ChevronLeft,
   UploadCloud,
@@ -63,7 +63,7 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
       {
         name: 'Practice Builder',
         href: '/generate',
-        icon: Sparkles,
+        icon: FileText, // Replaced Sparkles with FileText for invisible AI requirement
         enabled: true,
       },
       {
@@ -83,21 +83,21 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
   }, [role])
 
   const sidebarContent = (
-    <div className="flex flex-col h-full bg-slate-900 border-r border-white/10 text-white">
-      <div className="h-16 flex items-center justify-between px-6 border-b border-white/5">
+    <div className="flex flex-col h-full bg-surface border-r border-border text-text-primary transition-all duration-300">
+      <div className="h-16 flex items-center justify-between px-6 border-b border-border">
         <div className="flex items-center gap-2 overflow-hidden">
-          <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-blue-600 to-violet-600 flex items-center justify-center font-bold text-lg flex-shrink-0">
+          <div className="w-8 h-8 rounded-medium bg-primary flex items-center justify-center font-bold text-lg text-white flex-shrink-0">
             C
           </div>
           {!collapsed && (
-            <span className="font-bold text-lg tracking-tight bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent whitespace-nowrap">
+            <span className="font-bold text-lg tracking-tight text-text-primary whitespace-nowrap">
               Companio
             </span>
           )}
         </div>
         <button
           onClick={() => setCollapsed(!collapsed)}
-          className="hidden md:flex p-1.5 rounded-lg hover:bg-white/5 text-slate-400 hover:text-white transition duration-200"
+          className="hidden md:flex p-1.5 rounded-medium hover:bg-surface-secondary text-text-secondary hover:text-text-primary transition duration-200"
         >
           <ChevronLeft
             className={`w-4 h-4 transition-transform duration-300 ${collapsed ? 'rotate-180' : ''}`}
@@ -114,14 +114,14 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
               key={item.name}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-xl transition duration-300 relative group ${
+              className={`flex items-center gap-3 px-4 py-3 rounded-medium transition duration-200 relative group border ${
                 isActive
-                  ? 'bg-gradient-to-r from-blue-600/20 to-violet-600/20 text-white border border-blue-500/30'
-                  : 'text-slate-400 hover:text-white hover:bg-white/5 border border-transparent'
+                  ? 'bg-primary/10 text-primary border-primary/20 font-bold'
+                  : 'text-text-secondary hover:text-text-primary hover:bg-surface-secondary border-transparent'
               }`}
             >
               <Icon
-                className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-blue-400' : 'text-slate-400 group-hover:text-white transition-colors'}`}
+                className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-primary' : 'text-text-secondary group-hover:text-text-primary transition-colors'}`}
               />
               {!collapsed && (
                 <span className="text-sm font-semibold flex-1 tracking-wide">{item.name}</span>
@@ -144,7 +144,7 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
       {mobileOpen && (
         <div
           onClick={() => setMobileOpen(false)}
-          className="md:hidden fixed inset-0 bg-black/60 backdrop-blur-sm z-50 transition-opacity"
+          className="md:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 transition-opacity"
         />
       )}
 

@@ -2,7 +2,55 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  background-color: rgb(248, 250, 252);
-  color: rgb(15, 23, 42);
+@layer base {
+  :root {
+    --background: #fafbff;
+    --surface: #ffffff;
+    --surface-secondary: #f7f9fc;
+    --primary: #4f6bff;
+    --primary-hover: #3d5af1;
+    --secondary: #eef4ff;
+    --text-primary: #111827;
+    --text-secondary: #6b7280;
+    --border: #e5e7eb;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #3b82f6;
+
+    --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.08);
+  }
+
+  .dark {
+    --background: #0b1220;
+    --surface: #111827;
+    --surface-secondary: #1a2235;
+    --primary: #5b7cff;
+    --primary-hover: #4d6ef7;
+    --secondary: #1f2a44;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --border: #243046;
+    --success: #22c55e;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --info: #60a5fa;
+
+    --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.45);
+  }
+
+  * {
+    @apply border-border;
+    transition:
+      background-color 250ms ease-out,
+      border-color 250ms ease-out,
+      text-decoration-color 250ms ease-out,
+      fill 250ms ease-out,
+      stroke 250ms ease-out,
+      box-shadow 250ms ease-out;
+  }
+
+  body {
+    @apply bg-background text-text-primary antialiased;
+  }
 }

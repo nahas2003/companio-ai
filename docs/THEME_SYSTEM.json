@@ -1,0 +1,241 @@
+{
+  "project": {
+    "name": "Companio",
+    "version": "2.0",
+    "themeMode": "system",
+    "defaultTheme": "light",
+    "allowThemeToggle": true,
+    "toggleStyle": "switch"
+  },
+
+  "designLanguage": {
+    "style": "Modern SaaS",
+    "inspiration": ["Linear", "Stripe", "Vercel", "Notion"],
+    "principles": ["Assessment First", "Minimal", "Professional", "Premium", "Fast", "Accessible"]
+  },
+
+  "themes": {
+    "light": {
+      "name": "Companio Light",
+
+      "colors": {
+        "background": "#FAFBFF",
+        "surface": "#FFFFFF",
+        "surfaceSecondary": "#F7F9FC",
+
+        "primary": "#4F6BFF",
+        "primaryHover": "#3D5AF1",
+
+        "secondary": "#EEF4FF",
+
+        "textPrimary": "#111827",
+        "textSecondary": "#6B7280",
+
+        "border": "#E5E7EB",
+
+        "success": "#22C55E",
+        "warning": "#F59E0B",
+        "error": "#EF4444",
+        "info": "#3B82F6"
+      },
+
+      "hero": {
+        "gradient": ["#4F6BFF", "#7C8FFF"]
+      },
+
+      "cards": {
+        "background": "#FFFFFF",
+        "shadow": "0 10px 30px rgba(15,23,42,0.08)",
+        "border": "#E5E7EB"
+      },
+
+      "navbar": {
+        "background": "rgba(255,255,255,0.8)",
+        "blur": true,
+        "border": "#E5E7EB"
+      }
+    },
+
+    "dark": {
+      "name": "Companio Dark",
+
+      "colors": {
+        "background": "#0B1220",
+        "surface": "#111827",
+        "surfaceSecondary": "#1A2235",
+
+        "primary": "#5B7CFF",
+        "primaryHover": "#4D6EF7",
+
+        "secondary": "#1F2A44",
+
+        "textPrimary": "#F8FAFC",
+        "textSecondary": "#94A3B8",
+
+        "border": "#243046",
+
+        "success": "#22C55E",
+        "warning": "#F59E0B",
+        "error": "#EF4444",
+        "info": "#60A5FA"
+      },
+
+      "hero": {
+        "gradient": ["#4F6BFF", "#8B5CF6"]
+      },
+
+      "cards": {
+        "background": "#111827",
+        "shadow": "0 10px 30px rgba(0,0,0,0.45)",
+        "border": "#243046"
+      },
+
+      "navbar": {
+        "background": "rgba(11,18,32,0.75)",
+        "blur": true,
+        "border": "#243046"
+      }
+    }
+  },
+
+  "typography": {
+    "fontFamily": "Inter",
+    "headingWeight": 700,
+    "bodyWeight": 400,
+    "buttonWeight": 600,
+
+    "heroHeading": "64px",
+    "heading": "36px",
+    "subHeading": "24px",
+    "body": "18px",
+    "small": "14px"
+  },
+
+  "spacing": {
+    "container": "1280px",
+    "sectionPadding": "96px",
+    "cardPadding": "24px",
+    "radius": {
+      "small": "10px",
+      "medium": "14px",
+      "large": "20px",
+      "pill": "999px"
+    }
+  },
+
+  "buttons": {
+    "primary": {
+      "style": "Filled"
+    },
+    "secondary": {
+      "style": "Outline"
+    },
+    "ghost": {
+      "style": "Transparent"
+    }
+  },
+
+  "animations": {
+    "duration": "200ms",
+    "curve": "ease-out",
+
+    "hover": ["Lift", "Soft Shadow", "Scale 1.02"],
+
+    "page": ["Fade", "Slide Up"]
+  },
+
+  "icons": {
+    "library": "Lucide",
+
+    "style": "Rounded Outline",
+
+    "avoid": ["Robots", "AI brains", "Sci-fi", "Neon"]
+  },
+
+  "illustrations": {
+    "style": "Minimal SaaS",
+
+    "avoid": ["Robots", "Futuristic AI", "Cyberpunk"]
+  },
+
+  "components": {
+    "navbar": {
+      "height": "72px",
+      "sticky": true,
+      "glassEffect": true
+    },
+
+    "sidebar": {
+      "collapsible": true,
+      "default": "collapsed"
+    },
+
+    "cards": {
+      "radius": "20px",
+      "shadow": "soft"
+    },
+
+    "tables": {
+      "stickyHeader": true,
+      "stripedHover": true
+    },
+
+    "forms": {
+      "inputRadius": "12px",
+      "labelPosition": "top"
+    },
+
+    "charts": {
+      "style": "Minimal",
+      "colors": ["#4F6BFF", "#22C55E", "#F59E0B", "#8B5CF6"]
+    }
+  },
+
+  "themeToggle": {
+    "enabled": true,
+
+    "position": "Navbar Right",
+
+    "iconLight": "Sun",
+
+    "iconDark": "Moon",
+
+    "animation": "Smooth Fade",
+
+    "rememberUserChoice": true,
+
+    "supportSystemTheme": true
+  },
+
+  "responsive": {
+    "mobileFirst": true,
+
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    }
+  },
+
+  "developerRules": [
+    "Every page must support both Light and Dark themes.",
+
+    "Never hardcode colors.",
+
+    "Always use theme variables.",
+
+    "Every component must automatically adapt to theme changes.",
+
+    "Theme switching must be animated.",
+
+    "Store the selected theme in localStorage.",
+
+    "Support system theme detection.",
+
+    "Use semantic color tokens instead of raw hex values wherever possible.",
+
+    "All new components must be compatible with both themes before merging."
+  ]
+}
