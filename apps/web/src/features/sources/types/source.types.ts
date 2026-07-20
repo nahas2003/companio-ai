@@ -6,6 +6,10 @@ export interface Source {
   fileSize: number
   fileType: string
   status: 'PENDING' | 'PROCESSING' | 'COMPLETED' | 'FAILED'
+  wordCount?: number | null
+  pageCount?: number | null
+  processedAt?: Date | string | null
+  errorMsg?: string | null
   createdAt: Date | string
   updatedAt: Date | string
 }

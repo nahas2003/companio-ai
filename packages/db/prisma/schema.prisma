@@ -36,10 +36,26 @@ model Source {
   fileSize    Int      @map("file_size")
   fileType    String   @map("file_type")
   status      String   @default("PENDING")
+  wordCount   Int?     @map("word_count")
+  pageCount   Int?     @map("page_count")
+  processedAt DateTime? @map("processed_at")
+  errorMsg    String?  @map("error_msg")
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
   user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content     DocumentContent?
 
   @@map("sources")
+}
+
+model DocumentContent {
+  id        String   @id @default(uuid())
+  sourceId  String   @unique @map("source_id")
+  content   String   @db.Text
+  createdAt DateTime @default(now()) @map("created_at")
+
+  source    Source   @relation(fields: [sourceId], references: [id], onDelete: Cascade)
+
+  @@map("document_contents")
 }

@@ -2,7 +2,7 @@
 
 import * as React from 'react'
 import { useAuthStore } from '@/features/auth/store/authStore'
-import { renameSource, deleteSource } from '../../../../app/actions/sources'
+import { renameSource, deleteSource, processDocument } from '../../../../app/actions/sources'
 import type { Source } from '../types/source.types'
 import {
   FileText,
@@ -15,6 +15,8 @@ import {
   HardDrive,
   Check,
   X,
+  Play,
+  RotateCcw,
 } from 'lucide-react'
 
 interface SourceListProps {
@@ -29,35 +31,40 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
   const [editName, setEditName] = React.useState('')
   const [deletingId, setDeletingId] = React.useState<string | null>(null)
   const [processingAction, setProcessingAction] = React.useState(false)
+  const [localProcessingId, setLocalProcessingId] = React.useState<string | null>(null)
 
   const filteredSources = React.useMemo(() => {
     return sources.filter((s) => s.fileName.toLowerCase().includes(search.toLowerCase()))
   }, [sources, search])
 
-  const getStatusBadge = (status: Source['status']) => {
+  const getStatusBadge = (status: Source['status'], itemId: string) => {
+    const isProcessing = status === 'PROCESSING' || localProcessingId === itemId
+
+    if (isProcessing) {
+      return (
+        <span className="flex items-center gap-1.5 text-[10px] font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-full uppercase tracking-wider animate-pulse">
+          <Clock className="w-3.5 h-3.5 animate-spin" /> Ingestion
+        </span>
+      )
+    }
+
     switch (status) {
       case 'COMPLETED':
         return (
-          <span className="flex items-center gap-1 text-[10px] font-bold text-teal-400 bg-teal-500/10 border border-teal-500/20 px-2 py-0.5 rounded-full uppercase tracking-wider">
-            <CheckCircle className="w-3 h-3" /> Ready
-          </span>
-        )
-      case 'PROCESSING':
-        return (
-          <span className="flex items-center gap-1 text-[10px] font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded-full uppercase tracking-wider animate-pulse">
-            <Clock className="w-3 h-3 animate-spin" /> Ingestion
+          <span className="flex items-center gap-1.5 text-[10px] font-bold text-teal-400 bg-teal-500/10 border border-teal-500/20 px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <CheckCircle className="w-3.5 h-3.5" /> Ready
           </span>
         )
       case 'FAILED':
         return (
-          <span className="flex items-center gap-1 text-[10px] font-bold text-red-400 bg-red-500/10 border border-red-500/20 px-2 py-0.5 rounded-full uppercase tracking-wider">
-            <AlertCircle className="w-3 h-3" /> Failed
+          <span className="flex items-center gap-1.5 text-[10px] font-bold text-red-400 bg-red-500/10 border border-red-500/20 px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <AlertCircle className="w-3.5 h-3.5" /> Failed
           </span>
         )
       default:
         return (
-          <span className="flex items-center gap-1 text-[10px] font-bold text-slate-400 bg-slate-500/10 border border-slate-500/20 px-2 py-0.5 rounded-full uppercase tracking-wider">
-            <Clock className="w-3 h-3" /> Idle
+          <span className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400 bg-slate-500/10 border border-slate-500/20 px-2.5 py-1 rounded-full uppercase tracking-wider">
+            <Clock className="w-3.5 h-3.5" /> Idle
           </span>
         )
     }
@@ -112,6 +119,23 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
     }
   }
 
+  const handleProcess = async (id: string) => {
+    if (!session) return
+    try {
+      setLocalProcessingId(id)
+      const res = await processDocument(session.access_token, id)
+      if (!res.success) {
+        alert(res.error || 'Failed to process document.')
+      }
+      onRefresh()
+    } catch (err: any) {
+      console.error(err)
+      alert(err.message || 'An error occurred during extraction.')
+    } finally {
+      setLocalProcessingId(null)
+    }
+  }
+
   if (sources.length === 0) {
     return (
       <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md flex flex-col items-center justify-center text-center space-y-4 min-h-[300px]">
@@ -145,102 +169,155 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
         </div>
       </div>
 
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3.5">
         {filteredSources.length === 0 ? (
           <div className="text-center text-sm text-slate-500 py-8">
             No files match your search criteria.
           </div>
         ) : (
-          filteredSources.map((item) => (
-            <div
-              key={item.id}
-              className="flex flex-col sm:flex-row sm:items-center justify-between p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-white/15 transition-all duration-300 gap-4"
-            >
-              <div className="flex items-center gap-3.5 min-w-0 flex-1">
-                <div className="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex-shrink-0">
-                  <FileText className="w-5 h-5" />
-                </div>
+          filteredSources.map((item) => {
+            const isProcessing = item.status === 'PROCESSING' || localProcessingId === item.id
 
-                <div className="min-w-0 flex-1 space-y-0.5 text-left">
-                  {editingId === item.id ? (
-                    <div className="flex items-center gap-2 max-w-md">
-                      <input
-                        type="text"
-                        value={editName}
-                        onChange={(e) => setEditName(e.target.value)}
-                        disabled={processingAction}
-                        className="bg-slate-950 border border-blue-500 text-white text-sm rounded-lg px-2.5 py-1.5 focus:outline-none flex-1 min-w-0"
-                      />
-                      <button
-                        onClick={() => handleSaveRename(item.id)}
-                        disabled={processingAction}
-                        className="p-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white disabled:opacity-50 transition"
-                      >
-                        <Check className="w-4 h-4" />
-                      </button>
-                      <button
-                        onClick={() => setEditingId(null)}
-                        disabled={processingAction}
-                        className="p-2 bg-white/5 hover:bg-white/10 rounded-lg text-slate-400 hover:text-white transition"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
+            return (
+              <div
+                key={item.id}
+                className="flex flex-col p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-white/15 transition-all duration-300 gap-3"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div className="flex items-center gap-3.5 min-w-0 flex-1">
+                    <div className="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex-shrink-0">
+                      <FileText className="w-5 h-5" />
                     </div>
-                  ) : (
-                    <div className="flex items-center gap-3">
-                      <h3 className="font-semibold text-slate-200 truncate max-w-sm">
-                        {item.fileName}
-                      </h3>
-                      <button
-                        onClick={() => handleStartRename(item.id, item.fileName)}
-                        className="text-slate-500 hover:text-white transition duration-300 flex-shrink-0"
-                      >
-                        <Edit2 className="w-3.5 h-3.5" />
-                      </button>
-                    </div>
-                  )}
 
-                  <div className="flex items-center gap-3 text-[11px] text-slate-500 font-semibold">
-                    <span>{item.fileType.toUpperCase()}</span>
-                    <span>•</span>
-                    <span>{formatSize(item.fileSize)}</span>
-                    <span>•</span>
-                    <span>Uploaded {new Date(item.createdAt).toLocaleDateString()}</span>
+                    <div className="min-w-0 flex-1 space-y-0.5 text-left">
+                      {editingId === item.id ? (
+                        <div className="flex items-center gap-2 max-w-md">
+                          <input
+                            type="text"
+                            value={editName}
+                            onChange={(e) => setEditName(e.target.value)}
+                            disabled={processingAction}
+                            className="bg-slate-950 border border-blue-500 text-white text-sm rounded-lg px-2.5 py-1.5 focus:outline-none flex-1 min-w-0"
+                          />
+                          <button
+                            onClick={() => handleSaveRename(item.id)}
+                            disabled={processingAction}
+                            className="p-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white disabled:opacity-50 transition"
+                          >
+                            <Check className="w-4 h-4" />
+                          </button>
+                          <button
+                            onClick={() => setEditingId(null)}
+                            disabled={processingAction}
+                            className="p-2 bg-white/5 hover:bg-white/10 rounded-lg text-slate-400 hover:text-white transition"
+                          >
+                            <X className="w-4 h-4" />
+                          </button>
+                        </div>
+                      ) : (
+                        <div className="flex items-center gap-3">
+                          <h3 className="font-semibold text-slate-200 truncate max-w-sm">
+                            {item.fileName}
+                          </h3>
+                          {!isProcessing && (
+                            <button
+                              onClick={() => handleStartRename(item.id, item.fileName)}
+                              className="text-slate-500 hover:text-white transition duration-300 flex-shrink-0"
+                            >
+                              <Edit2 className="w-3.5 h-3.5" />
+                            </button>
+                          )}
+                        </div>
+                      )}
+
+                      <div className="flex items-center gap-3 text-[11px] text-slate-500 font-semibold flex-wrap">
+                        <span>{item.fileType.toUpperCase()}</span>
+                        <span>•</span>
+                        <span>{formatSize(item.fileSize)}</span>
+                        <span>•</span>
+                        <span>Uploaded {new Date(item.createdAt).toLocaleDateString()}</span>
+                        {item.status === 'COMPLETED' && (
+                          <>
+                            <span>•</span>
+                            <span className="text-teal-500 font-bold">
+                              {item.wordCount?.toLocaleString() || 0} words
+                            </span>
+                            {item.pageCount && (
+                              <>
+                                <span>•</span>
+                                <span className="text-violet-500 font-bold">
+                                  {item.pageCount} pages
+                                </span>
+                              </>
+                            )}
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-3 justify-between sm:justify-end flex-shrink-0">
+                    {getStatusBadge(item.status, item.id)}
+
+                    {!isProcessing && item.status === 'PENDING' && (
+                      <button
+                        onClick={() => handleProcess(item.id)}
+                        className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-500/20 hover:border-transparent text-xs font-semibold transition duration-300"
+                      >
+                        <Play className="w-3.5 h-3.5" /> Process
+                      </button>
+                    )}
+
+                    {!isProcessing && item.status === 'FAILED' && (
+                      <button
+                        onClick={() => handleProcess(item.id)}
+                        className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-red-600/20 hover:bg-red-600 text-red-400 hover:text-white border border-red-500/20 hover:border-transparent text-xs font-semibold transition duration-300"
+                      >
+                        <RotateCcw className="w-3.5 h-3.5" /> Retry
+                      </button>
+                    )}
+
+                    {!isProcessing && (
+                      <>
+                        {deletingId === item.id ? (
+                          <div className="flex items-center gap-2">
+                            <button
+                              onClick={() => handleDelete(item.id)}
+                              disabled={processingAction}
+                              className="px-3 py-1.5 bg-red-600 hover:bg-red-500 rounded-lg text-white font-semibold text-xs transition"
+                            >
+                              Confirm
+                            </button>
+                            <button
+                              onClick={() => setDeletingId(null)}
+                              disabled={processingAction}
+                              className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-slate-400 hover:text-white font-semibold text-xs transition"
+                            >
+                              Cancel
+                            </button>
+                          </div>
+                        ) : (
+                          <button
+                            onClick={() => setDeletingId(item.id)}
+                            className="p-2 bg-white/5 hover:bg-red-500/10 border border-white/5 hover:border-red-500/20 text-slate-500 hover:text-red-400 rounded-xl transition duration-300"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        )}
+                      </>
+                    )}
                   </div>
                 </div>
-              </div>
 
-              <div className="flex items-center gap-4 justify-between sm:justify-end flex-shrink-0">
-                {getStatusBadge(item.status)}
-
-                {deletingId === item.id ? (
-                  <div className="flex items-center gap-2">
-                    <button
-                      onClick={() => handleDelete(item.id)}
-                      disabled={processingAction}
-                      className="px-3 py-1.5 bg-red-600 hover:bg-red-500 rounded-lg text-white font-semibold text-xs transition"
-                    >
-                      Confirm
-                    </button>
-                    <button
-                      onClick={() => setDeletingId(null)}
-                      disabled={processingAction}
-                      className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-slate-400 hover:text-white font-semibold text-xs transition"
-                    >
-                      Cancel
-                    </button>
+                {item.status === 'FAILED' && item.errorMsg && (
+                  <div className="flex items-start gap-2 p-3 rounded-xl border border-red-500/20 bg-red-500/5 text-red-300 text-xs text-left">
+                    <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-red-400" />
+                    <span className="leading-relaxed">Error log: {item.errorMsg}</span>
                   </div>
-                ) : (
-                  <button
-                    onClick={() => setDeletingId(item.id)}
-                    className="p-2 bg-white/5 hover:bg-red-500/10 border border-white/5 hover:border-red-500/20 text-slate-500 hover:text-red-400 rounded-xl transition duration-300"
-                  >
-                    <Trash2 className="w-4 h-4" />
-                  </button>
                 )}
               </div>
-            </div>
-          ))
+            )
+          })
         )}
       </div>
     </div>

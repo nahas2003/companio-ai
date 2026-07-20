@@ -156,3 +156,78 @@ export async function deleteSource(accessToken: string, sourceId: string) {
     return { success: false, error: error.message || 'Failed to delete source' }
   }
 }
+
+export async function processDocument(accessToken: string, sourceId: string) {
+  try {
+    const verifiedUser = await getVerifiedUserId(accessToken)
+
+    const source = await prisma.source.findUnique({
+      where: { id: sourceId },
+    })
+
+    if (!source || source.userId !== verifiedUser.id) {
+      throw new Error('Access denied. You do not own this source.')
+    }
+
+    await prisma.source.update({
+      where: { id: sourceId },
+      data: { status: 'PROCESSING', errorMsg: null },
+    })
+
+    const supabase = getSupabaseServer()
+    const { data: fileData, error: downloadError } = await supabase.storage
+      .from('sources')
+      .download(source.fileKey)
+
+    if (downloadError || !fileData) {
+      throw new Error(
+        `Failed to download file from storage: ${downloadError?.message || 'File empty'}`,
+      )
+    }
+
+    const fileBuffer = Buffer.from(await fileData.arrayBuffer())
+
+    const { parseDocument } = await import('@/features/sources/utils/documentParser')
+    const parsedDoc = await parseDocument(fileBuffer, source.fileType)
+
+    await prisma.$transaction([
+      prisma.documentContent.upsert({
+        where: { sourceId: source.id },
+        update: { content: parsedDoc.content },
+        create: {
+          sourceId: source.id,
+          content: parsedDoc.content,
+        },
+      }),
+      prisma.source.update({
+        where: { id: source.id },
+        data: {
+          status: 'COMPLETED',
+          wordCount: parsedDoc.wordCount,
+          pageCount: parsedDoc.pageCount,
+          processedAt: new Date(),
+          errorMsg: null,
+        },
+      }),
+    ])
+
+    console.log(`Document ${sourceId} processed successfully: status COMPLETED`)
+    return { success: true }
+  } catch (error: any) {
+    console.error(`Error processing document ${sourceId}:`, error)
+
+    try {
+      await prisma.source.update({
+        where: { id: sourceId },
+        data: {
+          status: 'FAILED',
+          errorMsg: error.message || 'Unknown error during text extraction',
+        },
+      })
+    } catch (dbErr) {
+      console.error('Failed to write FAILED status to database:', dbErr)
+    }
+
+    return { success: false, error: error.message || 'Failed to process document' }
+  }
+}
