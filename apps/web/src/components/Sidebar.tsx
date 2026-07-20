@@ -14,6 +14,7 @@ import {
   GraduationCap,
   ChevronLeft,
   UploadCloud,
+  Compass,
 } from 'lucide-react'
 
 interface SidebarProps {
@@ -60,17 +61,22 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
         enabled: true,
       },
       {
-        name: 'Practice Mode',
+        name: 'Practice Builder',
         href: '/generate',
         icon: Sparkles,
         enabled: true,
       },
       {
+        name: 'Practice Zone',
+        href: '/practice',
+        icon: Compass,
+        enabled: true,
+      },
+      {
         name: 'Assessments',
-        href: '#assessments',
+        href: '/assessments',
         icon: GraduationCap,
         enabled: true,
-        isMock: true,
       },
     ]
     return items.filter((item) => item.enabled)
@@ -111,23 +117,14 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
               className={`flex items-center gap-3 px-4 py-3 rounded-xl transition duration-300 relative group ${
                 isActive
                   ? 'bg-gradient-to-r from-blue-600/20 to-violet-600/20 text-white border border-blue-500/30'
-                  : item.isMock
-                    ? 'text-slate-500 hover:text-slate-400 cursor-not-allowed pointer-events-none'
-                    : 'text-slate-400 hover:text-white hover:bg-white/5 border border-transparent'
+                  : 'text-slate-400 hover:text-white hover:bg-white/5 border border-transparent'
               }`}
             >
               <Icon
                 className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-blue-400' : 'text-slate-400 group-hover:text-white transition-colors'}`}
               />
               {!collapsed && (
-                <span className="text-sm font-semibold flex-1 tracking-wide">
-                  {item.name}
-                  {item.isMock && (
-                    <span className="ml-2 text-[9px] font-bold text-violet-400 bg-violet-500/10 px-1.5 py-0.5 rounded-full uppercase tracking-wider">
-                      Soon
-                    </span>
-                  )}
-                </span>
+                <span className="text-sm font-semibold flex-1 tracking-wide">{item.name}</span>
               )}
             </Link>
           )

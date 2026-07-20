@@ -5,27 +5,26 @@ import { useAuthStore } from '@/features/auth/store/authStore'
 import { StatsGrid } from '@/features/dashboard/components/StatsGrid'
 import { QuickActions } from '@/features/dashboard/components/QuickActions'
 import { ActivityFeed } from '@/features/dashboard/components/ActivityFeed'
-import { dashboardService } from '@/features/dashboard/services/dashboardService'
+import { getDashboardDataAction } from '../../actions/dashboard'
 import type { DashboardStats, ActivityItem } from '@/features/dashboard/types/dashboard.types'
 import { Calendar } from 'lucide-react'
 
 export default function DashboardPage() {
-  const { user } = useAuthStore()
+  const { user, session } = useAuthStore()
   const [loading, setLoading] = React.useState(true)
   const [stats, setStats] = React.useState<DashboardStats | null>(null)
   const [activities, setActivities] = React.useState<ActivityItem[]>([])
 
   React.useEffect(() => {
     async function loadDashboardData() {
-      if (!user) return
+      if (!session) return
       try {
         setLoading(true)
-        const [statsData, activitiesData] = await Promise.all([
-          dashboardService.getDashboardStats(user.id),
-          dashboardService.getRecentActivities(user.id),
-        ])
-        setStats(statsData)
-        setActivities(activitiesData)
+        const res = await getDashboardDataAction(session.access_token)
+        if (res.success && res.stats && res.activities) {
+          setStats(res.stats)
+          setActivities(res.activities)
+        }
       } catch (error) {
         console.error('Failed to load dashboard statistics:', error)
       } finally {
@@ -33,7 +32,7 @@ export default function DashboardPage() {
       }
     }
     loadDashboardData()
-  }, [user])
+  }, [session])
 
   const greeting = React.useMemo(() => {
     const hour = new Date().getHours()

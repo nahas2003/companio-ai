@@ -36,6 +36,8 @@ export function RegisterForm() {
     resolver: zodResolver(registerSchema),
   })
 
+  const [needsVerification, setNeedsVerification] = React.useState(false)
+
   const onSubmit = async (values: RegisterFields) => {
     setError(null)
     const result = await authService.signUp({
@@ -44,8 +46,35 @@ export function RegisterForm() {
       displayName: values.displayName,
     })
     if (result.success) {
-      router.push('/dashboard')
+      if (result.session) {
+        router.push('/dashboard')
+      } else {
+        setNeedsVerification(true)
+      }
     }
+  }
+
+  if (needsVerification) {
+    return (
+      <div className="flex flex-col items-center gap-6 text-center py-6 animate-fade-in">
+        <div className="w-16 h-16 rounded-full bg-blue-500/15 border border-blue-500/30 text-blue-400 flex items-center justify-center">
+          <Mail className="w-8 h-8" />
+        </div>
+        <div className="space-y-2">
+          <h2 className="text-xl font-extrabold text-white">Verify Your Email</h2>
+          <p className="text-sm text-slate-400 leading-relaxed max-w-xs mx-auto">
+            We have sent a verification link to your inbox. Please click the link to confirm your
+            account and sign in.
+          </p>
+        </div>
+        <button
+          onClick={() => router.push('/login')}
+          className="px-6 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-xs font-semibold text-white transition mt-4"
+        >
+          Proceed to Login
+        </button>
+      </div>
+    )
   }
 
   return (

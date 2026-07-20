@@ -37,9 +37,24 @@ export async function getVerifiedUser(accessToken: string) {
       data: {
         id: user.id,
         email: user.email!,
-        displayName: user.user_metadata?.display_name || user.email!.split('@')[0],
+        displayName:
+          user.user_metadata?.display_name ||
+          user.user_metadata?.displayName ||
+          user.email!.split('@')[0],
       },
     })
+
+    // Trigger welcome notification
+    try {
+      const { triggerNotification } = await import('./notifications')
+      await triggerNotification(dbUser.id, {
+        title: 'Welcome to Companio AI!',
+        message: `Hello ${dbUser.displayName || 'Learner'}, thank you for registering. Start uploading your study notes and generating customized practice decks to supercharge your learning!`,
+        type: 'WELCOME',
+      })
+    } catch (notifErr) {
+      console.error('Failed to trigger welcome notification:', notifErr)
+    }
   }
 
   return dbUser

@@ -42,8 +42,13 @@ model User {
   role        Role     @default(STUDENT)
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
-  sources     Source[]
-  questionBanks QuestionBank[]
+  sources             Source[]
+  questionBanks       QuestionBank[]
+  practiceSessions    PracticeSession[]
+  assessmentTemplates AssessmentTemplate[]
+  assessmentAttempts  AssessmentAttempt[]
+  notifications       Notification[]
+  notificationPreference NotificationPreference?
 
   @@map("users")
 }
@@ -111,9 +116,11 @@ model QuestionBank {
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
 
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  source      Source?  @relation(fields: [sourceId], references: [id], onDelete: SetNull)
-  questions   Question[]
+  user              User                 @relation(fields: [userId], references: [id], onDelete: Cascade)
+  source            Source?              @relation(fields: [sourceId], references: [id], onDelete: SetNull)
+  questions         Question[]
+  practiceSessions  PracticeSession[]
+  assessmentTemplates AssessmentTemplate[]
 
   @@index([userId])
   @@index([sourceId])
@@ -134,8 +141,168 @@ model Question {
   createdAt      DateTime     @default(now()) @map("created_at")
   updatedAt      DateTime     @updatedAt @map("updated_at")
 
-  questionBank   QuestionBank @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
+  questionBank        QuestionBank         @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
+  practiceAnswers     PracticeAnswer[]
+  assessmentResponses AssessmentResponse[]
 
   @@index([questionBankId])
   @@map("questions")
+}
+
+model PracticeSession {
+  id             String           @id @default(uuid())
+  userId         String?          @map("user_id")
+  questionBankId String           @map("question_bank_id")
+  score          Float?
+  timeTaken      Int?             @map("time_taken")
+  status         String           @default("IN_PROGRESS") // IN_PROGRESS, COMPLETED
+  createdAt      DateTime         @default(now()) @map("created_at")
+  updatedAt      DateTime         @updatedAt @map("updated_at")
+
+  user           User?            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  questionBank   QuestionBank     @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
+  answers        PracticeAnswer[]
+
+  @@index([userId])
+  @@index([questionBankId])
+  @@map("practice_sessions")
+}
+
+model PracticeAnswer {
+  id                String          @id @default(uuid())
+  practiceSessionId String          @map("practice_session_id")
+  questionId        String          @map("question_id")
+  selectedOption    Int?            @map("selected_option")
+  modelAnswer       String?         @map("model_answer")
+  isCorrect         Boolean?        @map("is_correct")
+  createdAt         DateTime        @default(now()) @map("created_at")
+  updatedAt         DateTime        @updatedAt @map("updated_at")
+
+  practiceSession   PracticeSession @relation(fields: [practiceSessionId], references: [id], onDelete: Cascade)
+  question          Question        @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([practiceSessionId])
+  @@index([questionId])
+  @@map("practice_answers")
+}
+
+model AssessmentTemplate {
+  id               String                @id @default(uuid())
+  creatorId        String                @map("creator_id")
+  questionBankId   String                @map("question_bank_id")
+  title            String
+  description      String?
+  timer            Int?                  // timed limit in minutes, null if untimed
+  passingScore     Float                 @default(60.0) @map("passing_score")
+  shuffleQuestions Boolean               @default(false) @map("shuffle_questions")
+  shuffleOptions   Boolean               @default(false) @map("shuffle_options")
+  archived         Boolean               @default(false)
+  createdAt        DateTime              @default(now()) @map("created_at")
+  updatedAt        DateTime              @updatedAt @map("updated_at")
+
+  creator          User                  @relation(fields: [creatorId], references: [id], onDelete: Cascade)
+  questionBank     QuestionBank          @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
+  published        PublishedAssessment[]
+
+  @@index([creatorId])
+  @@index([questionBankId])
+  @@map("assessment_templates")
+}
+
+model PublishedAssessment {
+  id         String              @id @default(uuid())
+  templateId String              @map("template_id")
+  code       String              @unique
+  active     Boolean             @default(true)
+  createdAt  DateTime            @default(now()) @map("created_at")
+  updatedAt  DateTime            @updatedAt @map("updated_at")
+
+  template   AssessmentTemplate  @relation(fields: [templateId], references: [id], onDelete: Cascade)
+  attempts   AssessmentAttempt[]
+
+  @@index([templateId])
+  @@map("published_assessments")
+}
+
+model AssessmentAttempt {
+  id                    String               @id @default(uuid())
+  publishedAssessmentId String               @map("published_assessment_id")
+  userId                String?              @map("user_id")
+  guestName             String?              @map("guest_name")
+  score                 Float?
+  timeTaken             Int?                 @map("time_taken")
+  status                String               @default("IN_PROGRESS")
+  startedAt             DateTime             @default(now()) @map("started_at")
+  completedAt           DateTime?            @map("completed_at")
+
+  publishedAssessment   PublishedAssessment  @relation(fields: [publishedAssessmentId], references: [id], onDelete: Cascade)
+  user                  User?                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  responses             AssessmentResponse[]
+
+  @@index([publishedAssessmentId])
+  @@index([userId])
+  @@map("assessment_attempts")
+}
+
+model AssessmentResponse {
+  id             String            @id @default(uuid())
+  attemptId      String            @map("attempt_id")
+  questionId     String            @map("question_id")
+  selectedOption Int?              @map("selected_option")
+  modelResponse  String?           @map("model_response")
+  isCorrect      Boolean?          @map("is_correct")
+  createdAt      DateTime          @default(now()) @map("created_at")
+
+  attempt        AssessmentAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  question       Question          @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  @@index([attemptId])
+  @@index([questionId])
+  @@map("assessment_responses")
+}
+
+model Notification {
+  id        String                @id @default(uuid())
+  userId    String                @map("user_id")
+  title     String
+  message   String
+  type      String
+  read      Boolean               @default(false)
+  deleted   Boolean               @default(false)
+  createdAt DateTime              @default(now()) @map("created_at")
+  updatedAt DateTime              @updatedAt @map("updated_at")
+
+  user      User                  @relation(fields: [userId], references: [id], onDelete: Cascade)
+  history   NotificationHistory[]
+
+  @@index([userId])
+  @@map("notifications")
+}
+
+model NotificationPreference {
+  id                  String   @id @default(uuid())
+  userId              String   @unique @map("user_id")
+  emailEnabled        Boolean  @default(true) @map("email_enabled")
+  inAppEnabled        Boolean  @default(true) @map("in_app_enabled")
+  reminderPreferences String   @default("daily") @map("reminder_preferences")
+  createdAt           DateTime @default(now()) @map("created_at")
+  updatedAt           DateTime @updatedAt @map("updated_at")
+
+  user                User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("notification_preferences")
+}
+
+model NotificationHistory {
+  id             String   @id @default(uuid())
+  notificationId String   @map("notification_id")
+  channel        String
+  status         String
+  errorMsg       String?  @map("error_msg")
+  sentAt         DateTime @default(now()) @map("sent_at")
+
+  notification   Notification @relation(fields: [notificationId], references: [id], onDelete: Cascade)
+
+  @@index([notificationId])
+  @@map("notification_histories")
 }

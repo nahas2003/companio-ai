@@ -3,6 +3,7 @@
 import * as React from 'react'
 import { Button } from '@companio/ui'
 import { Sparkles, Brain, Award, BarChart3, Database } from 'lucide-react'
+import Link from 'next/link'
 
 export default function Home() {
   const [supabaseValid, setSupabaseValid] = React.useState<boolean | null>(null)
@@ -35,12 +36,16 @@ export default function Home() {
             </span>
           </div>
           <div className="flex items-center gap-4">
-            <Button variant="ghost" className="text-slate-300 hover:text-white">
-              Sign In
-            </Button>
-            <Button className="bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg hover:shadow-blue-500/20 hover:from-blue-500 hover:to-violet-500">
-              Get Started
-            </Button>
+            <Link href="/login" passHref>
+              <Button variant="ghost" className="text-slate-300 hover:text-white">
+                Sign In
+              </Button>
+            </Link>
+            <Link href="/register" passHref>
+              <Button className="bg-gradient-to-r from-blue-600 to-violet-600 text-white shadow-lg hover:shadow-blue-500/20 hover:from-blue-500 hover:to-violet-500">
+                Get Started
+              </Button>
+            </Link>
           </div>
         </div>
       </header>

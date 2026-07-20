@@ -6,8 +6,8 @@ This document provides a comprehensive audit of the current project state, based
 
 ## 1. Project Overview
 
-- **Current Development Phase:** MVP Phase (Core Ingestion, AI Generation, and Question Bank repository completed).
-- **Overall Completion Percentage (Estimated):** 55%
+- **Current Development Phase:** Phase 5 (Roadmapped Modules: Practice Mode, Assessment Engine, Live Analytics, Dashboard Integration, and Notifications completed).
+- **Overall Completion Percentage (Estimated):** 90%
 - **Last Analyzed Date:** July 20, 2026
 
 ---
@@ -43,19 +43,22 @@ This document provides a comprehensive audit of the current project state, based
   Custom login and registration portals hooked to Supabase Auth. Session tokens are synchronized to Next.js components using a Zustand-backed client store.
 - **User Profile:** ✅ Completed  
   Supports updating display names. Keeps track of authentication roles.
-- **Dashboard:** 🚧 Partial  
-  Displays learning statistics grids and activity lists, currently backed by a mocked service layer (`dashboardService.ts`).
+- **Dashboard:** ✅ Completed  
+  Displays live learning statistics grids (Accuracy, Questions Answered, Practice Sessions Completed) and activity feeds linked to database actions.
 - **Study Material Ingestion:** ✅ Completed  
   File upload drop zone streams binaries directly to Supabase storage. Supports text extraction from PDF, DOCX, TXT, and MD files using `pdf-parse` and `mammoth` parser packages.
 - **AI Question Generation:** ✅ Completed  
   Configures question formats (Multiple Choice, True/False, Short Answer) and difficulty levels. Generates questions through the AI Orchestrator and performs Zod validation checks and title duplicate removals.
 - **Question Bank:** ✅ Completed  
   Centralized repository featuring paginated list grids, search inputs, type/difficulty filters, active/archived status tabs, edit dialog modals, and bulk operations.
-- **Practice Mode:** ❌ Not Started  
-  Specifications are defined, but interactive practice sessions, response storage tables, score counters, and gameplay engines are not yet implemented.
-- **Assessment:** ❌ Not Started  
-  No engines or evaluation modules implemented.
-- **Analytics:** ❌ Not Started
+- **Practice Mode:** ✅ Completed  
+  Interactive card-based playground sessions with timer countdowns, immediate results grading, accuracy counters, and attempts study log.
+- **Assessment:** ✅ Completed  
+  Exam engine supporting template creation, custom time limits, unique 6-digit alphanumerical access codes, guest participant logins, proctored exams, and creator report lists.
+- **Analytics:** ✅ Completed  
+  Calculates accuracy rates, time taken metrics, and completed sessions from database records, displayable on widgets.
+- **Notifications & Communication:** ✅ Completed  
+  Supports real-time in-app notification inbox, unread counts badge, mark-read/delete actions, preference controls setting, and mock email logs triggered by system events (welcome, assessment published, graded results).
 - **Admin Portal:** 🚧 Partial  
   Exposes user role modification forms, active AI provider configs, and execution diagnostics tests.
 
@@ -63,18 +66,24 @@ This document provides a comprehensive audit of the current project state, based
 
 ## 5. Implemented Pages
 
-| Route            | Page Name               | Status       | Notes                                                                                          |
-| :--------------- | :---------------------- | :----------- | :--------------------------------------------------------------------------------------------- |
-| `/`              | Landing page            | ✅ Completed | Entry page prompting users to sign in.                                                         |
-| `/login`         | Sign In Portal          | ✅ Completed | Sign-in form guarded by `GuestGuard`.                                                          |
-| `/register`      | Sign Up Portal          | ✅ Completed | Sign-up form automatically creating database profiles.                                         |
-| `/dashboard`     | Student Dashboard       | ✅ Completed | Metrics dashboard cards. Uses mock `dashboardService`.                                         |
-| `/sources`       | Material Catalog        | ✅ Completed | streaming Zone files upload list, processing triggers, rename, and delete actions.             |
-| `/generate`      | Practice Builder        | ✅ Completed | Option sliders to compile MCQ/TF/Short Answers. Shows preview with interactive reveal toggles. |
-| `/question-bank` | Question repository     | ✅ Completed | Search dashboard, filters, bulk operations, and inline editors.                                |
-| `/admin`         | Administration Terminal | ✅ Completed | Role update forms, configuration states, and diagnostics.                                      |
-| `/profile`       | Profile settings        | ✅ Completed | Form to edit user display names.                                                               |
-| `/unauthorized`  | 403 Forbidden           | ✅ Completed | Unauthorized fallback view.                                                                    |
+| Route                           | Page Name                | Status       | Notes                                                                                          |
+| :------------------------------ | :----------------------- | :----------- | :--------------------------------------------------------------------------------------------- |
+| `/`                             | Landing page             | ✅ Completed | Entry page prompting users to sign in.                                                         |
+| `/login`                        | Sign In Portal           | ✅ Completed | Sign-in form guarded by `GuestGuard`.                                                          |
+| `/register`                     | Sign Up Portal           | ✅ Completed | Sign-up form automatically creating database profiles.                                         |
+| `/dashboard`                    | Student Dashboard        | ✅ Completed | Live metrics dashboard cards and study activity stream feed.                                   |
+| `/sources`                      | Material Catalog         | ✅ Completed | streaming Zone files upload list, processing triggers, rename, and delete actions.             |
+| `/generate`                     | Practice Builder         | ✅ Completed | Option sliders to compile MCQ/TF/Short Answers. Shows preview with interactive reveal toggles. |
+| `/question-bank`                | Question repository      | ✅ Completed | Search dashboard, filters, bulk operations, and inline editors.                                |
+| `/practice`                     | Practice Dashboard       | ✅ Completed | Setup and choose active question banks, review study sessions attempts log.                    |
+| `/practice/[id]`                | Practice Playground      | ✅ Completed | Card-based timed playground session.                                                           |
+| `/practice/[id]/results`        | Practice Scorecard       | ✅ Completed | Graded accuracy summaries and corrections.                                                     |
+| `/assessments`                  | Assessment Dashboard     | ✅ Completed | Creator workspace managing templates and copying generated access codes.                       |
+| `/assessments/join`             | Assessment Hall Entrance | ✅ Completed | Invitation joining portal for students and guests.                                             |
+| `/assessments/take/[attemptId]` | Assessment Exam Sheet    | ✅ Completed | Proctored exam board showing live timer countdowns and submission scores.                      |
+| `/admin`                        | Administration Terminal  | ✅ Completed | Role update forms, configuration states, and diagnostics.                                      |
+| `/profile`                      | Profile settings         | ✅ Completed | Form to edit user display names.                                                               |
+| `/unauthorized`                 | 403 Forbidden            | ✅ Completed | Unauthorized fallback view.                                                                    |
 
 ---
 
@@ -95,25 +104,35 @@ This document provides a comprehensive audit of the current project state, based
 
 All database mutations and verified communications are handled through Server Actions:
 
-| Route / Module            | Action Name                   | Method (Implicit) | Purpose                                               | Status    |
-| :------------------------ | :---------------------------- | :---------------- | :---------------------------------------------------- | :-------- |
-| `actions/auth.ts`         | `syncUser`                    | POST counterpart  | Syncs Supabase user credentials to PostgreSQL         | ✅ Active |
-| `actions/profile.ts`      | `getUserProfile`              | GET counterpart   | Fetches user info from PostgreSQL                     | ✅ Active |
-| `actions/profile.ts`      | `updateUserProfile`           | POST counterpart  | Updates display name                                  | ✅ Active |
-| `actions/profile.ts`      | `updateUserRole`              | POST counterpart  | Admins can update roles                               | ✅ Active |
-| `actions/sources.ts`      | `getSources`                  | GET counterpart   | Lists user's uploaded materials                       | ✅ Active |
-| `actions/sources.ts`      | `renameSource`                | POST counterpart  | Renames material                                      | ✅ Active |
-| `actions/sources.ts`      | `deleteSource`                | POST counterpart  | Deletes from DB and Supabase storage                  | ✅ Active |
-| `actions/sources.ts`      | `processDocument`             | POST counterpart  | Downloads file from Storage, parses text, and upserts | ✅ Active |
-| `actions/ai.ts`           | `getAiSystemStatus`           | GET counterpart   | Aggregates database usage logs and latency metrics    | ✅ Active |
-| `actions/ai.ts`           | `testAiExecution`             | POST counterpart  | Runs diagnostics loopback check                       | ✅ Active |
-| `actions/generation.ts`   | `generateQuestionsAction`     | POST counterpart  | Generates questions from parsed text using AI         | ✅ Active |
-| `actions/questionBank.ts` | `saveQuestionsToBankAction`   | POST counterpart  | Persists generated questions in transaction           | ✅ Active |
-| `actions/questionBank.ts` | `getQuestionsAction`          | GET counterpart   | Filters, searches, and paginates questions            | ✅ Active |
-| `actions/questionBank.ts` | `updateQuestionAction`        | POST counterpart  | Modifies question details                             | ✅ Active |
-| `actions/questionBank.ts` | `toggleArchiveQuestionAction` | POST counterpart  | Toggles archived status                               | ✅ Active |
-| `actions/questionBank.ts` | `softDeleteQuestionAction`    | POST counterpart  | Soft deletes question (sets deleted = true)           | ✅ Active |
-| `actions/questionBank.ts` | `bulkActionQuestionsAction`   | POST counterpart  | Bulk archive/restore/delete in transaction            | ✅ Active |
+| Route / Module            | Action Name                        | Method (Implicit) | Purpose                                               | Status    |
+| :------------------------ | :--------------------------------- | :---------------- | :---------------------------------------------------- | :-------- |
+| `actions/auth.ts`         | `syncUser`                         | POST counterpart  | Syncs Supabase user credentials to PostgreSQL         | ✅ Active |
+| `actions/profile.ts`      | `getUserProfile`                   | GET counterpart   | Fetches user info from PostgreSQL                     | ✅ Active |
+| `actions/profile.ts`      | `updateUserProfile`                | POST counterpart  | Updates display name                                  | ✅ Active |
+| `actions/profile.ts`      | `updateUserRole`                   | POST counterpart  | Admins can update roles                               | ✅ Active |
+| `actions/sources.ts`      | `getSources`                       | GET counterpart   | Lists user's uploaded materials                       | ✅ Active |
+| `actions/sources.ts`      | `renameSource`                     | POST counterpart  | Renames material                                      | ✅ Active |
+| `actions/sources.ts`      | `deleteSource`                     | POST counterpart  | Deletes from DB and Supabase storage                  | ✅ Active |
+| `actions/sources.ts`      | `processDocument`                  | POST counterpart  | Downloads file from Storage, parses text, and upserts | ✅ Active |
+| `actions/ai.ts`           | `getAiSystemStatus`                | GET counterpart   | Aggregates database usage logs and latency metrics    | ✅ Active |
+| `actions/ai.ts`           | `testAiExecution`                  | POST counterpart  | Runs diagnostics loopback check                       | ✅ Active |
+| `actions/generation.ts`   | `generateQuestionsAction`          | POST counterpart  | Generates questions from parsed text using AI         | ✅ Active |
+| `actions/questionBank.ts` | `saveQuestionsToBankAction`        | POST counterpart  | Persists generated questions in transaction           | ✅ Active |
+| `actions/questionBank.ts` | `getQuestionsAction`               | GET counterpart   | Filters, searches, and paginates questions            | ✅ Active |
+| `actions/questionBank.ts` | `updateQuestionAction`             | POST counterpart  | Modifies question details                             | ✅ Active |
+| `actions/questionBank.ts` | `toggleArchiveQuestionAction`      | POST counterpart  | Toggles archived status                               | ✅ Active |
+| `actions/questionBank.ts` | `softDeleteQuestionAction`         | POST counterpart  | Soft deletes question (sets deleted = true)           | ✅ Active |
+| `actions/questionBank.ts` | `bulkActionQuestionsAction`        | POST counterpart  | Bulk archive/restore/delete in transaction            | ✅ Active |
+| `actions/practice.ts`     | `startPracticeSessionAction`       | POST counterpart  | Creates a new Practice Session                        | ✅ Active |
+| `actions/practice.ts`     | `submitPracticeSessionAction`      | POST counterpart  | Scores attempt and logs individual graded answers     | ✅ Active |
+| `actions/practice.ts`     | `getPracticeSessionResultsAction`  | GET counterpart   | Retrieves results with correction keys                | ✅ Active |
+| `actions/practice.ts`     | `getPracticeDashboardAction`       | GET counterpart   | Fetches question banks and attempts log history       | ✅ Active |
+| `actions/assessments.ts`  | `createAssessmentTemplateAction`   | POST counterpart  | Configures template rules                             | ✅ Active |
+| `actions/assessments.ts`  | `publishAssessmentAction`          | POST counterpart  | Publishes code and locks specifications               | ✅ Active |
+| `actions/assessments.ts`  | `joinAssessmentAction`             | POST counterpart  | Registers active attempt and delivers exam payload    | ✅ Active |
+| `actions/assessments.ts`  | `submitAssessmentAttemptAction`    | POST counterpart  | Scores responses and marks assessment attempt done    | ✅ Active |
+| `actions/assessments.ts`  | `getAssessmentCreatorReportAction` | GET counterpart   | Lists attempts details for instructors                | ✅ Active |
+| `actions/dashboard.ts`    | `getDashboardDataAction`           | GET counterpart   | Calculates real usage statistics from SQL rows        | ✅ Active |
 
 ---
 
@@ -126,11 +145,19 @@ All database mutations and verified communications are handled through Server Ac
   - `AiUsageLog`: Stores providers, model, latency, success rates, with index on `userId`.
   - `QuestionBank`: permanent named collections of questions, with indexes on `userId` and `sourceId`.
   - `Question`: Question details mapping 1-to-many relationship with `QuestionBank`, with index on `questionBankId`. `type` is backed by `QuestionType` Enum, `difficulty` by `Difficulty` Enum.
+  - `PracticeSession`: study sessions linked to QuestionBank, with indexes on `userId` and `questionBankId`.
+  - `PracticeAnswer`: graded question replies linked to PracticeSession.
+  - `AssessmentTemplate`: configured exam rules linked to creator and QuestionBank.
+  - `PublishedAssessment`: code invitation keys linked to AssessmentTemplate.
+  - `AssessmentAttempt`: test sessions taken by users or guest names.
+  - `AssessmentResponse`: individual responses graded inside assessment attempts.
+  - `Notification`: platform in-app alert details linked to users, with index on `userId`.
+  - `NotificationPreference`: user-specific email/in-app communication settings.
+  - `NotificationHistory`: delivery channel history logs linked to notifications.
 - **Database Sync:**
   - Synchronized and verified using `prisma db push` on Supabase PostgreSQL. Initial migration baseline folder structure created.
 - **Missing Tables:**
-  - `PracticeSession`, `UserResponse` (for Practice Mode).
-  - `AssessmentTemplate`, `AssessmentSession`, `AssessmentResult` (for Assessments).
+  - None. All roadmapped schemas are fully implemented.
 
 ---
 
@@ -192,7 +219,7 @@ Below are the variables declared in the environment configs:
 ## 14. Known Issues & Tech Debt
 
 - **Client-Side User Synchronization Risk:** ✅ **Resolved.** Mitigated completely via server-side lazy-provisioning during action execution.
-- **Mock Statistics:** User dashboard statistics (Accuracy, answered questions) use mock responses from `dashboardService.ts`.
+- **Mock Statistics:** ✅ **Resolved.** Hooked `/dashboard` widgets directly to live server action `getDashboardDataAction`.
 - **Direct Database Syncing:** Baseline migrations are tracked locally, synced via `prisma db push` due to non-interactive environment limits.
 - **Large Files text Ingestion limits:** ✅ **Mitigated.** Enforced maximum file size limits (10MB) check in Server Actions before parsing.
 
@@ -209,16 +236,15 @@ Below are the variables declared in the environment configs:
 
 ## 16. Next Development Priorities
 
-1. **Practice Mode Engine (Task 012):** Implement tables (`PracticeSession`, `UserResponse`), build active question session loops, save user accuracy scores, and sync stats to dashboard widgets.
-2. **Assessment Delivery (Task 013/014):** Build assessment templates, configure timers, and implement assessment delivery engines.
-3. **Analytics (Task 015/016):** Create progress analytics, result trackers, and charts.
-4. **Migration Audit:** Run `prisma migrate dev` to establish database migration baselines.
+1. **Automation Coverage:** Set up Vitest and Playwright package testing suites to automate visual and database unit testing.
+2. **Real-time Collaboration:** Introduce websockets or subscription layers to track active exam sessions count.
+3. **Migration Audit:** Run `prisma migrate dev` to establish database migration baselines.
 
 ---
 
 ## 17. Overall Assessment
 
-- **Strengths:** Robust AI orchestrator pipeline (handling retries, timeouts, and Zod validations), clean monorepo architecture, and high-fidelity responsive user interface.
-- **Weaknesses:** Complete lack of automated unit tests and hardcoded stats in dashboard logs.
-- **Estimated Completion Percentage:** 55%
-- **Production Readiness Score:** 65/100 (Rate limiting, buffer constraints, user profile auto-syncing, database enums, and index optimizations implemented).
+- **Strengths:** Robust AI orchestrator pipeline, fully realized practice playroom and exam assessment engine, live database dashboard metrics, clean monorepo architecture, and high-fidelity responsive design.
+- **Weaknesses:** Lack of automated unit tests.
+- **Estimated Completion Percentage:** 90%
+- **Production Readiness Score:** 90/100 (Rate limiting, buffer constraints, user profile auto-syncing, database indexes, proctored time boundaries, and email/in-app notification delivery controls implemented).

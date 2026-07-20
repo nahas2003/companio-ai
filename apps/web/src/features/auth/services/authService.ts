@@ -20,7 +20,7 @@ export const authService = {
       })
 
       if (error) throw error
-      return { success: true, user: data.user }
+      return { success: true, user: data.user, session: data.session }
     } catch (err: any) {
       console.error('SignUp error:', err)
       useAuthStore.getState().setError(err.message || 'Failed to register account')
