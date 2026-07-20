@@ -3,7 +3,7 @@
 import * as React from 'react'
 import { useAuthStore } from '@/features/auth/store/authStore'
 import { RoleGuard } from '@/features/auth/components/RoleGuard'
-import { updateUserRole } from '../actions/profile'
+import { updateUserRole } from '../../actions/profile'
 import { Button } from '@companio/ui'
 import { Shield, Users, ArrowLeft, CheckCircle2, AlertTriangle, RefreshCw } from 'lucide-react'
 import Link from 'next/link'
