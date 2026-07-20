@@ -19,6 +19,7 @@ import {
   Play,
   RotateCcw,
 } from 'lucide-react'
+import { Button } from '@companio/ui'
 
 interface SourceListProps {
   sources: Source[]
@@ -43,8 +44,8 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
 
     if (isProcessing) {
       return (
-        <span className="flex items-center gap-1.5 text-[10px] font-bold text-blue-400 bg-blue-500/10 border border-blue-500/20 px-2.5 py-1 rounded-full uppercase tracking-wider animate-pulse">
-          <Clock className="w-3.5 h-3.5 animate-spin" /> Ingestion
+        <span className="flex items-center gap-1 px-2 py-0.5 text-[9px] font-bold text-primary bg-primary/10 border border-primary/20 rounded-pill uppercase tracking-wider animate-pulse">
+          <Clock className="w-3 h-3 animate-spin" /> Ingestion
         </span>
       )
     }
@@ -52,20 +53,20 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
     switch (status) {
       case 'COMPLETED':
         return (
-          <span className="flex items-center gap-1.5 text-[10px] font-bold text-teal-400 bg-teal-500/10 border border-teal-500/20 px-2.5 py-1 rounded-full uppercase tracking-wider">
-            <CheckCircle className="w-3.5 h-3.5" /> Ready
+          <span className="flex items-center gap-1 px-2 py-0.5 text-[9px] font-bold text-success bg-success/10 border border-success/20 rounded-pill uppercase tracking-wider">
+            <CheckCircle className="w-3 h-3" /> Ready
           </span>
         )
       case 'FAILED':
         return (
-          <span className="flex items-center gap-1.5 text-[10px] font-bold text-red-400 bg-red-500/10 border border-red-500/20 px-2.5 py-1 rounded-full uppercase tracking-wider">
-            <AlertCircle className="w-3.5 h-3.5" /> Failed
+          <span className="flex items-center gap-1 px-2 py-0.5 text-[9px] font-bold text-danger bg-danger/10 border border-danger/20 rounded-pill uppercase tracking-wider">
+            <AlertCircle className="w-3 h-3" /> Failed
           </span>
         )
       default:
         return (
-          <span className="flex items-center gap-1.5 text-[10px] font-bold text-slate-400 bg-slate-500/10 border border-slate-500/20 px-2.5 py-1 rounded-full uppercase tracking-wider">
-            <Clock className="w-3.5 h-3.5" /> Idle
+          <span className="flex items-center gap-1 px-2 py-0.5 text-[9px] font-bold text-text-secondary bg-surface-secondary border border-border rounded-pill uppercase tracking-wider">
+            <Clock className="w-3 h-3" /> Idle
           </span>
         )
     }
@@ -139,15 +140,15 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
 
   if (sources.length === 0) {
     return (
-      <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md flex flex-col items-center justify-center text-center space-y-4 min-h-[300px]">
-        <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-500">
+      <div className="bg-surface border border-border rounded-large p-8 shadow-sm flex flex-col items-center justify-center text-center space-y-4 min-h-[300px]">
+        <div className="w-16 h-16 rounded-medium bg-surface-secondary border border-border flex items-center justify-center text-text-secondary">
           <HardDrive className="w-8 h-8" />
         </div>
         <div className="space-y-1.5 max-w-sm">
-          <h3 className="font-bold text-lg text-white">No learning materials</h3>
-          <p className="text-slate-400 text-sm leading-relaxed">
-            Your document catalog is empty. Upload your study resources in the drop zone above to
-            start managing.
+          <h3 className="font-bold text-base text-text-primary">No learning materials</h3>
+          <p className="text-text-secondary text-xs leading-relaxed">
+            Your document catalog is empty. Upload your study resources in the drop zone to start
+            managing.
           </p>
         </div>
       </div>
@@ -155,24 +156,26 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
   }
 
   return (
-    <div className="bg-white/5 border border-white/10 rounded-3xl p-6 backdrop-blur-md space-y-6">
+    <div className="bg-surface border border-border rounded-large p-5 shadow-sm space-y-5">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <h2 className="text-xl font-bold flex items-center gap-2">📂 Learning Materials</h2>
+        <h2 className="text-base font-bold flex items-center gap-2 text-text-primary">
+          📂 Learning Materials
+        </h2>
         <div className="relative max-w-xs w-full">
-          <Search className="absolute left-3.5 top-3 w-4 h-4 text-slate-400" />
+          <Search className="absolute left-3 top-2.5 w-4 h-4 text-text-secondary/60" />
           <input
             type="text"
             placeholder="Search documents..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-sm rounded-xl bg-white/5 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition duration-300"
+            className="w-full pl-9 pr-4 py-2 text-xs rounded-medium bg-surface border border-border text-text-primary placeholder-text-secondary/50 focus:outline-none focus:border-primary/50 transition duration-300"
           />
         </div>
       </div>
 
-      <div className="flex flex-col gap-3.5">
+      <div className="flex flex-col gap-3">
         {filteredSources.length === 0 ? (
-          <div className="text-center text-sm text-slate-500 py-8">
+          <div className="text-center text-xs text-text-secondary py-8">
             No files match your search criteria.
           </div>
         ) : (
@@ -182,11 +185,11 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
             return (
               <div
                 key={item.id}
-                className="flex flex-col p-4 rounded-2xl bg-white/5 border border-white/5 hover:border-white/15 transition-all duration-300 gap-3"
+                className="flex flex-col p-4 rounded-medium bg-surface border border-border/60 hover:border-primary/20 hover:shadow-soft transition-all duration-300 gap-3"
               >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                   <div className="flex items-center gap-3.5 min-w-0 flex-1">
-                    <div className="p-3 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex-shrink-0">
+                    <div className="p-2.5 rounded-medium bg-primary/10 border border-primary/20 text-primary flex-shrink-0">
                       <FileText className="w-5 h-5" />
                     </div>
 
@@ -198,49 +201,50 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
                             value={editName}
                             onChange={(e) => setEditName(e.target.value)}
                             disabled={processingAction}
-                            className="bg-slate-950 border border-blue-500 text-white text-sm rounded-lg px-2.5 py-1.5 focus:outline-none flex-1 min-w-0"
+                            className="bg-surface border border-primary text-text-primary text-xs rounded-medium px-2.5 py-1.5 focus:outline-none flex-1 min-w-0"
                           />
                           <button
                             onClick={() => handleSaveRename(item.id)}
                             disabled={processingAction}
-                            className="p-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white disabled:opacity-50 transition"
+                            className="p-1.5 bg-primary hover:bg-primary-hover rounded-medium text-white disabled:opacity-50 transition"
                           >
                             <Check className="w-4 h-4" />
                           </button>
                           <button
                             onClick={() => setEditingId(null)}
                             disabled={processingAction}
-                            className="p-2 bg-white/5 hover:bg-white/10 rounded-lg text-slate-400 hover:text-white transition"
+                            className="p-1.5 bg-surface-secondary hover:bg-border rounded-medium text-text-secondary transition"
                           >
                             <X className="w-4 h-4" />
                           </button>
                         </div>
                       ) : (
-                        <div className="flex items-center gap-3">
-                          <h3 className="font-semibold text-slate-200 truncate max-w-sm">
+                        <div className="flex items-center gap-2">
+                          <h3 className="font-bold text-xs text-text-primary truncate max-w-sm">
                             {item.fileName}
                           </h3>
                           {!isProcessing && (
                             <button
                               onClick={() => handleStartRename(item.id, item.fileName)}
-                              className="text-slate-500 hover:text-white transition duration-300 flex-shrink-0"
+                              className="text-text-secondary hover:text-text-primary transition duration-200 flex-shrink-0 p-1"
+                              title="Rename file"
                             >
-                              <Edit2 className="w-3.5 h-3.5" />
+                              <Edit2 className="w-3 h-3" />
                             </button>
                           )}
                         </div>
                       )}
 
-                      <div className="flex items-center gap-3 text-[11px] text-slate-500 font-semibold flex-wrap">
+                      <div className="flex items-center gap-2.5 text-[10px] text-text-secondary font-semibold flex-wrap">
                         <span>{item.fileType.toUpperCase()}</span>
                         <span>•</span>
                         <span>{formatSize(item.fileSize)}</span>
                         <span>•</span>
-                        <span>Uploaded {new Date(item.createdAt).toLocaleDateString()}</span>
+                        <span>{new Date(item.createdAt).toLocaleDateString()}</span>
                         {item.status === 'COMPLETED' && (
                           <>
                             <span>•</span>
-                            <span className="text-teal-500 font-bold">
+                            <span className="text-success font-bold">
                               {item.wordCount?.toLocaleString() || 0} words
                             </span>
                             {item.pageCount && (
@@ -257,51 +261,51 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-3 justify-between sm:justify-end flex-shrink-0">
+                  <div className="flex items-center gap-3.5 justify-between sm:justify-end flex-shrink-0">
                     {getStatusBadge(item.status, item.id)}
 
                     {!isProcessing && item.status === 'COMPLETED' && (
                       <Link
                         href={`/generate?sourceId=${item.id}`}
-                        className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-teal-600/20 hover:bg-teal-600 text-teal-400 hover:text-white border border-teal-500/20 hover:border-transparent text-xs font-semibold transition duration-300"
+                        className="flex items-center gap-1 px-2.5 py-1.5 rounded-medium bg-success/15 hover:bg-success text-success hover:text-white border border-success/20 hover:border-transparent text-[10px] font-bold transition duration-200"
                       >
-                        <Play className="w-3.5 h-3.5" /> Generate Quiz
+                        <Play className="w-3 h-3" /> Generate Quiz
                       </Link>
                     )}
 
                     {!isProcessing && item.status === 'PENDING' && (
                       <button
                         onClick={() => handleProcess(item.id)}
-                        className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-blue-600/20 hover:bg-blue-600 text-blue-400 hover:text-white border border-blue-500/20 hover:border-transparent text-xs font-semibold transition duration-300"
+                        className="flex items-center gap-1 px-2.5 py-1.5 rounded-medium bg-primary/10 hover:bg-primary text-primary hover:text-white border border-primary/20 hover:border-transparent text-[10px] font-bold transition duration-200"
                       >
-                        <Play className="w-3.5 h-3.5" /> Process
+                        <Play className="w-3 h-3" /> Process
                       </button>
                     )}
 
                     {!isProcessing && item.status === 'FAILED' && (
                       <button
                         onClick={() => handleProcess(item.id)}
-                        className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-red-600/20 hover:bg-red-600 text-red-400 hover:text-white border border-red-500/20 hover:border-transparent text-xs font-semibold transition duration-300"
+                        className="flex items-center gap-1 px-2.5 py-1.5 rounded-medium bg-danger/15 hover:bg-danger text-danger hover:text-white border border-danger/20 hover:border-transparent text-[10px] font-bold transition duration-200"
                       >
-                        <RotateCcw className="w-3.5 h-3.5" /> Retry
+                        <RotateCcw className="w-3 h-3" /> Retry
                       </button>
                     )}
 
                     {!isProcessing && (
                       <>
                         {deletingId === item.id ? (
-                          <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-1.5">
                             <button
                               onClick={() => handleDelete(item.id)}
                               disabled={processingAction}
-                              className="px-3 py-1.5 bg-red-600 hover:bg-red-500 rounded-lg text-white font-semibold text-xs transition"
+                              className="px-2.5 py-1 bg-danger hover:bg-danger-hover rounded-medium text-white font-bold text-[10px] transition"
                             >
                               Confirm
                             </button>
                             <button
                               onClick={() => setDeletingId(null)}
                               disabled={processingAction}
-                              className="px-3 py-1.5 bg-white/5 hover:bg-white/10 rounded-lg text-slate-400 hover:text-white font-semibold text-xs transition"
+                              className="px-2.5 py-1 bg-surface-secondary hover:bg-border rounded-medium text-text-secondary font-bold text-[10px] transition"
                             >
                               Cancel
                             </button>
@@ -309,9 +313,10 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
                         ) : (
                           <button
                             onClick={() => setDeletingId(item.id)}
-                            className="p-2 bg-white/5 hover:bg-red-500/10 border border-white/5 hover:border-red-500/20 text-slate-500 hover:text-red-400 rounded-xl transition duration-300"
+                            className="p-1.5 bg-surface hover:bg-danger/10 border border-border hover:border-danger/20 text-text-secondary hover:text-danger rounded-medium transition duration-200"
+                            title="Delete file"
                           >
-                            <Trash2 className="w-4 h-4" />
+                            <Trash2 className="w-3.5 h-3.5" />
                           </button>
                         )}
                       </>
@@ -320,8 +325,8 @@ export function SourceList({ sources, onRefresh }: SourceListProps) {
                 </div>
 
                 {item.status === 'FAILED' && item.errorMsg && (
-                  <div className="flex items-start gap-2 p-3 rounded-xl border border-red-500/20 bg-red-500/5 text-red-300 text-xs text-left">
-                    <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-red-400" />
+                  <div className="flex items-start gap-2 p-3 rounded-medium border border-danger/20 bg-danger/5 text-danger text-[10px] text-left">
+                    <AlertCircle className="w-3.5 h-3.5 flex-shrink-0 mt-0.5 text-danger" />
                     <span className="leading-relaxed">Error log: {item.errorMsg}</span>
                   </div>
                 )}

@@ -35,25 +35,25 @@ export default function SourcesPage() {
   }, [loadSourcesList])
 
   return (
-    <div className="space-y-8 text-white text-left animate-fade-in">
-      <div className="border-b border-white/5 pb-6">
-        <h1 className="text-3xl font-extrabold tracking-tight">Study Material Ingestion</h1>
-        <p className="text-slate-400 text-sm font-medium mt-1">
+    <div className="space-y-6 text-text-primary text-left animate-fade-in">
+      <div className="border-b border-border pb-5">
+        <h1 className="text-2xl font-extrabold tracking-tight">Study Material Ingestion</h1>
+        <p className="text-text-secondary text-xs font-semibold mt-1">
           Upload and manage lecture notes, textbook chapters, or slides. Once ingested, you can
           generate practice decks and assessments.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
         <div>
           <UploadZone onUploadSuccess={loadSourcesList} />
         </div>
 
         <div className="lg:col-span-2">
           {loading ? (
-            <div className="flex flex-col items-center justify-center p-12 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-md gap-3 min-h-[300px] text-slate-400">
-              <RefreshCw className="w-8 h-8 text-blue-500 animate-spin" />
-              <span className="text-sm font-semibold tracking-wide animate-pulse">
+            <div className="flex flex-col items-center justify-center p-12 bg-surface border border-border rounded-large shadow-sm gap-3 min-h-[300px] text-text-secondary">
+              <RefreshCw className="w-7 h-7 text-primary animate-spin" />
+              <span className="text-xs font-semibold tracking-wide animate-pulse">
                 Loading documents...
               </span>
             </div>

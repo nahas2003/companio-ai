@@ -117,7 +117,7 @@ export function UploadZone({ onUploadSuccess }: UploadZoneProps) {
   return (
     <div className="space-y-4">
       {error && (
-        <div className="flex items-center gap-3 p-4 rounded-xl border border-red-500/30 bg-red-500/10 text-red-200 text-sm">
+        <div className="flex items-center gap-3 p-4 rounded-medium border border-danger/25 bg-danger/10 text-danger text-xs font-semibold">
           <AlertCircle className="w-5 h-5 flex-shrink-0" />
           <span>{error}</span>
         </div>
@@ -128,12 +128,12 @@ export function UploadZone({ onUploadSuccess }: UploadZoneProps) {
         onDragOver={handleDrag}
         onDragLeave={handleDrag}
         onDrop={handleDrop}
-        className={`border-2 border-dashed rounded-3xl p-8 flex flex-col items-center justify-center text-center transition duration-300 min-h-[220px] relative overflow-hidden ${
+        className={`border-2 border-dashed rounded-large p-8 flex flex-col items-center justify-center text-center transition duration-300 min-h-[220px] relative overflow-hidden ${
           dragActive
-            ? 'border-blue-500 bg-blue-500/5'
+            ? 'border-primary bg-primary/5'
             : uploading
-              ? 'border-slate-800 bg-slate-900/20 cursor-not-allowed'
-              : 'border-white/10 bg-white/5 hover:bg-white/10 hover:border-white/20'
+              ? 'border-border bg-surface-secondary/40 cursor-not-allowed'
+              : 'border-border bg-surface hover:bg-surface-secondary hover:border-primary/20'
         }`}
       >
         <input
@@ -146,32 +146,34 @@ export function UploadZone({ onUploadSuccess }: UploadZoneProps) {
 
         {uploading ? (
           <div className="space-y-4 w-full max-w-xs relative z-10 flex flex-col items-center">
-            <RefreshCw className="w-10 h-10 text-blue-400 animate-spin" />
+            <RefreshCw className="w-8 h-8 text-primary animate-spin" />
             <div className="space-y-1.5 w-full text-center">
-              <span className="font-semibold text-sm text-slate-200">
+              <span className="font-bold text-xs text-text-primary">
                 Uploading learning source...
               </span>
-              <div className="w-full bg-slate-800 h-2 rounded-full overflow-hidden">
+              <div className="w-full bg-border h-2 rounded-full overflow-hidden">
                 <div
-                  className="bg-gradient-to-r from-blue-600 to-violet-600 h-full rounded-full transition-all duration-300"
+                  className="bg-primary h-full rounded-full transition-all duration-300"
                   style={{ width: `${progress}%` }}
                 />
               </div>
-              <span className="text-[10px] text-slate-500 block font-semibold">
+              <span className="text-[10px] text-text-secondary block font-bold">
                 {progress}% completed
               </span>
             </div>
           </div>
         ) : (
-          <div className="space-y-3 relative z-10 flex flex-col items-center">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/5 text-slate-400 group-hover:text-white transition duration-300">
-              <UploadCloud className="w-8 h-8" />
+          <div className="space-y-3.5 relative z-10 flex flex-col items-center">
+            <div className="p-3.5 rounded-medium bg-surface-secondary border border-border text-text-secondary group-hover:text-text-primary transition duration-300">
+              <UploadCloud className="w-7 h-7" />
             </div>
             <div className="space-y-1">
-              <p className="font-semibold text-slate-200">
+              <p className="font-bold text-xs text-text-primary">
                 Drag & drop your files here, or click to browse
               </p>
-              <p className="text-xs text-slate-500">Supports PDF, DOCX, TXT, or MD (Max 10MB)</p>
+              <p className="text-[10px] text-text-secondary">
+                Supports PDF, DOCX, TXT, or MD (Max 10MB)
+              </p>
             </div>
           </div>
         )}

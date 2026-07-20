@@ -51,36 +51,36 @@ export default function DashboardPage() {
 
   if (loading || !stats) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[400px] gap-3 text-slate-400">
-        <div className="w-10 h-10 rounded-full border-2 border-slate-700 border-t-blue-500 animate-spin" />
-        <p className="text-sm font-semibold tracking-wide animate-pulse">Loading study desk...</p>
+      <div className="flex flex-col items-center justify-center min-h-[400px] gap-3 text-text-secondary">
+        <div className="w-8 h-8 rounded-full border-2 border-border border-t-primary animate-spin" />
+        <p className="text-xs font-semibold tracking-wide animate-pulse">Loading study desk...</p>
       </div>
     )
   }
 
   return (
-    <div className="space-y-8 text-white text-left">
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-white/5 pb-6">
+    <div className="space-y-6 text-text-primary text-left">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-b border-border pb-5">
         <div className="space-y-1">
-          <h1 className="text-3xl font-extrabold tracking-tight">
+          <h1 className="text-2xl font-extrabold tracking-tight text-text-primary">
             {greeting},{' '}
-            <span className="bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
+            <span className="text-primary">
               {user?.user_metadata?.displayName || user?.email?.split('@')[0]}
             </span>
             !
           </h1>
-          <p className="text-slate-400 text-sm font-medium">
+          <p className="text-text-secondary text-xs font-semibold">
             Ready to continue your assessment preparations?
           </p>
         </div>
-        <div className="flex items-center gap-2 px-4 py-2 rounded-xl bg-white/5 border border-white/5 text-slate-400 text-xs font-semibold self-start md:self-auto">
-          <Calendar className="w-4 h-4 text-slate-500" /> {formattedDate}
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-medium bg-surface-secondary border border-border text-text-secondary text-xs font-bold self-start md:self-auto shadow-sm">
+          <Calendar className="w-3.5 h-3.5 text-text-secondary/60" /> {formattedDate}
         </div>
       </div>
 
       <StatsGrid stats={stats} />
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 pt-2">
         <div className="lg:col-span-2">
           <ActivityFeed activities={activities} />
         </div>

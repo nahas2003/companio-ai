@@ -158,7 +158,21 @@ export function Header({ setMobileOpen }: HeaderProps) {
     const segments = pathname.split('/').filter(Boolean)
     return segments.map((segment, index) => {
       const href = '/' + segments.slice(0, index + 1).join('/')
-      const label = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ')
+
+      // Simplify dynamic database keys, UUIDs, or access room code segments
+      let label = segment
+      const isUuid =
+        /^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/.test(
+          segment,
+        )
+      const isLongHash = /^[0-9a-fA-F]{24,32}$/.test(segment)
+
+      if (isUuid || isLongHash || segment.length > 15) {
+        label = 'Details'
+      } else {
+        label = segment.charAt(0).toUpperCase() + segment.slice(1).replace(/-/g, ' ')
+      }
+
       const isLast = index === segments.length - 1
       return { label, href, isLast }
     })
