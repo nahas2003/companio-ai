@@ -40,7 +40,7 @@
   }
 
   * {
-    @apply border-border;
+    border-color: var(--border);
     transition:
       background-color 250ms ease-out,
       border-color 250ms ease-out,
