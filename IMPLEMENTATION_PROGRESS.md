@@ -15,3 +15,4 @@ This document tracks the incremental progress of feature modules implemented in 
 | **Live Analytics**    | Live SQL aggregate queries calculating user scores, total answered counts, study activity feed          | ✅ Completed | July 20, 2026  |
 | **Hardening**         | Token rate limiting sliding cache, size validation checks, DB enum constraints and foreign key indexing | ✅ Completed | July 20, 2026  |
 | **Notifications**     | In-app notification center inbox, unread counts badge, settings preference, welcome/grading triggers    | ✅ Completed | July 20, 2026  |
+| **Admin Settings**    | Tabs dashboard, user directory, system preferences, AI gateway models, size limits, audit logs trail    | ✅ Completed | July 20, 2026  |

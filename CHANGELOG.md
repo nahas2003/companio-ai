@@ -24,6 +24,11 @@ All notable changes to the Companio AI project will be documented in this file.
   - Implemented badge overlays displaying total unread alerts counts.
   - Developed custom settings preferences tab checking or disabling email alerts logs and in-app bell counters.
   - Integrated welcome auto-sync alerts triggers and assessment complete/published event subscribers.
+- **Administration & settings Workspace:**
+  - Developed full-scale admin portal dashboard with dedicated tabs layout.
+  - Built Users Directory supporting searches, role filters, account deactivations, and password reset triggers.
+  - Implemented System Preferences, AI configuration panels (Active provider models and timeout gates), and Storage constraints settings.
+  - Created operational auditing trail tracking logs linked to database `AdminAuditLog` events.
 
 ### Changed
 

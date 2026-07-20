@@ -6,8 +6,8 @@ This document provides a comprehensive audit of the current project state, based
 
 ## 1. Project Overview
 
-- **Current Development Phase:** Phase 5 (Roadmapped Modules: Practice Mode, Assessment Engine, Live Analytics, Dashboard Integration, and Notifications completed).
-- **Overall Completion Percentage (Estimated):** 90%
+- **Current Development Phase:** Phase 5 (Roadmapped Modules: Practice Mode, Assessment Engine, Live Analytics, Dashboard Integration, Notifications, and Admin Settings completed).
+- **Overall Completion Percentage (Estimated):** 95%
 - **Last Analyzed Date:** July 20, 2026
 
 ---
@@ -59,8 +59,8 @@ This document provides a comprehensive audit of the current project state, based
   Calculates accuracy rates, time taken metrics, and completed sessions from database records, displayable on widgets.
 - **Notifications & Communication:** ✅ Completed  
   Supports real-time in-app notification inbox, unread counts badge, mark-read/delete actions, preference controls setting, and mock email logs triggered by system events (welcome, assessment published, graded results).
-- **Admin Portal:** 🚧 Partial  
-  Exposes user role modification forms, active AI provider configs, and execution diagnostics tests.
+- **Admin Portal:** ✅ Completed  
+  Comprehensive central control center exposing a User Directory list with search/role filters, toggle activate status options, global system settings panel, AI provider/timeout configurations, file storage rules, and audit logs.
 
 ---
 
@@ -154,6 +154,9 @@ All database mutations and verified communications are handled through Server Ac
   - `Notification`: platform in-app alert details linked to users, with index on `userId`.
   - `NotificationPreference`: user-specific email/in-app communication settings.
   - `NotificationHistory`: delivery channel history logs linked to notifications.
+  - `SystemSetting`: key-value system config variables.
+  - `FeatureFlag`: global business flags togglers.
+  - `AdminAuditLog`: tracking logs of admin transactions.
 - **Database Sync:**
   - Synchronized and verified using `prisma db push` on Supabase PostgreSQL. Initial migration baseline folder structure created.
 - **Missing Tables:**
@@ -246,5 +249,5 @@ Below are the variables declared in the environment configs:
 
 - **Strengths:** Robust AI orchestrator pipeline, fully realized practice playroom and exam assessment engine, live database dashboard metrics, clean monorepo architecture, and high-fidelity responsive design.
 - **Weaknesses:** Lack of automated unit tests.
-- **Estimated Completion Percentage:** 90%
-- **Production Readiness Score:** 90/100 (Rate limiting, buffer constraints, user profile auto-syncing, database indexes, proctored time boundaries, and email/in-app notification delivery controls implemented).
+- **Estimated Completion Percentage:** 95%
+- **Production Readiness Score:** 95/100 (Rate limiting, buffer constraints, user profile auto-syncing, database indexes, proctored time boundaries, notifications preference, and administrative setting dashboards implemented).
