@@ -11,6 +11,7 @@
   "dependencies": {
     "@companio/db": "workspace:*",
     "@companio/ui": "workspace:*",
+    "@google/generative-ai": "^0.24.1",
     "@hookform/resolvers": "^3.3.4",
     "@supabase/supabase-js": "^2.43.0",
     "@tanstack/react-query": "^5.32.0",

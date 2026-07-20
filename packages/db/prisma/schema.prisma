@@ -59,3 +59,20 @@ model DocumentContent {
 
   @@map("document_contents")
 }
+
+model AiUsageLog {
+  id            String   @id @default(uuid())
+  userId        String?  @map("user_id")
+  provider      String
+  model         String
+  promptName    String   @map("prompt_name")
+  promptVersion String   @map("prompt_version")
+  durationMs    Int      @map("duration_ms")
+  inputTokens   Int?     @map("input_tokens")
+  outputTokens  Int?     @map("output_tokens")
+  success       Boolean
+  errorMsg      String?  @map("error_msg")
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("ai_usage_logs")
+}
