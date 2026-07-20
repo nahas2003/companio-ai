@@ -6,6 +6,7 @@ import { authService } from '@/features/auth/services/authService'
 import { AuthGuard } from '@/features/auth/components/AuthGuard'
 import { Button } from '@companio/ui'
 import { useRouter } from 'next/navigation'
+import Link from 'next/link'
 import { LayoutDashboard, LogOut, User, Mail, Calendar } from 'lucide-react'
 
 export default function DashboardPage() {
@@ -35,13 +36,21 @@ export default function DashboardPage() {
                 Companio Portal
               </span>
             </div>
-            <Button
-              variant="outline"
-              onClick={handleSignOut}
-              className="text-red-400 border-red-500/20 hover:bg-red-500/10 hover:text-red-300 flex items-center gap-2 h-9"
-            >
-              <LogOut className="w-4 h-4" /> Sign Out
-            </Button>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/profile"
+                className="text-slate-300 hover:text-white text-sm font-semibold transition duration-300 mr-2"
+              >
+                Profile Settings
+              </Link>
+              <Button
+                variant="outline"
+                onClick={handleSignOut}
+                className="text-red-400 border-red-500/20 hover:bg-red-500/10 hover:text-red-300 flex items-center gap-2 h-9"
+              >
+                <LogOut className="w-4 h-4" /> Sign Out
+              </Button>
+            </div>
           </div>
         </header>
 
