@@ -2,14 +2,17 @@ import { create } from 'zustand'
 import { getSupabaseClient } from '../../../lib/supabase'
 import type { AuthState } from '../types/auth.types'
 import { syncUser } from '../../../../app/actions/auth'
+import { Role } from '@companio/db'
 
 export const useAuthStore = create<AuthState>((set) => ({
   user: null,
   session: null,
+  role: null,
   isLoading: true,
   error: null,
   setUser: (user) => set({ user }),
   setSession: (session) => set({ session }),
+  setRole: (role) => set({ role }),
   setLoading: (isLoading) => set({ isLoading }),
   setError: (error) => set({ error }),
   initAuth: async () => {
@@ -26,24 +29,32 @@ export const useAuthStore = create<AuthState>((set) => ({
 
       if (session) {
         set({ session, user: session.user })
-        await syncUser(
+        const syncResult = await syncUser(
           session.user.id,
           session.user.email || '',
           session.user.user_metadata?.displayName,
         )
+        if (syncResult.success && syncResult.user) {
+          set({ role: syncResult.user.role as Role })
+        }
       } else {
-        set({ session: null, user: null })
+        set({ session: null, user: null, role: null })
       }
 
       supabase.auth.onAuthStateChange(async (event, currentSession) => {
         set({ session: currentSession, user: currentSession?.user ?? null })
 
-        if (event === 'SIGNED_IN' && currentSession?.user) {
-          await syncUser(
+        if (currentSession?.user) {
+          const syncResult = await syncUser(
             currentSession.user.id,
             currentSession.user.email || '',
             currentSession.user.user_metadata?.displayName,
           )
+          if (syncResult.success && syncResult.user) {
+            set({ role: syncResult.user.role as Role })
+          }
+        } else {
+          set({ role: null })
         }
 
         set({ isLoading: false })

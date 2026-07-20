@@ -72,3 +72,33 @@ export async function updateUserProfile(accessToken: string, displayName: string
     return { success: false, error: error.message || 'Failed to update user profile' }
   }
 }
+
+import { Role } from '@companio/db'
+
+export async function updateUserRole(accessToken: string, targetUserId: string, newRole: Role) {
+  try {
+    const verifiedUser = await getVerifiedUserId(accessToken)
+
+    const updaterProfile = await prisma.user.findUnique({
+      where: { id: verifiedUser.id },
+    })
+
+    if (
+      !updaterProfile ||
+      (updaterProfile.role !== 'ADMIN' && updaterProfile.role !== 'SUPER_ADMIN')
+    ) {
+      throw new Error('Access denied. Administrative privileges required.')
+    }
+
+    const updatedUser = await prisma.user.update({
+      where: { id: targetUserId },
+      data: { role: newRole },
+    })
+
+    console.log(`Administrator ${verifiedUser.id} updated user ${targetUserId} role to ${newRole}`)
+    return { success: true, user: updatedUser }
+  } catch (error: any) {
+    console.error('Error in updateUserRole server action:', error)
+    return { success: false, error: error.message || 'Failed to update user role' }
+  }
+}

@@ -7,11 +7,12 @@ import { AuthGuard } from '@/features/auth/components/AuthGuard'
 import { Button } from '@companio/ui'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { LayoutDashboard, LogOut, User, Mail, Calendar } from 'lucide-react'
+import { hasPermission } from '@/features/auth/utils/rbac'
+import { LayoutDashboard, LogOut, User, Mail, Calendar, Shield } from 'lucide-react'
 
 export default function DashboardPage() {
   const router = useRouter()
-  const { user } = useAuthStore()
+  const { user, role } = useAuthStore()
 
   const handleSignOut = async () => {
     const result = await authService.signOut()
@@ -37,6 +38,14 @@ export default function DashboardPage() {
               </span>
             </div>
             <div className="flex items-center gap-4">
+              {role && hasPermission(role, 'admin:users') && (
+                <Link
+                  href="/admin"
+                  className="text-blue-400 hover:text-blue-300 text-sm font-semibold transition duration-300 mr-2"
+                >
+                  Admin Portal
+                </Link>
+              )}
               <Link
                 href="/profile"
                 className="text-slate-300 hover:text-white text-sm font-semibold transition duration-300 mr-2"
@@ -81,6 +90,14 @@ export default function DashboardPage() {
                   <Mail className="w-4 h-4" /> Email Address
                 </span>
                 <span className="font-semibold text-slate-300">{user?.email || 'N/A'}</span>
+              </div>
+              <div className="flex items-center justify-between border-b border-white/5 pb-4">
+                <span className="text-slate-400 text-sm flex items-center gap-2">
+                  <Shield className="w-4 h-4" /> Account Role
+                </span>
+                <span className="font-semibold text-blue-400 text-sm tracking-wide">
+                  {role || 'N/A'}
+                </span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="text-slate-400 text-sm flex items-center gap-2">
