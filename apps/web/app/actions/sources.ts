@@ -2,6 +2,8 @@
 
 import { prisma } from '@companio/db'
 import { createClient } from '@supabase/supabase-js'
+import { getVerifiedUser } from './authUtils'
+import { isRateLimited } from './rateLimiter'
 
 const getSupabaseServer = () => {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -13,27 +15,9 @@ const getSupabaseServer = () => {
   return createClient(url, key)
 }
 
-async function getVerifiedUserId(accessToken: string) {
-  if (!accessToken) {
-    throw new Error('Missing access token for authorization.')
-  }
-
-  const supabase = getSupabaseServer()
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser(accessToken)
-
-  if (error || !user) {
-    throw new Error('Invalid or expired session token. Please sign in again.')
-  }
-
-  return user
-}
-
 export async function getSources(accessToken: string) {
   try {
-    const verifiedUser = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
 
     const sources = await prisma.source.findMany({
       where: { userId: verifiedUser.id },
@@ -52,7 +36,7 @@ export async function createSourceRecord(
   payload: { fileName: string; fileKey: string; fileSize: number; fileType: string },
 ) {
   try {
-    const verifiedUser = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
 
     const supabase = getSupabaseServer()
 
@@ -97,7 +81,7 @@ export async function createSourceRecord(
 
 export async function renameSource(accessToken: string, sourceId: string, newName: string) {
   try {
-    const verifiedUser = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
 
     if (!newName || newName.trim().length < 1) {
       throw new Error('Filename cannot be empty.')
@@ -126,7 +110,7 @@ export async function renameSource(accessToken: string, sourceId: string, newNam
 
 export async function deleteSource(accessToken: string, sourceId: string) {
   try {
-    const verifiedUser = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
 
     const existingSource = await prisma.source.findUnique({
       where: { id: sourceId },
@@ -159,7 +143,12 @@ export async function deleteSource(accessToken: string, sourceId: string) {
 
 export async function processDocument(accessToken: string, sourceId: string) {
   try {
-    const verifiedUser = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
+
+    // Rate Limit check (max 5 files per minute per user)
+    if (isRateLimited(`process-doc:${verifiedUser.id}`, 5, 60000)) {
+      throw new Error('Rate limit exceeded. Please wait a minute before processing files.')
+    }
 
     const source = await prisma.source.findUnique({
       where: { id: sourceId },
@@ -167,6 +156,11 @@ export async function processDocument(accessToken: string, sourceId: string) {
 
     if (!source || source.userId !== verifiedUser.id) {
       throw new Error('Access denied. You do not own this source.')
+    }
+
+    // Enforce 10MB size limit
+    if (source.fileSize > 10 * 1024 * 1024) {
+      throw new Error('File exceeds maximum allowed size of 10MB.')
     }
 
     await prisma.source.update({
@@ -183,6 +177,10 @@ export async function processDocument(accessToken: string, sourceId: string) {
       throw new Error(
         `Failed to download file from storage: ${downloadError?.message || 'File empty'}`,
       )
+    }
+
+    if (fileData.size > 10 * 1024 * 1024) {
+      throw new Error('File content size exceeds maximum allowed size of 10MB.')
     }
 
     const fileBuffer = Buffer.from(await fileData.arrayBuffer())

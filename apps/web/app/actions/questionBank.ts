@@ -8,33 +8,7 @@ import type {
   GeneratedQuestion,
 } from '@/features/ai/types/questions.types'
 
-const getSupabaseServer = () => {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-  if (!url || !key) {
-    throw new Error('Missing Supabase URL or Anon Key for server verification.')
-  }
-  return createClient(url, key)
-}
-
-async function getVerifiedUserId(accessToken: string) {
-  if (!accessToken) {
-    throw new Error('Missing access token for authorization.')
-  }
-
-  const supabase = getSupabaseServer()
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser(accessToken)
-
-  if (error || !user) {
-    throw new Error('Invalid or expired session token. Please sign in again.')
-  }
-
-  return user.id
-}
+import { getVerifiedUser } from './authUtils'
 
 export async function saveQuestionsToBankAction(
   accessToken: string,
@@ -48,7 +22,8 @@ export async function saveQuestionsToBankAction(
   },
 ) {
   try {
-    const userId = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
+    const userId = verifiedUser.id
 
     const source = await prisma.source.findUnique({
       where: { id: payload.sourceId },
@@ -106,7 +81,8 @@ export async function getQuestionsAction(
   },
 ) {
   try {
-    const userId = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
+    const userId = verifiedUser.id
 
     const page = filters.page || 1
     const limit = filters.limit || 10
@@ -208,7 +184,8 @@ export async function updateQuestionAction(
   },
 ) {
   try {
-    const userId = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
+    const userId = verifiedUser.id
 
     const question = await prisma.question.findFirst({
       where: {
@@ -246,7 +223,8 @@ export async function toggleArchiveQuestionAction(
   archiveState: boolean,
 ) {
   try {
-    const userId = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
+    const userId = verifiedUser.id
 
     const question = await prisma.question.findFirst({
       where: {
@@ -275,7 +253,8 @@ export async function toggleArchiveQuestionAction(
 
 export async function softDeleteQuestionAction(accessToken: string, questionId: string) {
   try {
-    const userId = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
+    const userId = verifiedUser.id
 
     const question = await prisma.question.findFirst({
       where: {
@@ -308,7 +287,8 @@ export async function bulkActionQuestionsAction(
   action: 'archive' | 'restore' | 'delete',
 ) {
   try {
-    const userId = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
+    const userId = verifiedUser.id
 
     const ownedQuestionsCount = await prisma.question.count({
       where: {

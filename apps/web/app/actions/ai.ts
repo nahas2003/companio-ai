@@ -5,36 +5,12 @@ import { createClient } from '@supabase/supabase-js'
 import { aiOrchestrator } from '@/features/ai/services/aiOrchestrator'
 import { z } from 'zod'
 
-const getSupabaseServer = () => {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-  if (!url || !key) {
-    throw new Error('Missing Supabase URL or Anon Key for server verification.')
-  }
-  return createClient(url, key)
-}
+import { getVerifiedUser } from './authUtils'
 
 async function getVerifiedAdminRole(accessToken: string) {
-  if (!accessToken) {
-    throw new Error('Access token is required.')
-  }
+  const dbUser = await getVerifiedUser(accessToken)
 
-  const supabase = getSupabaseServer()
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser(accessToken)
-
-  if (error || !user) {
-    throw new Error('Invalid or expired session token.')
-  }
-
-  const dbUser = await prisma.user.findUnique({
-    where: { id: user.id },
-  })
-
-  if (!dbUser || (dbUser.role !== 'ADMIN' && dbUser.role !== 'SUPER_ADMIN')) {
+  if (dbUser.role !== 'ADMIN' && dbUser.role !== 'SUPER_ADMIN') {
     throw new Error('Unauthorized. Administrative privileges required.')
   }
 

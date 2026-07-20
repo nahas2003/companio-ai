@@ -10,33 +10,8 @@ import type {
   GeneratedQuestion,
 } from '@/features/ai/types/questions.types'
 
-const getSupabaseServer = () => {
-  const url = process.env.NEXT_PUBLIC_SUPABASE_URL
-  const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
-
-  if (!url || !key) {
-    throw new Error('Missing Supabase URL or Anon Key for server verification.')
-  }
-  return createClient(url, key)
-}
-
-async function getVerifiedUserId(accessToken: string) {
-  if (!accessToken) {
-    throw new Error('Missing access token for authorization.')
-  }
-
-  const supabase = getSupabaseServer()
-  const {
-    data: { user },
-    error,
-  } = await supabase.auth.getUser(accessToken)
-
-  if (error || !user) {
-    throw new Error('Invalid or expired session token. Please sign in again.')
-  }
-
-  return user.id
-}
+import { getVerifiedUser } from './authUtils'
+import { isRateLimited } from './rateLimiter'
 
 export async function generateQuestionsAction(
   accessToken: string,
@@ -48,7 +23,14 @@ export async function generateQuestionsAction(
   },
 ) {
   try {
-    const userId = await getVerifiedUserId(accessToken)
+    const verifiedUser = await getVerifiedUser(accessToken)
+
+    // Rate Limit check (max 5 question sets per minute)
+    if (isRateLimited(`gen-questions:${verifiedUser.id}`, 5, 60000)) {
+      throw new Error('Rate limit exceeded. Please wait a minute before generating questions.')
+    }
+
+    const userId = verifiedUser.id
 
     const source = await prisma.source.findUnique({
       where: { id: payload.sourceId },

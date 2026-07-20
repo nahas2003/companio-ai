@@ -15,6 +15,25 @@ enum Role {
   STUDENT
 }
 
+enum SourceStatus {
+  PENDING
+  PROCESSING
+  COMPLETED
+  FAILED
+}
+
+enum QuestionType {
+  MULTIPLE_CHOICE
+  TRUE_FALSE
+  SHORT_ANSWER
+}
+
+enum Difficulty {
+  EASY
+  MEDIUM
+  HARD
+}
+
 model User {
   id          String   @id @default(uuid())
   email       String   @unique
@@ -36,18 +55,19 @@ model Source {
   fileKey     String   @map("file_key")
   fileSize    Int      @map("file_size")
   fileType    String   @map("file_type")
-  status      String   @default("PENDING")
-  wordCount   Int?     @map("word_count")
-  pageCount   Int?     @map("page_count")
-  processedAt DateTime? @map("processed_at")
-  errorMsg    String?  @map("error_msg")
-  createdAt   DateTime @default(now()) @map("created_at")
-  updatedAt   DateTime @updatedAt @map("updated_at")
+  status      SourceStatus @default(PENDING)
+  wordCount   Int?         @map("word_count")
+  pageCount   Int?         @map("page_count")
+  processedAt DateTime?    @map("processed_at")
+  errorMsg    String?      @map("error_msg")
+  createdAt   DateTime     @default(now()) @map("created_at")
+  updatedAt   DateTime     @updatedAt @map("updated_at")
 
-  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  content     DocumentContent?
+  user          User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  content       DocumentContent?
   questionBanks QuestionBank[]
 
+  @@index([userId])
   @@map("sources")
 }
 
@@ -76,6 +96,7 @@ model AiUsageLog {
   errorMsg      String?  @map("error_msg")
   createdAt     DateTime @default(now()) @map("created_at")
 
+  @@index([userId])
   @@map("ai_usage_logs")
 }
 
@@ -94,6 +115,8 @@ model QuestionBank {
   source      Source?  @relation(fields: [sourceId], references: [id], onDelete: SetNull)
   questions   Question[]
 
+  @@index([userId])
+  @@index([sourceId])
   @@map("question_banks")
 }
 
@@ -101,17 +124,18 @@ model Question {
   id             String   @id @default(uuid())
   questionBankId String   @map("question_bank_id")
   title          String
-  type           String   // MULTIPLE_CHOICE, TRUE_FALSE, SHORT_ANSWER
-  difficulty     String   // EASY, MEDIUM, HARD
-  options        String[] // For MCQ/TF
-  correctAnswer  Int?     @map("correct_answer") // For MCQ/TF
-  modelAnswer    String?  @map("model_answer") // For Short Answer
-  archived       Boolean  @default(false)
-  deleted        Boolean  @default(false)
-  createdAt      DateTime @default(now()) @map("created_at")
-  updatedAt      DateTime @updatedAt @map("updated_at")
+  type           QuestionType
+  difficulty     Difficulty
+  options        String[]
+  correctAnswer  Int?         @map("correct_answer")
+  modelAnswer    String?      @map("model_answer")
+  archived       Boolean      @default(false)
+  deleted        Boolean      @default(false)
+  createdAt      DateTime     @default(now()) @map("created_at")
+  updatedAt      DateTime     @updatedAt @map("updated_at")
 
   questionBank   QuestionBank @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
 
+  @@index([questionBankId])
   @@map("questions")
 }
