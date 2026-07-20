@@ -32,11 +32,11 @@ Provide a secure, reliable, and intuitive assessment experience that follows the
 
 At the end of this task:
 
-* Learners can start published assessments.
-* Questions are displayed according to assessment settings.
-* Responses are automatically saved.
-* Assessment rules are enforced.
-* Completed assessments can be submitted securely.
+- Learners can start published assessments.
+- Questions are displayed according to assessment settings.
+- Responses are automatically saved.
+- Assessment rules are enforced.
+- Completed assessments can be submitted securely.
 
 ---
 
@@ -46,35 +46,35 @@ Implement:
 
 ### Assessment Lifecycle
 
-* Start assessment
-* Resume assessment (if allowed)
-* Pause (if permitted)
-* Submit assessment
-* Auto-submit when the timer expires
+- Start assessment
+- Resume assessment (if allowed)
+- Pause (if permitted)
+- Submit assessment
+- Auto-submit when the timer expires
 
 ### Question Navigation
 
-* Next / Previous
-* Jump to question (if enabled)
-* Mark for review
-* Progress indicator
-* Question palette
+- Next / Previous
+- Jump to question (if enabled)
+- Mark for review
+- Progress indicator
+- Question palette
 
 ### Timer
 
 Support:
 
-* Countdown timer
-* Auto-submit on timeout
-* Timer persistence after refresh
-* Warning before expiration
+- Countdown timer
+- Auto-submit on timeout
+- Timer persistence after refresh
+- Warning before expiration
 
 ### Answer Management
 
-* Save answers automatically
-* Manual save (optional)
-* Prevent data loss
-* Restore interrupted sessions
+- Save answers automatically
+- Manual save (optional)
+- Prevent data loss
+- Restore interrupted sessions
 
 ---
 
@@ -82,12 +82,12 @@ Support:
 
 Respect settings defined during assessment creation:
 
-* Time limit
-* Shuffle questions
-* Shuffle answer choices
-* Maximum attempts
-* Resume permission
-* Navigation restrictions
+- Time limit
+- Shuffle questions
+- Shuffle answer choices
+- Maximum attempts
+- Resume permission
+- Navigation restrictions
 
 ---
 
@@ -95,13 +95,13 @@ Respect settings defined during assessment creation:
 
 Future versions may include:
 
-* Full-screen enforcement
-* Browser focus monitoring
-* Webcam proctoring
-* Screen recording
-* AI-based cheating detection
-* Lockdown browser support
-* Offline submission recovery
+- Full-screen enforcement
+- Browser focus monitoring
+- Webcam proctoring
+- Screen recording
+- AI-based cheating detection
+- Lockdown browser support
+- Offline submission recovery
 
 ---
 
@@ -109,11 +109,11 @@ Future versions may include:
 
 Do **not** implement:
 
-* Final grading
-* Analytics dashboards
-* Certificates
-* Leaderboards
-* Question editing
+- Final grading
+- Analytics dashboards
+- Certificates
+- Leaderboards
+- Question editing
 
 The module ends after successful submission.
 
@@ -123,18 +123,18 @@ The module ends after successful submission.
 
 ## Architecture
 
-* Assessment Delivery specification
-* Assessment Management specification
-* Question Bank specification
-* Master Project Specification
+- Assessment Delivery specification
+- Assessment Management specification
+- Question Bank specification
+- Master Project Specification
 
 ## Development
 
-* Coding Standards
-* Security Checklist
-* Error Handling
-* Performance Guidelines
-* AI Agent Workflow
+- Coding Standards
+- Security Checklist
+- Error Handling
+- Performance Guidelines
+- AI Agent Workflow
 
 ---
 
@@ -142,13 +142,13 @@ The module ends after successful submission.
 
 Complete:
 
-* Tasks 001–013
+- Tasks 001–013
 
 Verify:
 
-* Published assessments exist.
-* Assessment configurations are valid.
-* Question Bank is operational.
+- Published assessments exist.
+- Assessment configurations are valid.
+- Question Bank is operational.
 
 ---
 
@@ -156,17 +156,17 @@ Verify:
 
 ### Input
 
-* Published assessment
-* Assessment configuration
-* Question Bank
-* User session
+- Published assessment
+- Assessment configuration
+- Question Bank
+- User session
 
 ### Output
 
-* Learner responses
-* Submission record
-* Time tracking
-* Assessment completion status
+- Learner responses
+- Submission record
+- Time tracking
+- Assessment completion status
 
 Future Results and Analytics modules consume these outputs.
 
@@ -176,13 +176,13 @@ Future Results and Analytics modules consume these outputs.
 
 The AI may modify:
 
-* Assessment player
-* Navigation components
-* Timer service
-* Submission service
-* Auto-save logic
-* Session management
-* Delivery APIs
+- Assessment player
+- Navigation components
+- Timer service
+- Submission service
+- Auto-save logic
+- Session management
+- Delivery APIs
 
 ---
 
@@ -190,11 +190,11 @@ The AI may modify:
 
 Do **not** implement:
 
-* Results calculation
-* Certificates
-* Analytics
-* Leaderboards
-* Question Bank management
+- Results calculation
+- Certificates
+- Analytics
+- Leaderboards
+- Question Bank management
 
 Only implement assessment delivery.
 
@@ -204,12 +204,12 @@ Only implement assessment delivery.
 
 Implement support for:
 
-* Assessment attempts
-* User responses
-* Timer state
-* Progress state
-* Submission records
-* Resume information
+- Assessment attempts
+- User responses
+- Timer state
+- Progress state
+- Submission records
+- Resume information
 
 ---
 
@@ -217,16 +217,16 @@ Implement support for:
 
 Implement:
 
-* Assessment player
-* Timer
-* Question navigation
-* Progress bar
-* Question palette
-* Review markers
-* Submission confirmation
-* Auto-save indicator
-* Empty states
-* Loading states
+- Assessment player
+- Timer
+- Question navigation
+- Progress bar
+- Question palette
+- Review markers
+- Submission confirmation
+- Auto-save indicator
+- Empty states
+- Loading states
 
 ---
 
@@ -234,13 +234,13 @@ Implement:
 
 Implement:
 
-* Assessment session creation
-* Auto-save
-* Answer persistence
-* Resume support
-* Submission processing
-* Timer validation
-* Attempt validation
+- Assessment session creation
+- Auto-save
+- Answer persistence
+- Resume support
+- Submission processing
+- Timer validation
+- Attempt validation
 
 ---
 
@@ -248,23 +248,23 @@ Implement:
 
 The AI must:
 
-* Respect assessment configuration.
-* Prevent unauthorized assessment access.
-* Save answers automatically.
-* Protect against accidental data loss.
-* Keep delivery independent from grading.
+- Respect assessment configuration.
+- Prevent unauthorized assessment access.
+- Save answers automatically.
+- Protect against accidental data loss.
+- Keep delivery independent from grading.
 
 ---
 
 # 18. Implementation Checklist
 
-* Assessment player implemented
-* Timer operational
-* Auto-save implemented
-* Resume supported
-* Navigation completed
-* Submission workflow implemented
-* Timeout handling completed
+- Assessment player implemented
+- Timer operational
+- Auto-save implemented
+- Resume supported
+- Navigation completed
+- Submission workflow implemented
+- Timeout handling completed
 
 ---
 
@@ -272,14 +272,14 @@ The AI must:
 
 Verify:
 
-* Assessment starts correctly.
-* Timer counts down accurately.
-* Auto-save works.
-* Resume restores state.
-* Submission succeeds.
-* Auto-submit triggers on timeout.
-* Navigation restrictions are respected.
-* Maximum attempts are enforced.
+- Assessment starts correctly.
+- Timer counts down accurately.
+- Auto-save works.
+- Resume restores state.
+- Submission succeeds.
+- Auto-submit triggers on timeout.
+- Navigation restrictions are respected.
+- Maximum attempts are enforced.
 
 ---
 
@@ -287,11 +287,11 @@ Verify:
 
 Task is complete when:
 
-* Learners can complete published assessments.
-* Assessment rules are enforced.
-* Responses are saved reliably.
-* Submissions complete successfully.
-* Assessment data is ready for grading.
+- Learners can complete published assessments.
+- Assessment rules are enforced.
+- Responses are saved reliably.
+- Submissions complete successfully.
+- Assessment data is ready for grading.
 
 ---
 
@@ -299,11 +299,11 @@ Task is complete when:
 
 Assessment Delivery is complete when:
 
-* Assessment lifecycle functions correctly.
-* Auto-save is reliable.
-* Timer enforcement works.
-* Submission is secure.
-* Tests pass.
+- Assessment lifecycle functions correctly.
+- Auto-save is reliable.
+- Timer enforcement works.
+- Submission is secure.
+- Tests pass.
 
 ---
 
@@ -311,12 +311,12 @@ Assessment Delivery is complete when:
 
 Expected outputs:
 
-* Assessment player
-* Timer service
-* Auto-save service
-* Submission workflow
-* Attempt management
-* Supporting tests
+- Assessment player
+- Timer service
+- Auto-save service
+- Submission workflow
+- Attempt management
+- Supporting tests
 
 ---
 

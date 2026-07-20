@@ -19,11 +19,11 @@ The objective is to ensure that configuration is secure, maintainable, portable,
 
 After implementing this strategy:
 
-* Environment-specific settings are isolated.
-* Secrets are protected.
-* Local development is reproducible.
-* Deployments are predictable.
-* Configuration changes do not require code changes.
+- Environment-specific settings are isolated.
+- Secrets are protected.
+- Local development is reproducible.
+- Deployments are predictable.
+- Configuration changes do not require code changes.
 
 ---
 
@@ -31,10 +31,10 @@ After implementing this strategy:
 
 The project supports the following environments:
 
-* Local Development
-* Development
-* Staging
-* Production
+- Local Development
+- Development
+- Staging
+- Production
 
 Each environment should have its own configuration values while sharing the same application code.
 
@@ -44,11 +44,11 @@ Each environment should have its own configuration values while sharing the same
 
 Follow these principles:
 
-* Configuration belongs outside the application code.
-* Secrets must never be committed to version control.
-* Every required variable should be documented.
-* Default values should only be used when safe.
-* Validate configuration during application startup.
+- Configuration belongs outside the application code.
+- Secrets must never be committed to version control.
+- Every required variable should be documented.
+- Default values should only be used when safe.
+- Validate configuration during application startup.
 
 ---
 
@@ -60,10 +60,10 @@ Organize configuration into logical groups.
 
 Examples:
 
-* Application name
-* Base URL
-* Environment
-* Feature flags
+- Application name
+- Base URL
+- Environment
+- Feature flags
 
 ---
 
@@ -71,9 +71,9 @@ Examples:
 
 Examples:
 
-* Database URL
-* Connection pool settings
-* Migration configuration
+- Database URL
+- Connection pool settings
+- Migration configuration
 
 ---
 
@@ -81,9 +81,9 @@ Examples:
 
 Examples:
 
-* Authentication provider
-* JWT settings
-* Session configuration
+- Authentication provider
+- JWT settings
+- Session configuration
 
 ---
 
@@ -91,11 +91,11 @@ Examples:
 
 Examples:
 
-* Provider selection
-* API endpoints
-* API keys
-* Model configuration
-* Timeout settings
+- Provider selection
+- API endpoints
+- API keys
+- Model configuration
+- Timeout settings
 
 ---
 
@@ -103,10 +103,10 @@ Examples:
 
 Examples:
 
-* Storage provider
-* Bucket names
-* Upload limits
-* Signed URL expiration
+- Storage provider
+- Bucket names
+- Upload limits
+- Signed URL expiration
 
 ---
 
@@ -114,10 +114,10 @@ Examples:
 
 Examples:
 
-* SMTP provider
-* Sender address
-* Email templates
-* Retry configuration
+- SMTP provider
+- Sender address
+- Email templates
+- Retry configuration
 
 ---
 
@@ -125,9 +125,9 @@ Examples:
 
 Examples:
 
-* Log level
-* Structured logging
-* Log destination
+- Log level
+- Structured logging
+- Log destination
 
 ---
 
@@ -135,9 +135,9 @@ Examples:
 
 Examples:
 
-* Metrics endpoint
-* Error tracking configuration
-* Health check settings
+- Metrics endpoint
+- Error tracking configuration
+- Health check settings
 
 ---
 
@@ -157,9 +157,9 @@ Example:
 
 Rules:
 
-* Commit only `.env.example`.
-* Ignore environment files containing secrets.
-* Keep `.env.example` up to date with every new variable.
+- Commit only `.env.example`.
+- Ignore environment files containing secrets.
+- Keep `.env.example` up to date with every new variable.
 
 ---
 
@@ -169,11 +169,11 @@ Validate configuration during application startup.
 
 Checks should include:
 
-* Required variables exist.
-* Values have valid formats.
-* Numeric values are within expected ranges.
-* URLs are valid.
-* Optional variables have safe defaults.
+- Required variables exist.
+- Values have valid formats.
+- Numeric values are within expected ranges.
+- URLs are valid.
+- Optional variables have safe defaults.
 
 The application should fail fast if critical configuration is missing.
 
@@ -185,18 +185,18 @@ Store sensitive values securely.
 
 Examples include:
 
-* API keys
-* Database credentials
-* Service tokens
-* JWT secrets
-* SMTP passwords
+- API keys
+- Database credentials
+- Service tokens
+- JWT secrets
+- SMTP passwords
 
 Never expose secrets through:
 
-* Source code
-* Logs
-* Client-side bundles
-* Public repositories
+- Source code
+- Logs
+- Client-side bundles
+- Public repositories
 
 ---
 
@@ -204,10 +204,10 @@ Never expose secrets through:
 
 Support feature flags for:
 
-* Experimental features
-* Beta functionality
-* AI workflow testing
-* Progressive rollouts
+- Experimental features
+- Beta functionality
+- AI workflow testing
+- Progressive rollouts
 
 Feature flags should be configurable without modifying application code.
 
@@ -231,9 +231,9 @@ Expose only values that are safe for client-side use.
 
 Examples:
 
-* Public application URL
-* Public analytics identifiers
-* Client-side feature flags
+- Public application URL
+- Public analytics identifiers
+- Client-side feature flags
 
 Never expose secrets to frontend applications.
 
@@ -243,11 +243,11 @@ Never expose secrets to frontend applications.
 
 Backend services may access:
 
-* Database credentials
-* AI provider credentials
-* Storage credentials
-* Email credentials
-* Internal service configuration
+- Database credentials
+- AI provider credentials
+- Storage credentials
+- Email credentials
+- Internal service configuration
 
 Access should be centralized through the configuration layer.
 
@@ -259,10 +259,10 @@ Provide dedicated configuration for automated testing.
 
 Requirements:
 
-* Isolated database
-* Mock AI providers where appropriate
-* Test storage
-* Test email provider
+- Isolated database
+- Mock AI providers where appropriate
+- Test storage
+- Test email provider
 
 Tests must never interact with production resources.
 
@@ -285,10 +285,10 @@ When adding a new configuration value:
 
 Ensure:
 
-* Secrets are encrypted where supported.
-* Access is limited to authorized services.
-* Secret rotation is documented.
-* Configuration changes are auditable.
+- Secrets are encrypted where supported.
+- Access is limited to authorized services.
+- Secret rotation is documented.
+- Configuration changes are auditable.
 
 ---
 
@@ -296,11 +296,11 @@ Ensure:
 
 Avoid:
 
-* Hardcoding secrets.
-* Using production credentials locally.
-* Reading environment variables directly in business logic.
-* Forgetting to update `.env.example`.
-* Logging sensitive configuration values.
+- Hardcoding secrets.
+- Using production credentials locally.
+- Reading environment variables directly in business logic.
+- Forgetting to update `.env.example`.
+- Logging sensitive configuration values.
 
 ---
 
@@ -308,11 +308,11 @@ Avoid:
 
 The environment configuration strategy is complete when:
 
-* All configuration is centralized.
-* Startup validation succeeds.
-* Secrets remain protected.
-* Every environment can be deployed independently.
-* Documentation is current.
+- All configuration is centralized.
+- Startup validation succeeds.
+- Secrets remain protected.
+- Every environment can be deployed independently.
+- Documentation is current.
 
 ---
 
@@ -320,10 +320,10 @@ The environment configuration strategy is complete when:
 
 Environment configuration is considered complete when:
 
-* Configuration is externalized.
-* Secrets are managed securely.
-* Startup validation prevents misconfiguration.
-* Deployment environments behave consistently.
+- Configuration is externalized.
+- Secrets are managed securely.
+- Startup validation prevents misconfiguration.
+- Deployment environments behave consistently.
 
 ---
 

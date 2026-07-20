@@ -276,12 +276,12 @@ The process of restoring a previous application version when a deployment introd
 
 Use consistent terminology throughout the project:
 
-* **Assessment** instead of "Exam" unless a specific business requirement calls for that wording.
-* **Practice Mode** instead of "Quiz Practice."
-* **Learning Source** instead of "Uploaded File."
-* **Question Bank** instead of "Question Repository."
-* **Prompt Template** instead of "AI Prompt String."
-* **AI Orchestrator** instead of "AI Service."
+- **Assessment** instead of "Exam" unless a specific business requirement calls for that wording.
+- **Practice Mode** instead of "Quiz Practice."
+- **Learning Source** instead of "Uploaded File."
+- **Question Bank** instead of "Question Repository."
+- **Prompt Template** instead of "AI Prompt String."
+- **AI Orchestrator** instead of "AI Service."
 
 ---
 
@@ -301,9 +301,9 @@ Before introducing new terminology, the AI agent should:
 
 Update this glossary whenever:
 
-* New platform concepts are introduced.
-* Existing terminology changes.
-* New abbreviations become common within the project.
-* Documentation adopts new naming conventions.
+- New platform concepts are introduced.
+- Existing terminology changes.
+- New abbreviations become common within the project.
+- Documentation adopts new naming conventions.
 
 This glossary should remain the authoritative reference for project terminology.

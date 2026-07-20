@@ -22,12 +22,12 @@ Every new feature introduced in the future must begin by documenting its workflo
 
 Each workflow should:
 
-* Start with a clear trigger.
-* Produce a measurable outcome.
-* Define decision points.
-* Handle failures gracefully.
-* Avoid unnecessary user steps.
-* Be reusable across web and mobile applications.
+- Start with a clear trigger.
+- Produce a measurable outcome.
+- Define decision points.
+- Handle failures gracefully.
+- Avoid unnecessary user steps.
+- Be reusable across web and mobile applications.
 
 ---
 
@@ -305,13 +305,13 @@ Every workflow must define expected failures.
 
 Examples:
 
-* Invalid assessment code.
-* Unsupported file type.
-* AI provider unavailable.
-* Network interruption.
-* Timer expiration.
-* Empty input.
-* Corrupted upload.
+- Invalid assessment code.
+- Unsupported file type.
+- AI provider unavailable.
+- Network interruption.
+- Timer expiration.
+- Empty input.
+- Corrupted upload.
 
 Users should receive clear, actionable messages rather than technical errors.
 
@@ -319,11 +319,11 @@ Users should receive clear, actionable messages rather than technical errors.
 
 # 12. Cross-Workflow Rules
 
-* Practice sessions do not affect assessment leaderboards.
-* Assessments always reference a Question Bank.
-* Guests cannot access creator features.
-* AI generation must always check the cache before contacting a provider.
-* Every assessment attempt must be stored before displaying final results.
+- Practice sessions do not affect assessment leaderboards.
+- Assessments always reference a Question Bank.
+- Guests cannot access creator features.
+- AI generation must always check the cache before contacting a provider.
+- Every assessment attempt must be stored before displaying final results.
 
 ---
 
@@ -343,13 +343,13 @@ Before implementing any feature, an AI agent must:
 
 Before a workflow is considered complete:
 
-* Every step is implemented.
-* Decision points are handled.
-* Success path works.
-* Failure path works.
-* Database updates are correct.
-* Security checks occur at the appropriate stage.
-* UI matches the documented flow.
+- Every step is implemented.
+- Decision points are handled.
+- Success path works.
+- Failure path works.
+- Database updates are correct.
+- Security checks occur at the appropriate stage.
+- UI matches the documented flow.
 
 ---
 
@@ -357,16 +357,16 @@ Before a workflow is considered complete:
 
 Depends on:
 
-* 00_PROJECT_OVERVIEW.md
-* 01_PRODUCT_REQUIREMENTS.md
-* 02_SYSTEM_ARCHITECTURE.md
-* 03_TECH_STACK.md
-* 04_PROJECT_STRUCTURE.md
-* 05_DATABASE_ARCHITECTURE.md
+- 00_PROJECT_OVERVIEW.md
+- 01_PRODUCT_REQUIREMENTS.md
+- 02_SYSTEM_ARCHITECTURE.md
+- 03_TECH_STACK.md
+- 04_PROJECT_STRUCTURE.md
+- 05_DATABASE_ARCHITECTURE.md
 
 Referenced by:
 
-* 07_API_SPECIFICATION.md
-* 08_SECURITY_ARCHITECTURE.md
-* 09_AI_ARCHITECTURE.md
-* All feature specification documents.
+- 07_API_SPECIFICATION.md
+- 08_SECURITY_ARCHITECTURE.md
+- 09_AI_ARCHITECTURE.md
+- All feature specification documents.

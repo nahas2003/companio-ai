@@ -19,11 +19,11 @@ The Leaderboard module presents ranked participant performance based on publishe
 
 After completing this module:
 
-* Assessment leaderboards can be generated.
-* Participants can view rankings (when enabled).
-* Administrators can filter and analyze rankings.
-* Multiple ranking strategies are supported.
-* Leaderboards update automatically when new results are published.
+- Assessment leaderboards can be generated.
+- Participants can view rankings (when enabled).
+- Administrators can filter and analyze rankings.
+- Multiple ranking strategies are supported.
+- Leaderboards update automatically when new results are published.
 
 ---
 
@@ -31,13 +31,13 @@ After completing this module:
 
 Complete before starting:
 
-* Development documents 00–11
+- Development documents 00–11
 
 Review architecture:
 
-* 18_RESULTS_AND_ANALYTICS.md
-* 12_ASSESSMENT_MODE.md
-* 21_PROJECT_CONSTITUTION.md
+- 18_RESULTS_AND_ANALYTICS.md
+- 12_ASSESSMENT_MODE.md
+- 21_PROJECT_CONSTITUTION.md
 
 ---
 
@@ -51,25 +51,25 @@ Implement a reusable leaderboard system that ranks participants using finalized 
 
 The module should support:
 
-* Global rankings
-* Assessment-specific rankings
-* Filtering
-* Pagination
-* Ranking metadata
-* Ranking refresh
+- Global rankings
+- Assessment-specific rankings
+- Filtering
+- Pagination
+- Ranking metadata
+- Ranking refresh
 
 ## Files Allowed to Modify
 
-* `src/features/leaderboard/`
-* `src/services/leaderboard/`
-* Shared ranking utilities
+- `src/features/leaderboard/`
+- `src/services/leaderboard/`
+- Shared ranking utilities
 
 ## Files That Must NOT Be Modified
 
-* Results scoring
-* Assessment Module
-* Question Bank
-* AI Orchestrator
+- Results scoring
+- Assessment Module
+- Question Bank
+- AI Orchestrator
 
 ---
 
@@ -114,11 +114,11 @@ Leaderboard data should be derived from finalized results and refreshed whenever
 
 Support configurable ranking criteria such as:
 
-* Total score
-* Percentage
-* Completion time (tie-breaker)
-* Submission time (secondary tie-breaker)
-* Assessment-specific eligibility
+- Total score
+- Percentage
+- Completion time (tie-breaker)
+- Submission time (secondary tie-breaker)
+- Assessment-specific eligibility
 
 The ranking algorithm should be deterministic and documented.
 
@@ -128,13 +128,13 @@ The ranking algorithm should be deterministic and documented.
 
 Implement:
 
-* Leaderboard page
-* Ranking table
-* Participant search
-* Filters
-* Pagination
-* Highlight current participant
-* Empty, loading, and error states
+- Leaderboard page
+- Ranking table
+- Participant search
+- Filters
+- Pagination
+- Highlight current participant
+- Empty, loading, and error states
 
 ---
 
@@ -142,11 +142,11 @@ Implement:
 
 Implement services for:
 
-* Generate rankings
-* Refresh rankings
-* Retrieve leaderboard
-* Filter rankings
-* Cache leaderboard data
+- Generate rankings
+- Refresh rankings
+- Retrieve leaderboard
+- Filter rankings
+- Cache leaderboard data
 
 Avoid recalculating rankings on every request when caching is appropriate.
 
@@ -156,10 +156,10 @@ Avoid recalculating rankings on every request when caching is appropriate.
 
 Create or verify support for:
 
-* Leaderboard snapshots (optional)
-* Ranking metadata
-* Refresh timestamps
-* Cache records (if applicable)
+- Leaderboard snapshots (optional)
+- Ranking metadata
+- Refresh timestamps
+- Cache records (if applicable)
 
 ---
 
@@ -167,10 +167,10 @@ Create or verify support for:
 
 Validate:
 
-* Assessment visibility
-* Published results availability
-* Ranking eligibility
-* Duplicate ranking entries
+- Assessment visibility
+- Published results availability
+- Ranking eligibility
+- Duplicate ranking entries
 
 ---
 
@@ -178,12 +178,12 @@ Validate:
 
 Manage:
 
-* Current leaderboard
-* Filters
-* Search
-* Pagination
-* Loading state
-* Error state
+- Current leaderboard
+- Filters
+- Search
+- Pagination
+- Loading state
+- Error state
 
 ---
 
@@ -191,9 +191,9 @@ Manage:
 
 Ensure:
 
-* Leaderboards are visible only when enabled.
-* Participant privacy settings are respected.
-* Administrative ranking tools require appropriate permissions.
+- Leaderboards are visible only when enabled.
+- Participant privacy settings are respected.
+- Administrative ranking tools require appropriate permissions.
 
 ---
 
@@ -201,11 +201,11 @@ Ensure:
 
 The Leaderboard should provide:
 
-* Fast loading
-* Clear ranking positions
-* Easy filtering
-* Responsive layout
-* Accessible navigation
+- Fast loading
+- Clear ranking positions
+- Easy filtering
+- Responsive layout
+- Accessible navigation
 
 ---
 
@@ -213,12 +213,12 @@ The Leaderboard should provide:
 
 Verify:
 
-* Rankings are generated correctly.
-* Tie-breakers behave as expected.
-* Filters work.
-* Pagination works.
-* Privacy settings are enforced.
-* Cache refresh behaves correctly.
+- Rankings are generated correctly.
+- Tie-breakers behave as expected.
+- Filters work.
+- Pagination works.
+- Privacy settings are enforced.
+- Cache refresh behaves correctly.
 
 ---
 
@@ -226,10 +226,10 @@ Verify:
 
 The module is complete when:
 
-* Rankings accurately reflect published results.
-* Filters and pagination function correctly.
-* Privacy and permissions are enforced.
-* Tests pass.
+- Rankings accurately reflect published results.
+- Filters and pagination function correctly.
+- Privacy and permissions are enforced.
+- Tests pass.
 
 ---
 
@@ -237,10 +237,10 @@ The module is complete when:
 
 Avoid:
 
-* Recalculating scores.
-* Ignoring privacy settings.
-* Exposing unpublished results.
-* Hardcoding ranking rules.
+- Recalculating scores.
+- Ignoring privacy settings.
+- Exposing unpublished results.
+- Hardcoding ranking rules.
 
 ---
 
@@ -248,9 +248,9 @@ Avoid:
 
 The Leaderboard module is complete when:
 
-* Rankings are reliable.
-* The module depends only on finalized results.
-* Performance remains acceptable with large datasets.
+- Rankings are reliable.
+- The module depends only on finalized results.
+- Performance remains acceptable with large datasets.
 
 ---
 

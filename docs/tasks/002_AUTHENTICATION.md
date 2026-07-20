@@ -22,11 +22,11 @@ No business-specific functionality (such as Question Bank, Practice Mode, or Ass
 
 At the end of this task, users should be able to:
 
-* Sign in securely.
-* Sign out.
-* Maintain authenticated sessions.
-* Access protected routes.
-* Be redirected appropriately based on authentication state.
+- Sign in securely.
+- Sign out.
+- Maintain authenticated sessions.
+- Access protected routes.
+- Be redirected appropriately based on authentication state.
 
 ---
 
@@ -34,12 +34,12 @@ At the end of this task, users should be able to:
 
 Included:
 
-* Authentication
-* Session management
-* Route protection
-* User identity
-* Authentication state
-* Basic profile creation (if required)
+- Authentication
+- Session management
+- Route protection
+- User identity
+- Authentication state
+- Basic profile creation (if required)
 
 ---
 
@@ -47,14 +47,14 @@ Included:
 
 Do **not** implement:
 
-* Dashboard content
-* User profile editing
-* RBAC (handled in the next task)
-* AI features
-* Question Bank
-* Practice Mode
-* Assessments
-* Notifications
+- Dashboard content
+- User profile editing
+- RBAC (handled in the next task)
+- AI features
+- Question Bank
+- Practice Mode
+- Assessments
+- Notifications
 
 ---
 
@@ -64,18 +64,18 @@ Before implementation, review:
 
 ## Architecture
 
-* 00_MASTER_PROJECT_SPECIFICATION.md
-* 01_SYSTEM_ARCHITECTURE.md
-* Authentication-related architecture document(s)
-* 21_PROJECT_CONSTITUTION.md
+- 00_MASTER_PROJECT_SPECIFICATION.md
+- 01_SYSTEM_ARCHITECTURE.md
+- Authentication-related architecture document(s)
+- 21_PROJECT_CONSTITUTION.md
 
 ## Development
 
-* 16_CODING_STANDARDS.md
-* 18_ENVIRONMENT_CONFIGURATION.md
-* 19_ERROR_HANDLING.md
-* 22_SECURITY_CHECKLIST.md
-* 24_AI_AGENT_WORKFLOW.md
+- 16_CODING_STANDARDS.md
+- 18_ENVIRONMENT_CONFIGURATION.md
+- 19_ERROR_HANDLING.md
+- 22_SECURITY_CHECKLIST.md
+- 24_AI_AGENT_WORKFLOW.md
 
 ---
 
@@ -85,10 +85,10 @@ Task **001_PROJECT_SETUP.md** must be completed successfully.
 
 Verify:
 
-* Project builds successfully.
-* Environment variables are configured.
-* Supabase project is connected.
-* Local development environment is operational.
+- Project builds successfully.
+- Environment variables are configured.
+- Supabase project is connected.
+- Local development environment is operational.
 
 ---
 
@@ -96,15 +96,15 @@ Verify:
 
 The AI may modify files related to:
 
-* Authentication components
-* Authentication services
-* Session management
-* Authentication middleware
-* Login page
-* Logout functionality
-* Authentication hooks
-* Shared authentication utilities
-* Configuration files directly related to authentication
+- Authentication components
+- Authentication services
+- Session management
+- Authentication middleware
+- Login page
+- Logout functionality
+- Authentication hooks
+- Shared authentication utilities
+- Configuration files directly related to authentication
 
 ---
 
@@ -112,14 +112,14 @@ The AI may modify files related to:
 
 Do **not** modify:
 
-* AI modules
-* Question Bank
-* Practice Mode
-* Assessment modules
-* Results
-* Leaderboard
-* Notifications
-* Admin features
+- AI modules
+- Question Bank
+- Practice Mode
+- Assessment modules
+- Results
+- Leaderboard
+- Notifications
+- Admin features
 
 If a dependency is discovered outside this scope, document it instead of implementing it.
 
@@ -129,11 +129,11 @@ If a dependency is discovered outside this scope, document it instead of impleme
 
 Allowed:
 
-* User table (if required by the architecture)
-* Profile table (if applicable)
-* Authentication-related migrations
-* Required indexes
-* Row-Level Security (RLS) policies for authentication
+- User table (if required by the architecture)
+- Profile table (if applicable)
+- Authentication-related migrations
+- Required indexes
+- Row-Level Security (RLS) policies for authentication
 
 Do not create tables for business modules.
 
@@ -151,13 +151,13 @@ Do not expose business APIs.
 
 Implement:
 
-* Login page
-* Logout flow
-* Authentication state management
-* Protected route handling
-* Session persistence
-* Loading states
-* Authentication error handling
+- Login page
+- Logout flow
+- Authentication state management
+- Protected route handling
+- Session persistence
+- Loading states
+- Authentication error handling
 
 ---
 
@@ -165,13 +165,13 @@ Implement:
 
 Implement:
 
-* Authentication service
-* Session validation
-* Token verification
-* User retrieval
-* Authentication middleware
-* Error handling
-* Logging for authentication events
+- Authentication service
+- Session validation
+- Token verification
+- User retrieval
+- Authentication middleware
+- Error handling
+- Logging for authentication events
 
 ---
 
@@ -179,26 +179,26 @@ Implement:
 
 The AI must:
 
-* Follow existing architecture.
-* Keep authentication modular.
-* Avoid hardcoded secrets.
-* Validate all inputs.
-* Use centralized error handling.
-* Produce maintainable code.
-* Avoid introducing unrelated features.
+- Follow existing architecture.
+- Keep authentication modular.
+- Avoid hardcoded secrets.
+- Validate all inputs.
+- Use centralized error handling.
+- Produce maintainable code.
+- Avoid introducing unrelated features.
 
 ---
 
 # 14. Implementation Checklist
 
-* Authentication configured
-* Login implemented
-* Logout implemented
-* Session persistence verified
-* Protected routes enforced
-* Authentication middleware operational
-* Error handling implemented
-* Logging added where appropriate
+- Authentication configured
+- Login implemented
+- Logout implemented
+- Session persistence verified
+- Protected routes enforced
+- Authentication middleware operational
+- Error handling implemented
+- Logging added where appropriate
 
 ---
 
@@ -206,14 +206,14 @@ The AI must:
 
 Verify:
 
-* Successful login
-* Invalid login handling
-* Logout flow
-* Session restoration after refresh
-* Protected routes reject unauthenticated users
-* Authenticated users access protected routes
-* Error messages are appropriate
-* Security requirements are satisfied
+- Successful login
+- Invalid login handling
+- Logout flow
+- Session restoration after refresh
+- Protected routes reject unauthenticated users
+- Authenticated users access protected routes
+- Error messages are appropriate
+- Security requirements are satisfied
 
 ---
 
@@ -221,11 +221,11 @@ Verify:
 
 This task is complete when:
 
-* Authentication works end-to-end.
-* Sessions are managed correctly.
-* Protected routes are enforced.
-* Code complies with project standards.
-* No unrelated modules are modified.
+- Authentication works end-to-end.
+- Sessions are managed correctly.
+- Protected routes are enforced.
+- Code complies with project standards.
+- No unrelated modules are modified.
 
 ---
 
@@ -233,11 +233,11 @@ This task is complete when:
 
 Authentication is considered complete when:
 
-* Users can authenticate successfully.
-* Sessions persist correctly.
-* Authentication failures are handled gracefully.
-* Documentation remains consistent.
-* All tests pass.
+- Users can authenticate successfully.
+- Sessions persist correctly.
+- Authentication failures are handled gracefully.
+- Documentation remains consistent.
+- All tests pass.
 
 ---
 
@@ -245,13 +245,13 @@ Authentication is considered complete when:
 
 Expected outputs:
 
-* Authentication module
-* Login interface
-* Logout functionality
-* Session management
-* Protected routing
-* Authentication services
-* Supporting tests
+- Authentication module
+- Login interface
+- Logout functionality
+- Session management
+- Protected routing
+- Authentication services
+- Supporting tests
 
 ---
 

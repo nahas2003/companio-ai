@@ -19,12 +19,12 @@ The objective is to ensure responsive user experiences, efficient resource utili
 
 After following these guidelines:
 
-* User interactions remain responsive.
-* APIs respond efficiently.
-* Database queries scale effectively.
-* AI workflows execute reliably.
-* Resource consumption is optimized.
-* Performance regressions are identified early.
+- User interactions remain responsive.
+- APIs respond efficiently.
+- Database queries scale effectively.
+- AI workflows execute reliably.
+- Resource consumption is optimized.
+- Performance regressions are identified early.
 
 ---
 
@@ -32,11 +32,11 @@ After following these guidelines:
 
 Follow these principles:
 
-* Measure before optimizing.
-* Optimize the highest-impact bottlenecks first.
-* Avoid premature optimization.
-* Design for scalability from the beginning.
-* Prefer simplicity over unnecessary complexity.
+- Measure before optimizing.
+- Optimize the highest-impact bottlenecks first.
+- Avoid premature optimization.
+- Design for scalability from the beginning.
+- Prefer simplicity over unnecessary complexity.
 
 ---
 
@@ -44,13 +44,13 @@ Follow these principles:
 
 Optimize:
 
-* Route-based code splitting
-* Lazy loading
-* Image optimization
-* Asset compression
-* Memoization where appropriate
-* Efficient state updates
-* Virtualized rendering for large lists
+- Route-based code splitting
+- Lazy loading
+- Image optimization
+- Asset compression
+- Memoization where appropriate
+- Efficient state updates
+- Virtualized rendering for large lists
 
 Avoid unnecessary re-renders and oversized client bundles.
 
@@ -60,11 +60,11 @@ Avoid unnecessary re-renders and oversized client bundles.
 
 Design services to:
 
-* Minimize database round trips.
-* Reuse shared resources.
-* Batch operations where appropriate.
-* Handle concurrent requests efficiently.
-* Avoid blocking operations.
+- Minimize database round trips.
+- Reuse shared resources.
+- Batch operations where appropriate.
+- Handle concurrent requests efficiently.
+- Avoid blocking operations.
 
 Prefer asynchronous processing for long-running tasks.
 
@@ -74,12 +74,12 @@ Prefer asynchronous processing for long-running tasks.
 
 Ensure:
 
-* Proper indexing
-* Efficient queries
-* Pagination for large datasets
-* Transaction efficiency
-* Connection pooling
-* Query monitoring
+- Proper indexing
+- Efficient queries
+- Pagination for large datasets
+- Transaction efficiency
+- Connection pooling
+- Query monitoring
 
 Review slow queries regularly and optimize them based on measured impact.
 
@@ -89,11 +89,11 @@ Review slow queries regularly and optimize them based on measured impact.
 
 Guidelines:
 
-* Return only required fields.
-* Use pagination for collections.
-* Support filtering and sorting efficiently.
-* Compress responses where appropriate.
-* Keep contracts stable.
+- Return only required fields.
+- Use pagination for collections.
+- Support filtering and sorting efficiently.
+- Compress responses where appropriate.
+- Keep contracts stable.
 
 Avoid over-fetching and under-fetching data.
 
@@ -103,11 +103,11 @@ Avoid over-fetching and under-fetching data.
 
 Optimize:
 
-* Workflow scheduling
-* Parallel processing where safe
-* Provider timeout configuration
-* Retry limits
-* Response validation efficiency
+- Workflow scheduling
+- Parallel processing where safe
+- Provider timeout configuration
+- Retry limits
+- Response validation efficiency
 
 Cache reusable artifacts when appropriate to reduce repeated AI work.
 
@@ -117,11 +117,11 @@ Cache reusable artifacts when appropriate to reduce repeated AI work.
 
 Consider caching for:
 
-* Frequently accessed metadata
-* Dashboard summaries
-* Leaderboards
-* Configuration
-* Static content
+- Frequently accessed metadata
+- Dashboard summaries
+- Leaderboards
+- Configuration
+- Static content
 
 Clearly define cache invalidation rules to prevent stale data.
 
@@ -131,10 +131,10 @@ Clearly define cache invalidation rules to prevent stale data.
 
 Move long-running tasks such as:
 
-* AI content generation
-* Bulk imports
-* Email sending
-* Report generation
+- AI content generation
+- Bulk imports
+- Email sending
+- Report generation
 
 into background workers where practical.
 
@@ -144,10 +144,10 @@ into background workers where practical.
 
 For uploads and downloads:
 
-* Stream large files when appropriate.
-* Validate file size before processing.
-* Avoid loading large files entirely into memory.
-* Clean up temporary files promptly.
+- Stream large files when appropriate.
+- Validate file size before processing.
+- Avoid loading large files entirely into memory.
+- Clean up temporary files promptly.
 
 ---
 
@@ -155,11 +155,11 @@ For uploads and downloads:
 
 Design modules to support:
 
-* Horizontal scaling
-* Stateless application services
-* Shared storage
-* External session management (if required)
-* Independent scaling of AI workers
+- Horizontal scaling
+- Stateless application services
+- Shared storage
+- External session management (if required)
+- Independent scaling of AI workers
 
 Avoid assumptions that only a single application instance exists.
 
@@ -169,11 +169,11 @@ Avoid assumptions that only a single application instance exists.
 
 Monitor:
 
-* CPU utilization
-* Memory usage
-* Database connections
-* Storage consumption
-* Network bandwidth
+- CPU utilization
+- Memory usage
+- Database connections
+- Storage consumption
+- Network bandwidth
 
 Set thresholds for operational alerts.
 
@@ -183,12 +183,12 @@ Set thresholds for operational alerts.
 
 Measure:
 
-* Page load time
-* API latency
-* Database response time
-* AI workflow duration
-* Assessment start time
-* Concurrent user handling
+- Page load time
+- API latency
+- Database response time
+- AI workflow duration
+- Assessment start time
+- Concurrent user handling
 
 Run performance tests before major releases.
 
@@ -198,12 +198,12 @@ Run performance tests before major releases.
 
 Track:
 
-* Slow queries
-* Slow API endpoints
-* Memory growth
-* Cache hit rate
-* Background job duration
-* AI provider latency
+- Slow queries
+- Slow API endpoints
+- Memory growth
+- Cache hit rate
+- Background job duration
+- AI provider latency
 
 Review trends regularly.
 
@@ -213,11 +213,11 @@ Review trends regularly.
 
 Avoid:
 
-* Fetching unnecessary data.
-* Ignoring N+1 query problems.
-* Rendering large datasets without pagination.
-* Blocking request threads with long-running operations.
-* Optimizing without measurement.
+- Fetching unnecessary data.
+- Ignoring N+1 query problems.
+- Rendering large datasets without pagination.
+- Blocking request threads with long-running operations.
+- Optimizing without measurement.
 
 ---
 
@@ -225,10 +225,10 @@ Avoid:
 
 Performance guidelines are successfully adopted when:
 
-* Critical workflows meet defined performance targets.
-* Monitoring identifies regressions.
-* Caching is used appropriately.
-* Scalability considerations are incorporated into architecture.
+- Critical workflows meet defined performance targets.
+- Monitoring identifies regressions.
+- Caching is used appropriately.
+- Scalability considerations are incorporated into architecture.
 
 ---
 
@@ -236,10 +236,10 @@ Performance guidelines are successfully adopted when:
 
 Performance strategy is considered complete when:
 
-* Performance requirements are documented.
-* Monitoring is implemented.
-* Testing validates critical workflows.
-* Optimization decisions are evidence-based.
+- Performance requirements are documented.
+- Monitoring is implemented.
+- Testing validates critical workflows.
+- Optimization decisions are evidence-based.
 
 ---
 
@@ -247,13 +247,13 @@ Performance strategy is considered complete when:
 
 These targets should be refined during implementation:
 
-* Dashboard initial load: **< 2 seconds**
-* Standard API response: **< 300 ms**
-* Authentication: **< 1 second**
-* Assessment start: **< 2 seconds**
-* Question navigation: **< 200 ms**
-* AI workflow initiation: **< 1 second**
-* Background job processing: Based on workload and queue priority
+- Dashboard initial load: **< 2 seconds**
+- Standard API response: **< 300 ms**
+- Authentication: **< 1 second**
+- Assessment start: **< 2 seconds**
+- Question navigation: **< 200 ms**
+- AI workflow initiation: **< 1 second**
+- Background job processing: Based on workload and queue priority
 
 Targets should be measured in realistic environments and reviewed periodically.
 

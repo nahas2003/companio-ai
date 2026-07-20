@@ -21,13 +21,13 @@ This module manages questions—it does not generate them.
 
 After completing this module:
 
-* Question Banks can be created and managed.
-* AI-generated questions can be imported.
-* Manual questions can be added.
-* Questions can be edited and reviewed.
-* Versions are maintained.
-* Search and filtering are supported.
-* Question Banks can be reused across multiple assessments.
+- Question Banks can be created and managed.
+- AI-generated questions can be imported.
+- Manual questions can be added.
+- Questions can be edited and reviewed.
+- Versions are maintained.
+- Search and filtering are supported.
+- Question Banks can be reused across multiple assessments.
 
 ---
 
@@ -35,21 +35,21 @@ After completing this module:
 
 Complete before starting:
 
-* 00_MASTER_DEVELOPMENT_PLAN.md
-* 01_PROJECT_SETUP.md
-* 02_DATABASE_SETUP.md
-* 03_AUTHENTICATION.md
-* 04_AI_ORCHESTRATOR.md
-* 05_SOURCE_MANAGEMENT.md
-* 06_CONTENT_INGESTION.md
-* 07_AI_CONTENT_PROCESSING.md
+- 00_MASTER_DEVELOPMENT_PLAN.md
+- 01_PROJECT_SETUP.md
+- 02_DATABASE_SETUP.md
+- 03_AUTHENTICATION.md
+- 04_AI_ORCHESTRATOR.md
+- 05_SOURCE_MANAGEMENT.md
+- 06_CONTENT_INGESTION.md
+- 07_AI_CONTENT_PROCESSING.md
 
 Review architecture:
 
-* 15_QUESTION_BANK.md
-* 12_ASSESSMENT_MODE.md
-* 11_PRACTICE_MODE.md
-* 21_PROJECT_CONSTITUTION.md
+- 15_QUESTION_BANK.md
+- 12_ASSESSMENT_MODE.md
+- 11_PRACTICE_MODE.md
+- 21_PROJECT_CONSTITUTION.md
 
 ---
 
@@ -63,29 +63,29 @@ Implement a reusable Question Bank management system that stores, organizes, sea
 
 A complete Question Bank module with:
 
-* CRUD operations
-* Version management
-* Question review
-* Search
-* Filtering
-* Import from AI workflows
-* Manual question creation
-* Question reuse
+- CRUD operations
+- Version management
+- Question review
+- Search
+- Filtering
+- Import from AI workflows
+- Manual question creation
+- Question reuse
 
 ## Files Allowed to Modify
 
-* `src/features/question-bank/`
-* `src/services/question-bank/`
-* Shared schemas
-* Shared validation utilities
+- `src/features/question-bank/`
+- `src/services/question-bank/`
+- Shared schemas
+- Shared validation utilities
 
 ## Files That Must NOT Be Modified
 
-* AI Orchestrator
-* AI Content Processing
-* Assessment Engine
-* Results
-* Leaderboard
+- AI Orchestrator
+- AI Content Processing
+- Assessment Engine
+- Results
+- Leaderboard
 
 ---
 
@@ -135,12 +135,12 @@ Questions should only be used in published assessments when they are in an appro
 
 Support at least:
 
-* Multiple Choice (Single Answer)
-* Multiple Choice (Multiple Answers)
-* True / False
-* Fill in the Blank
-* Short Answer (future-ready)
-* Descriptive (future-ready)
+- Multiple Choice (Single Answer)
+- Multiple Choice (Multiple Answers)
+- True / False
+- Fill in the Blank
+- Short Answer (future-ready)
+- Descriptive (future-ready)
 
 Design the model so additional question types can be added without modifying existing logic.
 
@@ -150,18 +150,18 @@ Design the model so additional question types can be added without modifying exi
 
 Implement:
 
-* Question Bank list
-* Create Question Bank page
-* Question Bank details
-* Question editor
-* Manual question creation
-* AI import interface
-* Search
-* Filters
-* Pagination
-* Bulk actions
-* Review status indicators
-* Empty, loading, and error states
+- Question Bank list
+- Create Question Bank page
+- Question Bank details
+- Question editor
+- Manual question creation
+- AI import interface
+- Search
+- Filters
+- Pagination
+- Bulk actions
+- Review status indicators
+- Empty, loading, and error states
 
 The UI should support efficient management of large collections.
 
@@ -171,16 +171,16 @@ The UI should support efficient management of large collections.
 
 Implement services for:
 
-* Create Question Bank
-* Retrieve Question Bank
-* Update Question Bank
-* Delete or Archive Question Bank
-* Add Question
-* Update Question
-* Remove Question
-* Import AI-generated questions
-* Version Question Bank
-* Search and filter questions
+- Create Question Bank
+- Retrieve Question Bank
+- Update Question Bank
+- Delete or Archive Question Bank
+- Add Question
+- Update Question
+- Remove Question
+- Import AI-generated questions
+- Version Question Bank
+- Search and filter questions
 
 All operations must enforce ownership and permissions.
 
@@ -190,13 +190,13 @@ All operations must enforce ownership and permissions.
 
 Create or verify support for:
 
-* Question Bank entity
-* Question entity
-* Question versions
-* Tags
-* Difficulty levels
-* Review status
-* Metadata
+- Question Bank entity
+- Question entity
+- Question versions
+- Tags
+- Difficulty levels
+- Review status
+- Metadata
 
 Ensure relationships support reuse across multiple assessments.
 
@@ -206,13 +206,13 @@ Ensure relationships support reuse across multiple assessments.
 
 Validate:
 
-* Question text
-* Answer options
-* Correct answer(s)
-* Difficulty value
-* Question type
-* Duplicate questions
-* Required metadata
+- Question text
+- Answer options
+- Correct answer(s)
+- Difficulty value
+- Question type
+- Duplicate questions
+- Required metadata
 
 Reject incomplete or inconsistent questions.
 
@@ -222,14 +222,14 @@ Reject incomplete or inconsistent questions.
 
 Manage:
 
-* Question Bank list
-* Selected Question Bank
-* Question collection
-* Filters
-* Search query
-* Pagination
-* Editing state
-* Validation errors
+- Question Bank list
+- Selected Question Bank
+- Question collection
+- Filters
+- Search query
+- Pagination
+- Editing state
+- Validation errors
 
 Keep state synchronized with backend changes.
 
@@ -239,12 +239,12 @@ Keep state synchronized with backend changes.
 
 Implement operations for:
 
-* CRUD Question Banks
-* CRUD Questions
-* Import AI output
-* Versioning
-* Search
-* Filtering
+- CRUD Question Banks
+- CRUD Questions
+- Import AI output
+- Versioning
+- Search
+- Filtering
 
 API contracts should remain stable for future web and mobile clients.
 
@@ -254,10 +254,10 @@ API contracts should remain stable for future web and mobile clients.
 
 Ensure:
 
-* Only authorized users can modify Question Banks.
-* Read permissions follow ownership or sharing rules.
-* Input is validated and sanitized.
-* Archived Question Banks cannot be modified without restoration.
+- Only authorized users can modify Question Banks.
+- Read permissions follow ownership or sharing rules.
+- Input is validated and sanitized.
+- Archived Question Banks cannot be modified without restoration.
 
 Never rely solely on client-side authorization.
 
@@ -267,12 +267,12 @@ Never rely solely on client-side authorization.
 
 The interface should provide:
 
-* Fast navigation
-* Efficient editing
-* Bulk selection
-* Search as you type (where appropriate)
-* Clear review status
-* Undo opportunities for non-destructive actions when feasible
+- Fast navigation
+- Efficient editing
+- Bulk selection
+- Search as you type (where appropriate)
+- Clear review status
+- Undo opportunities for non-destructive actions when feasible
 
 ---
 
@@ -280,14 +280,14 @@ The interface should provide:
 
 Verify:
 
-* Question Bank creation works.
-* Manual question creation works.
-* AI import succeeds.
-* Editing updates correctly.
-* Search returns expected results.
-* Filters behave correctly.
-* Version history is maintained.
-* Unauthorized access is blocked.
+- Question Bank creation works.
+- Manual question creation works.
+- AI import succeeds.
+- Editing updates correctly.
+- Search returns expected results.
+- Filters behave correctly.
+- Version history is maintained.
+- Unauthorized access is blocked.
 
 ---
 
@@ -295,12 +295,12 @@ Verify:
 
 The module is complete when:
 
-* Question Banks can be fully managed.
-* AI-generated questions can be imported.
-* Manual questions can be created and edited.
-* Versioning works.
-* Search and filtering perform correctly.
-* Tests pass.
+- Question Banks can be fully managed.
+- AI-generated questions can be imported.
+- Manual questions can be created and edited.
+- Versioning works.
+- Search and filtering perform correctly.
+- Tests pass.
 
 ---
 
@@ -308,11 +308,11 @@ The module is complete when:
 
 Avoid:
 
-* Regenerating AI content inside this module.
-* Mixing Question Bank logic with Assessment logic.
-* Allowing edits to immutable published versions.
-* Storing provider-specific AI data with questions.
-* Skipping validation of imported questions.
+- Regenerating AI content inside this module.
+- Mixing Question Bank logic with Assessment logic.
+- Allowing edits to immutable published versions.
+- Storing provider-specific AI data with questions.
+- Skipping validation of imported questions.
 
 ---
 
@@ -320,10 +320,10 @@ Avoid:
 
 The Question Bank module is complete when:
 
-* It acts as the single source of truth for reusable questions.
-* It supports review and versioning.
-* It integrates cleanly with Practice Mode and Assessment Templates.
-* It follows project architecture and standards.
+- It acts as the single source of truth for reusable questions.
+- It supports review and versioning.
+- It integrates cleanly with Practice Mode and Assessment Templates.
+- It follows project architecture and standards.
 
 ---
 

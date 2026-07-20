@@ -19,11 +19,11 @@ The objective is to provide visibility into application behavior, operational he
 
 After implementing this strategy:
 
-* Important events are logged consistently.
-* System health is continuously monitored.
-* Operational issues are detected quickly.
-* AI workflows are observable.
-* Alerts are generated for critical failures.
+- Important events are logged consistently.
+- System health is continuously monitored.
+- Operational issues are detected quickly.
+- AI workflows are observable.
+- Alerts are generated for critical failures.
 
 ---
 
@@ -31,12 +31,12 @@ After implementing this strategy:
 
 Follow these principles:
 
-* Log meaningful events.
-* Use structured logs.
-* Include contextual metadata.
-* Avoid duplicate logging.
-* Protect sensitive information.
-* Maintain consistent log formats.
+- Log meaningful events.
+- Use structured logs.
+- Include contextual metadata.
+- Avoid duplicate logging.
+- Protect sensitive information.
+- Maintain consistent log formats.
 
 ---
 
@@ -44,11 +44,11 @@ Follow these principles:
 
 Use standardized severity levels:
 
-* **DEBUG** – Detailed diagnostic information for development.
-* **INFO** – Normal application events.
-* **WARN** – Recoverable issues or unexpected conditions.
-* **ERROR** – Failures requiring investigation.
-* **FATAL** – Critical failures threatening application availability.
+- **DEBUG** – Detailed diagnostic information for development.
+- **INFO** – Normal application events.
+- **WARN** – Recoverable issues or unexpected conditions.
+- **ERROR** – Failures requiring investigation.
+- **FATAL** – Critical failures threatening application availability.
 
 Configure log verbosity per environment.
 
@@ -58,15 +58,15 @@ Configure log verbosity per environment.
 
 Log events such as:
 
-* Application startup and shutdown
-* User authentication events
-* Assessment lifecycle events
-* Practice session lifecycle
-* AI workflow execution
-* Background jobs
-* Deployment events
-* Configuration validation
-* Unexpected exceptions
+- Application startup and shutdown
+- User authentication events
+- Assessment lifecycle events
+- Practice session lifecycle
+- AI workflow execution
+- Background jobs
+- Deployment events
+- Configuration validation
+- Unexpected exceptions
 
 Avoid excessive logging of routine operations.
 
@@ -76,12 +76,12 @@ Avoid excessive logging of routine operations.
 
 Never log:
 
-* Passwords
-* API keys
-* Authentication tokens
-* Personally sensitive information
-* Payment information
-* Raw secrets
+- Passwords
+- API keys
+- Authentication tokens
+- Personally sensitive information
+- Payment information
+- Raw secrets
 
 Redact sensitive values before writing logs.
 
@@ -91,15 +91,15 @@ Redact sensitive values before writing logs.
 
 Every log entry should include:
 
-* Timestamp
-* Severity level
-* Module or feature
-* Correlation/request ID
-* User ID (when appropriate)
-* Session ID (when available)
-* Environment
-* Message
-* Additional metadata
+- Timestamp
+- Severity level
+- Module or feature
+- Correlation/request ID
+- User ID (when appropriate)
+- Session ID (when available)
+- Environment
+- Message
+- Additional metadata
 
 Use a consistent machine-readable format.
 
@@ -109,15 +109,15 @@ Use a consistent machine-readable format.
 
 Continuously monitor:
 
-* Application uptime
-* API availability
-* Database health
-* Authentication service
-* AI provider availability
-* Background jobs
-* Queue processing (future-ready)
-* Storage service
-* Resource utilization
+- Application uptime
+- API availability
+- Database health
+- Authentication service
+- AI provider availability
+- Background jobs
+- Queue processing (future-ready)
+- Storage service
+- Resource utilization
 
 Monitoring should detect issues before users report them.
 
@@ -127,12 +127,12 @@ Monitoring should detect issues before users report them.
 
 Implement health checks for:
 
-* Application status
-* Database connectivity
-* Storage connectivity
-* Authentication provider
-* AI Orchestrator readiness
-* External service dependencies
+- Application status
+- Database connectivity
+- Storage connectivity
+- Authentication provider
+- AI Orchestrator readiness
+- External service dependencies
 
 Provide lightweight endpoints for automated monitoring systems.
 
@@ -142,14 +142,14 @@ Provide lightweight endpoints for automated monitoring systems.
 
 Collect metrics for:
 
-* API response times
-* Request volume
-* Error rates
-* Assessment completion rate
-* AI workflow duration
-* Question generation success rate
-* Active users
-* Database query performance
+- API response times
+- Request volume
+- Error rates
+- Assessment completion rate
+- AI workflow duration
+- Question generation success rate
+- Active users
+- Database query performance
 
 Track trends over time to identify regressions.
 
@@ -159,13 +159,13 @@ Track trends over time to identify regressions.
 
 Generate alerts for:
 
-* Application downtime
-* High error rates
-* Database failures
-* Authentication failures
-* AI workflow failures
-* Deployment failures
-* Resource exhaustion
+- Application downtime
+- High error rates
+- Database failures
+- Authentication failures
+- AI workflow failures
+- Deployment failures
+- Resource exhaustion
 
 Alerts should include sufficient context for rapid investigation.
 
@@ -175,13 +175,13 @@ Alerts should include sufficient context for rapid investigation.
 
 Create operational dashboards showing:
 
-* System health
-* API performance
-* Active users
-* AI workflow statistics
-* Error trends
-* Deployment status
-* Resource usage
+- System health
+- API performance
+- Active users
+- AI workflow statistics
+- Error trends
+- Deployment status
+- Resource usage
 
 Dashboards should be easy to understand and updated automatically.
 
@@ -191,10 +191,10 @@ Dashboards should be easy to understand and updated automatically.
 
 Define retention policies for:
 
-* Application logs
-* Security logs
-* Audit logs
-* AI workflow logs
+- Application logs
+- Security logs
+- Audit logs
+- AI workflow logs
 
 Retention periods should balance operational needs with storage costs and compliance requirements.
 
@@ -204,11 +204,11 @@ Retention periods should balance operational needs with storage costs and compli
 
 Track security-related events such as:
 
-* Failed login attempts
-* Unauthorized access attempts
-* Permission changes
-* Suspicious activity
-* Configuration changes
+- Failed login attempts
+- Unauthorized access attempts
+- Permission changes
+- Suspicious activity
+- Configuration changes
 
 Investigate repeated or unusual patterns promptly.
 
@@ -218,15 +218,15 @@ Investigate repeated or unusual patterns promptly.
 
 Record for each AI workflow:
 
-* Workflow ID
-* Start time
-* Completion time
-* Duration
-* Provider used
-* Model used
-* Retry count
-* Success or failure status
-* Validation outcome
+- Workflow ID
+- Start time
+- Completion time
+- Duration
+- Provider used
+- Model used
+- Retry count
+- Success or failure status
+- Validation outcome
 
 Do not log prompts or generated content if doing so would expose sensitive information.
 
@@ -236,13 +236,13 @@ Do not log prompts or generated content if doing so would expose sensitive infor
 
 Verify:
 
-* Logs are generated correctly.
-* Log levels behave as expected.
-* Sensitive data is redacted.
-* Health checks return accurate status.
-* Metrics are collected.
-* Alerts trigger correctly.
-* Monitoring dashboards update as expected.
+- Logs are generated correctly.
+- Log levels behave as expected.
+- Sensitive data is redacted.
+- Health checks return accurate status.
+- Metrics are collected.
+- Alerts trigger correctly.
+- Monitoring dashboards update as expected.
 
 ---
 
@@ -250,11 +250,11 @@ Verify:
 
 Avoid:
 
-* Logging confidential information.
-* Using inconsistent log formats.
-* Ignoring warning-level events.
-* Creating excessive log volume.
-* Failing to monitor AI workflows.
+- Logging confidential information.
+- Using inconsistent log formats.
+- Ignoring warning-level events.
+- Creating excessive log volume.
+- Failing to monitor AI workflows.
 
 ---
 
@@ -262,11 +262,11 @@ Avoid:
 
 The logging and monitoring strategy is complete when:
 
-* Structured logging is implemented.
-* Health checks are available.
-* Metrics are collected consistently.
-* Critical alerts are configured.
-* Operational dashboards provide meaningful visibility.
+- Structured logging is implemented.
+- Health checks are available.
+- Metrics are collected consistently.
+- Critical alerts are configured.
+- Operational dashboards provide meaningful visibility.
 
 ---
 
@@ -274,11 +274,11 @@ The logging and monitoring strategy is complete when:
 
 Logging and monitoring are considered complete when:
 
-* Operational visibility is available.
-* Failures can be diagnosed efficiently.
-* AI workflows are observable.
-* Security events are monitored.
-* Production support requirements are satisfied.
+- Operational visibility is available.
+- Failures can be diagnosed efficiently.
+- AI workflows are observable.
+- Security events are monitored.
+- Production support requirements are satisfied.
 
 ---
 

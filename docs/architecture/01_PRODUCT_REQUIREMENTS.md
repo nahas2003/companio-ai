@@ -23,18 +23,18 @@ Any implementation must follow this document.
 
 Companio is an AI-powered assessment platform that enables users to generate quizzes from:
 
-* Topics
-* Notes
-* PDF documents
+- Topics
+- Notes
+- PDF documents
 
 Users can:
 
-* Practice individually
-* Create live assessments
-* Share assessment codes
-* Allow participants to join instantly
-* View live leaderboard
-* Save progress (registered users)
+- Practice individually
+- Create live assessments
+- Share assessment codes
+- Allow participants to join instantly
+- View live leaderboard
+- Save progress (registered users)
 
 ---
 
@@ -42,13 +42,13 @@ Users can:
 
 The MVP should:
 
-* Minimize clicks required to start an assessment.
-* Generate high-quality MCQs using AI.
-* Support guest participation.
-* Allow optional user registration.
-* Be responsive across desktop and mobile.
-* Be secure by default.
-* Be modular and maintainable.
+- Minimize clicks required to start an assessment.
+- Generate high-quality MCQs using AI.
+- Support guest participation.
+- Allow optional user registration.
+- Be responsive across desktop and mobile.
+- Be secure by default.
+- Be modular and maintainable.
 
 ---
 
@@ -58,14 +58,14 @@ The MVP should:
 
 Goals
 
-* Join quickly
-* Complete assessment
-* View ranking
+- Join quickly
+- Complete assessment
+- View ranking
 
 Pain Points
 
-* Doesn't want registration
-* Wants immediate access
+- Doesn't want registration
+- Wants immediate access
 
 ---
 
@@ -73,9 +73,9 @@ Pain Points
 
 Goals
 
-* Save assessment history
-* Track progress
-* Create assessments
+- Save assessment history
+- Track progress
+- Create assessments
 
 ---
 
@@ -83,10 +83,10 @@ Goals
 
 Goals
 
-* Upload learning material
-* Generate questions
-* Share assessment
-* View results
+- Upload learning material
+- Generate questions
+- Share assessment
+- View results
 
 ---
 
@@ -96,9 +96,9 @@ Goals
 
 The system shall provide:
 
-* Practice
-* Create Assessment
-* Join Assessment
+- Practice
+- Create Assessment
+- Join Assessment
 
 No login required to access the home page.
 
@@ -108,19 +108,19 @@ No login required to access the home page.
 
 The system shall allow users to:
 
-* Enter a topic.
-* Upload a PDF.
-* Paste notes.
-* Generate AI questions.
-* Choose the number of questions.
-* Start a quiz immediately.
+- Enter a topic.
+- Upload a PDF.
+- Paste notes.
+- Generate AI questions.
+- Choose the number of questions.
+- Start a quiz immediately.
 
 The system shall display:
 
-* Score
-* Correct answers
-* Incorrect answers
-* Explanation (if enabled)
+- Score
+- Correct answers
+- Incorrect answers
+- Explanation (if enabled)
 
 ---
 
@@ -128,13 +128,13 @@ The system shall display:
 
 The system shall allow authenticated users to:
 
-* Create a new assessment.
-* Upload study material.
-* Generate questions.
-* Edit generated questions before publishing.
-* Select question count.
-* Configure timer (optional).
-* Publish assessment.
+- Create a new assessment.
+- Upload study material.
+- Generate questions.
+- Edit generated questions before publishing.
+- Select question count.
+- Configure timer (optional).
+- Publish assessment.
 
 The system shall generate a unique assessment code.
 
@@ -144,9 +144,9 @@ The system shall generate a unique assessment code.
 
 The system shall allow users to:
 
-* Enter assessment code.
-* Enter display name.
-* Join instantly.
+- Enter assessment code.
+- Enter display name.
+- Join instantly.
 
 Guest participation must not require registration.
 
@@ -156,10 +156,10 @@ Guest participation must not require registration.
 
 The system shall display:
 
-* Participant name
-* Current score
-* Rank
-* Completion status
+- Participant name
+- Current score
+- Rank
+- Completion status
 
 Leaderboard updates should occur in near real time.
 
@@ -169,12 +169,12 @@ Leaderboard updates should occur in near real time.
 
 The system shall display:
 
-* Score
-* Percentage
-* Correct count
-* Incorrect count
-* Time taken
-* Rank
+- Score
+- Percentage
+- Correct count
+- Incorrect count
+- Time taken
+- Rank
 
 Registered users shall retain attempt history.
 
@@ -186,10 +186,10 @@ Authentication is optional.
 
 Users may:
 
-* Continue as guest.
-* Register.
-* Login.
-* Logout.
+- Continue as guest.
+- Register.
+- Login.
+- Logout.
 
 Assessment creation requires authentication.
 
@@ -201,16 +201,16 @@ Practice mode does not.
 
 The system shall support:
 
-* Topic input
-* PDF input
-* Notes input
+- Topic input
+- PDF input
+- Notes input
 
 Output format:
 
-* Question
-* Four options
-* Correct answer
-* Explanation
+- Question
+- Four options
+- Correct answer
+- Explanation
 
 Questions should be returned as structured JSON.
 
@@ -233,10 +233,10 @@ The system shall:
 
 Creators shall be able to:
 
-* View assessments
-* Edit unpublished assessments
-* Archive assessments
-* Delete owned assessments
+- View assessments
+- Edit unpublished assessments
+- Archive assessments
+- Delete owned assessments
 
 ---
 
@@ -244,10 +244,10 @@ Creators shall be able to:
 
 Registered users shall have access to:
 
-* Practice history
-* Assessment history
-* Scores
-* Completion dates
+- Practice history
+- Assessment history
+- Scores
+- Completion dates
 
 Guests shall not have persistent history.
 
@@ -257,10 +257,10 @@ Guests shall not have persistent history.
 
 ## Performance
 
-* First page load should be fast.
-* AI requests should be cached.
-* Database queries should be optimized.
-* API responses should minimize payload size.
+- First page load should be fast.
+- AI requests should be cached.
+- Database queries should be optimized.
+- API responses should minimize payload size.
 
 ---
 
@@ -268,10 +268,10 @@ Guests shall not have persistent history.
 
 Architecture must support:
 
-* Additional AI providers
-* New question types
-* New assessment modes
-* Mobile applications
+- Additional AI providers
+- New question types
+- New assessment modes
+- Mobile applications
 
 without requiring major refactoring.
 
@@ -281,10 +281,10 @@ without requiring major refactoring.
 
 The application should:
 
-* Handle API failures gracefully.
-* Recover from AI provider failures.
-* Retry safe operations when appropriate.
-* Prevent data corruption.
+- Handle API failures gracefully.
+- Recover from AI provider failures.
+- Retry safe operations when appropriate.
+- Prevent data corruption.
 
 ---
 
@@ -292,15 +292,15 @@ The application should:
 
 The application must:
 
-* Validate every input.
-* Validate uploaded files.
-* Prevent SQL Injection.
-* Prevent XSS.
-* Prevent prompt injection.
-* Enforce Row Level Security.
-* Protect API secrets.
-* Use HTTPS.
-* Apply rate limiting to AI endpoints.
+- Validate every input.
+- Validate uploaded files.
+- Prevent SQL Injection.
+- Prevent XSS.
+- Prevent prompt injection.
+- Enforce Row Level Security.
+- Protect API secrets.
+- Use HTTPS.
+- Apply rate limiting to AI endpoints.
 
 ---
 
@@ -308,11 +308,11 @@ The application must:
 
 The codebase shall:
 
-* Follow feature-based architecture.
-* Use reusable services.
-* Avoid duplicated logic.
-* Use strict TypeScript.
-* Be fully documented.
+- Follow feature-based architecture.
+- Use reusable services.
+- Avoid duplicated logic.
+- Use strict TypeScript.
+- Be fully documented.
 
 ---
 
@@ -320,23 +320,23 @@ The codebase shall:
 
 The application should:
 
-* Support keyboard navigation.
-* Provide sufficient color contrast.
-* Use semantic HTML.
-* Include accessible labels.
-* Remain usable on mobile devices.
+- Support keyboard navigation.
+- Provide sufficient color contrast.
+- Use semantic HTML.
+- Include accessible labels.
+- Remain usable on mobile devices.
 
 ---
 
 # 7. Business Rules
 
-* Assessment codes must be unique.
-* Every assessment has one owner.
-* Guests cannot modify assessments.
-* Only creators can edit their own assessments.
-* Deleted assessments cannot be joined.
-* Expired assessments cannot accept new participants.
-* Results are immutable after submission.
+- Assessment codes must be unique.
+- Every assessment has one owner.
+- Guests cannot modify assessments.
+- Only creators can edit their own assessments.
+- Deleted assessments cannot be joined.
+- Expired assessments cannot accept new participants.
+- Results are immutable after submission.
 
 ---
 
@@ -344,11 +344,11 @@ The application should:
 
 The MVP should:
 
-* Use free AI providers where possible.
-* Minimize AI API usage through caching.
-* Minimize hosting costs.
-* Support modern browsers.
-* Avoid vendor lock-in.
+- Use free AI providers where possible.
+- Minimize AI API usage through caching.
+- Minimize hosting costs.
+- Support modern browsers.
+- Avoid vendor lock-in.
 
 ---
 
@@ -356,14 +356,14 @@ The MVP should:
 
 The application shall provide user-friendly messages for:
 
-* Invalid assessment code
-* Invalid file upload
-* Unsupported file type
-* AI service unavailable
-* Network failure
-* Authentication failure
-* Expired assessment
-* Duplicate assessment creation attempts
+- Invalid assessment code
+- Invalid file upload
+- Unsupported file type
+- AI service unavailable
+- Network failure
+- Authentication failure
+- Expired assessment
+- Duplicate assessment creation attempts
 
 Internal errors must not expose sensitive information.
 
@@ -373,19 +373,19 @@ Internal errors must not expose sensitive information.
 
 The following features are intentionally excluded:
 
-* AI Tutor
-* Flashcards
-* LMS
-* Course Management
-* Institute Management
-* Batch Management
-* Teacher Management
-* Payments
-* Certificates
-* Discussion Forums
-* Notifications
-* Coding Assessments
-* Essay Evaluation
+- AI Tutor
+- Flashcards
+- LMS
+- Course Management
+- Institute Management
+- Batch Management
+- Teacher Management
+- Payments
+- Certificates
+- Discussion Forums
+- Notifications
+- Coding Assessments
+- Essay Evaluation
 
 ---
 
@@ -393,16 +393,16 @@ The following features are intentionally excluded:
 
 The MVP is complete when users can:
 
-* Practice from topics.
-* Practice from notes.
-* Practice from PDFs.
-* Create assessments.
-* Join as guests.
-* Participate without login.
-* View live leaderboard.
-* Save history when registered.
-* Generate AI questions reliably.
-* Complete assessments without critical issues.
+- Practice from topics.
+- Practice from notes.
+- Practice from PDFs.
+- Create assessments.
+- Join as guests.
+- Participate without login.
+- View live leaderboard.
+- Save history when registered.
+- Generate AI questions reliably.
+- Complete assessments without critical issues.
 
 ---
 
@@ -410,13 +410,13 @@ The MVP is complete when users can:
 
 Depends on:
 
-* 00_PROJECT_OVERVIEW.md
+- 00_PROJECT_OVERVIEW.md
 
 Referenced by:
 
-* 02_SYSTEM_ARCHITECTURE.md
-* 05_DATABASE_ARCHITECTURE.md
-* 06_API_SPECIFICATION.md
-* 07_SECURITY_ARCHITECTURE.md
-* 08_AI_ARCHITECTURE.md
-* All feature specification documents.
+- 02_SYSTEM_ARCHITECTURE.md
+- 05_DATABASE_ARCHITECTURE.md
+- 06_API_SPECIFICATION.md
+- 07_SECURITY_ARCHITECTURE.md
+- 08_AI_ARCHITECTURE.md
+- All feature specification documents.

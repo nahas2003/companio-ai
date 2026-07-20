@@ -13,11 +13,11 @@ This document defines the backup and recovery strategy for Companio.
 
 Its objectives are to:
 
-* Protect application data.
-* Minimize downtime.
-* Reduce the risk of permanent data loss.
-* Provide repeatable recovery procedures.
-* Ensure operational resilience.
+- Protect application data.
+- Minimize downtime.
+- Reduce the risk of permanent data loss.
+- Provide repeatable recovery procedures.
+- Ensure operational resilience.
 
 ---
 
@@ -31,9 +31,9 @@ The target time to restore normal service after a disruption.
 
 Examples:
 
-* Development: Flexible
-* Staging: Short
-* Production: As short as practical
+- Development: Flexible
+- Staging: Short
+- Production: As short as practical
 
 ---
 
@@ -43,9 +43,9 @@ The maximum acceptable amount of data loss measured in time.
 
 Examples:
 
-* Development: Flexible
-* Staging: Moderate
-* Production: Minimize data loss as much as practical
+- Development: Flexible
+- Staging: Moderate
+- Production: Minimize data loss as much as practical
 
 Review RTO and RPO periodically as operational requirements evolve.
 
@@ -55,14 +55,14 @@ Review RTO and RPO periodically as operational requirements evolve.
 
 Back up the following resources where applicable:
 
-* PostgreSQL database
-* File storage
-* Configuration files
-* Environment templates (excluding secrets)
-* AI prompt templates
-* Audit logs
-* Application logs (according to retention policy)
-* Deployment artifacts
+- PostgreSQL database
+- File storage
+- Configuration files
+- Environment templates (excluding secrets)
+- AI prompt templates
+- Audit logs
+- Application logs (according to retention policy)
+- Deployment artifacts
 
 Do not include plaintext secrets or credentials in backups.
 
@@ -90,9 +90,9 @@ Maintain backups according to operational and compliance requirements.
 
 Example strategy:
 
-* Daily backups
-* Weekly backups
-* Monthly backups
+- Daily backups
+- Weekly backups
+- Monthly backups
 
 Automatically remove expired backups after the defined retention period, unless legal or business requirements dictate otherwise.
 
@@ -102,10 +102,10 @@ Automatically remove expired backups after the defined retention period, unless 
 
 Backups should:
 
-* Be stored securely.
-* Be protected from unauthorized access.
-* Be separated from the primary application environment where practical.
-* Be encrypted according to organizational security policies.
+- Be stored securely.
+- Be protected from unauthorized access.
+- Be separated from the primary application environment where practical.
+- Be encrypted according to organizational security policies.
 
 ---
 
@@ -130,11 +130,11 @@ Document the recovery process and outcome.
 
 If uploaded files require restoration:
 
-* Identify affected storage.
-* Restore the required files.
-* Verify file integrity.
-* Confirm metadata consistency.
-* Test application access to restored files.
+- Identify affected storage.
+- Restore the required files.
+- Verify file integrity.
+- Confirm metadata consistency.
+- Test application access to restored files.
 
 ---
 
@@ -142,11 +142,11 @@ If uploaded files require restoration:
 
 If configuration is lost or corrupted:
 
-* Restore approved configuration.
-* Validate environment variables.
-* Verify feature flags.
-* Confirm AI provider settings.
-* Restart affected services if required.
+- Restore approved configuration.
+- Validate environment variables.
+- Verify feature flags.
+- Confirm AI provider settings.
+- Restart affected services if required.
 
 ---
 
@@ -154,20 +154,20 @@ If configuration is lost or corrupted:
 
 Potential disaster scenarios include:
 
-* Database failure
-* Storage failure
-* Infrastructure outage
-* Deployment failure
-* Data corruption
-* Accidental deletion
-* Security incident
+- Database failure
+- Storage failure
+- Infrastructure outage
+- Deployment failure
+- Data corruption
+- Accidental deletion
+- Security incident
 
 For each scenario:
 
-* Assess impact.
-* Select the appropriate recovery procedure.
-* Restore services in priority order.
-* Validate platform functionality before declaring recovery complete.
+- Assess impact.
+- Select the appropriate recovery procedure.
+- Restore services in priority order.
+- Validate platform functionality before declaring recovery complete.
 
 ---
 
@@ -177,17 +177,17 @@ After every recovery:
 
 Verify:
 
-* Authentication
-* Dashboard
-* Learning source uploads
-* Document processing
-* AI question generation
-* Question Bank
-* Practice Mode
-* Assessment workflow
-* Results
-* Notifications
-* Administration features
+- Authentication
+- Dashboard
+- Learning source uploads
+- Document processing
+- AI question generation
+- Question Bank
+- Practice Mode
+- Assessment workflow
+- Results
+- Notifications
+- Administration features
 
 Do not consider recovery complete until critical workflows have been validated.
 
@@ -199,11 +199,11 @@ Backups should not be assumed to be usable.
 
 Periodically verify that backups:
 
-* Complete successfully.
-* Are readable.
-* Can be restored.
-* Preserve required data.
-* Match the expected backup scope.
+- Complete successfully.
+- Are readable.
+- Can be restored.
+- Preserve required data.
+- Match the expected backup scope.
 
 A backup that has never been tested should not be considered reliable.
 
@@ -215,18 +215,18 @@ Conduct scheduled recovery exercises.
 
 Suggested activities:
 
-* Database restoration test
-* File restoration test
-* Configuration recovery
-* Full application validation
-* Disaster recovery simulation
+- Database restoration test
+- File restoration test
+- Configuration recovery
+- Full application validation
+- Disaster recovery simulation
 
 Record:
 
-* Test date
-* Recovery duration
-* Observed issues
-* Improvement actions
+- Test date
+- Recovery duration
+- Observed issues
+- Improvement actions
 
 ---
 
@@ -234,12 +234,12 @@ Record:
 
 Maintain records of:
 
-* Backup schedule
-* Backup locations
-* Retention policy
-* Recovery procedures
-* Recovery test results
-* Recovery improvements
+- Backup schedule
+- Backup locations
+- Retention policy
+- Recovery procedures
+- Recovery test results
+- Recovery improvements
 
 Review documentation after significant infrastructure changes.
 
@@ -262,10 +262,10 @@ When assisting with backup or recovery, the AI agent should:
 
 Review and update this guide whenever:
 
-* Backup strategies change.
-* Infrastructure changes.
-* Recovery objectives are revised.
-* New services are introduced.
-* Disaster recovery testing identifies improvements.
+- Backup strategies change.
+- Infrastructure changes.
+- Recovery objectives are revised.
+- New services are introduced.
+- Disaster recovery testing identifies improvements.
 
 This document should remain the authoritative reference for backup and recovery procedures across the Companio platform.

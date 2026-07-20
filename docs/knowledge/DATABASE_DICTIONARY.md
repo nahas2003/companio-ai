@@ -21,12 +21,12 @@ Developers and AI coding agents should consult this document before introducing 
 
 The database should follow these principles:
 
-* Normalize data where appropriate.
-* Preserve referential integrity.
-* Use soft deletes unless permanent deletion is explicitly required.
-* Include audit fields on business tables.
-* Prefer UUID primary keys.
-* Keep naming consistent and descriptive.
+- Normalize data where appropriate.
+- Preserve referential integrity.
+- Use soft deletes unless permanent deletion is explicitly required.
+- Include audit fields on business tables.
+- Prefer UUID primary keys.
+- Keep naming consistent and descriptive.
 
 ---
 
@@ -42,11 +42,11 @@ snake_case
 
 Examples:
 
-* users
-* user_profiles
-* learning_sources
-* practice_sessions
-* assessment_attempts
+- users
+- user_profiles
+- learning_sources
+- practice_sessions
+- assessment_attempts
 
 ---
 
@@ -54,11 +54,11 @@ Examples:
 
 Examples:
 
-* created_at
-* updated_at
-* deleted_at
-* created_by
-* updated_by
+- created_at
+- updated_at
+- deleted_at
+- created_by
+- updated_by
 
 ---
 
@@ -72,9 +72,9 @@ Convention:
 
 Examples:
 
-* user_id
-* assessment_id
-* source_id
+- user_id
+- assessment_id
+- source_id
 
 ---
 
@@ -82,12 +82,12 @@ Examples:
 
 Business tables should include:
 
-* id
-* created_at
-* updated_at
-* deleted_at (optional)
-* created_by (where applicable)
-* updated_by (where applicable)
+- id
+- created_at
+- updated_at
+- deleted_at (optional)
+- created_by (where applicable)
+- updated_by (where applicable)
 
 ---
 
@@ -103,10 +103,10 @@ Authentication identity.
 
 Owns:
 
-* user_profiles
-* notifications
-* practice_sessions
-* assessment_attempts
+- user_profiles
+- notifications
+- practice_sessions
+- assessment_attempts
 
 ---
 
@@ -118,11 +118,11 @@ Stores profile information.
 
 Contains:
 
-* display name
-* avatar
-* preferences
-* timezone
-* language
+- display name
+- avatar
+- preferences
+- timezone
+- language
 
 ---
 
@@ -136,10 +136,10 @@ Uploaded study materials.
 
 Contains:
 
-* file metadata
-* storage path
-* processing state
-* ownership
+- file metadata
+- storage path
+- processing state
+- ownership
 
 ---
 
@@ -151,9 +151,9 @@ Structured content extracted from uploaded materials.
 
 Contains:
 
-* normalized text
-* metadata
-* processing status
+- normalized text
+- metadata
+- processing status
 
 ---
 
@@ -167,11 +167,11 @@ Tracks every AI request.
 
 Contains:
 
-* provider
-* model
-* prompt version
-* request timestamp
-* status
+- provider
+- model
+- prompt version
+- request timestamp
+- status
 
 ---
 
@@ -183,10 +183,10 @@ Stores reusable prompt templates.
 
 Contains:
 
-* template name
-* version
-* variables
-* active status
+- template name
+- version
+- variables
+- active status
 
 ---
 
@@ -200,11 +200,11 @@ Central Question Bank.
 
 Contains:
 
-* question text
-* type
-* difficulty
-* explanation
-* source reference
+- question text
+- type
+- difficulty
+- explanation
+- source reference
 
 ---
 
@@ -286,10 +286,10 @@ Stores final evaluation outcomes.
 
 Contains:
 
-* score
-* percentage
-* pass/fail
-* grading metadata
+- score
+- percentage
+- pass/fail
+- grading metadata
 
 ---
 
@@ -363,11 +363,11 @@ User
 
 Each business record must clearly define:
 
-* Owner
-* Creator
-* Last modifier
-* Visibility rules
-* Deletion policy
+- Owner
+- Creator
+- Last modifier
+- Visibility rules
+- Deletion policy
 
 ---
 
@@ -375,11 +375,11 @@ Each business record must clearly define:
 
 Create indexes for:
 
-* Foreign keys
-* Frequently filtered columns
-* Searchable fields
-* Status fields
-* Date fields
+- Foreign keys
+- Frequently filtered columns
+- Searchable fields
+- Status fields
+- Date fields
 
 Avoid unnecessary indexes on low-selectivity columns.
 
@@ -403,11 +403,11 @@ Permanent deletion should be limited to maintenance operations and comply with a
 
 Maintain:
 
-* Foreign key constraints
-* Required fields
-* Validation rules
-* Transactional consistency
-* Optimistic concurrency where appropriate
+- Foreign key constraints
+- Required fields
+- Validation rules
+- Transactional consistency
+- Optimistic concurrency where appropriate
 
 ---
 
@@ -415,11 +415,11 @@ Maintain:
 
 Every migration should:
 
-* Be reversible where practical.
-* Include validation.
-* Preserve existing data.
-* Avoid destructive changes without explicit approval.
-* Be tested before production deployment.
+- Be reversible where practical.
+- Include validation.
+- Preserve existing data.
+- Avoid destructive changes without explicit approval.
+- Be tested before production deployment.
 
 ---
 
@@ -440,8 +440,8 @@ Before creating or modifying database structures, the AI agent should:
 
 This document must be updated whenever:
 
-* A new table is added.
-* A table is removed.
-* Relationships change.
-* Naming conventions evolve.
-* Database architecture is modified.
+- A new table is added.
+- A table is removed.
+- Relationships change.
+- Naming conventions evolve.
+- Database architecture is modified.

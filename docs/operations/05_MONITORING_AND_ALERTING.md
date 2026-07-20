@@ -13,11 +13,11 @@ This document defines the monitoring, observability, and alerting strategy for C
 
 Its objectives are to:
 
-* Detect operational issues early.
-* Monitor platform health.
-* Track performance trends.
-* Support rapid incident response.
-* Improve long-term reliability.
+- Detect operational issues early.
+- Monitor platform health.
+- Track performance trends.
+- Support rapid incident response.
+- Improve long-term reliability.
 
 Monitoring should be proactive rather than reactive.
 
@@ -27,12 +27,12 @@ Monitoring should be proactive rather than reactive.
 
 Monitoring should provide visibility into:
 
-* Availability
-* Performance
-* Reliability
-* Security
-* Resource utilization
-* Business operations
+- Availability
+- Performance
+- Reliability
+- Security
+- Resource utilization
+- Business operations
 
 Every critical service should expose measurable health indicators.
 
@@ -42,16 +42,16 @@ Every critical service should expose measurable health indicators.
 
 Monitor the following areas:
 
-* Web application
-* API services
-* Authentication
-* Database
-* File storage
-* AI services
-* Notifications
-* Background jobs
-* Infrastructure
-* Third-party integrations
+- Web application
+- API services
+- Authentication
+- Database
+- File storage
+- AI services
+- Notifications
+- Background jobs
+- Infrastructure
+- Third-party integrations
 
 ---
 
@@ -61,32 +61,32 @@ Implement health checks for:
 
 ## Application
 
-* Running status
-* Startup validation
-* Dependency availability
+- Running status
+- Startup validation
+- Dependency availability
 
 ## Database
 
-* Connectivity
-* Query responsiveness
-* Migration status
+- Connectivity
+- Query responsiveness
+- Migration status
 
 ## Storage
 
-* Read access
-* Write access
-* Available capacity
+- Read access
+- Write access
+- Available capacity
 
 ## AI Providers
 
-* Connectivity
-* Response time
-* Availability
+- Connectivity
+- Response time
+- Availability
 
 ## Notification Services
 
-* Email delivery capability
-* Queue status (if applicable)
+- Email delivery capability
+- Queue status (if applicable)
 
 Health endpoints should be lightweight and suitable for automated monitoring.
 
@@ -98,39 +98,39 @@ Track metrics such as:
 
 ### Application
 
-* Request count
-* Response time
-* Error rate
-* Active sessions
-* Uptime
+- Request count
+- Response time
+- Error rate
+- Active sessions
+- Uptime
 
 ### Database
 
-* Query latency
-* Connection count
-* Slow queries
-* Storage growth
+- Query latency
+- Connection count
+- Slow queries
+- Storage growth
 
 ### AI
 
-* Requests
-* Success rate
-* Failure rate
-* Average response time
-* Retry count
-* Token or usage metrics (where available)
+- Requests
+- Success rate
+- Failure rate
+- Average response time
+- Retry count
+- Token or usage metrics (where available)
 
 ### File Storage
 
-* Upload success rate
-* Processing time
-* Storage usage
+- Upload success rate
+- Processing time
+- Storage usage
 
 ### Notifications
 
-* Delivery success
-* Delivery failures
-* Queue backlog (if used)
+- Delivery success
+- Delivery failures
+- Queue backlog (if used)
 
 ---
 
@@ -138,14 +138,14 @@ Track metrics such as:
 
 Log:
 
-* Application events
-* API requests
-* Authentication events
-* Authorization failures
-* AI requests
-* File uploads
-* Administrative actions
-* System errors
+- Application events
+- API requests
+- Authentication events
+- Authorization failures
+- AI requests
+- File uploads
+- Administrative actions
+- System errors
 
 Logs should include timestamps, severity, and request or trace identifiers where possible.
 
@@ -157,31 +157,31 @@ Create alerts for:
 
 ### Critical
 
-* Application unavailable
-* Database unavailable
-* Authentication failure
-* High error rate
-* Data corruption indicators
+- Application unavailable
+- Database unavailable
+- Authentication failure
+- High error rate
+- Data corruption indicators
 
 ### High
 
-* AI provider unavailable
-* Storage failure
-* Notification delivery failure
-* Slow API responses
+- AI provider unavailable
+- Storage failure
+- Notification delivery failure
+- Slow API responses
 
 ### Medium
 
-* Increased latency
-* Resource utilization approaching limits
-* Repeated retries
-* Elevated warning rates
+- Increased latency
+- Resource utilization approaching limits
+- Repeated retries
+- Elevated warning rates
 
 ### Low
 
-* Routine maintenance reminders
-* Capacity planning notifications
-* Non-critical operational observations
+- Routine maintenance reminders
+- Capacity planning notifications
+- Non-critical operational observations
 
 Alerts should prioritize actionable events and minimize unnecessary noise.
 
@@ -191,14 +191,14 @@ Alerts should prioritize actionable events and minimize unnecessary noise.
 
 Operational dashboards should include:
 
-* System health overview
-* API performance
-* Error trends
-* AI service metrics
-* Database health
-* Storage usage
-* Authentication activity
-* Recent deployments
+- System health overview
+- API performance
+- Error trends
+- AI service metrics
+- Database health
+- Storage usage
+- Authentication activity
+- Recent deployments
 
 Dashboards should present current status and historical trends.
 
@@ -208,12 +208,12 @@ Dashboards should present current status and historical trends.
 
 When investigating alerts, correlate information from:
 
-* Application logs
-* Infrastructure metrics
-* Database metrics
-* Deployment history
-* Audit logs
-* User reports
+- Application logs
+- Infrastructure metrics
+- Database metrics
+- Deployment history
+- Audit logs
+- User reports
 
 Avoid relying on a single data source.
 
@@ -223,12 +223,12 @@ Avoid relying on a single data source.
 
 Observe:
 
-* API latency
-* Page load times
-* Database performance
-* AI response duration
-* Background task duration
-* Resource consumption
+- API latency
+- Page load times
+- Database performance
+- AI response duration
+- Background task duration
+- Resource consumption
 
 Use trends to identify regressions over time.
 
@@ -238,12 +238,12 @@ Use trends to identify regressions over time.
 
 Monitor long-term growth in:
 
-* Database size
-* File storage
-* AI request volume
-* Concurrent users
-* API traffic
-* Notification volume
+- Database size
+- File storage
+- AI request volume
+- Concurrent users
+- API traffic
+- Notification volume
 
 Use collected metrics to plan future scaling.
 
@@ -282,10 +282,10 @@ When assisting with monitoring, the AI agent should:
 
 Review and update this guide whenever:
 
-* Monitoring tools change.
-* New services are introduced.
-* Alert thresholds are revised.
-* Infrastructure evolves.
-* Lessons learned from incidents improve monitoring practices.
+- Monitoring tools change.
+- New services are introduced.
+- Alert thresholds are revised.
+- Infrastructure evolves.
+- Lessons learned from incidents improve monitoring practices.
 
 This document should remain the authoritative reference for monitoring and alerting across the Companio platform.

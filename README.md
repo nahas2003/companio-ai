@@ -12,29 +12,29 @@ This project is being developed using a documentation-first approach with AI-ass
 
 Build a secure, scalable, and AI-native learning platform that supports:
 
-* AI-powered question generation
-* Personalized practice sessions
-* Online assessments
-* Performance analytics
-* Leaderboards
-* Progress tracking
-* Multi-platform access (Web, Mobile, Admin)
+- AI-powered question generation
+- Personalized practice sessions
+- Online assessments
+- Performance analytics
+- Leaderboards
+- Progress tracking
+- Multi-platform access (Web, Mobile, Admin)
 
 ---
 
 # Core Features
 
-* User Authentication & Authorization
-* Dashboard
-* Learning Source Upload
-* AI Processing Pipeline
-* Question Bank
-* Practice Mode
-* Assessment Module
-* Results & Analytics
-* Leaderboards
-* Notifications
-* Administration & Settings
+- User Authentication & Authorization
+- Dashboard
+- Learning Source Upload
+- AI Processing Pipeline
+- Question Bank
+- Practice Mode
+- Assessment Module
+- Results & Analytics
+- Leaderboards
+- Notifications
+- Administration & Settings
 
 ---
 
@@ -42,42 +42,44 @@ Build a secure, scalable, and AI-native learning platform that supports:
 
 ## Frontend
 
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
-* shadcn/ui
-* TanStack Query
-* React Hook Form
-* Zod
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- shadcn/ui
+- TanStack Query
+- Zustand (Client State)
+- React Hook Form
+- Zod
 
 ## Backend
 
-* Supabase
-* PostgreSQL
-* Supabase Authentication
-* Supabase Storage
-* Edge Functions (where appropriate)
+- Supabase
+- PostgreSQL
+- Prisma (ORM)
+- Supabase Authentication
+- Supabase Storage
+- Edge Functions (where appropriate)
 
 ## AI
 
-* AI Orchestrator
-* Configurable AI Providers
-* Prompt Registry
-* Structured Output Validation
+- AI Orchestrator
+- Configurable AI Providers
+- Prompt Registry
+- Structured Output Validation
 
 ## Mobile
 
-* Expo
-* React Native
+- Expo
+- React Native
 
 ## Development
 
-* pnpm Workspaces
-* ESLint
-* Prettier
-* Husky
-* GitHub Actions (planned)
+- pnpm Workspaces
+- ESLint
+- Prettier
+- Husky
+- GitHub Actions (planned)
 
 ---
 
@@ -105,10 +107,10 @@ companio/
 
 Project documentation is organized into dedicated areas:
 
-* `docs/architecture/` – Product vision, architecture, modules, and technical decisions.
-* `docs/development/` – Engineering standards, implementation guides, testing, deployment, security, and AI workflow.
-* `docs/api/` – API specifications and contracts.
-* `docs/tasks/` – Task-based implementation guides with acceptance criteria and testing checklists.
+- `docs/architecture/` – Product vision, architecture, modules, and technical decisions.
+- `docs/development/` – Engineering standards, implementation guides, testing, deployment, security, and AI workflow.
+- `docs/api/` – API specifications and contracts.
+- `docs/tasks/` – Task-based implementation guides with acceptance criteria and testing checklists.
 
 ---
 
@@ -116,10 +118,10 @@ Project documentation is organized into dedicated areas:
 
 ## Prerequisites
 
-* Node.js (LTS)
-* pnpm
-* Git
-* Supabase account
+- Node.js (LTS)
+- pnpm
+- Git
+- Supabase account
 
 ## Installation
 
@@ -164,7 +166,7 @@ pnpm dev
 
 AI coding agents should follow the workflow defined in:
 
-* `docs/development/24_AI_AGENT_WORKFLOW.md`
+- `docs/development/24_AI_AGENT_WORKFLOW.md`
 
 Before implementing any feature, review:
 
@@ -194,13 +196,13 @@ pnpm format
 
 # Project Principles
 
-* Documentation First
-* Modular Architecture
-* Secure by Default
-* AI-Assisted Development
-* Test Before Release
-* Maintainable Code
-* Incremental Delivery
+- Documentation First
+- Modular Architecture
+- Secure by Default
+- AI-Assisted Development
+- Test Before Release
+- Maintainable Code
+- Incremental Delivery
 
 ---
 
@@ -208,11 +210,11 @@ pnpm format
 
 Current phase:
 
-* ✅ Architecture documentation
-* ✅ Development documentation
-* ⏳ Repository foundation
-* ⏳ Project setup
-* ⏳ Feature implementation
+- ✅ Architecture documentation
+- ✅ Development documentation
+- ⏳ Repository foundation
+- ⏳ Project setup
+- ⏳ Feature implementation
 
 ---
 
@@ -220,7 +222,7 @@ Current phase:
 
 Please read:
 
-* `CONTRIBUTING.md`
+- `CONTRIBUTING.md`
 
 before opening issues or submitting pull requests.
 
@@ -234,19 +236,19 @@ See the `LICENSE` file for licensing information.
 
 # Roadmap
 
-* Repository setup
-* Authentication
-* Dashboard
-* Source Upload
-* AI Processing
-* Question Bank
-* Practice Mode
-* Assessment Module
-* Results
-* Leaderboards
-* Notifications
-* Mobile enhancements
-* Production deployment
+- Repository setup
+- Authentication
+- Dashboard
+- Source Upload
+- AI Processing
+- Question Bank
+- Practice Mode
+- Assessment Module
+- Results
+- Leaderboards
+- Notifications
+- Mobile enhancements
+- Production deployment
 
 ---
 

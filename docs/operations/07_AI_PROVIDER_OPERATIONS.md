@@ -13,11 +13,11 @@ This document defines the operational practices for integrating and managing AI 
 
 Its objectives are to:
 
-* Ensure reliable AI-powered features.
-* Support multiple AI providers.
-* Minimize service disruption.
-* Optimize operational cost.
-* Maintain response quality and consistency.
+- Ensure reliable AI-powered features.
+- Support multiple AI providers.
+- Minimize service disruption.
+- Optimize operational cost.
+- Maintain response quality and consistency.
 
 This guide applies to all AI services used by Companio.
 
@@ -29,13 +29,13 @@ Companio uses an AI orchestration layer that abstracts provider-specific impleme
 
 The orchestration layer is responsible for:
 
-* Routing requests.
-* Selecting models.
-* Managing retries.
-* Applying prompt templates.
-* Validating responses.
-* Logging AI interactions.
-* Supporting provider failover.
+- Routing requests.
+- Selecting models.
+- Managing retries.
+- Applying prompt templates.
+- Validating responses.
+- Logging AI interactions.
+- Supporting provider failover.
 
 Applications should interact with the orchestration layer rather than individual provider APIs.
 
@@ -47,10 +47,10 @@ The platform may support one or more AI providers, depending on operational requ
 
 Examples include:
 
-* Primary provider
-* Secondary (fallback) provider
-* Local or self-hosted models
-* Specialized providers for specific AI tasks
+- Primary provider
+- Secondary (fallback) provider
+- Local or self-hosted models
+- Specialized providers for specific AI tasks
 
 Provider-specific implementation details should remain isolated within the AI integration layer.
 
@@ -77,11 +77,11 @@ Model choices should be reviewed periodically as provider offerings evolve.
 
 Prompt templates should:
 
-* Be centrally managed.
-* Have unique identifiers.
-* Be version controlled.
-* Be reusable across modules.
-* Produce structured outputs where possible.
+- Be centrally managed.
+- Have unique identifiers.
+- Be version controlled.
+- Be reusable across modules.
+- Produce structured outputs where possible.
 
 Significant prompt updates should be documented and tested before production use.
 
@@ -93,11 +93,11 @@ Every AI response should be validated before use.
 
 Validation may include:
 
-* Required fields present.
-* Expected data types.
-* JSON schema compliance (if applicable).
-* Confidence or quality checks.
-* Business rule validation.
+- Required fields present.
+- Expected data types.
+- JSON schema compliance (if applicable).
+- Confidence or quality checks.
+- Business rule validation.
 
 Invalid responses should not be used without appropriate handling.
 
@@ -136,16 +136,16 @@ Monitor provider usage to remain within service limits.
 
 Track:
 
-* Requests per minute.
-* Requests per day.
-* Concurrent requests.
-* Provider-specific quotas.
+- Requests per minute.
+- Requests per day.
+- Concurrent requests.
+- Provider-specific quotas.
 
 When approaching limits:
 
-* Reduce non-essential requests.
-* Prioritize critical workflows.
-* Notify administrators if required.
+- Reduce non-essential requests.
+- Prioritize critical workflows.
+- Notify administrators if required.
 
 ---
 
@@ -155,18 +155,18 @@ Review AI usage regularly.
 
 Monitor:
 
-* Request volume.
-* Model usage.
-* Token or usage metrics (where available).
-* Retry frequency.
-* High-cost operations.
+- Request volume.
+- Model usage.
+- Token or usage metrics (where available).
+- Retry frequency.
+- High-cost operations.
 
 Optimize by:
 
-* Selecting appropriate models.
-* Eliminating unnecessary requests.
-* Reusing results when appropriate.
-* Improving prompt efficiency.
+- Selecting appropriate models.
+- Eliminating unnecessary requests.
+- Reusing results when appropriate.
+- Improving prompt efficiency.
 
 ---
 
@@ -174,13 +174,13 @@ Optimize by:
 
 Track:
 
-* Request success rate.
-* Error rate.
-* Average response time.
-* Provider availability.
-* Failover events.
-* Validation failures.
-* User-facing AI errors.
+- Request success rate.
+- Error rate.
+- Average response time.
+- Provider availability.
+- Failover events.
+- Validation failures.
+- User-facing AI errors.
 
 Investigate sustained anomalies promptly.
 
@@ -190,11 +190,11 @@ Investigate sustained anomalies promptly.
 
 Protect AI integrations by:
 
-* Storing API credentials securely.
-* Restricting access to secrets.
-* Validating AI inputs.
-* Sanitizing outputs before presentation.
-* Logging administrative configuration changes.
+- Storing API credentials securely.
+- Restricting access to secrets.
+- Validating AI inputs.
+- Sanitizing outputs before presentation.
+- Logging administrative configuration changes.
 
 Never expose provider credentials in logs or client-side code.
 
@@ -224,12 +224,12 @@ When retiring a provider:
 
 Common AI-related operational issues include:
 
-* Provider outage.
-* Increased latency.
-* Invalid responses.
-* Rate-limit exhaustion.
-* Authentication failures.
-* Unexpected cost increases.
+- Provider outage.
+- Increased latency.
+- Invalid responses.
+- Rate-limit exhaustion.
+- Authentication failures.
+- Unexpected cost increases.
 
 Follow the Incident Response guide for investigation and recovery.
 
@@ -252,10 +252,10 @@ When managing AI providers, the AI agent should:
 
 Review and update this guide whenever:
 
-* AI providers change.
-* New models are adopted.
-* Prompt management evolves.
-* Operational policies are updated.
-* Monitoring identifies improvement opportunities.
+- AI providers change.
+- New models are adopted.
+- Prompt management evolves.
+- Operational policies are updated.
+- Monitoring identifies improvement opportunities.
 
 This document should remain the authoritative operational reference for AI provider management across the Companio platform.

@@ -20,11 +20,11 @@ This task focuses on user identity after authentication has been established. It
 
 At the end of this task, authenticated users should be able to:
 
-* View their profile.
-* Update allowed profile information.
-* View account metadata.
-* Manage basic account preferences.
-* View account status.
+- View their profile.
+- Update allowed profile information.
+- View account metadata.
+- Manage basic account preferences.
+- View account status.
 
 ---
 
@@ -32,13 +32,13 @@ At the end of this task, authenticated users should be able to:
 
 Included:
 
-* User profile page
-* Profile information
-* Avatar support (optional in V1)
-* Profile editing
-* Account preferences
-* Profile validation
-* Profile persistence
+- User profile page
+- Profile information
+- Avatar support (optional in V1)
+- Profile editing
+- Account preferences
+- Profile validation
+- Profile persistence
 
 ---
 
@@ -46,15 +46,15 @@ Included:
 
 Do **not** implement:
 
-* User administration
-* Role management
-* Permissions
-* Team management
-* Dashboard widgets
-* AI functionality
-* Question Bank
-* Practice Mode
-* Assessments
+- User administration
+- Role management
+- Permissions
+- Team management
+- Dashboard widgets
+- AI functionality
+- Question Bank
+- Practice Mode
+- Assessments
 
 These are covered by later tasks.
 
@@ -64,18 +64,18 @@ These are covered by later tasks.
 
 ## Architecture
 
-* 00_MASTER_PROJECT_SPECIFICATION.md
-* 01_SYSTEM_ARCHITECTURE.md
-* User/Profile architecture documents
-* 21_PROJECT_CONSTITUTION.md
+- 00_MASTER_PROJECT_SPECIFICATION.md
+- 01_SYSTEM_ARCHITECTURE.md
+- User/Profile architecture documents
+- 21_PROJECT_CONSTITUTION.md
 
 ## Development
 
-* 16_CODING_STANDARDS.md
-* 18_ENVIRONMENT_CONFIGURATION.md
-* 19_ERROR_HANDLING.md
-* 22_SECURITY_CHECKLIST.md
-* 24_AI_AGENT_WORKFLOW.md
+- 16_CODING_STANDARDS.md
+- 18_ENVIRONMENT_CONFIGURATION.md
+- 19_ERROR_HANDLING.md
+- 22_SECURITY_CHECKLIST.md
+- 24_AI_AGENT_WORKFLOW.md
 
 ---
 
@@ -85,9 +85,9 @@ Task **002_AUTHENTICATION.md** must be completed.
 
 Verify:
 
-* Authentication is operational.
-* Sessions persist correctly.
-* Protected routes function as expected.
+- Authentication is operational.
+- Sessions persist correctly.
+- Protected routes function as expected.
 
 ---
 
@@ -95,13 +95,13 @@ Verify:
 
 The AI may modify:
 
-* User profile pages
-* Profile components
-* Account services
-* Profile validation
-* Shared user utilities
-* Profile API handlers
-* Database models related to user profiles
+- User profile pages
+- Profile components
+- Account services
+- Profile validation
+- Shared user utilities
+- Profile API handlers
+- Database models related to user profiles
 
 ---
 
@@ -109,14 +109,14 @@ The AI may modify:
 
 Do **not** modify:
 
-* Authentication logic
-* RBAC implementation
-* Dashboard
-* AI modules
-* Question Bank
-* Practice Mode
-* Assessment modules
-* Notifications
+- Authentication logic
+- RBAC implementation
+- Dashboard
+- AI modules
+- Question Bank
+- Practice Mode
+- Assessment modules
+- Notifications
 
 If changes outside this scope appear necessary, document them instead of implementing them.
 
@@ -126,11 +126,11 @@ If changes outside this scope appear necessary, document them instead of impleme
 
 Allowed:
 
-* User profile table (if separate)
-* Profile metadata fields
-* User preferences
-* Required indexes
-* RLS updates related to profile ownership
+- User profile table (if separate)
+- Profile metadata fields
+- User preferences
+- Required indexes
+- RLS updates related to profile ownership
 
 Do not introduce unrelated business entities.
 
@@ -140,9 +140,9 @@ Do not introduce unrelated business entities.
 
 Implement only profile-related APIs:
 
-* Get current profile
-* Update profile
-* Validate profile updates
+- Get current profile
+- Update profile
+- Validate profile updates
 
 No administrative APIs.
 
@@ -152,12 +152,12 @@ No administrative APIs.
 
 Implement:
 
-* Profile page
-* Profile form
-* Validation
-* Loading states
-* Success and error feedback
-* Unsaved changes handling
+- Profile page
+- Profile form
+- Validation
+- Loading states
+- Success and error feedback
+- Unsaved changes handling
 
 ---
 
@@ -165,11 +165,11 @@ Implement:
 
 Implement:
 
-* Profile service
-* Update logic
-* Ownership validation
-* Server-side validation
-* Audit logging for profile updates (where appropriate)
+- Profile service
+- Update logic
+- Ownership validation
+- Server-side validation
+- Audit logging for profile updates (where appropriate)
 
 ---
 
@@ -177,22 +177,22 @@ Implement:
 
 The AI must:
 
-* Allow users to access only their own profile.
-* Validate all user input.
-* Reuse shared form and validation components where possible.
-* Keep profile logic separate from authentication.
-* Avoid introducing permission systems in this task.
+- Allow users to access only their own profile.
+- Validate all user input.
+- Reuse shared form and validation components where possible.
+- Keep profile logic separate from authentication.
+- Avoid introducing permission systems in this task.
 
 ---
 
 # 14. Implementation Checklist
 
-* Profile page created
-* Profile retrieval implemented
-* Profile updates supported
-* Validation completed
-* Error handling implemented
-* Persistence verified
+- Profile page created
+- Profile retrieval implemented
+- Profile updates supported
+- Validation completed
+- Error handling implemented
+- Persistence verified
 
 ---
 
@@ -200,11 +200,11 @@ The AI must:
 
 Verify:
 
-* Profile loads correctly.
-* Profile updates save successfully.
-* Invalid data is rejected.
-* Users cannot modify another user's profile.
-* Validation messages are clear.
+- Profile loads correctly.
+- Profile updates save successfully.
+- Invalid data is rejected.
+- Users cannot modify another user's profile.
+- Validation messages are clear.
 
 ---
 
@@ -212,10 +212,10 @@ Verify:
 
 Task is complete when:
 
-* Authenticated users can manage their own profile.
-* Updates persist correctly.
-* Ownership is enforced.
-* Code follows project standards.
+- Authenticated users can manage their own profile.
+- Updates persist correctly.
+- Ownership is enforced.
+- Code follows project standards.
 
 ---
 
@@ -223,11 +223,11 @@ Task is complete when:
 
 The profile module is complete when:
 
-* Users can view their account information.
-* Users can update permitted fields.
-* Validation and persistence work correctly.
-* Tests pass.
-* Documentation remains consistent.
+- Users can view their account information.
+- Users can update permitted fields.
+- Validation and persistence work correctly.
+- Tests pass.
+- Documentation remains consistent.
 
 ---
 
@@ -235,11 +235,11 @@ The profile module is complete when:
 
 Expected outputs:
 
-* User profile page
-* Profile service
-* Update functionality
-* Validation logic
-* Supporting tests
+- User profile page
+- Profile service
+- Update functionality
+- Validation logic
+- Supporting tests
 
 ---
 

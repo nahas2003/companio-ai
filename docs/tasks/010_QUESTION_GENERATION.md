@@ -34,11 +34,11 @@ Generate high-quality practice and assessment questions from uploaded learning m
 
 At the end of this task:
 
-* Users can request question generation.
-* AI receives processed content.
-* Generated questions are validated.
-* Failed generations can be retried.
-* Generated questions are returned in a consistent structure.
+- Users can request question generation.
+- AI receives processed content.
+- Generated questions are validated.
+- Failed generations can be retried.
+- Generated questions are returned in a consistent structure.
 
 ---
 
@@ -48,32 +48,32 @@ Implement support for:
 
 ### Question Types
 
-* Multiple Choice Questions (MCQ)
-* True / False
-* Short Answer
+- Multiple Choice Questions (MCQ)
+- True / False
+- Short Answer
 
 ### Difficulty Levels
 
-* Easy
-* Medium
-* Hard
+- Easy
+- Medium
+- Hard
 
 ### Generation Options
 
-* Number of questions
-* Difficulty selection
-* Question type selection
-* Language (where supported)
+- Number of questions
+- Difficulty selection
+- Question type selection
+- Language (where supported)
 
 ### Validation
 
 Validate:
 
-* Required fields
-* Answer format
-* Duplicate questions
-* Empty responses
-* Invalid AI output
+- Required fields
+- Answer format
+- Duplicate questions
+- Empty responses
+- Invalid AI output
 
 Reject invalid generations before storage.
 
@@ -83,15 +83,15 @@ Reject invalid generations before storage.
 
 Future versions may include:
 
-* Fill in the blanks
-* Matching questions
-* Coding questions
-* Essay questions
-* Bloom's Taxonomy levels
-* Adaptive difficulty
-* Multi-language generation
-* Image-based questions
-* Diagram interpretation
+- Fill in the blanks
+- Matching questions
+- Coding questions
+- Essay questions
+- Bloom's Taxonomy levels
+- Adaptive difficulty
+- Multi-language generation
+- Image-based questions
+- Diagram interpretation
 
 ---
 
@@ -99,13 +99,13 @@ Future versions may include:
 
 Do **not** implement:
 
-* Question editing
-* Question approval
-* Question Bank management
-* Practice sessions
-* Assessments
-* Results
-* Analytics
+- Question editing
+- Question approval
+- Question Bank management
+- Practice sessions
+- Assessments
+- Results
+- Analytics
 
 This task ends after validated questions are generated.
 
@@ -115,17 +115,17 @@ This task ends after validated questions are generated.
 
 ## Architecture
 
-* Question Generation specification
-* AI architecture
-* Question Bank specification
-* Master Project Specification
+- Question Generation specification
+- AI architecture
+- Question Bank specification
+- Master Project Specification
 
 ## Development
 
-* Coding Standards
-* Error Handling
-* Security Checklist
-* AI Agent Workflow
+- Coding Standards
+- Error Handling
+- Security Checklist
+- AI Agent Workflow
 
 ---
 
@@ -133,13 +133,13 @@ This task ends after validated questions are generated.
 
 Complete:
 
-* Tasks 001–009
+- Tasks 001–009
 
 Verify:
 
-* Upload pipeline is operational.
-* Document processing succeeds.
-* AI Orchestrator is functional.
+- Upload pipeline is operational.
+- Document processing succeeds.
+- AI Orchestrator is functional.
 
 ---
 
@@ -147,15 +147,15 @@ Verify:
 
 ### Input
 
-* Structured document content
-* Generation settings
-* AI Orchestrator
+- Structured document content
+- Generation settings
+- AI Orchestrator
 
 ### Output
 
-* Structured question set
-* Validation result
-* Generation metadata
+- Structured question set
+- Validation result
+- Generation metadata
 
 These outputs will be consumed by the Question Bank.
 
@@ -165,12 +165,12 @@ These outputs will be consumed by the Question Bank.
 
 The AI may modify:
 
-* Question generation services
-* Prompt templates
-* Validation utilities
-* Generation APIs
-* Question models
-* Shared AI utilities (only if required)
+- Question generation services
+- Prompt templates
+- Validation utilities
+- Generation APIs
+- Question models
+- Shared AI utilities (only if required)
 
 ---
 
@@ -178,11 +178,11 @@ The AI may modify:
 
 Do **not** implement:
 
-* Question Bank UI
-* Practice Mode
-* Assessment Module
-* Results
-* Leaderboards
+- Question Bank UI
+- Practice Mode
+- Assessment Module
+- Results
+- Leaderboards
 
 Generate questions only.
 
@@ -192,9 +192,9 @@ Generate questions only.
 
 Allowed:
 
-* Temporary generation records
-* Generation metadata
-* Request history (if defined in the architecture)
+- Temporary generation records
+- Generation metadata
+- Request history (if defined in the architecture)
 
 Do not implement permanent Question Bank management in this task.
 
@@ -204,13 +204,13 @@ Do not implement permanent Question Bank management in this task.
 
 Implement:
 
-* Generation service
-* AI request preparation
-* Prompt variable mapping
-* Response validation
-* Duplicate detection
-* Retry handling
-* Error reporting
+- Generation service
+- AI request preparation
+- Prompt variable mapping
+- Response validation
+- Duplicate detection
+- Retry handling
+- Error reporting
 
 ---
 
@@ -218,11 +218,11 @@ Implement:
 
 Implement:
 
-* Question generation form
-* Generation progress indicator
-* Success and failure messages
-* Retry action
-* Generation summary
+- Question generation form
+- Generation progress indicator
+- Success and failure messages
+- Retry action
+- Generation summary
 
 Do not build editing interfaces.
 
@@ -232,22 +232,22 @@ Do not build editing interfaces.
 
 The AI must:
 
-* Use only the AI Orchestrator for provider communication.
-* Never call AI providers directly.
-* Validate all generated questions.
-* Produce a consistent output format.
-* Prevent invalid or duplicate questions from continuing to downstream modules.
+- Use only the AI Orchestrator for provider communication.
+- Never call AI providers directly.
+- Validate all generated questions.
+- Produce a consistent output format.
+- Prevent invalid or duplicate questions from continuing to downstream modules.
 
 ---
 
 # 17. Implementation Checklist
 
-* Generation service implemented
-* Generation settings supported
-* Question validation completed
-* Duplicate detection implemented
-* Retry supported
-* Error handling completed
+- Generation service implemented
+- Generation settings supported
+- Question validation completed
+- Duplicate detection implemented
+- Retry supported
+- Error handling completed
 
 ---
 
@@ -255,13 +255,13 @@ The AI must:
 
 Verify:
 
-* MCQs generate correctly.
-* True/False questions generate correctly.
-* Short Answer questions generate correctly.
-* Difficulty levels work.
-* Invalid AI responses are rejected.
-* Duplicate questions are detected.
-* Retry succeeds after transient failures.
+- MCQs generate correctly.
+- True/False questions generate correctly.
+- Short Answer questions generate correctly.
+- Difficulty levels work.
+- Invalid AI responses are rejected.
+- Duplicate questions are detected.
+- Retry succeeds after transient failures.
 
 ---
 
@@ -269,10 +269,10 @@ Verify:
 
 Task is complete when:
 
-* Questions are generated successfully.
-* Output passes validation.
-* Generated content is ready for the Question Bank.
-* No downstream business logic is implemented.
+- Questions are generated successfully.
+- Output passes validation.
+- Generated content is ready for the Question Bank.
+- No downstream business logic is implemented.
 
 ---
 
@@ -280,11 +280,11 @@ Task is complete when:
 
 Question Generation is complete when:
 
-* Generation is reliable.
-* Validation is operational.
-* Output format is standardized.
-* Errors are handled gracefully.
-* Tests pass.
+- Generation is reliable.
+- Validation is operational.
+- Output format is standardized.
+- Errors are handled gracefully.
+- Tests pass.
 
 ---
 
@@ -292,12 +292,12 @@ Question Generation is complete when:
 
 Expected outputs:
 
-* Question Generation service
-* Validation pipeline
-* Generation UI
-* Retry workflow
-* Generation metadata
-* Supporting tests
+- Question Generation service
+- Validation pipeline
+- Generation UI
+- Retry workflow
+- Generation metadata
+- Supporting tests
 
 ---
 

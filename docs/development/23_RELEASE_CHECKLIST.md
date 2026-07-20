@@ -19,12 +19,12 @@ The objective is to verify that the application is technically, operationally, a
 
 Every production release should be:
 
-* Tested
-* Secure
-* Documented
-* Monitored
-* Recoverable
-* Approved
+- Tested
+- Secure
+- Documented
+- Monitored
+- Recoverable
+- Approved
 
 No release should bypass this checklist.
 
@@ -34,13 +34,13 @@ No release should bypass this checklist.
 
 Verify:
 
-* All planned features are complete.
-* No critical TODO items remain.
-* Code reviews are complete.
-* Coding standards are followed.
-* Static analysis passes.
-* Linting passes.
-* Type checking passes.
+- All planned features are complete.
+- No critical TODO items remain.
+- Code reviews are complete.
+- Coding standards are followed.
+- Static analysis passes.
+- Linting passes.
+- Type checking passes.
 
 ---
 
@@ -48,13 +48,13 @@ Verify:
 
 Verify:
 
-* Unit tests pass.
-* Integration tests pass.
-* End-to-end tests pass.
-* Regression testing completed.
-* Manual smoke testing completed.
-* AI workflow validation completed.
-* Performance testing completed (where required).
+- Unit tests pass.
+- Integration tests pass.
+- End-to-end tests pass.
+- Regression testing completed.
+- Manual smoke testing completed.
+- AI workflow validation completed.
+- Performance testing completed (where required).
 
 No critical defects should remain unresolved.
 
@@ -64,13 +64,13 @@ No critical defects should remain unresolved.
 
 Verify:
 
-* Authentication tested.
-* Authorization tested.
-* Secrets configured securely.
-* Dependency scan completed.
-* File upload validation verified.
-* AI integrations reviewed.
-* Sensitive data protected.
+- Authentication tested.
+- Authorization tested.
+- Secrets configured securely.
+- Dependency scan completed.
+- File upload validation verified.
+- AI integrations reviewed.
+- Sensitive data protected.
 
 ---
 
@@ -78,11 +78,11 @@ Verify:
 
 Verify:
 
-* Migrations reviewed.
-* Backup completed.
-* Migration tested in staging.
-* Rollback procedure documented.
-* Database performance verified.
+- Migrations reviewed.
+- Backup completed.
+- Migration tested in staging.
+- Rollback procedure documented.
+- Database performance verified.
 
 ---
 
@@ -90,11 +90,11 @@ Verify:
 
 Verify:
 
-* Environment variables updated.
-* Secrets validated.
-* Feature flags configured.
-* Third-party integrations verified.
-* Monitoring configuration updated.
+- Environment variables updated.
+- Secrets validated.
+- Feature flags configured.
+- Third-party integrations verified.
+- Monitoring configuration updated.
 
 ---
 
@@ -102,12 +102,12 @@ Verify:
 
 Verify:
 
-* Build succeeds.
-* Deployment pipeline succeeds.
-* Health checks pass.
-* Application starts successfully.
-* Rollback plan available.
-* Deployment documentation updated.
+- Build succeeds.
+- Deployment pipeline succeeds.
+- Health checks pass.
+- Application starts successfully.
+- Rollback plan available.
+- Deployment documentation updated.
 
 ---
 
@@ -115,11 +115,11 @@ Verify:
 
 Verify:
 
-* Monitoring dashboards available.
-* Alerting enabled.
-* Log aggregation functioning.
-* Backup strategy confirmed.
-* On-call or support contact identified (if applicable).
+- Monitoring dashboards available.
+- Alerting enabled.
+- Log aggregation functioning.
+- Backup strategy confirmed.
+- On-call or support contact identified (if applicable).
 
 ---
 
@@ -127,13 +127,13 @@ Verify:
 
 Verify:
 
-* Dashboard functions correctly.
-* Practice Mode works.
-* Assessment Module works.
-* Results display correctly.
-* Leaderboards update correctly.
-* Responsive layouts verified.
-* Accessibility checks completed.
+- Dashboard functions correctly.
+- Practice Mode works.
+- Assessment Module works.
+- Results display correctly.
+- Leaderboards update correctly.
+- Responsive layouts verified.
+- Accessibility checks completed.
 
 ---
 
@@ -141,11 +141,11 @@ Verify:
 
 Verify:
 
-* AI Orchestrator operational.
-* Prompt registry current.
-* Response validation enabled.
-* Workflow retries functioning.
-* AI provider configuration verified.
+- AI Orchestrator operational.
+- Prompt registry current.
+- Response validation enabled.
+- Workflow retries functioning.
+- AI provider configuration verified.
 
 ---
 
@@ -153,12 +153,12 @@ Verify:
 
 Verify:
 
-* Architecture documents updated.
-* Development guides updated.
-* API documentation updated.
-* Environment documentation updated.
-* Release notes prepared.
-* User documentation updated (if applicable).
+- Architecture documents updated.
+- Development guides updated.
+- API documentation updated.
+- Environment documentation updated.
+- Release notes prepared.
+- User documentation updated (if applicable).
 
 ---
 
@@ -166,11 +166,11 @@ Verify:
 
 Confirm:
 
-* Application metrics available.
-* Error tracking operational.
-* Health endpoints responding.
-* Logs arriving correctly.
-* Alerts tested.
+- Application metrics available.
+- Error tracking operational.
+- Health endpoints responding.
+- Logs arriving correctly.
+- Alerts tested.
 
 ---
 
@@ -178,10 +178,10 @@ Confirm:
 
 Before deployment ensure:
 
-* Previous release artifact available.
-* Database rollback plan documented.
-* Recovery procedures tested where practical.
-* Team understands rollback responsibilities.
+- Previous release artifact available.
+- Database rollback plan documented.
+- Recovery procedures tested where practical.
+- Team understands rollback responsibilities.
 
 ---
 
@@ -191,10 +191,10 @@ Obtain approval from the appropriate stakeholders before production release.
 
 Typical approvals may include:
 
-* Product owner
-* Technical lead
-* Quality assurance
-* Operations (if applicable)
+- Product owner
+- Technical lead
+- Quality assurance
+- Operations (if applicable)
 
 Define the approval process appropriate for the project size.
 
@@ -204,16 +204,16 @@ Define the approval process appropriate for the project size.
 
 Immediately after release verify:
 
-* Login
-* Dashboard
-* Source upload
-* AI processing
-* Question Bank
-* Assessment creation
-* Assessment completion
-* Results generation
-* Leaderboard
-* Notifications
+- Login
+- Dashboard
+- Source upload
+- AI processing
+- Question Bank
+- Assessment creation
+- Assessment completion
+- Results generation
+- Leaderboard
+- Notifications
 
 Resolve critical issues immediately if discovered.
 
@@ -223,14 +223,14 @@ Resolve critical issues immediately if discovered.
 
 Record:
 
-* Release version
-* Release date
-* Included features
-* Bug fixes
-* Known issues
-* Rollback reference
-* Deployment operator
-* Verification status
+- Release version
+- Release date
+- Included features
+- Bug fixes
+- Known issues
+- Rollback reference
+- Deployment operator
+- Verification status
 
 Maintain a historical release log.
 
@@ -240,11 +240,11 @@ Maintain a historical release log.
 
 Avoid:
 
-* Releasing without rollback preparation.
-* Skipping smoke tests.
-* Ignoring monitoring after deployment.
-* Deploying undocumented changes.
-* Bypassing security verification.
+- Releasing without rollback preparation.
+- Skipping smoke tests.
+- Ignoring monitoring after deployment.
+- Deploying undocumented changes.
+- Bypassing security verification.
 
 ---
 
@@ -252,10 +252,10 @@ Avoid:
 
 A release is approved when:
 
-* All mandatory checklist items are complete.
-* Critical defects are resolved.
-* Stakeholder approvals are obtained.
-* Monitoring confirms application health.
+- All mandatory checklist items are complete.
+- Critical defects are resolved.
+- Stakeholder approvals are obtained.
+- Monitoring confirms application health.
 
 ---
 
@@ -263,11 +263,11 @@ A release is approved when:
 
 A production release is considered successful when:
 
-* Deployment completes successfully.
-* Health checks pass.
-* Core workflows function correctly.
-* Monitoring reports normal operation.
-* No critical production issues are detected.
+- Deployment completes successfully.
+- Health checks pass.
+- Core workflows function correctly.
+- Monitoring reports normal operation.
+- No critical production issues are detected.
 
 ---
 

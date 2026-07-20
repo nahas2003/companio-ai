@@ -14,13 +14,13 @@ This document defines the security architecture for Companio.
 
 It establishes how the application protects:
 
-* Users
-* Assessments
-* Uploaded content
-* AI services
-* APIs
-* Database
-* Infrastructure
+- Users
+- Assessments
+- Uploaded content
+- AI services
+- APIs
+- Database
+- Infrastructure
 
 Every feature must comply with this document before implementation.
 
@@ -30,13 +30,13 @@ Every feature must comply with this document before implementation.
 
 The platform must ensure:
 
-* Confidentiality
-* Integrity
-* Availability
-* Privacy
-* Auditability
-* Least privilege
-* Defense in depth
+- Confidentiality
+- Integrity
+- Availability
+- Privacy
+- Auditability
+- Least privilege
+- Defense in depth
 
 ---
 
@@ -75,16 +75,16 @@ Each layer validates requests independently.
 
 Supported:
 
-* Guest participants
-* Email/password
-* OAuth providers (future)
+- Guest participants
+- Email/password
+- OAuth providers (future)
 
 Rules:
 
-* Guests cannot create assessments.
-* Guests cannot access creator dashboards.
-* Sessions must expire securely.
-* Authentication tokens must never be exposed to client-side logs.
+- Guests cannot create assessments.
+- Guests cannot access creator dashboards.
+- Sessions must expire securely.
+- Authentication tokens must never be exposed to client-side logs.
 
 ---
 
@@ -92,9 +92,9 @@ Rules:
 
 Every protected request must verify:
 
-* User identity
-* Resource ownership
-* Permission level
+- User identity
+- Resource ownership
+- Permission level
 
 Never trust identifiers supplied by the client without verification.
 
@@ -106,9 +106,9 @@ Enable RLS on every application table.
 
 Examples:
 
-* Users can access only their own profile.
-* Assessment creators can manage only their own assessments.
-* Participants can access only the data they are authorized to view.
+- Users can access only their own profile.
+- Assessment creators can manage only their own assessments.
+- Participants can access only the data they are authorized to view.
 
 ---
 
@@ -116,12 +116,12 @@ Examples:
 
 All APIs must:
 
-* Validate input.
-* Validate authentication.
-* Validate authorization.
-* Enforce rate limits.
-* Return sanitized responses.
-* Avoid exposing internal implementation details.
+- Validate input.
+- Validate authentication.
+- Validate authorization.
+- Enforce rate limits.
+- Return sanitized responses.
+- Avoid exposing internal implementation details.
 
 ---
 
@@ -129,21 +129,21 @@ All APIs must:
 
 Allowed file types:
 
-* PDF (MVP)
+- PDF (MVP)
 
 Rules:
 
-* Validate MIME type.
-* Validate file extension.
-* Enforce file size limits.
-* Reject encrypted or corrupted files.
-* Store uploads outside the public web root.
+- Validate MIME type.
+- Validate file extension.
+- Enforce file size limits.
+- Reject encrypted or corrupted files.
+- Store uploads outside the public web root.
 
 Future support:
 
-* DOCX
-* PPTX
-* TXT
+- DOCX
+- PPTX
+- TXT
 
 ---
 
@@ -153,12 +153,12 @@ All AI requests must pass through the AI Orchestrator.
 
 Rules:
 
-* Never expose AI API keys.
-* Validate prompts.
-* Sanitize AI responses.
-* Enforce provider timeouts.
-* Handle provider failures gracefully.
-* Validate returned JSON before processing.
+- Never expose AI API keys.
+- Validate prompts.
+- Sanitize AI responses.
+- Enforce provider timeouts.
+- Handle provider failures gracefully.
+- Validate returned JSON before processing.
 
 ---
 
@@ -168,11 +168,11 @@ User-provided content may contain malicious instructions.
 
 Mitigations:
 
-* Treat uploaded content as untrusted.
-* Separate system prompts from user content.
-* Require structured JSON output.
-* Reject malformed responses.
-* Never execute instructions embedded in uploaded files.
+- Treat uploaded content as untrusted.
+- Separate system prompts from user content.
+- Require structured JSON output.
+- Reject malformed responses.
+- Never execute instructions embedded in uploaded files.
 
 ---
 
@@ -180,13 +180,13 @@ Mitigations:
 
 Validate:
 
-* Text inputs
-* Assessment codes
-* Email addresses
-* Display names
-* Uploaded files
-* Query parameters
-* Request bodies
+- Text inputs
+- Assessment codes
+- Email addresses
+- Display names
+- Uploaded files
+- Query parameters
+- Request bodies
 
 Validation should occur on both client and server.
 
@@ -196,9 +196,9 @@ Validation should occur on both client and server.
 
 Before rendering data:
 
-* Escape HTML where appropriate.
-* Prevent script injection.
-* Avoid rendering unsanitized user-generated content.
+- Escape HTML where appropriate.
+- Prevent script injection.
+- Avoid rendering unsanitized user-generated content.
 
 ---
 
@@ -206,11 +206,11 @@ Before rendering data:
 
 Never expose:
 
-* Passwords
-* Tokens
-* API keys
-* Internal identifiers
-* Service credentials
+- Passwords
+- Tokens
+- API keys
+- Internal identifiers
+- Service credentials
 
 Secrets must be stored in environment variables or managed secret stores.
 
@@ -220,12 +220,12 @@ Secrets must be stored in environment variables or managed secret stores.
 
 Log:
 
-* Login events
-* Assessment creation
-* AI generation requests
-* Upload failures
-* Authorization failures
-* Critical application errors
+- Login events
+- Assessment creation
+- AI generation requests
+- Upload failures
+- Authorization failures
+- Critical application errors
 
 Do not log sensitive personal information or secrets.
 
@@ -235,10 +235,10 @@ Do not log sensitive personal information or secrets.
 
 Recommended defaults:
 
-* Public APIs: 60 requests/minute/IP
-* Authenticated APIs: 300 requests/minute/user
-* AI generation: stricter limits
-* File uploads: stricter limits
+- Public APIs: 60 requests/minute/IP
+- Authenticated APIs: 300 requests/minute/user
+- AI generation: stricter limits
+- File uploads: stricter limits
 
 These limits should be configurable.
 
@@ -248,19 +248,19 @@ These limits should be configurable.
 
 For the MVP:
 
-* Server-side timer enforcement.
-* Automatic submission when time expires.
-* Unique assessment codes.
-* Attempts linked to a participant.
-* Prevent duplicate submissions for the same attempt.
+- Server-side timer enforcement.
+- Automatic submission when time expires.
+- Unique assessment codes.
+- Attempts linked to a participant.
+- Prevent duplicate submissions for the same attempt.
 
 Future enhancements may include:
 
-* Fullscreen enforcement.
-* Browser focus detection.
-* Clipboard event monitoring.
-* Webcam-based proctoring.
-* AI-assisted cheating detection.
+- Fullscreen enforcement.
+- Browser focus detection.
+- Clipboard event monitoring.
+- Webcam-based proctoring.
+- AI-assisted cheating detection.
 
 ---
 
@@ -268,11 +268,11 @@ Future enhancements may include:
 
 Rules:
 
-* Use parameterized queries.
-* Enforce foreign keys.
-* Enable RLS.
-* Apply least-privilege access.
-* Restrict direct database access to trusted services.
+- Use parameterized queries.
+- Enforce foreign keys.
+- Enable RLS.
+- Apply least-privilege access.
+- Restrict direct database access to trusted services.
 
 ---
 
@@ -280,11 +280,11 @@ Rules:
 
 Use:
 
-* HTTPS
-* Secure HTTP headers
-* Regular dependency updates
-* Automated backups
-* Monitoring and alerting
+- HTTPS
+- Secure HTTP headers
+- Regular dependency updates
+- Automated backups
+- Monitoring and alerting
 
 ---
 
@@ -292,10 +292,10 @@ Use:
 
 Never expose:
 
-* Stack traces
-* SQL queries
-* Internal file paths
-* Provider credentials
+- Stack traces
+- SQL queries
+- Internal file paths
+- Provider credentials
 
 Return user-friendly error messages while logging technical details internally.
 
@@ -305,13 +305,13 @@ Return user-friendly error messages while logging technical details internally.
 
 Regularly test for:
 
-* Broken authentication
-* Broken authorization
-* Injection attacks
-* Cross-site scripting (XSS)
-* Cross-site request forgery (CSRF), where applicable
-* File upload bypasses
-* Rate-limit bypasses
+- Broken authentication
+- Broken authorization
+- Injection attacks
+- Cross-site scripting (XSS)
+- Cross-site request forgery (CSRF), where applicable
+- File upload bypasses
+- Rate-limit bypasses
 
 ---
 
@@ -333,12 +333,12 @@ In the event of a security incident:
 
 Every AI coding agent must:
 
-* Follow this security architecture.
-* Never bypass validation.
-* Never expose secrets.
-* Respect authorization boundaries.
-* Keep security checks close to business logic.
-* Update this document if new security mechanisms are introduced.
+- Follow this security architecture.
+- Never bypass validation.
+- Never expose secrets.
+- Respect authorization boundaries.
+- Keep security checks close to business logic.
+- Update this document if new security mechanisms are introduced.
 
 ---
 
@@ -346,15 +346,15 @@ Every AI coding agent must:
 
 Before releasing a feature:
 
-* Authentication verified.
-* Authorization verified.
-* Input validation complete.
-* Output sanitized.
-* RLS policies reviewed.
-* Rate limits applied.
-* Logging configured.
-* Secrets protected.
-* Error handling reviewed.
+- Authentication verified.
+- Authorization verified.
+- Input validation complete.
+- Output sanitized.
+- RLS policies reviewed.
+- Rate limits applied.
+- Logging configured.
+- Secrets protected.
+- Error handling reviewed.
 
 ---
 
@@ -362,17 +362,17 @@ Before releasing a feature:
 
 Depends on:
 
-* 00_PROJECT_OVERVIEW.md
-* 01_PRODUCT_REQUIREMENTS.md
-* 02_SYSTEM_ARCHITECTURE.md
-* 03_TECH_STACK.md
-* 04_PROJECT_STRUCTURE.md
-* 05_DATABASE_ARCHITECTURE.md
-* 06_BUSINESS_WORKFLOWS.md
-* 07_API_SPECIFICATION.md
+- 00_PROJECT_OVERVIEW.md
+- 01_PRODUCT_REQUIREMENTS.md
+- 02_SYSTEM_ARCHITECTURE.md
+- 03_TECH_STACK.md
+- 04_PROJECT_STRUCTURE.md
+- 05_DATABASE_ARCHITECTURE.md
+- 06_BUSINESS_WORKFLOWS.md
+- 07_API_SPECIFICATION.md
 
 Referenced by:
 
-* 09_AI_ARCHITECTURE.md
-* 10_DEVELOPMENT_GUIDELINES.md
-* All implementation documents.
+- 09_AI_ARCHITECTURE.md
+- 10_DEVELOPMENT_GUIDELINES.md
+- All implementation documents.

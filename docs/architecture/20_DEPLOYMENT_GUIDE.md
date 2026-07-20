@@ -20,11 +20,11 @@ Deployment procedures should be repeatable, secure, and environment-independent.
 
 The deployment process should:
 
-* Be reproducible.
-* Minimize manual configuration.
-* Support multiple environments.
-* Protect production data.
-* Enable rapid recovery.
+- Be reproducible.
+- Minimize manual configuration.
+- Support multiple environments.
+- Protect production data.
+- Enable rapid recovery.
 
 ---
 
@@ -34,15 +34,15 @@ The deployment process should:
 
 Purpose:
 
-* Local feature development.
-* Debugging.
-* Rapid iteration.
+- Local feature development.
+- Debugging.
+- Rapid iteration.
 
 Characteristics:
 
-* Local database or development Supabase project.
-* Debug logging enabled.
-* Test AI configuration.
+- Local database or development Supabase project.
+- Debug logging enabled.
+- Test AI configuration.
 
 ---
 
@@ -50,16 +50,16 @@ Characteristics:
 
 Purpose:
 
-* Integration testing.
-* User acceptance testing.
-* Pre-production validation.
+- Integration testing.
+- User acceptance testing.
+- Pre-production validation.
 
 Characteristics:
 
-* Mirrors production configuration.
-* Separate database.
-* Separate storage.
-* Separate AI credentials where applicable.
+- Mirrors production configuration.
+- Separate database.
+- Separate storage.
+- Separate AI credentials where applicable.
 
 ---
 
@@ -67,15 +67,15 @@ Characteristics:
 
 Purpose:
 
-* Live application.
+- Live application.
 
 Characteristics:
 
-* Production database.
-* Production storage.
-* Optimized logging.
-* Monitoring enabled.
-* Backup strategy enabled.
+- Production database.
+- Production storage.
+- Optimized logging.
+- Monitoring enabled.
+- Backup strategy enabled.
 
 ---
 
@@ -85,13 +85,13 @@ Separate environment variables by environment.
 
 Typical categories:
 
-* Application
-* Database
-* Authentication
-* Storage
-* AI Providers
-* Analytics
-* Monitoring
+- Application
+- Database
+- Authentication
+- Storage
+- AI Providers
+- Analytics
+- Monitoring
 
 Sensitive values must never be committed to version control.
 
@@ -101,14 +101,14 @@ Sensitive values must never be committed to version control.
 
 Core infrastructure:
 
-* Frontend application
-* Backend services
-* Database
-* Object storage
-* Authentication provider
-* AI providers
-* Monitoring
-* Logging
+- Frontend application
+- Backend services
+- Database
+- Object storage
+- Authentication provider
+- AI providers
+- Monitoring
+- Logging
 
 Each component should be independently replaceable where practical.
 
@@ -146,10 +146,10 @@ Production deployments should occur only after successful validation.
 
 Guidelines:
 
-* Version every migration.
-* Review schema changes.
-* Test migrations in staging first.
-* Support rollback where feasible.
+- Version every migration.
+- Review schema changes.
+- Test migrations in staging first.
+- Support rollback where feasible.
 
 Never modify production schemas manually.
 
@@ -159,9 +159,9 @@ Never modify production schemas manually.
 
 Store:
 
-* Uploaded documents
-* Generated assets
-* Logs (where appropriate)
+- Uploaded documents
+- Generated assets
+- Logs (where appropriate)
 
 Do not store sensitive secrets in object storage.
 
@@ -171,12 +171,12 @@ Do not store sensitive secrets in object storage.
 
 Configuration should support:
 
-* Primary provider
-* Fallback provider
-* API timeouts
-* Retry limits
-* Model selection
-* Cost controls
+- Primary provider
+- Fallback provider
+- API timeouts
+- Retry limits
+- Model selection
+- Cost controls
 
 Provider credentials must remain server-side.
 
@@ -186,12 +186,12 @@ Provider credentials must remain server-side.
 
 Monitor:
 
-* Application uptime.
-* API latency.
-* Database health.
-* AI response times.
-* Error rates.
-* Storage usage.
+- Application uptime.
+- API latency.
+- Database health.
+- AI response times.
+- Error rates.
+- Storage usage.
 
 Define alert thresholds for critical failures.
 
@@ -201,11 +201,11 @@ Define alert thresholds for critical failures.
 
 Log:
 
-* Application events.
-* Errors.
-* Authentication events.
-* AI processing metrics.
-* Deployment events.
+- Application events.
+- Errors.
+- Authentication events.
+- AI processing metrics.
+- Deployment events.
 
 Never log passwords, tokens, or sensitive user data.
 
@@ -215,9 +215,9 @@ Never log passwords, tokens, or sensitive user data.
 
 Back up:
 
-* Database
-* Uploaded content
-* Configuration (where applicable)
+- Database
+- Uploaded content
+- Configuration (where applicable)
 
 Document recovery procedures and verify backups periodically.
 
@@ -227,11 +227,11 @@ Document recovery procedures and verify backups periodically.
 
 Deployment security should include:
 
-* HTTPS everywhere.
-* Secure environment variables.
-* Least-privilege access.
-* Secret rotation.
-* Dependency updates.
+- HTTPS everywhere.
+- Secure environment variables.
+- Least-privilege access.
+- Secret rotation.
+- Dependency updates.
 
 ---
 
@@ -241,9 +241,9 @@ Every deployment should support rollback.
 
 Rollback may include:
 
-* Application version.
-* Database migration (where safe).
-* Configuration changes.
+- Application version.
+- Database migration (where safe).
+- Configuration changes.
 
 Rollback procedures should be documented and tested.
 
@@ -253,11 +253,11 @@ Rollback procedures should be documented and tested.
 
 Prepare for:
 
-* Database failure.
-* Storage failure.
-* AI provider outage.
-* Infrastructure outage.
-* Accidental deployment.
+- Database failure.
+- Storage failure.
+- AI provider outage.
+- Infrastructure outage.
+- Accidental deployment.
 
 Recovery objectives should be defined before production.
 
@@ -267,12 +267,12 @@ Recovery objectives should be defined before production.
 
 Monitor and optimize:
 
-* Build time.
-* Deployment time.
-* Cold start performance.
-* Asset delivery.
-* Database query performance.
-* AI request latency.
+- Build time.
+- Deployment time.
+- Cold start performance.
+- Asset delivery.
+- Database query performance.
+- AI request latency.
 
 ---
 
@@ -280,19 +280,19 @@ Monitor and optimize:
 
 Before deployment:
 
-* All tests pass.
-* Migrations reviewed.
-* Environment variables verified.
-* Monitoring enabled.
-* Backup confirmed.
-* Release notes prepared.
+- All tests pass.
+- Migrations reviewed.
+- Environment variables verified.
+- Monitoring enabled.
+- Backup confirmed.
+- Release notes prepared.
 
 After deployment:
 
-* Smoke tests pass.
-* Health checks succeed.
-* Logs show no critical errors.
-* User workflows operate correctly.
+- Smoke tests pass.
+- Health checks succeed.
+- Logs show no critical errors.
+- User workflows operate correctly.
 
 ---
 
@@ -300,11 +300,11 @@ After deployment:
 
 Every AI coding agent must:
 
-* Never hardcode secrets.
-* Respect environment separation.
-* Preserve deployment reproducibility.
-* Document infrastructure changes.
-* Update deployment instructions when configuration changes.
+- Never hardcode secrets.
+- Respect environment separation.
+- Preserve deployment reproducibility.
+- Document infrastructure changes.
+- Update deployment instructions when configuration changes.
 
 ---
 
@@ -312,13 +312,13 @@ Every AI coding agent must:
 
 The deployment strategy is complete when:
 
-* All environments are documented.
-* Deployment is repeatable.
-* Secrets are managed securely.
-* Monitoring is operational.
-* Backup and recovery procedures exist.
-* Rollback procedures are defined.
-* Production deployments can be validated.
+- All environments are documented.
+- Deployment is repeatable.
+- Secrets are managed securely.
+- Monitoring is operational.
+- Backup and recovery procedures exist.
+- Rollback procedures are defined.
+- Production deployments can be validated.
 
 ---
 
@@ -326,16 +326,16 @@ The deployment strategy is complete when:
 
 ## Depends On
 
-* 00–19
+- 00–19
 
 ## Used By
 
-* CI/CD Pipeline
-* Operations Runbook
-* Future Infrastructure documentation
+- CI/CD Pipeline
+- Operations Runbook
+- Future Infrastructure documentation
 
 ## Related Documents
 
-* 08_SECURITY_ARCHITECTURE.md
-* 09_AI_ARCHITECTURE.md
-* 19_TESTING_STRATEGY.md
+- 08_SECURITY_ARCHITECTURE.md
+- 09_AI_ARCHITECTURE.md
+- 19_TESTING_STRATEGY.md

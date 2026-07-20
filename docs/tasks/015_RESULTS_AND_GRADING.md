@@ -34,11 +34,11 @@ Provide accurate, transparent, and timely evaluation of learner performance whil
 
 At the end of this task:
 
-* Submitted assessments are graded.
-* Scores are calculated correctly.
-* Pass/fail status is determined.
-* Learners can review their results.
-* Administrators can access assessment outcomes.
+- Submitted assessments are graded.
+- Scores are calculated correctly.
+- Pass/fail status is determined.
+- Learners can review their results.
+- Administrators can access assessment outcomes.
 
 ---
 
@@ -48,32 +48,32 @@ Implement:
 
 ### Grading
 
-* Automatic grading for supported question types
-* Correct answer evaluation
-* Score calculation
-* Percentage calculation
-* Pass/fail determination
+- Automatic grading for supported question types
+- Correct answer evaluation
+- Score calculation
+- Percentage calculation
+- Pass/fail determination
 
 ### Results
 
 Display:
 
-* Total score
-* Percentage
-* Correct answers
-* Incorrect answers
-* Skipped questions
-* Time taken
-* Pass/fail status
+- Total score
+- Percentage
+- Correct answers
+- Incorrect answers
+- Skipped questions
+- Time taken
+- Pass/fail status
 
 ### Review
 
 Support:
 
-* Question-by-question review
-* Correct answers
-* Learner answers
-* Explanations (if available)
+- Question-by-question review
+- Correct answers
+- Learner answers
+- Explanations (if available)
 
 ---
 
@@ -81,14 +81,14 @@ Support:
 
 Future versions may include:
 
-* Manual grading for essay questions
-* Partial credit
-* Rubric-based evaluation
-* AI-assisted feedback
-* Performance trends
-* Peer review
-* Instructor comments
-* Grade moderation
+- Manual grading for essay questions
+- Partial credit
+- Rubric-based evaluation
+- AI-assisted feedback
+- Performance trends
+- Peer review
+- Instructor comments
+- Grade moderation
 
 ---
 
@@ -96,11 +96,11 @@ Future versions may include:
 
 Do **not** implement:
 
-* Analytics dashboards
-* Leaderboards
-* Certificates
-* Notifications
-* Reporting
+- Analytics dashboards
+- Leaderboards
+- Certificates
+- Notifications
+- Reporting
 
 Focus only on grading and result presentation.
 
@@ -110,18 +110,18 @@ Focus only on grading and result presentation.
 
 ## Architecture
 
-* Assessment Delivery specification
-* Results specification
-* Question Bank specification
-* Master Project Specification
+- Assessment Delivery specification
+- Results specification
+- Question Bank specification
+- Master Project Specification
 
 ## Development
 
-* Coding Standards
-* Error Handling
-* Security Checklist
-* Performance Guidelines
-* AI Agent Workflow
+- Coding Standards
+- Error Handling
+- Security Checklist
+- Performance Guidelines
+- AI Agent Workflow
 
 ---
 
@@ -129,13 +129,13 @@ Focus only on grading and result presentation.
 
 Complete:
 
-* Tasks 001–014
+- Tasks 001–014
 
 Verify:
 
-* Assessment submissions are stored successfully.
-* Assessment configurations are available.
-* Answer keys are accessible.
+- Assessment submissions are stored successfully.
+- Assessment configurations are available.
+- Answer keys are accessible.
 
 ---
 
@@ -143,17 +143,17 @@ Verify:
 
 ### Input
 
-* Submitted assessment
-* User responses
-* Assessment configuration
-* Question Bank
+- Submitted assessment
+- User responses
+- Assessment configuration
+- Question Bank
 
 ### Output
 
-* Grading result
-* Learner feedback
-* Assessment summary
-* Result records
+- Grading result
+- Learner feedback
+- Assessment summary
+- Result records
 
 Future Reporting and Analytics modules consume these outputs.
 
@@ -163,12 +163,12 @@ Future Reporting and Analytics modules consume these outputs.
 
 The AI may modify:
 
-* Grading services
-* Result pages
-* Result APIs
-* Feedback components
-* Score calculation utilities
-* Review interfaces
+- Grading services
+- Result pages
+- Result APIs
+- Feedback components
+- Score calculation utilities
+- Review interfaces
 
 ---
 
@@ -176,11 +176,11 @@ The AI may modify:
 
 Do **not** implement:
 
-* Analytics dashboards
-* Certificates
-* Notifications
-* Reporting
-* Leaderboards
+- Analytics dashboards
+- Certificates
+- Notifications
+- Reporting
+- Leaderboards
 
 Only implement grading and results.
 
@@ -190,12 +190,12 @@ Only implement grading and results.
 
 Implement support for:
 
-* Result records
-* Scores
-* Pass/fail status
-* Feedback metadata
-* Time taken
-* Review data
+- Result records
+- Scores
+- Pass/fail status
+- Feedback metadata
+- Time taken
+- Review data
 
 ---
 
@@ -203,13 +203,13 @@ Implement support for:
 
 Implement:
 
-* Results page
-* Assessment summary
-* Detailed review page
-* Score cards
-* Pass/fail indicators
-* Loading states
-* Empty states
+- Results page
+- Assessment summary
+- Detailed review page
+- Score cards
+- Pass/fail indicators
+- Loading states
+- Empty states
 
 ---
 
@@ -217,13 +217,13 @@ Implement:
 
 Implement:
 
-* Automatic grading
-* Score calculation
-* Result persistence
-* Review generation
-* Result retrieval
-* Validation
-* Audit logging
+- Automatic grading
+- Score calculation
+- Result persistence
+- Review generation
+- Result retrieval
+- Validation
+- Audit logging
 
 ---
 
@@ -231,22 +231,22 @@ Implement:
 
 The AI must:
 
-* Grade only submitted assessments.
-* Use official answer keys.
-* Keep grading deterministic.
-* Preserve assessment integrity.
-* Make grading logic reusable for future question types.
+- Grade only submitted assessments.
+- Use official answer keys.
+- Keep grading deterministic.
+- Preserve assessment integrity.
+- Make grading logic reusable for future question types.
 
 ---
 
 # 17. Implementation Checklist
 
-* Automatic grading implemented
-* Score calculation completed
-* Pass/fail determination implemented
-* Results page completed
-* Review interface implemented
-* Result storage verified
+- Automatic grading implemented
+- Score calculation completed
+- Pass/fail determination implemented
+- Results page completed
+- Review interface implemented
+- Result storage verified
 
 ---
 
@@ -254,12 +254,12 @@ The AI must:
 
 Verify:
 
-* Scores calculate correctly.
-* Percentages are accurate.
-* Pass/fail rules are enforced.
-* Question review displays correctly.
-* Time taken is calculated correctly.
-* Results are accessible only to authorized users.
+- Scores calculate correctly.
+- Percentages are accurate.
+- Pass/fail rules are enforced.
+- Question review displays correctly.
+- Time taken is calculated correctly.
+- Results are accessible only to authorized users.
 
 ---
 
@@ -267,11 +267,11 @@ Verify:
 
 Task is complete when:
 
-* Submitted assessments are graded correctly.
-* Learners can view results.
-* Administrators can review results.
-* Review information is accurate.
-* Results are ready for reporting and analytics.
+- Submitted assessments are graded correctly.
+- Learners can view results.
+- Administrators can review results.
+- Review information is accurate.
+- Results are ready for reporting and analytics.
 
 ---
 
@@ -279,11 +279,11 @@ Task is complete when:
 
 Results & Grading is complete when:
 
-* Grading is reliable.
-* Result presentation is complete.
-* Review functionality works.
-* Validation passes.
-* Tests pass.
+- Grading is reliable.
+- Result presentation is complete.
+- Review functionality works.
+- Validation passes.
+- Tests pass.
 
 ---
 
@@ -291,12 +291,12 @@ Results & Grading is complete when:
 
 Expected outputs:
 
-* Grading service
-* Results module
-* Result APIs
-* Review interface
-* Score calculation utilities
-* Supporting tests
+- Grading service
+- Results module
+- Result APIs
+- Review interface
+- Score calculation utilities
+- Supporting tests
 
 ---
 

@@ -19,12 +19,12 @@ This guide assumes the project setup phase has been completed successfully.
 
 By the end of this phase:
 
-* Supabase project is configured.
-* Database schema is implemented.
-* Row Level Security (RLS) is enabled where appropriate.
-* Initial migrations are applied.
-* Core relationships are validated.
-* Development and staging databases are synchronized.
+- Supabase project is configured.
+- Database schema is implemented.
+- Row Level Security (RLS) is enabled where appropriate.
+- Initial migrations are applied.
+- Core relationships are validated.
+- Development and staging databases are synchronized.
 
 ---
 
@@ -32,14 +32,14 @@ By the end of this phase:
 
 Complete before starting:
 
-* `00_MASTER_DEVELOPMENT_PLAN.md`
-* `01_PROJECT_SETUP.md`
+- `00_MASTER_DEVELOPMENT_PLAN.md`
+- `01_PROJECT_SETUP.md`
 
 Review these architecture documents:
 
-* `05_DATABASE_ARCHITECTURE.md`
-* `16_AUTHENTICATION.md`
-* `21_PROJECT_CONSTITUTION.md`
+- `05_DATABASE_ARCHITECTURE.md`
+- `16_AUTHENTICATION.md`
+- `21_PROJECT_CONSTITUTION.md`
 
 ---
 
@@ -49,10 +49,10 @@ Database changes must be managed through versioned migrations.
 
 Rules:
 
-* Never edit production tables manually.
-* Every schema change requires a new migration.
-* Migrations should be reversible where practical.
-* Test migrations in a development environment before promotion.
+- Never edit production tables manually.
+- Every schema change requires a new migration.
+- Migrations should be reversible where practical.
+- Test migrations in a development environment before promotion.
 
 ---
 
@@ -83,11 +83,11 @@ Do not create dependent tables before their parent entities exist.
 
 For every table:
 
-* Define primary keys.
-* Define foreign keys.
-* Add appropriate indexes.
-* Apply uniqueness constraints where required.
-* Avoid redundant data unless justified for performance.
+- Define primary keys.
+- Define foreign keys.
+- Add appropriate indexes.
+- Apply uniqueness constraints where required.
+- Avoid redundant data unless justified for performance.
 
 Validate referential integrity after each migration.
 
@@ -99,10 +99,10 @@ Enable RLS on user-owned data.
 
 General guidelines:
 
-* Users may access only their own private resources.
-* Public resources should have explicit read policies.
-* Administrative roles require dedicated policies.
-* Service-role access should be restricted to backend operations.
+- Users may access only their own private resources.
+- Public resources should have explicit read policies.
+- Administrative roles require dedicated policies.
+- Service-role access should be restricted to backend operations.
 
 Review every policy before deployment.
 
@@ -112,11 +112,11 @@ Review every policy before deployment.
 
 Development environments may include seed data for:
 
-* Roles
-* Sample users
-* Example Sources
-* Example Question Banks
-* Example Assessments
+- Roles
+- Sample users
+- Example Sources
+- Example Question Banks
+- Example Assessments
 
 Production environments should not rely on development seed data.
 
@@ -126,13 +126,13 @@ Production environments should not rely on development seed data.
 
 After applying migrations, verify:
 
-* All tables exist.
-* Foreign keys are valid.
-* Indexes are present.
-* RLS policies are active.
-* Example records can be created.
-* Example records can be queried according to permissions.
-* Cascading behavior matches the design.
+- All tables exist.
+- Foreign keys are valid.
+- Indexes are present.
+- RLS policies are active.
+- Example records can be created.
+- Example records can be queried according to permissions.
+- Cascading behavior matches the design.
 
 ---
 
@@ -154,11 +154,11 @@ Avoid manual fixes directly in production.
 
 Completion of this phase should provide:
 
-* Version-controlled migrations.
-* Secure database schema.
-* Verified relationships.
-* Working RLS policies.
-* Initial development data (if applicable).
+- Version-controlled migrations.
+- Secure database schema.
+- Verified relationships.
+- Working RLS policies.
+- Initial development data (if applicable).
 
 ---
 
@@ -166,10 +166,10 @@ Completion of this phase should provide:
 
 Proceed to the Authentication development phase only when:
 
-* Database schema is complete for the current milestone.
-* Security policies are functioning.
-* Migrations are repeatable.
-* Validation checklist passes without critical issues.
+- Database schema is complete for the current milestone.
+- Security policies are functioning.
+- Migrations are repeatable.
+- Validation checklist passes without critical issues.
 
 ---
 
@@ -177,15 +177,15 @@ Proceed to the Authentication development phase only when:
 
 ## Depends On
 
-* 00_MASTER_DEVELOPMENT_PLAN.md
-* 01_PROJECT_SETUP.md
+- 00_MASTER_DEVELOPMENT_PLAN.md
+- 01_PROJECT_SETUP.md
 
 ## Architecture
 
-* 05_DATABASE_ARCHITECTURE.md
-* 16_AUTHENTICATION.md
-* 21_PROJECT_CONSTITUTION.md
+- 05_DATABASE_ARCHITECTURE.md
+- 16_AUTHENTICATION.md
+- 21_PROJECT_CONSTITUTION.md
 
 ## Next Development Document
 
-* 03_AUTHENTICATION.md
+- 03_AUTHENTICATION.md

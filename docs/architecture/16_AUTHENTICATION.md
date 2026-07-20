@@ -14,9 +14,9 @@ This document defines how identities are created, authenticated, and authorized 
 
 It separates:
 
-* Identity
-* Authentication
-* Authorization
+- Identity
+- Authentication
+- Authorization
 
 These concepts must remain independent.
 
@@ -26,11 +26,11 @@ These concepts must remain independent.
 
 The system should:
 
-* Support frictionless guest participation.
-* Support registered users.
-* Support assessment creators.
-* Support administrators.
-* Allow future expansion without redesign.
+- Support frictionless guest participation.
+- Support registered users.
+- Support assessment creators.
+- Support administrators.
+- Allow future expansion without redesign.
 
 ---
 
@@ -64,12 +64,12 @@ Not identified.
 
 Can:
 
-* Browse public pages.
+- Browse public pages.
 
 Cannot:
 
-* Join assessments.
-* Create assessments.
+- Join assessments.
+- Create assessments.
 
 ---
 
@@ -77,20 +77,20 @@ Cannot:
 
 Identified by:
 
-* Display name
-* Temporary session identifier
+- Display name
+- Temporary session identifier
 
 Can:
 
-* Join assessments.
-* Practice.
-* View own results.
+- Join assessments.
+- Practice.
+- View own results.
 
 Cannot:
 
-* Create assessments.
-* Access dashboards.
-* Save long-term history.
+- Create assessments.
+- Access dashboards.
+- Save long-term history.
 
 ---
 
@@ -100,10 +100,10 @@ Authenticated account.
 
 Can:
 
-* Save history.
-* Practice.
-* Reuse Question Banks.
-* Manage profile.
+- Save history.
+- Practice.
+- Reuse Question Banks.
+- Manage profile.
 
 ---
 
@@ -113,10 +113,10 @@ Registered user with creator permissions.
 
 Can:
 
-* Create assessment templates.
-* Publish assessments.
-* View analytics.
-* Manage owned Question Banks.
+- Create assessment templates.
+- Publish assessments.
+- View analytics.
+- Manage owned Question Banks.
 
 ---
 
@@ -126,10 +126,10 @@ Platform administrator.
 
 Can:
 
-* Manage users.
-* Moderate public content.
-* View platform analytics.
-* Manage system configuration.
+- Manage users.
+- Moderate public content.
+- View platform analytics.
+- Manage system configuration.
 
 ---
 
@@ -137,15 +137,15 @@ Can:
 
 MVP:
 
-* Email and password.
+- Email and password.
 
 Future:
 
-* Google OAuth.
-* Microsoft OAuth.
-* GitHub OAuth.
-* Magic links.
-* Passkeys.
+- Google OAuth.
+- Microsoft OAuth.
+- GitHub OAuth.
+- Magic links.
+- Passkeys.
 
 ---
 
@@ -206,10 +206,10 @@ Load Profile
 
 Sessions should:
 
-* Expire securely.
-* Support logout.
-* Refresh safely.
-* Prevent session fixation.
+- Expire securely.
+- Support logout.
+- Refresh safely.
+- Prevent session fixation.
 
 ---
 
@@ -217,9 +217,9 @@ Sessions should:
 
 Access decisions should be based on:
 
-* Identity level.
-* Resource ownership.
-* Assigned permissions.
+- Identity level.
+- Resource ownership.
+- Assigned permissions.
 
 Never rely solely on client-side checks.
 
@@ -231,10 +231,10 @@ Creators may manage only resources they own.
 
 Examples:
 
-* Sources
-* Question Banks
-* Assessment Templates
-* Published Assessments
+- Sources
+- Question Banks
+- Assessment Templates
+- Published Assessments
 
 Ownership must always be verified on the server.
 
@@ -254,11 +254,11 @@ This feature is optional for the MVP but should be supported by the architecture
 
 Primary endpoints:
 
-* `POST /auth/register`
-* `POST /auth/login`
-* `POST /auth/logout`
-* `GET /auth/session`
-* `GET /users/me`
+- `POST /auth/register`
+- `POST /auth/login`
+- `POST /auth/logout`
+- `GET /auth/session`
+- `GET /users/me`
 
 ---
 
@@ -266,9 +266,9 @@ Primary endpoints:
 
 Primary entities:
 
-* users
-* participants
-* sessions (managed by authentication provider where applicable)
+- users
+- participants
+- sessions (managed by authentication provider where applicable)
 
 ---
 
@@ -276,10 +276,10 @@ Primary entities:
 
 Requirements:
 
-* Passwords stored securely by the authentication provider.
-* Tokens never exposed unnecessarily.
-* Authorization verified server-side.
-* Rate limits applied to authentication endpoints.
+- Passwords stored securely by the authentication provider.
+- Tokens never exposed unnecessarily.
+- Authorization verified server-side.
+- Rate limits applied to authentication endpoints.
 
 ---
 
@@ -287,11 +287,11 @@ Requirements:
 
 Handle:
 
-* Invalid credentials.
-* Expired sessions.
-* Unauthorized access.
-* Permission denied.
-* Duplicate accounts.
+- Invalid credentials.
+- Expired sessions.
+- Unauthorized access.
+- Permission denied.
+- Duplicate accounts.
 
 Provide user-friendly messages without revealing sensitive information.
 
@@ -299,11 +299,11 @@ Provide user-friendly messages without revealing sensitive information.
 
 # 17. Future Enhancements
 
-* Multi-factor authentication.
-* Organization roles.
-* Team workspaces.
-* Single Sign-On (SSO).
-* Fine-grained permissions.
+- Multi-factor authentication.
+- Organization roles.
+- Team workspaces.
+- Single Sign-On (SSO).
+- Fine-grained permissions.
 
 ---
 
@@ -311,11 +311,11 @@ Provide user-friendly messages without revealing sensitive information.
 
 Every AI coding agent must:
 
-* Keep identity, authentication, and authorization separate.
-* Never bypass ownership checks.
-* Respect role boundaries.
-* Avoid embedding permission logic in UI components.
-* Follow the Security Architecture.
+- Keep identity, authentication, and authorization separate.
+- Never bypass ownership checks.
+- Respect role boundaries.
+- Avoid embedding permission logic in UI components.
+- Follow the Security Architecture.
 
 ---
 
@@ -323,13 +323,13 @@ Every AI coding agent must:
 
 The feature is complete when:
 
-* Guests can join assessments.
-* Registered users can authenticate.
-* Creators can manage their resources.
-* Administrators have elevated capabilities.
-* Authorization is enforced.
-* Ownership checks are implemented.
-* Security requirements are satisfied.
+- Guests can join assessments.
+- Registered users can authenticate.
+- Creators can manage their resources.
+- Administrators have elevated capabilities.
+- Authorization is enforced.
+- Ownership checks are implemented.
+- Security requirements are satisfied.
 
 ---
 
@@ -337,10 +337,10 @@ The feature is complete when:
 
 Depends on:
 
-* 00–15
+- 00–15
 
 Referenced by:
 
-* 17_LEADERBOARD.md
-* 18_RESULTS_AND_HISTORY.md
-* Future administration features.
+- 17_LEADERBOARD.md
+- 18_RESULTS_AND_HISTORY.md
+- Future administration features.

@@ -14,12 +14,12 @@ This document defines how learning content enters the Companio platform before A
 
 The ingestion layer is responsible for:
 
-* Receiving content
-* Validating content
-* Extracting text
-* Generating metadata
-* Persisting source information
-* Preparing content for AI processing
+- Receiving content
+- Validating content
+- Extracting text
+- Generating metadata
+- Persisting source information
+- Preparing content for AI processing
 
 It must not generate questions or make AI-related decisions.
 
@@ -29,12 +29,12 @@ It must not generate questions or make AI-related decisions.
 
 The ingestion layer should:
 
-* Accept multiple content sources.
-* Validate all incoming content.
-* Produce normalized text.
-* Create reusable Source records.
-* Detect duplicates.
-* Prepare content for downstream AI processing.
+- Accept multiple content sources.
+- Validate all incoming content.
+- Produce normalized text.
+- Create reusable Source records.
+- Detect duplicates.
+- Prepare content for downstream AI processing.
 
 ---
 
@@ -42,22 +42,22 @@ The ingestion layer should:
 
 ## MVP
 
-* Topic
-* PDF
-* Notes
+- Topic
+- PDF
+- Notes
 
 ---
 
 ## Future
 
-* DOCX
-* PPTX
-* Markdown
-* URL
-* YouTube Transcript
-* EPUB
-* HTML
-* ZIP packages
+- DOCX
+- PPTX
+- Markdown
+- URL
+- YouTube Transcript
+- EPUB
+- HTML
+- ZIP packages
 
 ---
 
@@ -99,15 +99,15 @@ Every uploaded or entered item becomes a **Source**.
 
 Suggested attributes:
 
-* source_id
-* source_type
-* owner_id
-* title
-* normalized_text
-* source_hash
-* metadata
-* created_at
-* updated_at
+- source_id
+- source_type
+- owner_id
+- title
+- normalized_text
+- source_hash
+- metadata
+- created_at
+- updated_at
 
 The Source is immutable once created.
 
@@ -117,12 +117,12 @@ The Source is immutable once created.
 
 Validate before processing:
 
-* Content exists.
-* Supported source type.
-* File size.
-* MIME type (for uploads).
-* Character encoding.
-* Maximum text length.
+- Content exists.
+- Supported source type.
+- File size.
+- MIME type (for uploads).
+- Character encoding.
+- Maximum text length.
 
 Reject invalid content before storage.
 
@@ -191,12 +191,12 @@ Store Source
 
 Generate metadata such as:
 
-* Title
-* Estimated language
-* Character count
-* Word count
-* Page count (where applicable)
-* Source type
+- Title
+- Estimated language
+- Character count
+- Word count
+- Page count (where applicable)
+- Source type
 
 Metadata supports analytics and future search capabilities.
 
@@ -208,8 +208,8 @@ Use the normalized content hash to identify duplicate Sources.
 
 If an identical Source already exists:
 
-* Reuse the existing Source where appropriate.
-* Avoid unnecessary duplicate storage.
+- Reuse the existing Source where appropriate.
+- Avoid unnecessary duplicate storage.
 
 Policies may vary based on ownership and privacy requirements.
 
@@ -219,10 +219,10 @@ Policies may vary based on ownership and privacy requirements.
 
 Persist:
 
-* Original metadata.
-* Normalized text.
-* Source hash.
-* Ownership information.
+- Original metadata.
+- Normalized text.
+- Source hash.
+- Ownership information.
 
 Large binary files (such as PDFs) should be stored in object storage rather than the relational database.
 
@@ -234,11 +234,11 @@ Treat all input as untrusted.
 
 Rules:
 
-* Validate file types.
-* Enforce upload limits.
-* Reject corrupted files.
-* Prevent path traversal.
-* Sanitize extracted text.
+- Validate file types.
+- Enforce upload limits.
+- Reject corrupted files.
+- Prevent path traversal.
+- Sanitize extracted text.
 
 ---
 
@@ -246,12 +246,12 @@ Rules:
 
 Handle:
 
-* Unsupported file type.
-* Upload interruption.
-* Extraction failure.
-* Empty content.
-* Invalid encoding.
-* Storage failure.
+- Unsupported file type.
+- Upload interruption.
+- Extraction failure.
+- Empty content.
+- Invalid encoding.
+- Storage failure.
 
 Provide meaningful messages that help the user resolve the issue.
 
@@ -261,21 +261,21 @@ Provide meaningful messages that help the user resolve the issue.
 
 Recommendations:
 
-* Stream uploads where possible.
-* Process large files asynchronously if required.
-* Cache extraction results.
-* Avoid repeated text extraction for identical content.
+- Stream uploads where possible.
+- Process large files asynchronously if required.
+- Cache extraction results.
+- Avoid repeated text extraction for identical content.
 
 ---
 
 # 16. Future Enhancements
 
-* OCR for scanned PDFs.
-* Multi-language detection.
-* Automatic document classification.
-* Batch uploads.
-* Cloud storage integrations.
-* Connector-based imports.
+- OCR for scanned PDFs.
+- Multi-language detection.
+- Automatic document classification.
+- Batch uploads.
+- Cloud storage integrations.
+- Connector-based imports.
 
 ---
 
@@ -283,11 +283,11 @@ Recommendations:
 
 Every AI coding agent must:
 
-* Keep ingestion independent of AI generation.
-* Store Sources before invoking AI.
-* Never duplicate identical Sources unnecessarily.
-* Preserve immutability of stored Source records.
-* Follow documented validation rules.
+- Keep ingestion independent of AI generation.
+- Store Sources before invoking AI.
+- Never duplicate identical Sources unnecessarily.
+- Preserve immutability of stored Source records.
+- Follow documented validation rules.
 
 ---
 
@@ -295,14 +295,14 @@ Every AI coding agent must:
 
 The feature is complete when:
 
-* Topics can be ingested.
-* PDFs can be ingested.
-* Notes can be ingested.
-* Metadata is generated.
-* Duplicate detection works.
-* Sources are stored.
-* Invalid content is rejected.
-* Downstream AI processing receives normalized input.
+- Topics can be ingested.
+- PDFs can be ingested.
+- Notes can be ingested.
+- Metadata is generated.
+- Duplicate detection works.
+- Sources are stored.
+- Invalid content is rejected.
+- Downstream AI processing receives normalized input.
 
 ---
 
@@ -310,10 +310,10 @@ The feature is complete when:
 
 Depends on:
 
-* 00–13
+- 00–13
 
 Referenced by:
 
-* 13_AI_CONTENT_PROCESSING.md
-* 15_QUESTION_BANK.md
-* Future ingestion connectors.
+- 13_AI_CONTENT_PROCESSING.md
+- 15_QUESTION_BANK.md
+- Future ingestion connectors.

@@ -19,13 +19,13 @@ This guide should be followed only once when initializing a new project.
 
 After completing this guide:
 
-* The project repository exists.
-* The React application runs successfully.
-* Development tooling is configured.
-* Code quality tools are enabled.
-* Supabase is connected.
-* The folder structure is ready.
-* Team members can clone and start development consistently.
+- The project repository exists.
+- The React application runs successfully.
+- Development tooling is configured.
+- Code quality tools are enabled.
+- Supabase is connected.
+- The folder structure is ready.
+- Team members can clone and start development consistently.
 
 ---
 
@@ -33,20 +33,20 @@ After completing this guide:
 
 Required software:
 
-* Git
-* Node.js (LTS version)
-* npm or pnpm
-* Visual Studio Code (recommended)
-* Supabase account
-* GitHub account
+- Git
+- Node.js (LTS version)
+- pnpm
+- Visual Studio Code (recommended)
+- Supabase account
+- GitHub account
 
 Recommended VS Code extensions:
 
-* ESLint
-* Prettier
-* Tailwind CSS IntelliSense
-* Error Lens
-* GitLens
+- ESLint
+- Prettier
+- Tailwind CSS IntelliSense
+- Error Lens
+- GitLens
 
 ---
 
@@ -54,39 +54,25 @@ Recommended VS Code extensions:
 
 ## Frontend
 
-* React
-* TypeScript
-* Vite
-* Tailwind CSS
+- Next.js (App Router)
+- React
+- TypeScript
+- Tailwind CSS
+- Lucide React
+- Sonner
 
-## Routing
+## Backend & Database
 
-* React Router
+- Supabase (Auth, Database, Storage)
+- PostgreSQL
+- Prisma (ORM)
 
-## Data Fetching
+## State & Forms
 
-* TanStack Query
-
-## Backend
-
-* Supabase
-
-## Styling
-
-* Tailwind CSS
-
-## Forms
-
-* React Hook Form
-* Zod
-
-## Icons
-
-* Lucide React
-
-## Notifications
-
-* Sonner (or an equivalent toast library)
+- TanStack Query (Server State)
+- Zustand (Client State)
+- React Hook Form
+- Zod
 
 ---
 
@@ -96,33 +82,18 @@ Target structure:
 
 ```text
 companio/
-│
-├── docs/
-│   ├── architecture/
-│   └── development/
-│
-├── public/
-│
-├── src/
-│   ├── app/
-│   ├── assets/
-│   ├── components/
-│   ├── features/
-│   ├── hooks/
-│   ├── layouts/
-│   ├── lib/
-│   ├── pages/
-│   ├── routes/
-│   ├── services/
-│   ├── stores/
-│   ├── styles/
-│   ├── types/
-│   └── utils/
-│
-├── .env.example
+├── apps/
+│   └── web/               <-- Next.js Frontend
+├── packages/
+│   ├── db/                <-- Prisma ORM package
+│   ├── ui/                <-- Shared component library
+│   ├── tsconfig/          <-- Shared TS configurations
+│   └── eslint-config/     <-- Shared ESLint configs
+├── supabase/              <-- Supabase config and migrations
+├── scripts/               <-- Dev helper scripts
+├── pnpm-workspace.yaml    <-- Workspaces definition
 ├── package.json
-├── README.md
-└── ...
+└── tsconfig.json
 ```
 
 ---
@@ -131,61 +102,39 @@ companio/
 
 Tasks:
 
-* Create the repository.
-* Initialize a Vite React + TypeScript project.
-* Install dependencies.
-* Verify the application starts successfully.
+- Initialize pnpm workspace configuration.
+- Setup root package file and configs.
+- Create Next.js app in `apps/web`.
+- Configure Prisma inside `packages/db`.
+- Verify Next.js dev server starts.
 
 Acceptance Criteria:
 
-* Development server starts successfully.
-* No TypeScript errors.
-* Default application renders.
+- Next.js web application boots up.
+- Prisma schema parses and validates.
+- Workspaces resolve correctly under pnpm.
 
 ---
 
 # 7. Dependency Installation
 
-Install the core libraries required for development.
+Configure core workspace packages:
 
-Categories include:
+### Root Workspaces
 
-### Core
+- Prettier, ESLint, TypeScript
 
-* React
-* React DOM
-* TypeScript
+### apps/web
 
-### Routing
+- `next`, `react`, `react-dom`, `@supabase/supabase-js`, `zustand`, `@tanstack/react-query`, `react-hook-form`, `zod`, `lucide-react`, `sonner`
 
-* React Router
+### packages/db
 
-### State & Data
+- `@prisma/client`, `prisma` (devDependencies)
 
-* TanStack Query
+### packages/ui
 
-### Backend
-
-* Supabase Client
-
-### Validation
-
-* Zod
-* React Hook Form
-
-### Styling
-
-* Tailwind CSS
-
-### Utilities
-
-* clsx
-* class-variance-authority
-
-### UI
-
-* Lucide React
-* Sonner
+- `react`, `react-dom`, `clsx`, `tailwind-merge`, `class-variance-authority`
 
 ---
 
@@ -193,15 +142,15 @@ Categories include:
 
 Tasks:
 
-* Install Tailwind CSS.
-* Configure content paths.
-* Create global styles.
-* Verify utility classes are working.
+- Install Tailwind CSS.
+- Configure content paths.
+- Create global styles.
+- Verify utility classes are working.
 
 Acceptance Criteria:
 
-* Tailwind classes render correctly.
-* Global styles load successfully.
+- Tailwind classes render correctly.
+- Global styles load successfully.
 
 ---
 
@@ -209,19 +158,19 @@ Acceptance Criteria:
 
 Configure:
 
-* ESLint
-* Prettier
+- ESLint
+- Prettier
 
 Recommended goals:
 
-* Consistent formatting.
-* Linting before commits.
-* Automatic formatting in the editor.
+- Consistent formatting.
+- Linting before commits.
+- Automatic formatting in the editor.
 
 Acceptance Criteria:
 
-* Lint passes.
-* Formatting is applied consistently.
+- Lint passes.
+- Formatting is applied consistently.
 
 ---
 
@@ -229,15 +178,15 @@ Acceptance Criteria:
 
 Create:
 
-* `.env.local`
-* `.env.example`
+- `.env.local`
+- `.env.example`
 
 Environment variables should include:
 
-* Supabase URL
-* Supabase Anon Key
-* AI provider configuration (placeholder)
-* Application metadata
+- Supabase URL
+- Supabase Anon Key
+- AI provider configuration (placeholder)
+- Application metadata
 
 Sensitive values must never be committed to source control.
 
@@ -247,16 +196,16 @@ Sensitive values must never be committed to source control.
 
 Tasks:
 
-* Create a Supabase project.
-* Connect the frontend.
-* Verify database connectivity.
-* Verify authentication client initialization.
-* Verify storage connectivity.
+- Create a Supabase project.
+- Connect the frontend.
+- Verify database connectivity.
+- Verify authentication client initialization.
+- Verify storage connectivity.
 
 Acceptance Criteria:
 
-* Successful connection to Supabase.
-* No authentication initialization errors.
+- Successful connection to Supabase.
+- No authentication initialization errors.
 
 ---
 
@@ -266,10 +215,10 @@ Create the base application folders before implementing features.
 
 Guidelines:
 
-* Keep feature code isolated.
-* Separate reusable components.
-* Separate business logic from UI.
-* Group related functionality by feature.
+- Keep feature code isolated.
+- Separate reusable components.
+- Separate business logic from UI.
+- Group related functionality by feature.
 
 ---
 
@@ -277,10 +226,10 @@ Guidelines:
 
 Recommended practices:
 
-* Use a dedicated main branch.
-* Develop features in feature branches.
-* Write meaningful commit messages.
-* Commit frequently with small, focused changes.
+- Use a dedicated main branch.
+- Develop features in feature branches.
+- Write meaningful commit messages.
+- Commit frequently with small, focused changes.
 
 ---
 
@@ -288,14 +237,14 @@ Recommended practices:
 
 Before moving to the next development phase, confirm:
 
-* Project builds successfully.
-* Development server starts.
-* Type checking passes.
-* Linting passes.
-* Formatting is configured.
-* Supabase connection works.
-* Environment variables load correctly.
-* Folder structure is complete.
+- Project builds successfully.
+- Development server starts.
+- Type checking passes.
+- Linting passes.
+- Formatting is configured.
+- Supabase connection works.
+- Environment variables load correctly.
+- Folder structure is complete.
 
 ---
 
@@ -303,11 +252,11 @@ Before moving to the next development phase, confirm:
 
 Examples:
 
-* Node.js version mismatch.
-* Missing environment variables.
-* Supabase connection failures.
-* Tailwind configuration errors.
-* Dependency version conflicts.
+- Node.js version mismatch.
+- Missing environment variables.
+- Supabase connection failures.
+- Tailwind configuration errors.
+- Dependency version conflicts.
 
 Document any project-specific resolutions as they arise.
 
@@ -317,13 +266,13 @@ Document any project-specific resolutions as they arise.
 
 At the end of this phase, the repository should contain:
 
-* Configured React application.
-* Development tooling.
-* Folder structure.
-* Connected Supabase client.
-* Environment configuration.
-* Documentation folders.
-* Initial commit in version control.
+- Configured React application.
+- Development tooling.
+- Folder structure.
+- Connected Supabase client.
+- Environment configuration.
+- Documentation folders.
+- Initial commit in version control.
 
 ---
 
@@ -331,10 +280,10 @@ At the end of this phase, the repository should contain:
 
 Proceed to the next development phase only when:
 
-* The application runs without errors.
-* The development environment is reproducible.
-* All developers can start the project successfully.
-* The repository is ready for feature development.
+- The application runs without errors.
+- The development environment is reproducible.
+- All developers can start the project successfully.
+- The repository is ready for feature development.
 
 ---
 
@@ -342,14 +291,14 @@ Proceed to the next development phase only when:
 
 ## Depends On
 
-* 00_MASTER_DEVELOPMENT_PLAN.md
+- 00_MASTER_DEVELOPMENT_PLAN.md
 
 ## Architecture
 
-* 02_SYSTEM_ARCHITECTURE.md
-* 05_DATABASE_ARCHITECTURE.md
-* 21_PROJECT_CONSTITUTION.md
+- 02_SYSTEM_ARCHITECTURE.md
+- 05_DATABASE_ARCHITECTURE.md
+- 21_PROJECT_CONSTITUTION.md
 
 ## Next Development Document
 
-* 02_DATABASE_SETUP.md
+- 02_DATABASE_SETUP.md

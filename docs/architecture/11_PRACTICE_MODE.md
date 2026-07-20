@@ -22,11 +22,11 @@ Practice sessions are independent of assessment leaderboards.
 
 The feature should:
 
-* Enable quick learning.
-* Reuse existing Question Banks.
-* Minimize AI generation costs.
-* Provide immediate feedback.
-* Support both guest and registered users.
+- Enable quick learning.
+- Reuse existing Question Banks.
+- Minimize AI generation costs.
+- Provide immediate feedback.
+- Support both guest and registered users.
 
 ---
 
@@ -62,10 +62,10 @@ Reuse an existing Question Bank without invoking AI.
 
 ### Future Practice Types
 
-* Incorrect Questions
-* Bookmarked Questions
-* Weak Topics
-* Adaptive Practice
+- Incorrect Questions
+- Bookmarked Questions
+- Weak Topics
+- Adaptive Practice
 
 ---
 
@@ -131,20 +131,20 @@ Every practice attempt creates one Practice Session.
 
 Purpose:
 
-* Track progress
-* Store answers
-* Support future resume functionality
-* Enable analytics
+- Track progress
+- Store answers
+- Support future resume functionality
+- Enable analytics
 
 Suggested fields:
 
-* session_id
-* practice_type
-* user_id (nullable)
-* question_bank_id
-* status
-* started_at
-* completed_at
+- session_id
+- practice_type
+- user_id (nullable)
+- question_bank_id
+- status
+- started_at
+- completed_at
 
 ---
 
@@ -152,12 +152,12 @@ Suggested fields:
 
 Users must be able to:
 
-* Start practice.
-* Pause (future).
-* Resume (future).
-* Submit manually.
-* Auto-submit when configured.
-* View results immediately.
+- Start practice.
+- Pause (future).
+- Resume (future).
+- Submit manually.
+- Auto-submit when configured.
+- View results immediately.
 
 ---
 
@@ -177,15 +177,15 @@ Before generating questions:
 
 Questions should support:
 
-* Single correct answer (MVP)
+- Single correct answer (MVP)
 
 Future support:
 
-* Multiple correct answers
-* True/False
-* Fill in the blank
-* Coding questions
-* Essay questions
+- Multiple correct answers
+- True/False
+- Fill in the blank
+- Coding questions
+- Essay questions
 
 ---
 
@@ -193,12 +193,12 @@ Future support:
 
 For the MVP:
 
-* Optional timer.
+- Optional timer.
 
 If enabled:
 
-* Countdown displayed.
-* Auto-submit when expired.
+- Countdown displayed.
+- Auto-submit when expired.
 
 ---
 
@@ -206,10 +206,10 @@ If enabled:
 
 Submission should:
 
-* Calculate score.
-* Store answers.
-* Record completion time.
-* Generate results.
+- Calculate score.
+- Store answers.
+- Record completion time.
+- Generate results.
 
 ---
 
@@ -217,12 +217,12 @@ Submission should:
 
 Display:
 
-* Total score
-* Correct answers
-* Incorrect answers
-* Percentage
-* Time taken
-* Explanations (if available)
+- Total score
+- Correct answers
+- Incorrect answers
+- Percentage
+- Time taken
+- Explanations (if available)
 
 Practice results are private to the participant.
 
@@ -232,13 +232,13 @@ Practice results are private to the participant.
 
 Primary endpoints:
 
-* `POST /practice/start`
-* `POST /practice/submit`
+- `POST /practice/start`
+- `POST /practice/submit`
 
 Supporting APIs:
 
-* `GET /question-banks/{id}`
-* `POST /question-banks`
+- `GET /question-banks/{id}`
+- `POST /question-banks`
 
 ---
 
@@ -246,11 +246,11 @@ Supporting APIs:
 
 Tables involved:
 
-* question_banks
-* questions
-* practice_sessions (recommended)
-* practice_answers (recommended)
-* users (optional)
+- question_banks
+- questions
+- practice_sessions (recommended)
+- practice_answers (recommended)
+- users (optional)
 
 ---
 
@@ -258,11 +258,11 @@ Tables involved:
 
 Validate:
 
-* Uploaded content
-* Input length
-* Question Bank ownership (where applicable)
-* File types
-* Rate limits
+- Uploaded content
+- Input length
+- Question Bank ownership (where applicable)
+- File types
+- Rate limits
 
 Guests cannot access another user's saved Question Banks.
 
@@ -272,13 +272,13 @@ Guests cannot access another user's saved Question Banks.
 
 Handle:
 
-* Unsupported file type
-* AI provider failure
-* Invalid topic
-* Empty content
-* Upload failure
-* Session timeout
-* Network interruption
+- Unsupported file type
+- AI provider failure
+- Invalid topic
+- Empty content
+- Upload failure
+- Session timeout
+- Network interruption
 
 Provide actionable, user-friendly messages.
 
@@ -288,23 +288,23 @@ Provide actionable, user-friendly messages.
 
 Examples:
 
-* PDF with no extractable text
-* Duplicate uploads
-* Very large documents
-* AI returns invalid JSON
-* Browser refresh during practice
-* Submission after timer expiration
+- PDF with no extractable text
+- Duplicate uploads
+- Very large documents
+- AI returns invalid JSON
+- Browser refresh during practice
+- Submission after timer expiration
 
 ---
 
 # 17. Future Enhancements
 
-* Resume practice
-* Adaptive difficulty
-* Personalized recommendations
-* Streak tracking
-* Practice analytics
-* AI study plans
+- Resume practice
+- Adaptive difficulty
+- Personalized recommendations
+- Streak tracking
+- Practice analytics
+- AI study plans
 
 ---
 
@@ -312,11 +312,11 @@ Examples:
 
 Every AI coding agent must:
 
-* Reuse Question Banks whenever possible.
-* Create a Practice Session for every attempt.
-* Never mix practice data with assessment data.
-* Preserve future extensibility.
-* Follow documented APIs and workflows.
+- Reuse Question Banks whenever possible.
+- Create a Practice Session for every attempt.
+- Never mix practice data with assessment data.
+- Preserve future extensibility.
+- Follow documented APIs and workflows.
 
 ---
 
@@ -324,14 +324,14 @@ Every AI coding agent must:
 
 The feature is complete when:
 
-* Topic practice works.
-* PDF practice works.
-* Notes practice works.
-* Existing Question Banks are reused.
-* New Question Banks are generated only when necessary.
-* Results display correctly.
-* No leaderboard entries are created.
-* All validation and security rules pass.
+- Topic practice works.
+- PDF practice works.
+- Notes practice works.
+- Existing Question Banks are reused.
+- New Question Banks are generated only when necessary.
+- Results display correctly.
+- No leaderboard entries are created.
+- All validation and security rules pass.
 
 ---
 
@@ -339,10 +339,10 @@ The feature is complete when:
 
 Depends on:
 
-* 00–10
+- 00–10
 
 Referenced by:
 
-* 13_AI_CONTENT_PROCESSING.md
-* 15_QUESTION_BANK.md
-* 18_RESULTS_AND_HISTORY.md
+- 13_AI_CONTENT_PROCESSING.md
+- 15_QUESTION_BANK.md
+- 18_RESULTS_AND_HISTORY.md

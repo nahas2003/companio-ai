@@ -13,11 +13,11 @@ This runbook provides the standard operating procedure for deploying Companio ac
 
 Its goals are to:
 
-* Standardize deployments.
-* Reduce deployment risk.
-* Provide rollback guidance.
-* Ensure operational consistency.
-* Support both human operators and AI coding agents.
+- Standardize deployments.
+- Reduce deployment risk.
+- Provide rollback guidance.
+- Ensure operational consistency.
+- Support both human operators and AI coding agents.
 
 ---
 
@@ -39,11 +39,11 @@ Each environment should maintain its own configuration, secrets, and data where 
 
 Before deployment, confirm:
 
-* Release Checklist has been completed.
-* Required approvals are obtained.
-* Deployment window is confirmed (if applicable).
-* Rollback plan is documented.
-* Database backup is available for production deployments.
+- Release Checklist has been completed.
+- Required approvals are obtained.
+- Deployment window is confirmed (if applicable).
+- Rollback plan is documented.
+- Database backup is available for production deployments.
 
 ---
 
@@ -51,12 +51,12 @@ Before deployment, confirm:
 
 Verify:
 
-* Environment variables are configured.
-* Secrets are available through the approved secret management process.
-* Database connectivity is healthy.
-* Storage services are accessible.
-* AI provider credentials are valid.
-* Email and notification services are configured.
+- Environment variables are configured.
+- Secrets are available through the approved secret management process.
+- Database connectivity is healthy.
+- Storage services are accessible.
+- AI provider credentials are valid.
+- Email and notification services are configured.
 
 ---
 
@@ -81,12 +81,12 @@ Do not skip validation steps.
 
 When schema changes are included:
 
-* Review migration scripts.
-* Confirm compatibility with the current schema.
-* Execute migrations.
-* Verify migration success.
-* Validate application startup.
-* Confirm data integrity.
+- Review migration scripts.
+- Confirm compatibility with the current schema.
+- Execute migrations.
+- Verify migration success.
+- Validate application startup.
+- Confirm data integrity.
 
 Avoid manual database modifications outside approved migration processes.
 
@@ -96,12 +96,12 @@ Avoid manual database modifications outside approved migration processes.
 
 Confirm:
 
-* API endpoints are correct.
-* Authentication configuration is valid.
-* Storage paths are correct.
-* AI provider configuration is active.
-* Feature flags match the intended release.
-* Logging destinations are configured.
+- API endpoints are correct.
+- Authentication configuration is valid.
+- Storage paths are correct.
+- AI provider configuration is active.
+- Feature flags match the intended release.
+- Logging destinations are configured.
 
 ---
 
@@ -111,28 +111,28 @@ Verify the following before declaring the deployment successful:
 
 ## Platform
 
-* Application starts successfully.
-* Health endpoint responds.
-* Monitoring dashboards receive data.
+- Application starts successfully.
+- Health endpoint responds.
+- Monitoring dashboards receive data.
 
 ## Authentication
 
-* User sign-in works.
-* Session management functions correctly.
-* Authorization rules are enforced.
+- User sign-in works.
+- Session management functions correctly.
+- Authorization rules are enforced.
 
 ## Core Features
 
-* Dashboard loads.
-* Learning source upload works.
-* Document processing completes.
-* AI question generation succeeds.
-* Question Bank is accessible.
-* Practice Mode functions correctly.
-* Assessment workflow completes successfully.
-* Results are generated.
-* Notifications are delivered.
-* Administration pages load.
+- Dashboard loads.
+- Learning source upload works.
+- Document processing completes.
+- AI question generation succeeds.
+- Question Bank is accessible.
+- Practice Mode functions correctly.
+- Assessment workflow completes successfully.
+- Results are generated.
+- Notifications are delivered.
+- Administration pages load.
 
 ---
 
@@ -140,13 +140,13 @@ Verify the following before declaring the deployment successful:
 
 Perform a quick validation of critical workflows:
 
-* User login
-* File upload
-* AI generation
-* Practice session
-* Assessment submission
-* Results review
-* Notification delivery
+- User login
+- File upload
+- AI generation
+- Practice session
+- Assessment submission
+- Results review
+- Notification delivery
 
 These checks should complete successfully before the deployment is considered healthy.
 
@@ -156,11 +156,11 @@ These checks should complete successfully before the deployment is considered he
 
 Rollback should be initiated if:
 
-* Critical functionality fails.
-* Authentication is unavailable.
-* Database migrations cause issues.
-* Performance degradation is severe.
-* Security concerns are identified.
+- Critical functionality fails.
+- Authentication is unavailable.
+- Database migrations cause issues.
+- Performance degradation is severe.
+- Security concerns are identified.
 
 Rollback process:
 
@@ -178,19 +178,19 @@ Rollback process:
 
 Escalate immediately if:
 
-* Production is unavailable.
-* Data integrity is at risk.
-* Security incidents occur.
-* Authentication fails globally.
-* AI services fail across the platform.
+- Production is unavailable.
+- Data integrity is at risk.
+- Security incidents occur.
+- Authentication fails globally.
+- AI services fail across the platform.
 
 Record:
 
-* Time of incident
-* Impact
-* Actions taken
-* Resolution
-* Follow-up tasks
+- Time of incident
+- Impact
+- Actions taken
+- Resolution
+- Follow-up tasks
 
 ---
 
@@ -200,13 +200,13 @@ Monitor for an agreed observation period after each deployment.
 
 Review:
 
-* Error rates
-* API latency
-* AI request success rate
-* Database health
-* CPU and memory usage
-* Storage utilization
-* Authentication failures
+- Error rates
+- API latency
+- AI request success rate
+- Database health
+- CPU and memory usage
+- Storage utilization
+- Authentication failures
 
 Investigate unusual trends before closing the deployment.
 
@@ -216,11 +216,11 @@ Investigate unusual trends before closing the deployment.
 
 Record and communicate:
 
-* Deployment start time
-* Deployment completion time
-* Version released
-* Known issues (if any)
-* Rollback status (if applicable)
+- Deployment start time
+- Deployment completion time
+- Version released
+- Known issues (if any)
+- Rollback status (if applicable)
 
 Maintain a deployment history for future reference.
 
@@ -228,11 +228,11 @@ Maintain a deployment history for future reference.
 
 # 14. Operational Best Practices
 
-* Prefer automated deployments over manual processes.
-* Minimize production configuration changes during deployment.
-* Keep deployment windows as short as practical.
-* Test rollback procedures periodically.
-* Review deployment metrics after each release.
+- Prefer automated deployments over manual processes.
+- Minimize production configuration changes during deployment.
+- Keep deployment windows as short as practical.
+- Test rollback procedures periodically.
+- Review deployment metrics after each release.
 
 ---
 
@@ -254,10 +254,10 @@ Before performing a deployment, the AI agent should:
 
 Update this runbook whenever:
 
-* Deployment workflows change.
-* Infrastructure changes.
-* Monitoring requirements evolve.
-* Rollback procedures are updated.
-* Operational responsibilities change.
+- Deployment workflows change.
+- Infrastructure changes.
+- Monitoring requirements evolve.
+- Rollback procedures are updated.
+- Operational responsibilities change.
 
 This document should remain the authoritative guide for deployment and rollback activities.

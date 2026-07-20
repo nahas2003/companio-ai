@@ -28,12 +28,12 @@ Companio aims to become an AI-powered assessment platform that enables educators
 
 The roadmap is guided by these principles:
 
-* Deliver value incrementally.
-* Build reusable foundations before advanced features.
-* Prioritize reliability and quality.
-* Preserve architectural consistency.
-* Keep AI provider independent.
-* Maintain a great user experience.
+- Deliver value incrementally.
+- Build reusable foundations before advanced features.
+- Prioritize reliability and quality.
+- Preserve architectural consistency.
+- Keep AI provider independent.
+- Maintain a great user experience.
 
 ---
 
@@ -45,16 +45,16 @@ Build a stable technical foundation.
 
 Deliverables:
 
-* Core architecture
-* Database design
-* Authentication
-* AI Orchestrator
-* Source management
-* Question Bank
-* Assessment engine
-* Results engine
-* Deployment pipeline
-* Testing strategy
+- Core architecture
+- Database design
+- Authentication
+- AI Orchestrator
+- Source management
+- Question Bank
+- Assessment engine
+- Results engine
+- Deployment pipeline
+- Testing strategy
 
 Success Criteria:
 
@@ -70,15 +70,15 @@ Launch the first usable version.
 
 Features:
 
-* Topic-based question generation
-* PDF-based question generation
-* Practice Mode
-* Assessment Mode
-* Guest participation
-* Result generation
-* Leaderboards
-* Creator dashboard
-* Basic analytics
+- Topic-based question generation
+- PDF-based question generation
+- Practice Mode
+- Assessment Mode
+- Guest participation
+- Result generation
+- Leaderboards
+- Creator dashboard
+- Basic analytics
 
 Success Criteria:
 
@@ -94,15 +94,15 @@ Improve usability and engagement.
 
 Planned features:
 
-* Certificates
-* Email notifications
-* Assessment scheduling
-* Password-protected assessments
-* Question tagging
-* Advanced search
-* Improved analytics
-* Performance reports
-* Mobile optimization
+- Certificates
+- Email notifications
+- Assessment scheduling
+- Password-protected assessments
+- Question tagging
+- Advanced search
+- Improved analytics
+- Performance reports
+- Mobile optimization
 
 Success Criteria:
 
@@ -118,15 +118,15 @@ Support advanced educational workflows.
 
 Planned features:
 
-* Flashcards
-* AI summaries
-* Study notes
-* Learning objectives
-* Question review workflow
-* Adaptive assessments
-* Semantic search
-* Bulk imports
-* Assessment templates library
+- Flashcards
+- AI summaries
+- Study notes
+- Learning objectives
+- Question review workflow
+- Adaptive assessments
+- Semantic search
+- Bulk imports
+- Assessment templates library
 
 Success Criteria:
 
@@ -142,14 +142,14 @@ Support organizations at scale.
 
 Planned features:
 
-* Organizations
-* Team workspaces
-* Role-based administration
-* Single Sign-On (SSO)
-* Audit logs
-* Multi-tenancy
-* Compliance reporting
-* Organization dashboards
+- Organizations
+- Team workspaces
+- Role-based administration
+- Single Sign-On (SSO)
+- Audit logs
+- Multi-tenancy
+- Compliance reporting
+- Organization dashboards
 
 Success Criteria:
 
@@ -165,14 +165,14 @@ Expand beyond a standalone application.
 
 Planned features:
 
-* Public APIs
-* Webhooks
-* Plugin system
-* LMS integrations
-* Mobile applications
-* Marketplace
-* Developer SDKs
-* Third-party integrations
+- Public APIs
+- Webhooks
+- Plugin system
+- LMS integrations
+- Mobile applications
+- Marketplace
+- Developer SDKs
+- Third-party integrations
 
 Success Criteria:
 
@@ -184,14 +184,14 @@ Companio becomes an extensible assessment ecosystem.
 
 Planned AI capabilities:
 
-* Multi-provider support
-* Improved prompt templates
-* AI quality scoring
-* Personalized recommendations
-* Adaptive learning paths
-* Question quality evaluation
-* Automatic difficulty calibration
-* Multilingual generation
+- Multi-provider support
+- Improved prompt templates
+- AI quality scoring
+- Personalized recommendations
+- Adaptive learning paths
+- Question quality evaluation
+- Automatic difficulty calibration
+- Multilingual generation
 
 ---
 
@@ -199,13 +199,13 @@ Planned AI capabilities:
 
 Long-term technical improvements:
 
-* Horizontal scaling
-* Advanced caching
-* Background processing
-* Event-driven workflows
-* Distributed services (if justified)
-* Enhanced observability
-* Cost optimization
+- Horizontal scaling
+- Advanced caching
+- Background processing
+- Event-driven workflows
+- Distributed services (if justified)
+- Enhanced observability
+- Cost optimization
 
 Adopt additional complexity only when supported by real usage.
 
@@ -215,14 +215,14 @@ Adopt additional complexity only when supported by real usage.
 
 Example product metrics:
 
-* Active creators
-* Published assessments
-* Assessment completions
-* AI generation success rate
-* Average assessment completion time
-* User retention
-* Platform availability
-* Customer satisfaction
+- Active creators
+- Published assessments
+- Assessment completions
+- AI generation success rate
+- Average assessment completion time
+- User retention
+- Platform availability
+- Customer satisfaction
 
 Metrics should evolve as the product matures.
 
@@ -232,12 +232,12 @@ Metrics should evolve as the product matures.
 
 Potential risks include:
 
-* AI provider changes
-* Rising infrastructure costs
-* Rapid feature expansion
-* Technical debt
-* Security vulnerabilities
-* Performance bottlenecks
+- AI provider changes
+- Rising infrastructure costs
+- Rapid feature expansion
+- Technical debt
+- Security vulnerabilities
+- Performance bottlenecks
 
 Mitigation strategies should be reviewed regularly.
 
@@ -247,10 +247,10 @@ Mitigation strategies should be reviewed regularly.
 
 The roadmap should be reviewed:
 
-* Before each major release.
-* After significant user feedback.
-* Following major architectural changes.
-* During strategic planning cycles.
+- Before each major release.
+- After significant user feedback.
+- Following major architectural changes.
+- During strategic planning cycles.
 
 ---
 
@@ -258,10 +258,10 @@ The roadmap should be reviewed:
 
 Every AI coding agent must:
 
-* Prioritize current-phase work.
-* Avoid implementing future-phase features prematurely.
-* Preserve extensibility for planned capabilities.
-* Follow the Project Constitution.
+- Prioritize current-phase work.
+- Avoid implementing future-phase features prematurely.
+- Preserve extensibility for planned capabilities.
+- Follow the Project Constitution.
 
 ---
 
@@ -269,10 +269,10 @@ Every AI coding agent must:
 
 The roadmap is complete when:
 
-* Product direction is clear.
-* Phases are logically sequenced.
-* Long-term goals align with the architecture.
-* Future contributors understand strategic priorities.
+- Product direction is clear.
+- Phases are logically sequenced.
+- Long-term goals align with the architecture.
+- Future contributors understand strategic priorities.
 
 ---
 
@@ -280,11 +280,11 @@ The roadmap is complete when:
 
 ## Depends On
 
-* 00–22
+- 00–22
 
 ## Related Documents
 
-* 00_PROJECT_OVERVIEW.md
-* 02_SYSTEM_ARCHITECTURE.md
-* 21_PROJECT_CONSTITUTION.md
-* 22_ARCHITECTURAL_DECISIONS.md
+- 00_PROJECT_OVERVIEW.md
+- 02_SYSTEM_ARCHITECTURE.md
+- 21_PROJECT_CONSTITUTION.md
+- 22_ARCHITECTURAL_DECISIONS.md

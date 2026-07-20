@@ -13,11 +13,11 @@ This document defines the standardized error codes used throughout Companio.
 
 Its goals are to:
 
-* Provide consistent error handling.
-* Improve debugging.
-* Simplify frontend error display.
-* Improve logging and monitoring.
-* Help AI coding agents reuse existing error definitions.
+- Provide consistent error handling.
+- Improve debugging.
+- Simplify frontend error display.
+- Improve logging and monitoring.
+- Help AI coding agents reuse existing error definitions.
 
 ---
 
@@ -25,12 +25,12 @@ Its goals are to:
 
 Errors should be:
 
-* Predictable
-* Human-readable
-* Machine-readable
-* Consistent
-* Actionable
-* Properly logged
+- Predictable
+- Human-readable
+- Machine-readable
+- Consistent
+- Actionable
+- Properly logged
 
 ---
 
@@ -62,10 +62,10 @@ Format:
 
 Examples:
 
-* AUTH_INVALID_CREDENTIALS
-* USER_NOT_FOUND
-* QUESTION_DUPLICATE
-* FILE_TOO_LARGE
+- AUTH_INVALID_CREDENTIALS
+- USER_NOT_FOUND
+- QUESTION_DUPLICATE
+- FILE_TOO_LARGE
 
 ---
 
@@ -189,15 +189,15 @@ Avoid exposing stack traces or internal implementation details.
 
 Every error log should include:
 
-* Timestamp
-* Error code
-* HTTP status
-* Request ID / Trace ID
-* User ID (if available)
-* Module
-* Endpoint
-* Severity
-* Stack trace (server-side only)
+- Timestamp
+- Error code
+- HTTP status
+- Request ID / Trace ID
+- User ID (if available)
+- Module
+- Endpoint
+- Severity
+- Stack trace (server-side only)
 
 ---
 
@@ -243,8 +243,8 @@ Before introducing a new error code, the AI agent should:
 
 Update this document whenever:
 
-* A new error code is added.
-* An existing error code changes.
-* HTTP mappings are modified.
-* Recovery guidance changes.
-* Logging standards evolve.
+- A new error code is added.
+- An existing error code changes.
+- HTTP mappings are modified.
+- Recovery guidance changes.
+- Logging standards evolve.

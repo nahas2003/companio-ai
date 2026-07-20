@@ -13,13 +13,13 @@ This document records the significant architectural decisions made during the de
 
 Each decision includes:
 
-* Context
-* Problem
-* Decision
-* Rationale
-* Trade-offs
-* Consequences
-* Review status
+- Context
+- Problem
+- Decision
+- Rationale
+- Trade-offs
+- Consequences
+- Review status
 
 This document should be updated whenever a major architectural decision is made or revised.
 
@@ -33,10 +33,10 @@ Each Architectural Decision Record (ADR) should use the following format:
 
 **Status**
 
-* Proposed
-* Accepted
-* Superseded
-* Deprecated
+- Proposed
+- Accepted
+- Superseded
+- Deprecated
 
 **Date**
 
@@ -80,21 +80,21 @@ Organize the application into modular, feature-oriented domains with clear respo
 
 **Rationale**
 
-* Easier maintenance
-* Independent feature development
-* Better testing
-* Clear ownership
-* Scalable architecture
+- Easier maintenance
+- Independent feature development
+- Better testing
+- Clear ownership
+- Scalable architecture
 
 **Alternatives Considered**
 
-* Layer-based architecture
-* Monolithic module organization
+- Layer-based architecture
+- Monolithic module organization
 
 **Consequences**
 
-* Slightly more initial structure
-* Better long-term maintainability
+- Slightly more initial structure
+- Better long-term maintainability
 
 ---
 
@@ -114,23 +114,23 @@ Use Supabase as the primary backend platform.
 
 **Rationale**
 
-* PostgreSQL foundation
-* Built-in authentication
-* Storage support
-* Row Level Security (RLS)
-* Developer productivity
+- PostgreSQL foundation
+- Built-in authentication
+- Storage support
+- Row Level Security (RLS)
+- Developer productivity
 
 **Alternatives Considered**
 
-* Firebase
-* Custom backend
-* Appwrite
+- Firebase
+- Custom backend
+- Appwrite
 
 **Consequences**
 
-* Faster MVP delivery
-* Dependency on Supabase services
-* PostgreSQL compatibility retained
+- Faster MVP delivery
+- Dependency on Supabase services
+- PostgreSQL compatibility retained
 
 ---
 
@@ -150,21 +150,21 @@ Route all AI interactions through a centralized AI Orchestrator.
 
 **Rationale**
 
-* Provider abstraction
-* Centralized prompt handling
-* Retry policies
-* Logging
-* Validation
-* Easier provider switching
+- Provider abstraction
+- Centralized prompt handling
+- Retry policies
+- Logging
+- Validation
+- Easier provider switching
 
 **Alternatives Considered**
 
-* Direct provider calls from feature modules
+- Direct provider calls from feature modules
 
 **Consequences**
 
-* Slightly more abstraction
-* Much greater flexibility and maintainability
+- Slightly more abstraction
+- Much greater flexibility and maintainability
 
 ---
 
@@ -184,19 +184,19 @@ Maintain a single Question Bank as the authoritative repository.
 
 **Rationale**
 
-* Reuse across practice and assessments
-* Easier search and categorization
-* Consistent question quality
+- Reuse across practice and assessments
+- Easier search and categorization
+- Consistent question quality
 
 **Alternatives Considered**
 
-* Store questions within individual assessments
-* Generate questions on demand only
+- Store questions within individual assessments
+- Generate questions on demand only
 
 **Consequences**
 
-* Requires additional management features
-* Improves long-term content reuse
+- Requires additional management features
+- Improves long-term content reuse
 
 ---
 
@@ -218,24 +218,24 @@ Implement Practice Mode and Assessment Mode as separate modules.
 
 Practice:
 
-* Immediate feedback
-* Flexible pacing
-* Learning-focused
+- Immediate feedback
+- Flexible pacing
+- Learning-focused
 
 Assessment:
 
-* Controlled timing
-* Submission workflow
-* Formal evaluation
+- Controlled timing
+- Submission workflow
+- Formal evaluation
 
 **Alternatives Considered**
 
-* Single combined workflow
+- Single combined workflow
 
 **Consequences**
 
-* Additional implementation effort
-* Clearer user experience and business logic
+- Additional implementation effort
+- Clearer user experience and business logic
 
 ---
 
@@ -259,12 +259,12 @@ Business modules publish events, and the notification system consumes them.
 
 **Alternatives Considered**
 
-* Direct notification calls from each module
+- Direct notification calls from each module
 
 **Consequences**
 
-* Better modularity
-* Easier addition of new notification channels
+- Better modularity
+- Easier addition of new notification channels
 
 ---
 
@@ -290,9 +290,9 @@ Example:
 
 **Rationale**
 
-* Supports backward compatibility
-* Simplifies future changes
-* Predictable API lifecycle
+- Supports backward compatibility
+- Simplifies future changes
+- Predictable API lifecycle
 
 ---
 
@@ -312,13 +312,13 @@ Use UUIDs for primary keys where appropriate.
 
 **Rationale**
 
-* Better uniqueness
-* Easier distributed systems support
-* Reduced predictability
+- Better uniqueness
+- Easier distributed systems support
+- Reduced predictability
 
 **Alternatives Considered**
 
-* Auto-incrementing integers
+- Auto-incrementing integers
 
 ---
 
@@ -338,13 +338,13 @@ Prefer soft deletes using a `deleted_at` field for business entities.
 
 **Rationale**
 
-* Supports recovery
-* Preserves audit history
-* Reduces accidental data loss
+- Supports recovery
+- Preserves audit history
+- Reduces accidental data loss
 
 **Alternatives Considered**
 
-* Permanent deletion
+- Permanent deletion
 
 ---
 
@@ -364,15 +364,15 @@ Maintain architecture, task, knowledge, and operations documentation as first-cl
 
 **Rationale**
 
-* Improves AI context
-* Reduces implementation ambiguity
-* Simplifies onboarding
-* Encourages consistent development
+- Improves AI context
+- Reduces implementation ambiguity
+- Simplifies onboarding
+- Encourages consistent development
 
 **Alternatives Considered**
 
-* Minimal documentation
-* Code-only guidance
+- Minimal documentation
+- Code-only guidance
 
 ---
 
@@ -393,10 +393,10 @@ When proposing a new architectural decision:
 
 If a decision is replaced:
 
-* Keep the original ADR.
-* Mark its status as **Superseded**.
-* Add a reference to the replacement ADR.
-* Explain why the change occurred.
+- Keep the original ADR.
+- Mark its status as **Superseded**.
+- Add a reference to the replacement ADR.
+- Explain why the change occurred.
 
 Do not delete historical decision records.
 
@@ -418,6 +418,6 @@ Before making an architectural change, the AI agent should:
 
 Update this document whenever:
 
-* A significant architectural decision is made.
-* An accepted decision is revised or superseded.
-* New technologies or patterns materially affect the system architecture.
+- A significant architectural decision is made.
+- An accepted decision is revised or superseded.
+- New technologies or patterns materially affect the system architecture.

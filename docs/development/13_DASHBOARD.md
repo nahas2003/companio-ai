@@ -21,12 +21,12 @@ The Dashboard should aggregate information from other modules rather than duplic
 
 After completing this module:
 
-* Users see a personalized dashboard after login.
-* Key platform metrics are displayed.
-* Quick access to frequently used actions is available.
-* Recent activities are summarized.
-* Role-based dashboard widgets are supported.
-* Dashboard performance remains fast and scalable.
+- Users see a personalized dashboard after login.
+- Key platform metrics are displayed.
+- Quick access to frequently used actions is available.
+- Recent activities are summarized.
+- Role-based dashboard widgets are supported.
+- Dashboard performance remains fast and scalable.
 
 ---
 
@@ -34,12 +34,12 @@ After completing this module:
 
 Complete before starting:
 
-* Development documents 00–12
+- Development documents 00–12
 
 Review architecture:
 
-* 03_DASHBOARD_SPEC.md (or equivalent architecture document)
-* 21_PROJECT_CONSTITUTION.md
+- 03_DASHBOARD_SPEC.md (or equivalent architecture document)
+- 21_PROJECT_CONSTITUTION.md
 
 ---
 
@@ -53,27 +53,27 @@ Implement a modular, role-aware dashboard that provides a unified overview of pl
 
 The dashboard should support:
 
-* Role-based widgets
-* Summary statistics
-* Recent activities
-* Quick actions
-* Notifications
-* System status
-* Responsive layout
+- Role-based widgets
+- Summary statistics
+- Recent activities
+- Quick actions
+- Notifications
+- System status
+- Responsive layout
 
 ## Files Allowed to Modify
 
-* `src/features/dashboard/`
-* `src/services/dashboard/`
-* Dashboard widgets
-* Shared dashboard components
+- `src/features/dashboard/`
+- `src/services/dashboard/`
+- Dashboard widgets
+- Shared dashboard components
 
 ## Files That Must NOT Be Modified
 
-* Question Bank logic
-* Assessment Module
-* Results calculations
-* AI Orchestrator
+- Question Bank logic
+- Assessment Module
+- Results calculations
+- AI Orchestrator
 
 ---
 
@@ -100,14 +100,14 @@ src/
 
 The Dashboard should aggregate information from:
 
-* Authentication
-* Source Management
-* Question Bank
-* Practice Mode
-* Assessment Module
-* Results
-* Leaderboard
-* Notifications
+- Authentication
+- Source Management
+- Question Bank
+- Practice Mode
+- Assessment Module
+- Results
+- Leaderboard
+- Notifications
 
 It should not contain business rules belonging to those modules.
 
@@ -117,16 +117,16 @@ It should not contain business rules belonging to those modules.
 
 Initial widgets:
 
-* Welcome card
-* User profile summary
-* Recent assessments
-* Practice progress
-* Question Bank summary
-* Assessment statistics
-* Latest results
-* Leaderboard snapshot
-* Recent notifications
-* Quick actions
+- Welcome card
+- User profile summary
+- Recent assessments
+- Practice progress
+- Question Bank summary
+- Assessment statistics
+- Latest results
+- Leaderboard snapshot
+- Recent notifications
+- Quick actions
 
 Widgets should be independently loadable to improve responsiveness.
 
@@ -136,14 +136,14 @@ Widgets should be independently loadable to improve responsiveness.
 
 Implement:
 
-* Dashboard layout
-* Widget grid
-* Responsive design
-* Loading placeholders
-* Empty states
-* Error states
-* Quick action cards
-* Widget refresh
+- Dashboard layout
+- Widget grid
+- Responsive design
+- Loading placeholders
+- Empty states
+- Error states
+- Quick action cards
+- Widget refresh
 
 Support desktop, tablet, and mobile layouts.
 
@@ -153,11 +153,11 @@ Support desktop, tablet, and mobile layouts.
 
 Implement services for:
 
-* Dashboard summary
-* Activity feed
-* Widget data
-* Notifications
-* User-specific metrics
+- Dashboard summary
+- Activity feed
+- Widget data
+- Notifications
+- User-specific metrics
 
 Aggregate data efficiently to minimize database queries.
 
@@ -169,9 +169,9 @@ No dedicated dashboard tables are required unless caching or user-specific widge
 
 Optional support:
 
-* Dashboard preferences
-* Widget layout preferences
-* Cached summaries
+- Dashboard preferences
+- Widget layout preferences
+- Cached summaries
 
 ---
 
@@ -179,10 +179,10 @@ Optional support:
 
 Validate:
 
-* User authentication
-* Role-based access
-* Widget permissions
-* Data availability
+- User authentication
+- Role-based access
+- Widget permissions
+- Data availability
 
 Handle unavailable modules gracefully.
 
@@ -192,12 +192,12 @@ Handle unavailable modules gracefully.
 
 Manage:
 
-* Dashboard summary
-* Widget states
-* Refresh status
-* Notifications
-* Loading state
-* Error state
+- Dashboard summary
+- Widget states
+- Refresh status
+- Notifications
+- Loading state
+- Error state
 
 Support independent widget refresh without reloading the entire dashboard.
 
@@ -207,10 +207,10 @@ Support independent widget refresh without reloading the entire dashboard.
 
 Implement operations for:
 
-* Retrieve dashboard summary
-* Retrieve widget data
-* Retrieve notifications
-* Refresh widgets
+- Retrieve dashboard summary
+- Retrieve widget data
+- Retrieve notifications
+- Refresh widgets
 
 Design APIs to support incremental loading.
 
@@ -220,9 +220,9 @@ Design APIs to support incremental loading.
 
 Ensure:
 
-* Dashboard data is scoped to the authenticated user.
-* Administrative widgets require appropriate permissions.
-* Sensitive metrics are not exposed to unauthorized roles.
+- Dashboard data is scoped to the authenticated user.
+- Administrative widgets require appropriate permissions.
+- Sensitive metrics are not exposed to unauthorized roles.
 
 ---
 
@@ -230,12 +230,12 @@ Ensure:
 
 The Dashboard should provide:
 
-* Fast initial load
-* Clear visual hierarchy
-* Responsive design
-* Consistent navigation
-* Easy access to common tasks
-* Minimal cognitive load
+- Fast initial load
+- Clear visual hierarchy
+- Responsive design
+- Consistent navigation
+- Easy access to common tasks
+- Minimal cognitive load
 
 ---
 
@@ -243,12 +243,12 @@ The Dashboard should provide:
 
 Verify:
 
-* Dashboard loads successfully.
-* Widgets display correct data.
-* Role-based visibility works.
-* Refresh updates widget data.
-* Responsive layouts function correctly.
-* Error handling is graceful.
+- Dashboard loads successfully.
+- Widgets display correct data.
+- Role-based visibility works.
+- Refresh updates widget data.
+- Responsive layouts function correctly.
+- Error handling is graceful.
 
 ---
 
@@ -256,11 +256,11 @@ Verify:
 
 The module is complete when:
 
-* Dashboard loads quickly.
-* Widgets are modular.
-* Role-based content is accurate.
-* Quick actions function correctly.
-* Tests pass.
+- Dashboard loads quickly.
+- Widgets are modular.
+- Role-based content is accurate.
+- Quick actions function correctly.
+- Tests pass.
 
 ---
 
@@ -268,10 +268,10 @@ The module is complete when:
 
 Avoid:
 
-* Embedding business logic in widgets.
-* Fetching excessive data on initial load.
-* Making widgets dependent on each other.
-* Ignoring responsive behavior.
+- Embedding business logic in widgets.
+- Fetching excessive data on initial load.
+- Making widgets dependent on each other.
+- Ignoring responsive behavior.
 
 ---
 
@@ -279,10 +279,10 @@ Avoid:
 
 The Dashboard module is complete when:
 
-* It provides a reliable operational overview.
-* Widgets are modular and reusable.
-* Data is accurate and role-aware.
-* Performance meets project expectations.
+- It provides a reliable operational overview.
+- Widgets are modular and reusable.
+- Data is accurate and role-aware.
+- Performance meets project expectations.
 
 ---
 

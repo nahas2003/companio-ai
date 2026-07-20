@@ -22,11 +22,11 @@ The AI pipeline is provider-independent and follows the AI Architecture defined 
 
 The pipeline should:
 
-* Produce high-quality questions.
-* Reuse previous work whenever possible.
-* Minimize AI costs.
-* Validate AI responses.
-* Support future AI-generated learning resources.
+- Produce high-quality questions.
+- Reuse previous work whenever possible.
+- Minimize AI costs.
+- Validate AI responses.
+- Support future AI-generated learning resources.
 
 ---
 
@@ -34,18 +34,18 @@ The pipeline should:
 
 MVP:
 
-* Topic
-* PDF
-* Notes
+- Topic
+- PDF
+- Notes
 
 Future:
 
-* DOCX
-* PPTX
-* Markdown
-* URL
-* YouTube transcript
-* Web page
+- DOCX
+- PPTX
+- Markdown
+- URL
+- YouTube transcript
+- Web page
 
 ---
 
@@ -98,12 +98,12 @@ Before processing:
 
 Validate:
 
-* File type
-* File size
-* Empty input
-* Text length
-* Encoding
-* Duplicate uploads
+- File type
+- File size
+- Empty input
+- Text length
+- Encoding
+- Duplicate uploads
 
 Reject invalid content before AI processing.
 
@@ -115,9 +115,9 @@ Responsible for converting the input into clean text.
 
 Examples:
 
-* PDF → Plain text
-* Topic → Prompt context
-* Notes → Normalized text
+- PDF → Plain text
+- Topic → Prompt context
+- Notes → Normalized text
 
 Extraction should preserve meaningful structure where possible.
 
@@ -127,12 +127,12 @@ Extraction should preserve meaningful structure where possible.
 
 Normalize:
 
-* Whitespace
-* Line endings
-* Repeated spaces
-* Invalid characters
-* Page artifacts
-* OCR noise (future)
+- Whitespace
+- Line endings
+- Repeated spaces
+- Invalid characters
+- Page artifacts
+- OCR noise (future)
 
 The normalized text is used for hashing and prompt generation.
 
@@ -144,9 +144,9 @@ Generate a deterministic SHA-256 hash from the normalized content.
 
 The hash is used to:
 
-* Detect duplicate sources.
-* Reuse Question Banks.
-* Reduce AI requests.
+- Detect duplicate sources.
+- Reuse Question Banks.
+- Reduce AI requests.
 
 ---
 
@@ -166,10 +166,10 @@ Large inputs may exceed model limits.
 
 Processing steps:
 
-* Split content into logical sections.
-* Preserve context within each section.
-* Avoid splitting sentences where practical.
-* Merge generated results into a single Question Bank.
+- Split content into logical sections.
+- Preserve context within each section.
+- Avoid splitting sentences where practical.
+- Merge generated results into a single Question Bank.
 
 Chunk size should be configurable.
 
@@ -179,10 +179,10 @@ Chunk size should be configurable.
 
 Prompts should:
 
-* Use versioned templates.
-* Separate system instructions from user content.
-* Specify the required JSON schema.
-* Include generation parameters (question count, difficulty, language, etc.).
+- Use versioned templates.
+- Separate system instructions from user content.
+- Specify the required JSON schema.
+- Include generation parameters (question count, difficulty, language, etc.).
 
 Prompt templates must be stored independently of application logic.
 
@@ -192,11 +192,11 @@ Prompt templates must be stored independently of application logic.
 
 The AI Orchestrator:
 
-* Selects the provider.
-* Sends the prompt.
-* Receives the response.
-* Records metrics.
-* Applies retry and fallback strategies when appropriate.
+- Selects the provider.
+- Sends the prompt.
+- Receives the response.
+- Records metrics.
+- Applies retry and fallback strategies when appropriate.
 
 ---
 
@@ -204,10 +204,10 @@ The AI Orchestrator:
 
 Before accepting AI output:
 
-* Ensure valid JSON.
-* Validate required fields.
-* Confirm exactly one correct answer for single-choice questions.
-* Reject malformed or incomplete responses.
+- Ensure valid JSON.
+- Validate required fields.
+- Confirm exactly one correct answer for single-choice questions.
+- Reject malformed or incomplete responses.
 
 ---
 
@@ -217,12 +217,12 @@ Normalize generated questions into a common format.
 
 Fields include:
 
-* Question text
-* Options
-* Correct answer
-* Explanation
-* Difficulty
-* Tags (future)
+- Question text
+- Options
+- Correct answer
+- Explanation
+- Difficulty
+- Tags (future)
 
 All providers must produce the same internal representation.
 
@@ -232,10 +232,10 @@ All providers must produce the same internal representation.
 
 Before storing questions:
 
-* Detect exact duplicates.
-* Detect near duplicates where feasible.
-* Remove redundant entries.
-* Preserve unique questions.
+- Detect exact duplicates.
+- Detect near duplicates where feasible.
+- Remove redundant entries.
+- Preserve unique questions.
 
 ---
 
@@ -251,13 +251,13 @@ Do not regenerate identical content unless explicitly requested.
 
 Handle:
 
-* Unsupported file.
-* Text extraction failure.
-* AI timeout.
-* Provider failure.
-* Invalid JSON.
-* Validation failure.
-* Storage failure.
+- Unsupported file.
+- Text extraction failure.
+- AI timeout.
+- Provider failure.
+- Invalid JSON.
+- Validation failure.
+- Storage failure.
 
 Return clear, actionable messages.
 
@@ -267,10 +267,10 @@ Return clear, actionable messages.
 
 Optimizations:
 
-* Cache reusable outputs.
-* Process large documents in chunks.
-* Parallelize chunk processing where appropriate.
-* Minimize repeated AI requests.
+- Cache reusable outputs.
+- Process large documents in chunks.
+- Parallelize chunk processing where appropriate.
+- Minimize repeated AI requests.
 
 ---
 
@@ -280,10 +280,10 @@ Treat all uploaded content as untrusted.
 
 Rules:
 
-* Sanitize extracted text.
-* Prevent prompt injection.
-* Never execute embedded instructions.
-* Keep API keys server-side.
+- Sanitize extracted text.
+- Prevent prompt injection.
+- Never execute embedded instructions.
+- Keep API keys server-side.
 
 ---
 
@@ -291,14 +291,14 @@ Rules:
 
 The same pipeline should support:
 
-* Flashcards
-* Summaries
-* Study notes
-* Learning objectives
-* Topic extraction
-* Difficulty analysis
-* Keyword extraction
-* Personalized study plans
+- Flashcards
+- Summaries
+- Study notes
+- Learning objectives
+- Topic extraction
+- Difficulty analysis
+- Keyword extraction
+- Personalized study plans
 
 without redesigning the architecture.
 
@@ -308,11 +308,11 @@ without redesigning the architecture.
 
 Every AI coding agent must:
 
-* Use the AI Orchestrator.
-* Validate every AI response.
-* Reuse Question Banks.
-* Keep prompt templates versioned.
-* Follow the normalization contract.
+- Use the AI Orchestrator.
+- Validate every AI response.
+- Reuse Question Banks.
+- Keep prompt templates versioned.
+- Follow the normalization contract.
 
 ---
 
@@ -320,13 +320,13 @@ Every AI coding agent must:
 
 The feature is complete when:
 
-* All supported input types work.
-* Duplicate content is detected.
-* Question Banks are reused.
-* AI responses are validated.
-* Questions are normalized.
-* Results are stored correctly.
-* Errors are handled gracefully.
+- All supported input types work.
+- Duplicate content is detected.
+- Question Banks are reused.
+- AI responses are validated.
+- Questions are normalized.
+- Results are stored correctly.
+- Errors are handled gracefully.
 
 ---
 
@@ -334,10 +334,10 @@ The feature is complete when:
 
 Depends on:
 
-* 00–12
+- 00–12
 
 Referenced by:
 
-* 14_FILE_PROCESSING.md
-* 15_QUESTION_BANK.md
-* Future AI feature documents.
+- 14_FILE_PROCESSING.md
+- 15_QUESTION_BANK.md
+- Future AI feature documents.

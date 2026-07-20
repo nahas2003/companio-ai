@@ -13,11 +13,11 @@ This document defines the routine maintenance activities required to ensure the 
 
 Its objectives are to:
 
-* Prevent operational issues before they occur.
-* Maintain application performance.
-* Keep dependencies secure and up to date.
-* Ensure infrastructure remains healthy.
-* Support continuous improvement.
+- Prevent operational issues before they occur.
+- Maintain application performance.
+- Keep dependencies secure and up to date.
+- Ensure infrastructure remains healthy.
+- Support continuous improvement.
 
 Maintenance should be planned, documented, and periodically reviewed.
 
@@ -27,11 +27,11 @@ Maintenance should be planned, documented, and periodically reviewed.
 
 Routine maintenance should be:
 
-* Preventive rather than reactive.
-* Scheduled whenever possible.
-* Tested before production changes.
-* Documented for future reference.
-* Performed with minimal user impact.
+- Preventive rather than reactive.
+- Scheduled whenever possible.
+- Tested before production changes.
+- Documented for future reference.
+- Performed with minimal user impact.
 
 ---
 
@@ -39,18 +39,18 @@ Routine maintenance should be:
 
 Review:
 
-* Application health status.
-* Error logs.
-* Failed background jobs.
-* Authentication failures.
-* AI provider availability.
-* Notification delivery status.
-* Storage usage trends.
+- Application health status.
+- Error logs.
+- Failed background jobs.
+- Authentication failures.
+- AI provider availability.
+- Notification delivery status.
+- Storage usage trends.
 
 Verify:
 
-* Monitoring dashboards are healthy.
-* No critical alerts remain unresolved.
+- Monitoring dashboards are healthy.
+- No critical alerts remain unresolved.
 
 ---
 
@@ -58,13 +58,13 @@ Verify:
 
 Perform:
 
-* Review warning-level alerts.
-* Check slow database queries.
-* Inspect API performance trends.
-* Validate scheduled backups completed successfully.
-* Review AI request success rates.
-* Remove temporary debugging configurations.
-* Review deployment history.
+- Review warning-level alerts.
+- Check slow database queries.
+- Inspect API performance trends.
+- Validate scheduled backups completed successfully.
+- Review AI request success rates.
+- Remove temporary debugging configurations.
+- Review deployment history.
 
 Document significant findings.
 
@@ -74,14 +74,14 @@ Document significant findings.
 
 Complete the following:
 
-* Update project dependencies.
-* Apply approved security patches.
-* Review access permissions.
-* Audit administrator accounts.
-* Validate backup restoration procedures.
-* Review storage growth.
-* Verify SSL/TLS certificate validity.
-* Review environment configuration.
+- Update project dependencies.
+- Apply approved security patches.
+- Review access permissions.
+- Audit administrator accounts.
+- Validate backup restoration procedures.
+- Review storage growth.
+- Verify SSL/TLS certificate validity.
+- Review environment configuration.
 
 Evaluate whether any infrastructure changes are required.
 
@@ -91,14 +91,14 @@ Evaluate whether any infrastructure changes are required.
 
 Conduct a comprehensive review of:
 
-* Platform performance.
-* Security posture.
-* Architecture decisions.
-* AI prompt effectiveness.
-* Documentation accuracy.
-* Monitoring thresholds.
-* Disaster recovery readiness.
-* Capacity planning.
+- Platform performance.
+- Security posture.
+- Architecture decisions.
+- AI prompt effectiveness.
+- Documentation accuracy.
+- Monitoring thresholds.
+- Disaster recovery readiness.
+- Capacity planning.
 
 Identify opportunities for optimization.
 
@@ -108,12 +108,12 @@ Identify opportunities for optimization.
 
 Review:
 
-* Slow queries.
-* Index usage.
-* Table growth.
-* Connection utilization.
-* Storage consumption.
-* Migration history.
+- Slow queries.
+- Index usage.
+- Table growth.
+- Connection utilization.
+- Storage consumption.
+- Migration history.
 
 Avoid manual schema modifications outside the approved migration process.
 
@@ -123,11 +123,11 @@ Avoid manual schema modifications outside the approved migration process.
 
 Regularly:
 
-* Remove obsolete temporary files.
-* Verify uploaded file integrity.
-* Monitor available storage.
-* Review retention policies.
-* Confirm backup coverage.
+- Remove obsolete temporary files.
+- Verify uploaded file integrity.
+- Monitor available storage.
+- Review retention policies.
+- Confirm backup coverage.
 
 Do not remove user data without an approved retention policy.
 
@@ -137,17 +137,17 @@ Do not remove user data without an approved retention policy.
 
 Maintain:
 
-* Framework updates.
-* Runtime updates.
-* Package updates.
-* Security patches.
-* Build tool updates.
+- Framework updates.
+- Runtime updates.
+- Package updates.
+- Security patches.
+- Build tool updates.
 
 Before updating:
 
-* Review release notes.
-* Evaluate compatibility.
-* Test changes in a non-production environment.
+- Review release notes.
+- Evaluate compatibility.
+- Test changes in a non-production environment.
 
 ---
 
@@ -155,12 +155,12 @@ Before updating:
 
 Review:
 
-* AI provider availability.
-* Prompt template quality.
-* Token or usage trends.
-* Response quality.
-* Error rates.
-* Retry frequency.
+- AI provider availability.
+- Prompt template quality.
+- Token or usage trends.
+- Response quality.
+- Error rates.
+- Retry frequency.
 
 Retire outdated prompts and document significant prompt revisions.
 
@@ -170,13 +170,13 @@ Retire outdated prompts and document significant prompt revisions.
 
 Regularly verify:
 
-* Authentication mechanisms.
-* Authorization rules.
-* API security.
-* Dependency vulnerabilities.
-* Secret rotation procedures.
-* Audit logs.
-* Administrative access.
+- Authentication mechanisms.
+- Authorization rules.
+- API security.
+- Dependency vulnerabilities.
+- Secret rotation procedures.
+- Audit logs.
+- Administrative access.
 
 Investigate unusual security events promptly.
 
@@ -186,14 +186,14 @@ Investigate unusual security events promptly.
 
 Ensure documentation remains current:
 
-* API Reference
-* Database Dictionary
-* Architecture Decisions
-* Prompt Library
-* Component Library
-* Operations Guides
-* Runbooks
-* Release documentation
+- API Reference
+- Database Dictionary
+- Architecture Decisions
+- Prompt Library
+- Component Library
+- Operations Guides
+- Runbooks
+- Release documentation
 
 Update documentation whenever significant platform changes occur.
 
@@ -203,13 +203,13 @@ Update documentation whenever significant platform changes occur.
 
 Monitor long-term trends in:
 
-* API response times.
-* AI response duration.
-* Database performance.
-* Memory usage.
-* CPU utilization.
-* Storage growth.
-* Error frequency.
+- API response times.
+- AI response duration.
+- Database performance.
+- Memory usage.
+- CPU utilization.
+- Storage growth.
+- Error frequency.
 
 Use collected metrics to identify optimization opportunities.
 
@@ -260,12 +260,12 @@ When assisting with maintenance, the AI agent should:
 
 Maintenance activities should be reviewed after:
 
-* Major incidents.
-* Infrastructure changes.
-* New feature releases.
-* Security events.
-* Performance regressions.
-* Lessons learned from operational reviews.
+- Major incidents.
+- Infrastructure changes.
+- New feature releases.
+- Security events.
+- Performance regressions.
+- Lessons learned from operational reviews.
 
 Use these reviews to refine maintenance procedures and improve platform reliability.
 
@@ -275,10 +275,10 @@ Use these reviews to refine maintenance procedures and improve platform reliabil
 
 Review and update this guide whenever:
 
-* Operational processes change.
-* Infrastructure evolves.
-* New services are introduced.
-* Maintenance standards improve.
-* Organizational requirements change.
+- Operational processes change.
+- Infrastructure evolves.
+- New services are introduced.
+- Maintenance standards improve.
+- Organizational requirements change.
 
 This document should remain the authoritative guide for routine operational maintenance across the Companio platform.

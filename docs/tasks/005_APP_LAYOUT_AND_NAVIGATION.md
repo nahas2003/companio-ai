@@ -20,11 +20,11 @@ This task creates the structural foundation that all authenticated pages will us
 
 At the end of this task:
 
-* Authenticated users access a unified application layout.
-* Navigation is consistent across all pages.
-* Protected routes render within the application shell.
-* Responsive behavior works across desktop, tablet, and mobile.
-* Theme support is established.
+- Authenticated users access a unified application layout.
+- Navigation is consistent across all pages.
+- Protected routes render within the application shell.
+- Responsive behavior works across desktop, tablet, and mobile.
+- Theme support is established.
 
 ---
 
@@ -32,17 +32,17 @@ At the end of this task:
 
 Implement:
 
-* Global application layout
-* Header
-* Sidebar (collapsible)
-* Main content area
-* Breadcrumb support
-* Responsive navigation
-* Active navigation highlighting
-* Loading indicators
-* Error boundary
-* 404 page
-* Unauthorized page integration
+- Global application layout
+- Header
+- Sidebar (collapsible)
+- Main content area
+- Breadcrumb support
+- Responsive navigation
+- Active navigation highlighting
+- Loading indicators
+- Error boundary
+- 404 page
+- Unauthorized page integration
 
 ---
 
@@ -50,13 +50,13 @@ Implement:
 
 May include later:
 
-* Multiple layout variants
-* Workspace switching
-* Organization selector
-* Command palette
-* Keyboard shortcuts
-* Customizable dashboards
-* Advanced navigation personalization
+- Multiple layout variants
+- Workspace switching
+- Organization selector
+- Command palette
+- Keyboard shortcuts
+- Customizable dashboards
+- Advanced navigation personalization
 
 ---
 
@@ -64,14 +64,14 @@ May include later:
 
 Do **not** implement:
 
-* Dashboard widgets
-* AI processing
-* Source upload
-* Question Bank
-* Practice Mode
-* Assessment features
-* Notifications
-* Reports
+- Dashboard widgets
+- AI processing
+- Source upload
+- Question Bank
+- Practice Mode
+- Assessment features
+- Notifications
+- Reports
 
 Only build the shared layout and navigation framework.
 
@@ -81,17 +81,17 @@ Only build the shared layout and navigation framework.
 
 ## Architecture
 
-* 00_MASTER_PROJECT_SPECIFICATION.md
-* 01_SYSTEM_ARCHITECTURE.md
-* Navigation/Layout architecture documents
-* 21_PROJECT_CONSTITUTION.md
+- 00_MASTER_PROJECT_SPECIFICATION.md
+- 01_SYSTEM_ARCHITECTURE.md
+- Navigation/Layout architecture documents
+- 21_PROJECT_CONSTITUTION.md
 
 ## Development
 
-* 16_CODING_STANDARDS.md
-* 19_ERROR_HANDLING.md
-* 21_PERFORMANCE_GUIDELINES.md
-* 24_AI_AGENT_WORKFLOW.md
+- 16_CODING_STANDARDS.md
+- 19_ERROR_HANDLING.md
+- 21_PERFORMANCE_GUIDELINES.md
+- 24_AI_AGENT_WORKFLOW.md
 
 ---
 
@@ -99,16 +99,16 @@ Only build the shared layout and navigation framework.
 
 Complete:
 
-* 001_PROJECT_SETUP.md
-* 002_AUTHENTICATION.md
-* 003_USER_PROFILE.md
-* 004_RBAC.md
+- 001_PROJECT_SETUP.md
+- 002_AUTHENTICATION.md
+- 003_USER_PROFILE.md
+- 004_RBAC.md
 
 Verify:
 
-* Authentication works.
-* Authorization is operational.
-* User profile loads successfully.
+- Authentication works.
+- Authorization is operational.
+- User profile loads successfully.
 
 ---
 
@@ -116,13 +116,13 @@ Verify:
 
 The AI may modify:
 
-* Layout components
-* Navigation components
-* Shared UI components
-* Routing configuration
-* Theme configuration
-* Global styles (where required)
-* Error boundary components
+- Layout components
+- Navigation components
+- Shared UI components
+- Routing configuration
+- Theme configuration
+- Global styles (where required)
+- Error boundary components
 
 ---
 
@@ -130,13 +130,13 @@ The AI may modify:
 
 Do **not** modify:
 
-* Dashboard implementation
-* AI modules
-* Question Bank
-* Practice Mode
-* Assessment modules
-* Results
-* Notifications
+- Dashboard implementation
+- AI modules
+- Question Bank
+- Practice Mode
+- Assessment modules
+- Results
+- Notifications
 
 Only create the reusable application shell.
 
@@ -146,18 +146,18 @@ Only create the reusable application shell.
 
 Implement:
 
-* Root layout
-* Authenticated layout
-* Public layout
-* Sidebar
-* Header
-* Navigation menu
-* Breadcrumbs
-* Page container
-* Responsive behavior
-* Loading UI
-* Error boundary
-* 404 page
+- Root layout
+- Authenticated layout
+- Public layout
+- Sidebar
+- Header
+- Navigation menu
+- Breadcrumbs
+- Page container
+- Responsive behavior
+- Loading UI
+- Error boundary
+- 404 page
 
 ---
 
@@ -165,9 +165,9 @@ Implement:
 
 Minimal backend work only if required for:
 
-* Navigation configuration
-* User session integration
-* Permission-aware navigation
+- Navigation configuration
+- User session integration
+- Permission-aware navigation
 
 Do not create business APIs.
 
@@ -177,12 +177,12 @@ Do not create business APIs.
 
 The layout should be:
 
-* Clean
-* Minimal
-* Responsive
-* Accessible
-* Consistent
-* Easy to extend
+- Clean
+- Minimal
+- Responsive
+- Accessible
+- Consistent
+- Easy to extend
 
 Favor clarity over visual complexity.
 
@@ -192,24 +192,24 @@ Favor clarity over visual complexity.
 
 The AI must:
 
-* Reuse shared layout components.
-* Avoid page-specific logic.
-* Keep navigation data-driven where practical.
-* Respect authentication and authorization.
-* Follow the project's design conventions.
+- Reuse shared layout components.
+- Avoid page-specific logic.
+- Keep navigation data-driven where practical.
+- Respect authentication and authorization.
+- Follow the project's design conventions.
 
 ---
 
 # 14. Implementation Checklist
 
-* Global layout implemented
-* Header created
-* Sidebar created
-* Responsive navigation works
-* Protected layout configured
-* Public layout configured
-* Error boundary added
-* Loading states implemented
+- Global layout implemented
+- Header created
+- Sidebar created
+- Responsive navigation works
+- Protected layout configured
+- Public layout configured
+- Error boundary added
+- Loading states implemented
 
 ---
 
@@ -217,12 +217,12 @@ The AI must:
 
 Verify:
 
-* Authenticated users see the application shell.
-* Public pages use the correct layout.
-* Navigation highlights the active page.
-* Responsive behavior works across screen sizes.
-* Unauthorized users cannot access protected layouts.
-* Error boundary handles unexpected errors gracefully.
+- Authenticated users see the application shell.
+- Public pages use the correct layout.
+- Navigation highlights the active page.
+- Responsive behavior works across screen sizes.
+- Unauthorized users cannot access protected layouts.
+- Error boundary handles unexpected errors gracefully.
 
 ---
 
@@ -230,10 +230,10 @@ Verify:
 
 Task is complete when:
 
-* All authenticated pages share a consistent layout.
-* Navigation is responsive and accessible.
-* Authentication integrates with the layout.
-* No business-specific functionality is introduced.
+- All authenticated pages share a consistent layout.
+- Navigation is responsive and accessible.
+- Authentication integrates with the layout.
+- No business-specific functionality is introduced.
 
 ---
 
@@ -241,11 +241,11 @@ Task is complete when:
 
 The application shell is complete when:
 
-* Layout components are reusable.
-* Navigation is operational.
-* Responsive behavior is verified.
-* Shared UI standards are established.
-* Tests pass.
+- Layout components are reusable.
+- Navigation is operational.
+- Responsive behavior is verified.
+- Shared UI standards are established.
+- Tests pass.
 
 ---
 
@@ -253,15 +253,15 @@ The application shell is complete when:
 
 Expected outputs:
 
-* Root layout
-* Authenticated layout
-* Public layout
-* Header
-* Sidebar
-* Navigation components
-* Error boundary
-* Loading components
-* Supporting tests
+- Root layout
+- Authenticated layout
+- Public layout
+- Header
+- Sidebar
+- Navigation components
+- Error boundary
+- Loading components
+- Supporting tests
 
 ---
 

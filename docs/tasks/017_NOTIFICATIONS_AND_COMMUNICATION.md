@@ -40,11 +40,11 @@ As an administrator, I want users to receive automated notifications without man
 
 At the end of this task:
 
-* Platform events trigger notifications.
-* Users can view notifications.
-* Notifications can be marked as read.
-* Multiple notification channels are supported.
-* User notification preferences are respected.
+- Platform events trigger notifications.
+- Users can view notifications.
+- Notifications can be marked as read.
+- Multiple notification channels are supported.
+- User notification preferences are respected.
 
 ---
 
@@ -52,31 +52,31 @@ At the end of this task:
 
 ## In-App Notifications
 
-* Notification center
-* Unread count
-* Mark as read
-* Mark all as read
-* Delete notification
+- Notification center
+- Unread count
+- Mark as read
+- Mark all as read
+- Delete notification
 
 ## Email Notifications
 
 Support:
 
-* Welcome email
-* Assessment published
-* Assessment reminder
-* Assessment completed
-* Results available
-* Password reset
-* Account verification
+- Welcome email
+- Assessment published
+- Assessment reminder
+- Assessment completed
+- Results available
+- Password reset
+- Account verification
 
 ## Notification Preferences
 
 Allow users to:
 
-* Enable/disable email notifications
-* Enable/disable in-app notifications
-* Configure reminder preferences
+- Enable/disable email notifications
+- Enable/disable in-app notifications
+- Configure reminder preferences
 
 ---
 
@@ -84,16 +84,16 @@ Allow users to:
 
 Notifications may be triggered by:
 
-* User registration
-* Login security events
-* File upload completion
-* Document processing failure
-* AI generation completed
-* Practice reminder
-* Assessment publication
-* Assessment deadline
-* Assessment submission
-* Results published
+- User registration
+- Login security events
+- File upload completion
+- Document processing failure
+- AI generation completed
+- Practice reminder
+- Assessment publication
+- Assessment deadline
+- Assessment submission
+- Results published
 
 ---
 
@@ -101,14 +101,14 @@ Notifications may be triggered by:
 
 Future versions may include:
 
-* Push notifications
-* SMS notifications
-* WhatsApp integration
-* Microsoft Teams integration
-* Slack integration
-* Scheduled announcements
-* Broadcast messages
-* Digest emails
+- Push notifications
+- SMS notifications
+- WhatsApp integration
+- Microsoft Teams integration
+- Slack integration
+- Scheduled announcements
+- Broadcast messages
+- Digest emails
 
 ---
 
@@ -116,10 +116,10 @@ Future versions may include:
 
 Do **not** implement:
 
-* Marketing campaigns
-* Promotional emails
-* Billing notifications
-* External CRM integrations
+- Marketing campaigns
+- Promotional emails
+- Billing notifications
+- External CRM integrations
 
 Focus only on platform communication.
 
@@ -129,16 +129,16 @@ Focus only on platform communication.
 
 ## Architecture
 
-* Notification Architecture
-* Event Architecture
-* Master Project Specification
+- Notification Architecture
+- Event Architecture
+- Master Project Specification
 
 ## Development
 
-* Coding Standards
-* Security Checklist
-* Logging Guidelines
-* AI Agent Workflow
+- Coding Standards
+- Security Checklist
+- Logging Guidelines
+- AI Agent Workflow
 
 ---
 
@@ -146,12 +146,12 @@ Focus only on platform communication.
 
 Complete:
 
-* Tasks 001–016
+- Tasks 001–016
 
 Verify:
 
-* Core modules publish events.
-* Email configuration is available.
+- Core modules publish events.
+- Email configuration is available.
 
 ---
 
@@ -159,17 +159,17 @@ Verify:
 
 ### Event Producers
 
-* Authentication
-* Upload Module
-* AI Orchestrator
-* Practice Mode
-* Assessment Delivery
-* Results
+- Authentication
+- Upload Module
+- AI Orchestrator
+- Practice Mode
+- Assessment Delivery
+- Results
 
 ### Event Consumers
 
-* Notification Center
-* Email Service
+- Notification Center
+- Email Service
 
 ---
 
@@ -177,12 +177,12 @@ Verify:
 
 The AI may modify:
 
-* Notification services
-* Notification UI
-* Email templates
-* Event listeners
-* Preference management
-* Notification APIs
+- Notification services
+- Notification UI
+- Email templates
+- Event listeners
+- Preference management
+- Notification APIs
 
 ---
 
@@ -190,10 +190,10 @@ The AI may modify:
 
 Do **not** modify business logic in:
 
-* Practice
-* Assessment
-* AI
-* Question Bank
+- Practice
+- Assessment
+- AI
+- Question Bank
 
 Consume events only.
 
@@ -203,11 +203,11 @@ Consume events only.
 
 Implement support for:
 
-* Notification records
-* Notification status
-* User preferences
-* Delivery history
-* Event references
+- Notification records
+- Notification status
+- User preferences
+- Delivery history
+- Event references
 
 ---
 
@@ -215,13 +215,13 @@ Implement support for:
 
 Implement:
 
-* Notification center
-* Notification badge
-* Notification list
-* Preference settings
-* Read/unread controls
-* Empty states
-* Loading states
+- Notification center
+- Notification badge
+- Notification list
+- Preference settings
+- Read/unread controls
+- Empty states
+- Loading states
 
 ---
 
@@ -229,12 +229,12 @@ Implement:
 
 Implement:
 
-* Notification service
-* Event subscribers
-* Email delivery
-* Preference validation
-* Delivery logging
-* Retry handling
+- Notification service
+- Event subscribers
+- Email delivery
+- Preference validation
+- Delivery logging
+- Retry handling
 
 ---
 
@@ -242,22 +242,22 @@ Implement:
 
 The AI must:
 
-* Keep notifications event-driven.
-* Never duplicate business logic.
-* Respect user preferences.
-* Log delivery failures.
-* Make notification channels interchangeable.
+- Keep notifications event-driven.
+- Never duplicate business logic.
+- Respect user preferences.
+- Log delivery failures.
+- Make notification channels interchangeable.
 
 ---
 
 # 18. Implementation Checklist
 
-* Notification service implemented
-* Notification center completed
-* Email delivery configured
-* Preferences implemented
-* Event subscriptions completed
-* Delivery logging implemented
+- Notification service implemented
+- Notification center completed
+- Email delivery configured
+- Preferences implemented
+- Event subscriptions completed
+- Delivery logging implemented
 
 ---
 
@@ -265,12 +265,12 @@ The AI must:
 
 Verify:
 
-* Notifications are generated correctly.
-* Emails are sent successfully.
-* Preferences are respected.
-* Read/unread status updates correctly.
-* Failed deliveries are logged.
-* Unauthorized users cannot access others' notifications.
+- Notifications are generated correctly.
+- Emails are sent successfully.
+- Preferences are respected.
+- Read/unread status updates correctly.
+- Failed deliveries are logged.
+- Unauthorized users cannot access others' notifications.
 
 ---
 
@@ -278,11 +278,11 @@ Verify:
 
 Task is complete when:
 
-* Notifications are delivered correctly.
-* Preferences function properly.
-* Notification history is available.
-* Email delivery works.
-* Tests pass.
+- Notifications are delivered correctly.
+- Preferences function properly.
+- Notification history is available.
+- Email delivery works.
+- Tests pass.
 
 ---
 
@@ -290,11 +290,11 @@ Task is complete when:
 
 Notifications & Communication is complete when:
 
-* Event-driven architecture is operational.
-* Notification channels work correctly.
-* Preferences are respected.
-* Delivery logging is available.
-* Tests pass.
+- Event-driven architecture is operational.
+- Notification channels work correctly.
+- Preferences are respected.
+- Delivery logging is available.
+- Tests pass.
 
 ---
 
@@ -302,13 +302,13 @@ Notifications & Communication is complete when:
 
 Expected outputs:
 
-* Notification service
-* Notification center
-* Email templates
-* Preference management
-* Event subscribers
-* Notification APIs
-* Supporting tests
+- Notification service
+- Notification center
+- Email templates
+- Preference management
+- Event subscribers
+- Notification APIs
+- Supporting tests
 
 ---
 

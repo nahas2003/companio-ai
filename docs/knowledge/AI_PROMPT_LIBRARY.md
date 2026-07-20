@@ -21,12 +21,12 @@ Prompts should never be treated as hardcoded strings scattered throughout the ap
 
 The prompt library should:
 
-* Standardize AI interactions.
-* Improve response consistency.
-* Support prompt versioning.
-* Enable prompt reuse.
-* Simplify testing and maintenance.
-* Support multiple AI providers.
+- Standardize AI interactions.
+- Improve response consistency.
+- Support prompt versioning.
+- Enable prompt reuse.
+- Simplify testing and maintenance.
+- Support multiple AI providers.
 
 ---
 
@@ -34,12 +34,12 @@ The prompt library should:
 
 Every prompt should be:
 
-* Purpose-specific
-* Deterministic where practical
-* Version controlled
-* Easy to test
-* Provider agnostic where possible
-* Documented
+- Purpose-specific
+- Deterministic where practical
+- Version controlled
+- Easy to test
+- Provider agnostic where possible
+- Documented
 
 ---
 
@@ -71,10 +71,10 @@ Generate assessment questions from processed learning materials.
 
 Examples:
 
-* Multiple Choice Questions (MCQ)
-* True / False
-* Short Answer
-* Fill in the Blank
+- Multiple Choice Questions (MCQ)
+- True / False
+- Short Answer
+- Fill in the Blank
 
 ---
 
@@ -84,9 +84,9 @@ Purpose:
 
 Rewrite or classify questions as:
 
-* Easy
-* Medium
-* Hard
+- Easy
+- Medium
+- Hard
 
 ---
 
@@ -104,10 +104,10 @@ Purpose:
 
 Review AI-generated questions for:
 
-* Completeness
-* Accuracy
-* Duplicate detection
-* Format compliance
+- Completeness
+- Accuracy
+- Duplicate detection
+- Format compliance
 
 ---
 
@@ -117,10 +117,10 @@ Purpose:
 
 Analyze uploaded content to identify:
 
-* Topics
-* Key concepts
-* Learning objectives
-* Keywords
+- Topics
+- Key concepts
+- Learning objectives
+- Keywords
 
 ---
 
@@ -138,10 +138,10 @@ Purpose:
 
 Extract structured information such as:
 
-* Subject
-* Difficulty
-* Estimated study time
-* Topic hierarchy
+- Subject
+- Difficulty
+- Estimated study time
+- Topic hierarchy
 
 ---
 
@@ -182,9 +182,9 @@ Avoid ambiguous placeholder names.
 
 Preferred formats:
 
-* JSON
-* Markdown
-* Plain text (only when appropriate)
+- JSON
+- Markdown
+- Plain text (only when appropriate)
 
 AI responses should be machine-readable whenever practical.
 
@@ -211,14 +211,14 @@ Example JSON structure:
 
 All AI responses should be validated for:
 
-* Valid JSON (when expected)
-* Required fields
-* Supported question types
-* Difficulty values
-* Duplicate content
-* Empty responses
-* Excessive token usage
-* Schema compliance
+- Valid JSON (when expected)
+- Required fields
+- Supported question types
+- Difficulty values
+- Duplicate content
+- Empty responses
+- Excessive token usage
+- Schema compliance
 
 Invalid outputs should trigger retry or review workflows.
 
@@ -230,23 +230,23 @@ Follow semantic versioning.
 
 Examples:
 
-* v1.0.0
-* v1.1.0
-* v2.0.0
+- v1.0.0
+- v1.1.0
+- v2.0.0
 
 Major version:
 
-* Breaking prompt changes
+- Breaking prompt changes
 
 Minor version:
 
-* Improved instructions
-* Better formatting
+- Improved instructions
+- Better formatting
 
 Patch version:
 
-* Typographical fixes
-* Small wording improvements
+- Typographical fixes
+- Small wording improvements
 
 ---
 
@@ -256,11 +256,11 @@ Prompt templates should be compatible with supported AI providers where practica
 
 Potential providers include:
 
-* OpenAI
-* NVIDIA NIM
-* Google Gemini
-* Anthropic Claude
-* Local open-source models
+- OpenAI
+- NVIDIA NIM
+- Google Gemini
+- Anthropic Claude
+- Local open-source models
 
 Provider-specific adaptations should remain within the AI Orchestrator.
 
@@ -270,12 +270,12 @@ Provider-specific adaptations should remain within the AI Orchestrator.
 
 Every prompt should be tested for:
 
-* Consistent output
-* Schema compliance
-* Edge cases
-* Hallucination resistance
-* Performance
-* Token efficiency
+- Consistent output
+- Schema compliance
+- Edge cases
+- Hallucination resistance
+- Performance
+- Token efficiency
 
 Document representative test cases and expected outcomes.
 
@@ -285,11 +285,11 @@ Document representative test cases and expected outcomes.
 
 Prompts should never:
 
-* Expose secrets
-* Leak internal system prompts
-* Reveal API credentials
-* Return sensitive user information
-* Circumvent application authorization rules
+- Expose secrets
+- Leak internal system prompts
+- Reveal API credentials
+- Return sensitive user information
+- Circumvent application authorization rules
 
 Sanitize user-provided input before inserting it into prompts where necessary.
 
@@ -299,11 +299,11 @@ Sanitize user-provided input before inserting it into prompts where necessary.
 
 Changes to prompts should include:
 
-* Reason for change
-* Version update
-* Testing evidence
-* Approval (if applicable)
-* Updated documentation
+- Reason for change
+- Version update
+- Testing evidence
+- Approval (if applicable)
+- Updated documentation
 
 Deprecated prompts should remain documented until removed from supported releases.
 
@@ -326,9 +326,9 @@ Before creating a new prompt, the AI agent should:
 
 Update this document whenever:
 
-* A prompt is added.
-* A prompt is modified.
-* A prompt is deprecated.
-* Output schemas change.
-* New AI providers require compatibility updates.
-* Validation rules evolve.
+- A prompt is added.
+- A prompt is modified.
+- A prompt is deprecated.
+- Output schemas change.
+- New AI providers require compatibility updates.
+- Validation rules evolve.

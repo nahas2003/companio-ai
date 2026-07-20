@@ -21,13 +21,13 @@ All backend and frontend development should follow this document.
 
 Companio APIs should be:
 
-* RESTful
-* Versioned
-* Stateless
-* Predictable
-* Secure
-* Well documented
-* Backward compatible whenever practical
+- RESTful
+- Versioned
+- Stateless
+- Predictable
+- Secure
+- Well documented
+- Backward compatible whenever practical
 
 ---
 
@@ -118,15 +118,15 @@ Response example:
 
 Supported query parameters where applicable:
 
-* search
-* status
-* type
-* difficulty
-* createdBy
-* createdFrom
-* createdTo
-* sort
-* order
+- search
+- status
+- type
+- difficulty
+- createdBy
+- createdFrom
+- createdTo
+- sort
+- order
 
 Example:
 
@@ -316,29 +316,29 @@ GET /questions?search=network&page=1
 
 All endpoints should:
 
-* Validate request bodies.
-* Validate query parameters.
-* Validate route parameters.
-* Reject malformed JSON.
-* Return consistent validation errors.
+- Validate request bodies.
+- Validate query parameters.
+- Validate route parameters.
+- Reject malformed JSON.
+- Return consistent validation errors.
 
 ---
 
 # 11. Security Guidelines
 
-* Enforce authentication where required.
-* Validate authorization on every protected endpoint.
-* Apply rate limiting to sensitive operations.
-* Never expose secrets or internal identifiers unnecessarily.
-* Log security-relevant events.
+- Enforce authentication where required.
+- Validate authorization on every protected endpoint.
+- Apply rate limiting to sensitive operations.
+- Never expose secrets or internal identifiers unnecessarily.
+- Log security-relevant events.
 
 ---
 
 # 12. Versioning
 
-* Current version: `v1`
-* Breaking changes require a new API version.
-* Non-breaking enhancements should remain within the current version.
+- Current version: `v1`
+- Breaking changes require a new API version.
+- Non-breaking enhancements should remain within the current version.
 
 ---
 
@@ -369,8 +369,8 @@ Before creating or modifying an endpoint, the AI agent should:
 
 Update this document whenever:
 
-* A new endpoint is added.
-* An endpoint is removed.
-* Request or response contracts change.
-* Authentication or authorization requirements change.
-* API versioning is updated.
+- A new endpoint is added.
+- An endpoint is removed.
+- Request or response contracts change.
+- Authentication or authorization requirements change.
+- API versioning is updated.

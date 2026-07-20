@@ -14,12 +14,12 @@ This document defines the testing strategy for Companio.
 
 Testing must verify:
 
-* Functional correctness
-* Architectural integrity
-* Performance
-* Security
-* AI reliability
-* User experience
+- Functional correctness
+- Architectural integrity
+- Performance
+- Security
+- AI reliability
+- User experience
 
 The objective is not only to ensure that features work, but also that architectural rules are consistently enforced.
 
@@ -29,12 +29,12 @@ The objective is not only to ensure that features work, but also that architectu
 
 The testing strategy should:
 
-* Prevent regressions.
-* Validate business workflows.
-* Verify architectural contracts.
-* Detect security issues.
-* Validate AI-generated content.
-* Support confident deployments.
+- Prevent regressions.
+- Validate business workflows.
+- Verify architectural contracts.
+- Detect security issues.
+- Validate AI-generated content.
+- Support confident deployments.
 
 ---
 
@@ -55,13 +55,13 @@ Each higher level should depend on the correctness of the lower levels.
 
 Unit tests should cover:
 
-* Utility functions.
-* Business logic.
-* Validation rules.
-* Scoring calculations.
-* Ranking algorithms.
-* Result evaluation.
-* Question normalization.
+- Utility functions.
+- Business logic.
+- Validation rules.
+- Scoring calculations.
+- Ranking algorithms.
+- Result evaluation.
+- Question normalization.
 
 ---
 
@@ -71,12 +71,12 @@ Verify interactions between modules.
 
 Examples:
 
-* Authentication → Assessment
-* Source → AI Processing
-* AI Processing → Question Bank
-* Question Bank → Assessment Template
-* Published Assessment → Result
-* Result → Leaderboard
+- Authentication → Assessment
+- Source → AI Processing
+- AI Processing → Question Bank
+- Question Bank → Assessment Template
+- Published Assessment → Result
+- Result → Leaderboard
 
 ---
 
@@ -86,20 +86,20 @@ Critical user journeys include:
 
 ### Creator
 
-* Register
-* Create Source
-* Generate Question Bank
-* Create Assessment Template
-* Publish Assessment
-* View Analytics
+- Register
+- Create Source
+- Generate Question Bank
+- Create Assessment Template
+- Publish Assessment
+- View Analytics
 
 ### Participant
 
-* Join Assessment
-* Complete Assessment
-* Submit Attempt
-* View Result
-* View Leaderboard (if enabled)
+- Join Assessment
+- Complete Assessment
+- Submit Attempt
+- View Result
+- View Leaderboard (if enabled)
 
 ---
 
@@ -109,12 +109,12 @@ Validate system invariants.
 
 Examples:
 
-* Published Assessments are immutable.
-* Question Bank versions are immutable.
-* Results are immutable.
-* Templates cannot reference deleted Questions.
-* Leaderboards derive data from Results.
-* Ownership rules are enforced.
+- Published Assessments are immutable.
+- Question Bank versions are immutable.
+- Results are immutable.
+- Templates cannot reference deleted Questions.
+- Leaderboards derive data from Results.
+- Ownership rules are enforced.
 
 ---
 
@@ -122,13 +122,13 @@ Examples:
 
 Test:
 
-* Success responses.
-* Validation errors.
-* Authorization.
-* Pagination.
-* Rate limits.
-* Error handling.
-* Response schema.
+- Success responses.
+- Validation errors.
+- Authorization.
+- Pagination.
+- Rate limits.
+- Error handling.
+- Response schema.
 
 ---
 
@@ -136,12 +136,12 @@ Test:
 
 Verify:
 
-* Relationships.
-* Constraints.
-* Index usage.
-* Cascading behavior.
-* Row Level Security policies.
-* Data integrity.
+- Relationships.
+- Constraints.
+- Index usage.
+- Cascading behavior.
+- Row Level Security policies.
+- Data integrity.
 
 ---
 
@@ -149,13 +149,13 @@ Verify:
 
 Validate:
 
-* Prompt templates.
-* Response schema.
-* JSON validity.
-* Duplicate detection.
-* Difficulty distribution.
-* Provider fallback behavior.
-* Cache reuse.
+- Prompt templates.
+- Response schema.
+- JSON validity.
+- Duplicate detection.
+- Difficulty distribution.
+- Provider fallback behavior.
+- Cache reuse.
 
 ---
 
@@ -163,13 +163,13 @@ Validate:
 
 Verify:
 
-* Authentication.
-* Authorization.
-* Session management.
-* Input validation.
-* Prompt injection resistance.
-* File upload validation.
-* API protection.
+- Authentication.
+- Authorization.
+- Session management.
+- Input validation.
+- Prompt injection resistance.
+- File upload validation.
+- API protection.
 
 ---
 
@@ -177,12 +177,12 @@ Verify:
 
 Measure:
 
-* API latency.
-* AI processing time.
-* Database query performance.
-* Concurrent assessment submissions.
-* Leaderboard generation.
-* Dashboard loading.
+- API latency.
+- AI processing time.
+- Database query performance.
+- Concurrent assessment submissions.
+- Leaderboard generation.
+- Dashboard loading.
 
 Define acceptable thresholds before production.
 
@@ -192,11 +192,11 @@ Define acceptable thresholds before production.
 
 Ensure:
 
-* Keyboard navigation.
-* Screen reader compatibility.
-* Sufficient color contrast.
-* Responsive layouts.
-* Focus management.
+- Keyboard navigation.
+- Screen reader compatibility.
+- Sufficient color contrast.
+- Responsive layouts.
+- Focus management.
 
 Accessibility should be considered throughout development, not only before release.
 
@@ -206,11 +206,11 @@ Accessibility should be considered throughout development, not only before relea
 
 Manual verification should include:
 
-* New features.
-* User experience.
-* Mobile responsiveness.
-* Cross-browser compatibility.
-* Edge cases.
+- New features.
+- User experience.
+- Mobile responsiveness.
+- Cross-browser compatibility.
+- Edge cases.
 
 ---
 
@@ -218,10 +218,10 @@ Manual verification should include:
 
 Whenever a feature changes:
 
-* Re-run affected unit tests.
-* Re-run integration tests.
-* Verify related workflows.
-* Confirm architectural contracts remain valid.
+- Re-run affected unit tests.
+- Re-run integration tests.
+- Verify related workflows.
+- Confirm architectural contracts remain valid.
 
 ---
 
@@ -229,13 +229,13 @@ Whenever a feature changes:
 
 Use dedicated test data that covers:
 
-* Guest participants.
-* Registered users.
-* Creators.
-* Administrators.
-* Small assessments.
-* Large assessments.
-* Invalid inputs.
+- Guest participants.
+- Registered users.
+- Creators.
+- Administrators.
+- Small assessments.
+- Large assessments.
+- Invalid inputs.
 
 Avoid using production data for automated tests.
 
@@ -245,12 +245,12 @@ Avoid using production data for automated tests.
 
 Automate:
 
-* Unit tests.
-* Integration tests.
-* API tests.
-* End-to-end tests.
-* Static analysis.
-* Build verification.
+- Unit tests.
+- Integration tests.
+- API tests.
+- End-to-end tests.
+- Static analysis.
+- Build verification.
 
 Testing should be integrated into the CI/CD pipeline.
 
@@ -260,11 +260,11 @@ Testing should be integrated into the CI/CD pipeline.
 
 Every AI coding agent must:
 
-* Add tests for new features.
-* Preserve architectural contracts.
-* Avoid reducing test coverage.
-* Update tests when business rules change.
-* Keep automated tests deterministic.
+- Add tests for new features.
+- Preserve architectural contracts.
+- Avoid reducing test coverage.
+- Update tests when business rules change.
+- Keep automated tests deterministic.
 
 ---
 
@@ -272,13 +272,13 @@ Every AI coding agent must:
 
 The testing strategy is complete when:
 
-* Critical workflows are covered.
-* Architectural contracts are validated.
-* Security checks pass.
-* AI outputs are verified.
-* Performance goals are met.
-* Accessibility requirements are satisfied.
-* Regression testing is established.
+- Critical workflows are covered.
+- Architectural contracts are validated.
+- Security checks pass.
+- AI outputs are verified.
+- Performance goals are met.
+- Accessibility requirements are satisfied.
+- Regression testing is established.
 
 ---
 
@@ -286,17 +286,17 @@ The testing strategy is complete when:
 
 ## Depends On
 
-* 00–18
+- 00–18
 
 ## Used By
 
-* 20_DEPLOYMENT_GUIDE.md
-* CI/CD Pipeline
-* Future Quality Assurance documentation
+- 20_DEPLOYMENT_GUIDE.md
+- CI/CD Pipeline
+- Future Quality Assurance documentation
 
 ## Related Documents
 
-* 08_SECURITY_ARCHITECTURE.md
-* 09_AI_ARCHITECTURE.md
-* 17_LEADERBOARD.md
-* 18_RESULTS_AND_ANALYTICS.md
+- 08_SECURITY_ARCHITECTURE.md
+- 09_AI_ARCHITECTURE.md
+- 17_LEADERBOARD.md
+- 18_RESULTS_AND_ANALYTICS.md

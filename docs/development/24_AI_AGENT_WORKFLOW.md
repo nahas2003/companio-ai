@@ -21,12 +21,12 @@ This document applies to every AI-assisted implementation task.
 
 The AI agent must:
 
-* Follow the documented architecture.
-* Implement features incrementally.
-* Produce maintainable code.
-* Minimize architectural drift.
-* Preserve existing functionality.
-* Keep documentation synchronized with implementation.
+- Follow the documented architecture.
+- Implement features incrementally.
+- Produce maintainable code.
+- Minimize architectural drift.
+- Preserve existing functionality.
+- Keep documentation synchronized with implementation.
 
 The AI should behave as an implementation engineer—not as a product designer.
 
@@ -81,12 +81,12 @@ Avoid making unrelated modifications.
 
 The AI should:
 
-* Make focused changes.
-* Reuse existing modules.
-* Prefer composition over duplication.
-* Keep features modular.
-* Respect existing interfaces.
-* Avoid introducing unnecessary abstractions.
+- Make focused changes.
+- Reuse existing modules.
+- Prefer composition over duplication.
+- Keep features modular.
+- Respect existing interfaces.
+- Avoid introducing unnecessary abstractions.
 
 Every change should have a clear purpose.
 
@@ -96,17 +96,17 @@ Every change should have a clear purpose.
 
 The AI may:
 
-* Add new files where appropriate.
-* Modify relevant feature modules.
-* Extend shared utilities when justified.
-* Update documentation for implemented changes.
+- Add new files where appropriate.
+- Modify relevant feature modules.
+- Extend shared utilities when justified.
+- Update documentation for implemented changes.
 
 The AI must not:
 
-* Rewrite unrelated modules.
-* Rename core architecture without instruction.
-* Delete existing functionality.
-* Introduce breaking changes without explicit approval.
+- Rewrite unrelated modules.
+- Rename core architecture without instruction.
+- Delete existing functionality.
+- Introduce breaking changes without explicit approval.
 
 ---
 
@@ -114,10 +114,10 @@ The AI must not:
 
 Whenever implementation changes affect project behavior, update:
 
-* Architecture documents (if design changes)
-* Development guides (if workflow changes)
-* API documentation (if contracts change)
-* README (if setup changes)
+- Architecture documents (if design changes)
+- Development guides (if workflow changes)
+- API documentation (if contracts change)
+- README (if setup changes)
 
 Documentation should remain aligned with implementation.
 
@@ -127,12 +127,12 @@ Documentation should remain aligned with implementation.
 
 Generated code should:
 
-* Compile successfully.
-* Pass linting.
-* Pass type checking.
-* Follow project naming conventions.
-* Include appropriate validation.
-* Handle errors consistently.
+- Compile successfully.
+- Pass linting.
+- Pass type checking.
+- Follow project naming conventions.
+- Include appropriate validation.
+- Handle errors consistently.
 
 Avoid placeholder implementations unless explicitly requested.
 
@@ -142,10 +142,10 @@ Avoid placeholder implementations unless explicitly requested.
 
 For every implemented feature:
 
-* Add or update unit tests.
-* Add integration tests where appropriate.
-* Verify affected user flows.
-* Ensure no regressions are introduced.
+- Add or update unit tests.
+- Add integration tests where appropriate.
+- Verify affected user flows.
+- Ensure no regressions are introduced.
 
 Do not mark work as complete without validation.
 
@@ -155,13 +155,13 @@ Do not mark work as complete without validation.
 
 The AI should never:
 
-* Invent undocumented requirements.
-* Ignore project architecture.
-* Hardcode secrets.
-* Bypass authentication or authorization.
-* Skip validation.
-* Duplicate existing functionality.
-* Leave incomplete TODOs without explanation.
+- Invent undocumented requirements.
+- Ignore project architecture.
+- Hardcode secrets.
+- Bypass authentication or authorization.
+- Skip validation.
+- Duplicate existing functionality.
+- Leave incomplete TODOs without explanation.
 
 When uncertain, follow the documented architecture rather than guessing.
 
@@ -184,12 +184,12 @@ Consistency is more important than creativity.
 
 Before considering a task complete, verify:
 
-* Code builds successfully.
-* Relevant tests pass.
-* No linting errors remain.
-* Documentation is updated if required.
-* No unrelated files were modified.
-* Existing functionality remains intact.
+- Code builds successfully.
+- Relevant tests pass.
+- No linting errors remain.
+- Documentation is updated if required.
+- No unrelated files were modified.
+- Existing functionality remains intact.
 
 ---
 
@@ -197,11 +197,11 @@ Before considering a task complete, verify:
 
 After completing work, provide:
 
-* Summary of changes
-* Files created or modified
-* Testing performed
-* Known limitations
-* Recommended next steps
+- Summary of changes
+- Files created or modified
+- Testing performed
+- Known limitations
+- Recommended next steps
 
 Keep summaries concise and actionable.
 
@@ -211,10 +211,10 @@ Keep summaries concise and actionable.
 
 The AI should:
 
-* Learn from project conventions.
-* Reuse established patterns.
-* Prefer consistency over novelty.
-* Suggest improvements without implementing them automatically.
+- Learn from project conventions.
+- Reuse established patterns.
+- Prefer consistency over novelty.
+- Suggest improvements without implementing them automatically.
 
 Architectural changes require explicit approval.
 
@@ -224,11 +224,11 @@ Architectural changes require explicit approval.
 
 Avoid:
 
-* Making broad repository-wide changes.
-* Mixing multiple features in one implementation.
-* Ignoring coding standards.
-* Updating generated files manually if they have a defined generation process.
-* Creating duplicate services or utilities.
+- Making broad repository-wide changes.
+- Mixing multiple features in one implementation.
+- Ignoring coding standards.
+- Updating generated files manually if they have a defined generation process.
+- Creating duplicate services or utilities.
 
 ---
 
@@ -236,11 +236,11 @@ Avoid:
 
 The AI workflow is successful when:
 
-* Implementations follow architecture.
-* Code quality standards are met.
-* Documentation remains synchronized.
-* Features are modular and maintainable.
-* Human review is straightforward.
+- Implementations follow architecture.
+- Code quality standards are met.
+- Documentation remains synchronized.
+- Features are modular and maintainable.
+- Human review is straightforward.
 
 ---
 
@@ -248,11 +248,11 @@ The AI workflow is successful when:
 
 An AI-assisted task is complete when:
 
-* Requested functionality is implemented.
-* Quality checks pass.
-* Documentation is current.
-* The implementation aligns with project architecture.
-* No unintended side effects are introduced.
+- Requested functionality is implemented.
+- Quality checks pass.
+- Documentation is current.
+- The implementation aligns with project architecture.
+- No unintended side effects are introduced.
 
 ---
 
@@ -288,11 +288,11 @@ This lifecycle should be followed for every implementation task.
 
 When collaborating with human developers:
 
-* Respect previous architectural decisions.
-* Explain significant implementation choices.
-* Keep commits focused.
-* Surface risks early.
-* Ask for clarification when requirements conflict with documented architecture.
+- Respect previous architectural decisions.
+- Explain significant implementation choices.
+- Keep commits focused.
+- Surface risks early.
+- Ask for clarification when requirements conflict with documented architecture.
 
 The AI is a collaborator, not the final decision-maker.
 
@@ -302,11 +302,11 @@ The AI is a collaborator, not the final decision-maker.
 
 The AI's contribution is considered successful when:
 
-* The implementation is correct.
-* The codebase remains consistent.
-* Documentation stays accurate.
-* Future maintenance is simplified.
-* The project continues to evolve without architectural drift.
+- The implementation is correct.
+- The codebase remains consistent.
+- Documentation stays accurate.
+- Future maintenance is simplified.
+- The project continues to evolve without architectural drift.
 
 ---
 

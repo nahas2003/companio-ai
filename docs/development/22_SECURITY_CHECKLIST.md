@@ -19,13 +19,13 @@ The objective is to protect user accounts, assessment content, uploaded learning
 
 Every feature should follow these principles:
 
-* Least privilege
-* Defense in depth
-* Secure by default
-* Fail securely
-* Validate all input
-* Protect sensitive information
-* Audit security-relevant events
+- Least privilege
+- Defense in depth
+- Secure by default
+- Fail securely
+- Validate all input
+- Protect sensitive information
+- Audit security-relevant events
 
 Security reviews should occur throughout development.
 
@@ -35,12 +35,12 @@ Security reviews should occur throughout development.
 
 Verify:
 
-* Secure authentication provider configuration
-* Session expiration
-* Session invalidation after logout
-* Password reset flow (if applicable)
-* Multi-factor authentication readiness (future-ready)
-* Secure token handling
+- Secure authentication provider configuration
+- Session expiration
+- Session invalidation after logout
+- Password reset flow (if applicable)
+- Multi-factor authentication readiness (future-ready)
+- Secure token handling
 
 Never expose authentication secrets.
 
@@ -50,11 +50,11 @@ Never expose authentication secrets.
 
 Verify:
 
-* Role-based access control
-* Resource ownership checks
-* Administrative privilege separation
-* Route protection
-* API authorization
+- Role-based access control
+- Resource ownership checks
+- Administrative privilege separation
+- Route protection
+- API authorization
 
 Never rely solely on client-side authorization.
 
@@ -64,12 +64,12 @@ Never rely solely on client-side authorization.
 
 Validate:
 
-* User input
-* Uploaded files
-* API requests
-* Query parameters
-* AI-generated structured output
-* Environment configuration
+- User input
+- Uploaded files
+- API requests
+- Query parameters
+- AI-generated structured output
+- Environment configuration
 
 Reject invalid input before processing.
 
@@ -79,12 +79,12 @@ Reject invalid input before processing.
 
 Ensure:
 
-* File type validation
-* File size limits
-* Safe file naming
-* Malware scanning (future-ready)
-* Secure storage
-* Access control for uploaded files
+- File type validation
+- File size limits
+- Safe file naming
+- Malware scanning (future-ready)
+- Secure storage
+- Access control for uploaded files
 
 Never trust file extensions alone.
 
@@ -94,11 +94,11 @@ Never trust file extensions alone.
 
 Verify:
 
-* API keys remain server-side.
-* Prompt templates are protected.
-* AI responses are validated before use.
-* Provider failures are handled securely.
-* Usage limits are enforced.
+- API keys remain server-side.
+- Prompt templates are protected.
+- AI responses are validated before use.
+- Provider failures are handled securely.
+- Usage limits are enforced.
 
 Do not expose internal prompts or credentials to clients.
 
@@ -108,12 +108,12 @@ Do not expose internal prompts or credentials to clients.
 
 Ensure:
 
-* Principle of least privilege for database users
-* Row-level security (where supported)
-* Parameterized queries
-* Secure migrations
-* Encryption at rest (provider-dependent)
-* Regular backups
+- Principle of least privilege for database users
+- Row-level security (where supported)
+- Parameterized queries
+- Secure migrations
+- Encryption at rest (provider-dependent)
+- Regular backups
 
 Avoid unnecessary direct database access.
 
@@ -123,12 +123,12 @@ Avoid unnecessary direct database access.
 
 Verify:
 
-* HTTPS enforcement
-* Authentication for protected endpoints
-* Authorization checks
-* Rate limiting (where appropriate)
-* Request validation
-* Response sanitization
+- HTTPS enforcement
+- Authentication for protected endpoints
+- Authorization checks
+- Rate limiting (where appropriate)
+- Request validation
+- Response sanitization
 
 Return consistent error responses without leaking internal details.
 
@@ -138,12 +138,12 @@ Return consistent error responses without leaking internal details.
 
 Ensure:
 
-* Secure handling of tokens
-* Escaped user-generated content
-* Content Security Policy (where supported)
-* Protection against XSS
-* Safe routing
-* Secure storage of client-side data
+- Secure handling of tokens
+- Escaped user-generated content
+- Content Security Policy (where supported)
+- Protection against XSS
+- Safe routing
+- Secure storage of client-side data
 
 Do not expose secrets in frontend bundles.
 
@@ -153,12 +153,12 @@ Do not expose secrets in frontend bundles.
 
 Verify:
 
-* Centralized authorization
-* Secure configuration
-* Error sanitization
-* Dependency updates
-* Input validation
-* Secure logging
+- Centralized authorization
+- Secure configuration
+- Error sanitization
+- Dependency updates
+- Input validation
+- Secure logging
 
 Avoid unnecessary exposure of internal services.
 
@@ -168,12 +168,12 @@ Avoid unnecessary exposure of internal services.
 
 Review:
 
-* Environment isolation
-* Firewall rules (where applicable)
-* Backup procedures
-* Secret management
-* Monitoring
-* Deployment access controls
+- Environment isolation
+- Firewall rules (where applicable)
+- Backup procedures
+- Secret management
+- Monitoring
+- Deployment access controls
 
 Restrict production access to authorized personnel.
 
@@ -183,12 +183,12 @@ Restrict production access to authorized personnel.
 
 Record security-relevant events:
 
-* Login attempts
-* Permission changes
-* Assessment publication
-* Administrative actions
-* AI workflow execution metadata
-* Configuration changes
+- Login attempts
+- Permission changes
+- Assessment publication
+- Administrative actions
+- AI workflow execution metadata
+- Configuration changes
 
 Do not log confidential information.
 
@@ -198,10 +198,10 @@ Do not log confidential information.
 
 Protect:
 
-* Personal information
-* Assessment results
-* Uploaded learning materials
-* User activity
+- Personal information
+- Assessment results
+- Uploaded learning materials
+- User activity
 
 Collect only the data necessary for application functionality.
 
@@ -211,10 +211,10 @@ Collect only the data necessary for application functionality.
 
 Regularly:
 
-* Review dependencies
-* Remove unused packages
-* Apply security updates
-* Monitor vulnerability advisories
+- Review dependencies
+- Remove unused packages
+- Apply security updates
+- Monitor vulnerability advisories
 
 Keep the dependency tree as small as practical.
 
@@ -224,14 +224,14 @@ Keep the dependency tree as small as practical.
 
 Before every production release:
 
-* Security review completed
-* Dependencies updated
-* Secrets verified
-* Access controls tested
-* Authentication tested
-* Authorization tested
-* Backup verified
-* Monitoring enabled
+- Security review completed
+- Dependencies updated
+- Secrets verified
+- Access controls tested
+- Authentication tested
+- Authorization tested
+- Backup verified
+- Monitoring enabled
 
 Block release if critical security issues remain.
 
@@ -241,11 +241,11 @@ Block release if critical security issues remain.
 
 Prepare procedures for:
 
-* Account compromise
-* Data exposure
-* AI provider outage
-* Service interruption
-* Configuration errors
+- Account compromise
+- Data exposure
+- AI provider outage
+- Service interruption
+- Configuration errors
 
 Document escalation paths and recovery steps.
 
@@ -255,13 +255,13 @@ Document escalation paths and recovery steps.
 
 Perform:
 
-* Authentication testing
-* Authorization testing
-* Input validation testing
-* API security testing
-* File upload testing
-* AI workflow validation
-* Dependency scanning
+- Authentication testing
+- Authorization testing
+- Input validation testing
+- API security testing
+- File upload testing
+- AI workflow validation
+- Dependency scanning
 
 Include security testing in the release process.
 
@@ -271,12 +271,12 @@ Include security testing in the release process.
 
 Avoid:
 
-* Hardcoding secrets.
-* Trusting client input.
-* Exposing internal errors.
-* Using outdated dependencies.
-* Skipping authorization checks.
-* Logging sensitive information.
+- Hardcoding secrets.
+- Trusting client input.
+- Exposing internal errors.
+- Using outdated dependencies.
+- Skipping authorization checks.
+- Logging sensitive information.
 
 ---
 
@@ -284,10 +284,10 @@ Avoid:
 
 The security checklist is complete when:
 
-* Core security controls are implemented.
-* Security testing is integrated into development.
-* Critical findings are resolved before release.
-* Documentation is maintained.
+- Core security controls are implemented.
+- Security testing is integrated into development.
+- Critical findings are resolved before release.
+- Documentation is maintained.
 
 ---
 
@@ -295,11 +295,11 @@ The security checklist is complete when:
 
 Security readiness is achieved when:
 
-* Authentication and authorization are verified.
-* Sensitive data is protected.
-* AI integrations are secured.
-* Infrastructure follows secure deployment practices.
-* Ongoing monitoring is active.
+- Authentication and authorization are verified.
+- Sensitive data is protected.
+- AI integrations are secured.
+- Infrastructure follows secure deployment practices.
+- Ongoing monitoring is active.
 
 ---
 

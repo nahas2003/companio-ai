@@ -21,12 +21,12 @@ The goal is to manage learning materials independently of AI processing.
 
 After completing this module:
 
-* Users can create Sources.
-* Users can edit Source metadata.
-* Users can archive Sources.
-* Users can organize Sources.
-* Sources are securely stored.
-* Sources are ready for Content Ingestion.
+- Users can create Sources.
+- Users can edit Source metadata.
+- Users can archive Sources.
+- Users can organize Sources.
+- Sources are securely stored.
+- Sources are ready for Content Ingestion.
 
 ---
 
@@ -34,17 +34,17 @@ After completing this module:
 
 Complete before starting:
 
-* 00_MASTER_DEVELOPMENT_PLAN.md
-* 01_PROJECT_SETUP.md
-* 02_DATABASE_SETUP.md
-* 03_AUTHENTICATION.md
-* 04_AI_ORCHESTRATOR.md
+- 00_MASTER_DEVELOPMENT_PLAN.md
+- 01_PROJECT_SETUP.md
+- 02_DATABASE_SETUP.md
+- 03_AUTHENTICATION.md
+- 04_AI_ORCHESTRATOR.md
 
 Review architecture:
 
-* 02_SYSTEM_ARCHITECTURE.md
-* 14_CONTENT_INGESTION.md
-* 21_PROJECT_CONSTITUTION.md
+- 02_SYSTEM_ARCHITECTURE.md
+- 14_CONTENT_INGESTION.md
+- 21_PROJECT_CONSTITUTION.md
 
 ---
 
@@ -60,18 +60,18 @@ A fully functional Source Management feature that supports CRUD operations, meta
 
 ## Files Allowed to Modify
 
-* `src/features/source/`
-* `src/services/source/`
-* Source-related routes
-* Shared UI components (only if reusable)
+- `src/features/source/`
+- `src/services/source/`
+- Source-related routes
+- Shared UI components (only if reusable)
 
 ## Files That Must NOT Be Modified
 
-* AI Content Processing
-* Question Bank
-* Assessment Engine
-* Results
-* Leaderboard
+- AI Content Processing
+- Question Bank
+- Assessment Engine
+- Results
+- Leaderboard
 
 ---
 
@@ -118,11 +118,11 @@ Only Sources in appropriate states may move to later stages.
 
 Support at least:
 
-* PDF Document
-* Plain Text Notes
-* Topic Name
-* Rich Text (future-ready)
-* External URL (future-ready)
+- PDF Document
+- Plain Text Notes
+- Topic Name
+- Rich Text (future-ready)
+- External URL (future-ready)
 
 Design the model so additional source types can be added without changing business logic.
 
@@ -132,23 +132,23 @@ Design the model so additional source types can be added without changing busine
 
 Implement:
 
-* Source list page
-* Source details page
-* Create Source form
-* Edit Source form
-* Archive confirmation
-* Search input
-* Filter controls
-* Pagination (if required)
-* Empty state
-* Loading state
-* Error state
+- Source list page
+- Source details page
+- Create Source form
+- Edit Source form
+- Archive confirmation
+- Search input
+- Filter controls
+- Pagination (if required)
+- Empty state
+- Loading state
+- Error state
 
 Requirements:
 
-* Responsive layout
-* Accessible forms
-* Clear validation messages
+- Responsive layout
+- Accessible forms
+- Clear validation messages
 
 ---
 
@@ -156,12 +156,12 @@ Requirements:
 
 Implement services for:
 
-* Create Source
-* Retrieve Source
-* Update Source
-* Archive Source
-* List Sources
-* Search Sources
+- Create Source
+- Retrieve Source
+- Update Source
+- Archive Source
+- List Sources
+- Search Sources
 
 All operations must respect ownership and permissions.
 
@@ -171,11 +171,11 @@ All operations must respect ownership and permissions.
 
 Create or verify support for:
 
-* Source entity
-* Ownership relationship
-* Metadata fields
-* Status field
-* Timestamps
+- Source entity
+- Ownership relationship
+- Metadata fields
+- Status field
+- Timestamps
 
 Ensure indexes support efficient searching and listing.
 
@@ -185,11 +185,11 @@ Ensure indexes support efficient searching and listing.
 
 Validate:
 
-* Required title
-* Valid source type
-* Ownership
-* Maximum input size (where applicable)
-* Duplicate detection (basic metadata level)
+- Required title
+- Valid source type
+- Ownership
+- Maximum input size (where applicable)
+- Duplicate detection (basic metadata level)
 
 Reject invalid requests before persistence.
 
@@ -199,13 +199,13 @@ Reject invalid requests before persistence.
 
 Manage:
 
-* Source list
-* Selected Source
-* Loading state
-* Pagination state
-* Search query
-* Filters
-* Error state
+- Source list
+- Selected Source
+- Loading state
+- Pagination state
+- Search query
+- Filters
+- Error state
 
 Use a consistent data-fetching strategy across the application.
 
@@ -215,12 +215,12 @@ Use a consistent data-fetching strategy across the application.
 
 Implement operations for:
 
-* Create
-* Read
-* Update
-* Archive
-* List
-* Search
+- Create
+- Read
+- Update
+- Archive
+- List
+- Search
 
 Keep API contracts stable for future mobile clients.
 
@@ -230,10 +230,10 @@ Keep API contracts stable for future mobile clients.
 
 Ensure:
 
-* Only owners can modify private Sources.
-* Archived Sources cannot be edited without restoration (if supported).
-* Input is sanitized.
-* Authorization is enforced server-side.
+- Only owners can modify private Sources.
+- Archived Sources cannot be edited without restoration (if supported).
+- Input is sanitized.
+- Authorization is enforced server-side.
 
 Never rely solely on client-side checks.
 
@@ -243,11 +243,11 @@ Never rely solely on client-side checks.
 
 The interface should provide:
 
-* Fast creation flow
-* Clear status indicators
-* Easy navigation
-* Confirmation before destructive actions
-* Helpful empty states
+- Fast creation flow
+- Clear status indicators
+- Easy navigation
+- Confirmation before destructive actions
+- Helpful empty states
 
 ---
 
@@ -255,13 +255,13 @@ The interface should provide:
 
 Verify:
 
-* Source creation works.
-* Metadata updates succeed.
-* Search returns expected results.
-* Archive behaves correctly.
-* Unauthorized access is blocked.
-* Validation errors are displayed properly.
-* Large lists remain responsive.
+- Source creation works.
+- Metadata updates succeed.
+- Search returns expected results.
+- Archive behaves correctly.
+- Unauthorized access is blocked.
+- Validation errors are displayed properly.
+- Large lists remain responsive.
 
 ---
 
@@ -269,12 +269,12 @@ Verify:
 
 The module is complete when:
 
-* CRUD operations work.
-* Ownership is enforced.
-* Search functions correctly.
-* Source lifecycle is respected.
-* Tests pass.
-* Documentation is updated.
+- CRUD operations work.
+- Ownership is enforced.
+- Search functions correctly.
+- Source lifecycle is respected.
+- Tests pass.
+- Documentation is updated.
 
 ---
 
@@ -282,10 +282,10 @@ The module is complete when:
 
 Avoid:
 
-* Mixing Source Management with AI processing.
-* Storing provider-specific AI data in the Source.
-* Allowing unauthorized updates.
-* Coupling UI directly to database models.
+- Mixing Source Management with AI processing.
+- Storing provider-specific AI data in the Source.
+- Allowing unauthorized updates.
+- Coupling UI directly to database models.
 
 ---
 
@@ -293,10 +293,10 @@ Avoid:
 
 The Source Management module is complete when:
 
-* Users can manage learning materials.
-* Sources are independent of AI processing.
-* The module integrates cleanly with Content Ingestion.
-* Code follows project architecture and standards.
+- Users can manage learning materials.
+- Sources are independent of AI processing.
+- The module integrates cleanly with Content Ingestion.
+- Code follows project architecture and standards.
 
 ---
 

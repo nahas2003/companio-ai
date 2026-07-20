@@ -21,12 +21,12 @@ It must not communicate directly with AI providers. All AI interactions must pas
 
 After completing this module:
 
-* AI workflows can be executed.
-* Structured outputs are generated.
-* Outputs are validated.
-* Processing status is tracked.
-* Results are stored consistently.
-* Future AI workflows can be added without changing existing implementations.
+- AI workflows can be executed.
+- Structured outputs are generated.
+- Outputs are validated.
+- Processing status is tracked.
+- Results are stored consistently.
+- Future AI workflows can be added without changing existing implementations.
 
 ---
 
@@ -34,19 +34,19 @@ After completing this module:
 
 Complete before starting:
 
-* 00_MASTER_DEVELOPMENT_PLAN.md
-* 01_PROJECT_SETUP.md
-* 02_DATABASE_SETUP.md
-* 03_AUTHENTICATION.md
-* 04_AI_ORCHESTRATOR.md
-* 05_SOURCE_MANAGEMENT.md
-* 06_CONTENT_INGESTION.md
+- 00_MASTER_DEVELOPMENT_PLAN.md
+- 01_PROJECT_SETUP.md
+- 02_DATABASE_SETUP.md
+- 03_AUTHENTICATION.md
+- 04_AI_ORCHESTRATOR.md
+- 05_SOURCE_MANAGEMENT.md
+- 06_CONTENT_INGESTION.md
 
 Review architecture:
 
-* 13_AI_CONTENT_PROCESSING.md
-* 15_QUESTION_BANK.md
-* 21_PROJECT_CONSTITUTION.md
+- 13_AI_CONTENT_PROCESSING.md
+- 15_QUESTION_BANK.md
+- 21_PROJECT_CONSTITUTION.md
 
 ---
 
@@ -60,27 +60,27 @@ Implement a reusable workflow engine that transforms normalized content into str
 
 The module should:
 
-* Select a workflow.
-* Load the appropriate prompt.
-* Invoke the AI Orchestrator.
-* Validate structured output.
-* Store generated artifacts.
-* Track workflow execution.
+- Select a workflow.
+- Load the appropriate prompt.
+- Invoke the AI Orchestrator.
+- Validate structured output.
+- Store generated artifacts.
+- Track workflow execution.
 
 ## Files Allowed to Modify
 
-* `src/features/ai-processing/`
-* `src/services/ai-processing/`
-* Workflow registry
-* Shared schemas
-* Shared validators
+- `src/features/ai-processing/`
+- `src/services/ai-processing/`
+- Workflow registry
+- Shared schemas
+- Shared validators
 
 ## Files That Must NOT Be Modified
 
-* AI Provider implementations
-* Question Bank business logic
-* Assessment Engine
-* Results module
+- AI Provider implementations
+- Question Bank business logic
+- Assessment Engine
+- Results module
 
 ---
 
@@ -109,13 +109,13 @@ Design the module so workflows are pluggable.
 
 Initial workflows:
 
-* Question Generation
-* Summary Generation
-* Learning Objectives
-* Flashcards (future-ready)
-* Keyword Extraction (future-ready)
-* Difficulty Analysis (future-ready)
-* Study Guide (future-ready)
+- Question Generation
+- Summary Generation
+- Learning Objectives
+- Flashcards (future-ready)
+- Keyword Extraction (future-ready)
+- Difficulty Analysis (future-ready)
+- Study Guide (future-ready)
 
 Adding a workflow should not require changes to existing workflow implementations.
 
@@ -149,12 +149,12 @@ Workflow Complete
 
 Each workflow should:
 
-* Validate input.
-* Load prompt.
-* Prepare prompt variables.
-* Execute AI request.
-* Validate structured output.
-* Return normalized artifacts.
+- Validate input.
+- Load prompt.
+- Prepare prompt variables.
+- Execute AI request.
+- Validate structured output.
+- Return normalized artifacts.
 
 Workflows should remain independent of each other.
 
@@ -164,13 +164,13 @@ Workflows should remain independent of each other.
 
 Implement:
 
-* Workflow selection UI (where applicable)
-* Processing indicator
-* Progress display
-* Success notification
-* Error state
-* Retry option
-* Processing history
+- Workflow selection UI (where applicable)
+- Processing indicator
+- Progress display
+- Success notification
+- Error state
+- Retry option
+- Processing history
 
 The UI should clearly indicate the current workflow status.
 
@@ -180,11 +180,11 @@ The UI should clearly indicate the current workflow status.
 
 Implement services to:
 
-* Start workflow
-* Resume workflow (if applicable)
-* Validate responses
-* Persist generated artifacts
-* Record execution metadata
+- Start workflow
+- Resume workflow (if applicable)
+- Validate responses
+- Persist generated artifacts
+- Record execution metadata
 
 Ensure workflows are idempotent where possible.
 
@@ -196,10 +196,10 @@ Every workflow output must be validated against a schema before persistence.
 
 Validation should include:
 
-* Required fields
-* Correct data types
-* Expected structure
-* Minimum quality checks
+- Required fields
+- Correct data types
+- Expected structure
+- Minimum quality checks
 
 Invalid outputs should be rejected and surfaced as processing failures.
 
@@ -209,12 +209,12 @@ Invalid outputs should be rejected and surfaced as processing failures.
 
 Track:
 
-* Workflow status
-* Active workflow
-* Retry count
-* Progress
-* Output location
-* Errors
+- Workflow status
+- Active workflow
+- Retry count
+- Progress
+- Output location
+- Errors
 
 State should survive page refreshes where practical.
 
@@ -224,10 +224,10 @@ State should survive page refreshes where practical.
 
 Ensure:
 
-* Only authorized users can initiate workflows.
-* Generated artifacts remain associated with their owner.
-* Sensitive prompt data is not exposed.
-* Provider credentials remain confined to the AI Orchestrator.
+- Only authorized users can initiate workflows.
+- Generated artifacts remain associated with their owner.
+- Sensitive prompt data is not exposed.
+- Provider credentials remain confined to the AI Orchestrator.
 
 ---
 
@@ -235,12 +235,12 @@ Ensure:
 
 Handle failures for:
 
-* Invalid input
-* AI timeout
-* Provider errors
-* Validation failures
-* Storage failures
-* Interrupted workflows
+- Invalid input
+- AI timeout
+- Provider errors
+- Validation failures
+- Storage failures
+- Interrupted workflows
 
 Expose consistent error objects to the rest of the application.
 
@@ -250,14 +250,14 @@ Expose consistent error objects to the rest of the application.
 
 Verify:
 
-* Each workflow starts correctly.
-* Prompt selection works.
-* AI responses are validated.
-* Invalid responses are rejected.
-* Artifacts are persisted.
-* Retry logic functions.
-* Workflow status updates correctly.
-* Errors are reported consistently.
+- Each workflow starts correctly.
+- Prompt selection works.
+- AI responses are validated.
+- Invalid responses are rejected.
+- Artifacts are persisted.
+- Retry logic functions.
+- Workflow status updates correctly.
+- Errors are reported consistently.
 
 ---
 
@@ -265,11 +265,11 @@ Verify:
 
 The module is complete when:
 
-* Multiple workflows are supported.
-* AI interactions are routed exclusively through the AI Orchestrator.
-* Outputs are validated.
-* Artifacts are stored correctly.
-* Tests pass.
+- Multiple workflows are supported.
+- AI interactions are routed exclusively through the AI Orchestrator.
+- Outputs are validated.
+- Artifacts are stored correctly.
+- Tests pass.
 
 ---
 
@@ -277,11 +277,11 @@ The module is complete when:
 
 Avoid:
 
-* Calling AI providers directly.
-* Embedding prompts in business logic.
-* Skipping schema validation.
-* Combining multiple workflow responsibilities.
-* Ignoring execution metadata.
+- Calling AI providers directly.
+- Embedding prompts in business logic.
+- Skipping schema validation.
+- Combining multiple workflow responsibilities.
+- Ignoring execution metadata.
 
 ---
 
@@ -289,10 +289,10 @@ Avoid:
 
 The AI Content Processing module is complete when:
 
-* Workflow execution is reusable.
-* New workflows can be added with minimal effort.
-* Structured outputs are reliable.
-* The module integrates cleanly with the Question Bank.
+- Workflow execution is reusable.
+- New workflows can be added with minimal effort.
+- Structured outputs are reliable.
+- The module integrates cleanly with the Question Bank.
 
 ---
 

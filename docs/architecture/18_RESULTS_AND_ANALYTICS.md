@@ -20,12 +20,12 @@ The **Result** is the canonical record of a participant's completed assessment a
 
 The Results & Analytics module should:
 
-* Produce accurate assessment results.
-* Preserve immutable result records.
-* Support participant history.
-* Enable creator analytics.
-* Power leaderboards and reports.
-* Provide a foundation for future insights.
+- Produce accurate assessment results.
+- Preserve immutable result records.
+- Support participant history.
+- Enable creator analytics.
+- Power leaderboards and reports.
+- Provide a foundation for future insights.
 
 ---
 
@@ -71,21 +71,21 @@ History Leaderboard Analytics
 
 Each Result should include:
 
-* Result ID
-* Attempt ID
-* Participant ID
-* Published Assessment ID
-* Total questions
-* Correct answers
-* Incorrect answers
-* Unanswered questions
-* Score
-* Percentage
-* Completion time
-* Submission timestamp
-* Pass/Fail status
-* Evaluation version
-* Created timestamp
+- Result ID
+- Attempt ID
+- Participant ID
+- Published Assessment ID
+- Total questions
+- Correct answers
+- Incorrect answers
+- Unanswered questions
+- Score
+- Percentage
+- Completion time
+- Submission timestamp
+- Pass/Fail status
+- Evaluation version
+- Created timestamp
 
 Additional metadata may be stored without changing the public contract.
 
@@ -95,12 +95,12 @@ Additional metadata may be stored without changing the public contract.
 
 The Evaluation Engine should:
 
-* Calculate the score.
-* Determine pass/fail status.
-* Calculate percentage.
-* Measure completion time.
-* Validate answer integrity.
-* Produce a Result record.
+- Calculate the score.
+- Determine pass/fail status.
+- Calculate percentage.
+- Measure completion time.
+- Validate answer integrity.
+- Produce a Result record.
 
 Evaluation must occur on the server.
 
@@ -110,11 +110,11 @@ Evaluation must occur on the server.
 
 Registered users may view:
 
-* Completed assessments.
-* Scores.
-* Percentages.
-* Completion dates.
-* Performance trends.
+- Completed assessments.
+- Scores.
+- Percentages.
+- Completion dates.
+- Performance trends.
 
 Guests may only view history if explicitly supported by future identity-linking features.
 
@@ -124,14 +124,14 @@ Guests may only view history if explicitly supported by future identity-linking 
 
 Creators should be able to view:
 
-* Total participants.
-* Completion rate.
-* Average score.
-* Highest score.
-* Lowest score.
-* Pass percentage.
-* Score distribution.
-* Question-level performance (future).
+- Total participants.
+- Completion rate.
+- Average score.
+- Highest score.
+- Lowest score.
+- Pass percentage.
+- Score distribution.
+- Question-level performance (future).
 
 ---
 
@@ -139,12 +139,12 @@ Creators should be able to view:
 
 Suggested metrics:
 
-* Assessments published.
-* Active assessments.
-* Total attempts.
-* Completed attempts.
-* Average completion time.
-* Average participant score.
+- Assessments published.
+- Active assessments.
+- Total attempts.
+- Completed attempts.
+- Average completion time.
+- Average participant score.
 
 These metrics are derived from Result records.
 
@@ -154,11 +154,11 @@ These metrics are derived from Result records.
 
 Support:
 
-* Participant summaries.
-* Assessment summaries.
-* Performance exports.
-* CSV export (future).
-* PDF reports (future).
+- Participant summaries.
+- Assessment summaries.
+- Performance exports.
+- CSV export (future).
+- PDF reports (future).
 
 Reports should be generated from Result data.
 
@@ -170,10 +170,10 @@ Future certificate generation should use Result records.
 
 Eligibility may depend on:
 
-* Passing score.
-* Completion status.
-* Assessment settings.
-* Creator-defined criteria.
+- Passing score.
+- Completion status.
+- Assessment settings.
+- Creator-defined criteria.
 
 ---
 
@@ -181,11 +181,11 @@ Eligibility may depend on:
 
 Primary endpoints:
 
-* `GET /results/{id}`
-* `GET /results/me`
-* `GET /results/assessment/{publishedAssessmentId}`
-* `GET /analytics/assessment/{publishedAssessmentId}`
-* `GET /analytics/dashboard`
+- `GET /results/{id}`
+- `GET /results/me`
+- `GET /results/assessment/{publishedAssessmentId}`
+- `GET /analytics/assessment/{publishedAssessmentId}`
+- `GET /analytics/dashboard`
 
 ---
 
@@ -193,10 +193,10 @@ Primary endpoints:
 
 Primary entities:
 
-* attempts
-* results
-* participants
-* published_assessments
+- attempts
+- results
+- participants
+- published_assessments
 
 Result records should remain immutable after creation.
 
@@ -206,10 +206,10 @@ Result records should remain immutable after creation.
 
 Rules:
 
-* Participants access only their own results unless broader visibility is configured.
-* Creators access results for assessments they own.
-* Administrators access platform-wide analytics according to policy.
-* Analytics should respect privacy requirements.
+- Participants access only their own results unless broader visibility is configured.
+- Creators access results for assessments they own.
+- Administrators access platform-wide analytics according to policy.
+- Analytics should respect privacy requirements.
 
 ---
 
@@ -217,10 +217,10 @@ Rules:
 
 Recommendations:
 
-* Precompute frequently used aggregates where appropriate.
-* Cache dashboard metrics.
-* Refresh analytics incrementally as new Results are created.
-* Avoid recalculating unchanged Result records.
+- Precompute frequently used aggregates where appropriate.
+- Cache dashboard metrics.
+- Refresh analytics incrementally as new Results are created.
+- Avoid recalculating unchanged Result records.
 
 ---
 
@@ -228,11 +228,11 @@ Recommendations:
 
 Handle:
 
-* Result not found.
-* Attempt still in progress.
-* Evaluation failure.
-* Unauthorized access.
-* Analytics unavailable.
+- Result not found.
+- Attempt still in progress.
+- Evaluation failure.
+- Unauthorized access.
+- Analytics unavailable.
 
 Return clear, user-friendly responses.
 
@@ -240,14 +240,14 @@ Return clear, user-friendly responses.
 
 # 17. Future Enhancements
 
-* Progress tracking.
-* AI-powered performance insights.
-* Personalized study recommendations.
-* Question difficulty calibration.
-* Trend analysis.
-* Organization reports.
-* Benchmark comparisons.
-* Learning path suggestions.
+- Progress tracking.
+- AI-powered performance insights.
+- Personalized study recommendations.
+- Question difficulty calibration.
+- Trend analysis.
+- Organization reports.
+- Benchmark comparisons.
+- Learning path suggestions.
 
 ---
 
@@ -255,11 +255,11 @@ Return clear, user-friendly responses.
 
 Every AI coding agent must:
 
-* Treat Results as immutable.
-* Derive analytics from Result records.
-* Keep evaluation logic server-side.
-* Avoid storing redundant calculated values unless justified for performance.
-* Maintain compatibility with future analytics features.
+- Treat Results as immutable.
+- Derive analytics from Result records.
+- Keep evaluation logic server-side.
+- Avoid storing redundant calculated values unless justified for performance.
+- Maintain compatibility with future analytics features.
 
 ---
 
@@ -267,13 +267,13 @@ Every AI coding agent must:
 
 The feature is complete when:
 
-* Attempts are evaluated correctly.
-* Results are stored immutably.
-* Participant history is available.
-* Creator analytics are generated.
-* Dashboard metrics are accurate.
-* Reports use Result data.
-* Security and privacy rules are enforced.
+- Attempts are evaluated correctly.
+- Results are stored immutably.
+- Participant history is available.
+- Creator analytics are generated.
+- Dashboard metrics are accurate.
+- Reports use Result data.
+- Security and privacy rules are enforced.
 
 ---
 
@@ -281,17 +281,17 @@ The feature is complete when:
 
 ## Depends On
 
-* 00–17
+- 00–17
 
 ## Used By
 
-* 19_TESTING_STRATEGY.md
-* Future Certificate module
-* Future Reporting module
-* Future AI Insights module
+- 19_TESTING_STRATEGY.md
+- Future Certificate module
+- Future Reporting module
+- Future AI Insights module
 
 ## Related Documents
 
-* 12_ASSESSMENT_MODE.md
-* 17_LEADERBOARD.md
-* 08_SECURITY_ARCHITECTURE.md
+- 12_ASSESSMENT_MODE.md
+- 17_LEADERBOARD.md
+- 08_SECURITY_ARCHITECTURE.md

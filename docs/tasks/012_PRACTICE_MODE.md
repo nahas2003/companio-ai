@@ -32,12 +32,12 @@ Provide an engaging practice environment that helps learners improve their under
 
 At the end of this task, users should be able to:
 
-* Create a practice session.
-* Select practice options.
-* Answer questions.
-* Receive instant feedback.
-* Review their performance.
-* Resume unfinished practice sessions.
+- Create a practice session.
+- Select practice options.
+- Answer questions.
+- Receive instant feedback.
+- Review their performance.
+- Resume unfinished practice sessions.
 
 ---
 
@@ -47,48 +47,48 @@ Implement:
 
 ### Practice Session
 
-* Start practice
-* Resume practice
-* Restart practice
-* End practice
+- Start practice
+- Resume practice
+- Restart practice
+- End practice
 
 ### Question Selection
 
 Support filtering by:
 
-* Subject
-* Topic
-* Difficulty
-* Question type
-* Source document
+- Subject
+- Topic
+- Difficulty
+- Question type
+- Source document
 
 ### Practice Experience
 
-* One question at a time
-* Next / Previous navigation
-* Skip question
-* Mark for review
-* Progress indicator
+- One question at a time
+- Next / Previous navigation
+- Skip question
+- Mark for review
+- Progress indicator
 
 ### Feedback
 
 Provide:
 
-* Correct answer
-* User answer
-* Explanation (if available)
-* Correct/Incorrect indicator
+- Correct answer
+- User answer
+- Explanation (if available)
+- Correct/Incorrect indicator
 
 ### Session Summary
 
 Display:
 
-* Total questions
-* Correct answers
-* Incorrect answers
-* Skipped questions
-* Accuracy percentage
-* Time spent
+- Total questions
+- Correct answers
+- Incorrect answers
+- Skipped questions
+- Accuracy percentage
+- Time spent
 
 ---
 
@@ -96,15 +96,15 @@ Display:
 
 Future versions may include:
 
-* Adaptive practice
-* AI-generated hints
-* Flashcard mode
-* Spaced repetition
-* Study streaks
-* Daily practice goals
-* Timed practice
-* Gamification
-* Achievement badges
+- Adaptive practice
+- AI-generated hints
+- Flashcard mode
+- Spaced repetition
+- Study streaks
+- Daily practice goals
+- Timed practice
+- Gamification
+- Achievement badges
 
 ---
 
@@ -112,12 +112,12 @@ Future versions may include:
 
 Do **not** implement:
 
-* Formal assessments
-* Exam security
-* Certificates
-* Rankings
-* Leaderboards
-* Assessment grading
+- Formal assessments
+- Exam security
+- Certificates
+- Rankings
+- Leaderboards
+- Assessment grading
 
 Practice Mode is for learning only.
 
@@ -127,17 +127,17 @@ Practice Mode is for learning only.
 
 ## Architecture
 
-* Practice Mode specification
-* Question Bank specification
-* Master Project Specification
-* System Architecture
+- Practice Mode specification
+- Question Bank specification
+- Master Project Specification
+- System Architecture
 
 ## Development
 
-* Coding Standards
-* Performance Guidelines
-* Error Handling
-* AI Agent Workflow
+- Coding Standards
+- Performance Guidelines
+- Error Handling
+- AI Agent Workflow
 
 ---
 
@@ -145,12 +145,12 @@ Practice Mode is for learning only.
 
 Complete:
 
-* Tasks 001–011
+- Tasks 001–011
 
 Verify:
 
-* Question Bank contains validated questions.
-* Question search and filtering are operational.
+- Question Bank contains validated questions.
+- Question search and filtering are operational.
 
 ---
 
@@ -158,16 +158,16 @@ Verify:
 
 ### Input
 
-* Questions from the Question Bank
-* User preferences
-* Practice settings
+- Questions from the Question Bank
+- User preferences
+- Practice settings
 
 ### Output
 
-* Practice session
-* User responses
-* Session statistics
-* Performance summary
+- Practice session
+- User responses
+- Session statistics
+- Performance summary
 
 Future Analytics modules will consume these outputs.
 
@@ -177,12 +177,12 @@ Future Analytics modules will consume these outputs.
 
 The AI may modify:
 
-* Practice pages
-* Practice services
-* Session management
-* Question navigation
-* Progress tracking
-* Summary components
+- Practice pages
+- Practice services
+- Session management
+- Question navigation
+- Progress tracking
+- Summary components
 
 ---
 
@@ -190,11 +190,11 @@ The AI may modify:
 
 Do **not** implement:
 
-* Assessment module
-* Exam timer
-* Certificates
-* Leaderboards
-* Analytics dashboards
+- Assessment module
+- Exam timer
+- Certificates
+- Leaderboards
+- Analytics dashboards
 
 Only implement Practice Mode.
 
@@ -204,12 +204,12 @@ Only implement Practice Mode.
 
 Implement support for:
 
-* Practice sessions
-* User responses
-* Session progress
-* Session summary
-* Resume state
-* Time tracking
+- Practice sessions
+- User responses
+- Session progress
+- Session summary
+- Resume state
+- Time tracking
 
 ---
 
@@ -217,16 +217,16 @@ Implement support for:
 
 Implement:
 
-* Practice setup page
-* Question player
-* Navigation controls
-* Progress indicator
-* Answer submission
-* Instant feedback
-* Session summary
-* Resume prompt
-* Empty states
-* Loading states
+- Practice setup page
+- Question player
+- Navigation controls
+- Progress indicator
+- Answer submission
+- Instant feedback
+- Session summary
+- Resume prompt
+- Empty states
+- Loading states
 
 ---
 
@@ -234,13 +234,13 @@ Implement:
 
 Implement:
 
-* Practice session creation
-* Question retrieval
-* Answer validation
-* Progress persistence
-* Resume functionality
-* Session completion
-* Statistics calculation
+- Practice session creation
+- Question retrieval
+- Answer validation
+- Progress persistence
+- Resume functionality
+- Session completion
+- Statistics calculation
 
 ---
 
@@ -248,23 +248,23 @@ Implement:
 
 The AI must:
 
-* Retrieve questions only from the Question Bank.
-* Never modify Question Bank content during practice.
-* Save progress automatically.
-* Support interrupted sessions.
-* Keep practice logic independent from assessment logic.
+- Retrieve questions only from the Question Bank.
+- Never modify Question Bank content during practice.
+- Save progress automatically.
+- Support interrupted sessions.
+- Keep practice logic independent from assessment logic.
 
 ---
 
 # 17. Implementation Checklist
 
-* Practice session creation implemented
-* Question navigation completed
-* Answer submission implemented
-* Instant feedback available
-* Session resume supported
-* Progress auto-save implemented
-* Session summary completed
+- Practice session creation implemented
+- Question navigation completed
+- Answer submission implemented
+- Instant feedback available
+- Session resume supported
+- Progress auto-save implemented
+- Session summary completed
 
 ---
 
@@ -272,13 +272,13 @@ The AI must:
 
 Verify:
 
-* Practice sessions start successfully.
-* Questions display correctly.
-* Answers are evaluated correctly.
-* Feedback appears immediately.
-* Resume restores progress accurately.
-* Session summary calculations are correct.
-* Empty Question Bank is handled gracefully.
+- Practice sessions start successfully.
+- Questions display correctly.
+- Answers are evaluated correctly.
+- Feedback appears immediately.
+- Resume restores progress accurately.
+- Session summary calculations are correct.
+- Empty Question Bank is handled gracefully.
 
 ---
 
@@ -286,11 +286,11 @@ Verify:
 
 Task is complete when:
 
-* Learners can complete practice sessions.
-* Immediate feedback is available.
-* Sessions can be resumed.
-* Progress is saved correctly.
-* Summary statistics are accurate.
+- Learners can complete practice sessions.
+- Immediate feedback is available.
+- Sessions can be resumed.
+- Progress is saved correctly.
+- Summary statistics are accurate.
 
 ---
 
@@ -298,11 +298,11 @@ Task is complete when:
 
 Practice Mode is complete when:
 
-* Session lifecycle is functional.
-* Feedback is reliable.
-* Resume works correctly.
-* Performance summary is accurate.
-* Tests pass.
+- Session lifecycle is functional.
+- Feedback is reliable.
+- Resume works correctly.
+- Performance summary is accurate.
+- Tests pass.
 
 ---
 
@@ -310,13 +310,13 @@ Practice Mode is complete when:
 
 Expected outputs:
 
-* Practice Mode pages
-* Practice session engine
-* Question player
-* Feedback components
-* Session summary
-* Resume functionality
-* Supporting tests
+- Practice Mode pages
+- Practice session engine
+- Question player
+- Feedback components
+- Session summary
+- Resume functionality
+- Supporting tests
 
 ---
 

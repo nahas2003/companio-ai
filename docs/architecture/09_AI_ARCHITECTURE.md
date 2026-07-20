@@ -14,12 +14,12 @@ This document defines the AI architecture for Companio.
 
 The AI subsystem is responsible for:
 
-* Question generation
-* Question validation
-* Question normalization
-* Difficulty balancing
-* Content analysis
-* Future AI capabilities
+- Question generation
+- Question validation
+- Question normalization
+- Difficulty balancing
+- Content analysis
+- Future AI capabilities
 
 The application must never depend directly on a specific AI provider.
 
@@ -29,13 +29,13 @@ The application must never depend directly on a specific AI provider.
 
 The AI layer must be:
 
-* Provider-independent
-* Modular
-* Secure
-* Observable
-* Testable
-* Cost-efficient
-* Extensible
+- Provider-independent
+- Modular
+- Secure
+- Observable
+- Testable
+- Cost-efficient
+- Extensible
 
 ---
 
@@ -73,18 +73,18 @@ Only the AI Orchestrator communicates with providers.
 
 The AI subsystem may:
 
-* Generate questions
-* Summarize content
-* Classify difficulty
-* Produce explanations
-* Validate generated output
+- Generate questions
+- Summarize content
+- Classify difficulty
+- Produce explanations
+- Validate generated output
 
 It must not:
 
-* Authenticate users
-* Access the database directly
-* Make business decisions
-* Bypass application services
+- Authenticate users
+- Access the database directly
+- Make business decisions
+- Bypass application services
 
 ---
 
@@ -94,13 +94,13 @@ The AI Orchestrator is the single entry point for all AI requests.
 
 Responsibilities:
 
-* Select provider.
-* Build prompts.
-* Check cache.
-* Retry failures.
-* Validate responses.
-* Normalize output.
-* Record metrics.
+- Select provider.
+- Build prompts.
+- Check cache.
+- Retry failures.
+- Validate responses.
+- Normalize output.
+- Record metrics.
 
 No other module may communicate directly with an AI provider.
 
@@ -112,10 +112,10 @@ Each provider must implement the same interface.
 
 Example responsibilities:
 
-* Authentication
-* Request formatting
-* Response parsing
-* Error mapping
+- Authentication
+- Request formatting
+- Response parsing
+- Error mapping
 
 Supported providers (priority order):
 
@@ -136,10 +136,10 @@ The Prompt Engine builds structured prompts.
 
 Rules:
 
-* Separate system instructions from user content.
-* Never concatenate untrusted content into system prompts.
-* Use versioned prompt templates.
-* Keep prompts deterministic where possible.
+- Separate system instructions from user content.
+- Never concatenate untrusted content into system prompts.
+- Use versioned prompt templates.
+- Keep prompts deterministic where possible.
 
 ---
 
@@ -147,11 +147,11 @@ Rules:
 
 Every prompt template should have:
 
-* Identifier
-* Version
-* Description
-* Expected input
-* Expected output
+- Identifier
+- Version
+- Description
+- Expected input
+- Expected output
 
 Example:
 
@@ -228,11 +228,11 @@ Provider-specific formats must never leak into the application.
 
 Before accepting AI output:
 
-* Ensure valid JSON.
-* Verify required fields.
-* Validate option counts.
-* Ensure exactly one correct answer.
-* Reject malformed responses.
+- Ensure valid JSON.
+- Verify required fields.
+- Validate option counts.
+- Ensure exactly one correct answer.
+- Reject malformed responses.
 
 ---
 
@@ -242,10 +242,10 @@ Retry only when appropriate.
 
 Recommended approach:
 
-* Retry transient provider failures.
-* Use exponential backoff.
-* Avoid infinite retries.
-* Surface meaningful errors after retries are exhausted.
+- Retry transient provider failures.
+- Use exponential backoff.
+- Avoid infinite retries.
+- Surface meaningful errors after retries are exhausted.
 
 ---
 
@@ -268,10 +268,10 @@ Question generation should always check the cache before invoking AI.
 
 Cache key inputs may include:
 
-* Source hash
-* Prompt version
-* Question count
-* Difficulty profile
+- Source hash
+- Prompt version
+- Question count
+- Difficulty profile
 
 This avoids unnecessary AI requests.
 
@@ -281,11 +281,11 @@ This avoids unnecessary AI requests.
 
 Capture metrics such as:
 
-* Provider
-* Response time
-* Success/failure
-* Retry count
-* Cache hit rate
+- Provider
+- Response time
+- Success/failure
+- Retry count
+- Cache hit rate
 
 Do not log prompts containing sensitive user information.
 
@@ -295,11 +295,11 @@ Do not log prompts containing sensitive user information.
 
 Strategies:
 
-* Cache reusable outputs.
-* Batch requests when practical.
-* Reuse Question Banks.
-* Avoid duplicate generations.
-* Limit unnecessary retries.
+- Cache reusable outputs.
+- Batch requests when practical.
+- Reuse Question Banks.
+- Avoid duplicate generations.
+- Limit unnecessary retries.
 
 ---
 
@@ -320,14 +320,14 @@ The application should fail gracefully.
 
 The architecture should support:
 
-* Flashcard generation
-* Coding question generation
-* Essay evaluation
-* Adaptive difficulty
-* Personalized recommendations
-* Learning analytics
-* AI tutor
-* Multi-language generation
+- Flashcard generation
+- Coding question generation
+- Essay evaluation
+- Adaptive difficulty
+- Personalized recommendations
+- Learning analytics
+- AI tutor
+- Multi-language generation
 
 without redesigning the AI layer.
 
@@ -337,11 +337,11 @@ without redesigning the AI layer.
 
 The AI subsystem must:
 
-* Keep API keys server-side.
-* Sanitize prompts.
-* Validate outputs.
-* Reject unsafe or malformed responses.
-* Respect provider usage limits.
+- Keep API keys server-side.
+- Sanitize prompts.
+- Validate outputs.
+- Reject unsafe or malformed responses.
+- Respect provider usage limits.
 
 ---
 
@@ -349,12 +349,12 @@ The AI subsystem must:
 
 Every AI coding agent must:
 
-* Use the AI Orchestrator.
-* Never call providers directly.
-* Follow the response contract.
-* Reuse cached results where available.
-* Keep provider adapters isolated.
-* Document any new AI capability.
+- Use the AI Orchestrator.
+- Never call providers directly.
+- Follow the response contract.
+- Reuse cached results where available.
+- Keep provider adapters isolated.
+- Document any new AI capability.
 
 ---
 
@@ -362,13 +362,13 @@ Every AI coding agent must:
 
 Before integrating a new AI feature:
 
-* Provider adapter implemented.
-* Prompt template documented.
-* Response contract validated.
-* Cache integration verified.
-* Retry logic tested.
-* Metrics recorded.
-* Security review completed.
+- Provider adapter implemented.
+- Prompt template documented.
+- Response contract validated.
+- Cache integration verified.
+- Retry logic tested.
+- Metrics recorded.
+- Security review completed.
 
 ---
 
@@ -376,18 +376,18 @@ Before integrating a new AI feature:
 
 Depends on:
 
-* 00_PROJECT_OVERVIEW.md
-* 01_PRODUCT_REQUIREMENTS.md
-* 02_SYSTEM_ARCHITECTURE.md
-* 03_TECH_STACK.md
-* 04_PROJECT_STRUCTURE.md
-* 05_DATABASE_ARCHITECTURE.md
-* 06_BUSINESS_WORKFLOWS.md
-* 07_API_SPECIFICATION.md
-* 08_SECURITY_ARCHITECTURE.md
+- 00_PROJECT_OVERVIEW.md
+- 01_PRODUCT_REQUIREMENTS.md
+- 02_SYSTEM_ARCHITECTURE.md
+- 03_TECH_STACK.md
+- 04_PROJECT_STRUCTURE.md
+- 05_DATABASE_ARCHITECTURE.md
+- 06_BUSINESS_WORKFLOWS.md
+- 07_API_SPECIFICATION.md
+- 08_SECURITY_ARCHITECTURE.md
 
 Referenced by:
 
-* 10_DEVELOPMENT_GUIDELINES.md
-* 13_AI_CONTENT_PROCESSING.md
-* Future AI feature documents.
+- 10_DEVELOPMENT_GUIDELINES.md
+- 13_AI_CONTENT_PROCESSING.md
+- Future AI feature documents.

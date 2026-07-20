@@ -22,11 +22,11 @@ Authentication confirms **who the user is**. RBAC determines **what the user is 
 
 At the end of this task:
 
-* Every authenticated user has an assigned role.
-* Protected routes enforce role requirements.
-* APIs validate permissions.
-* UI elements are shown or hidden based on permissions.
-* Authorization logic is centralized and reusable.
+- Every authenticated user has an assigned role.
+- Protected routes enforce role requirements.
+- APIs validate permissions.
+- UI elements are shown or hidden based on permissions.
+- Authorization logic is centralized and reusable.
 
 ---
 
@@ -34,10 +34,10 @@ At the end of this task:
 
 Version 1 should support:
 
-* Super Admin
-* Admin
-* Instructor
-* Student
+- Super Admin
+- Admin
+- Instructor
+- Student
 
 The design should allow additional roles in the future without major refactoring.
 
@@ -47,13 +47,13 @@ The design should allow additional roles in the future without major refactoring
 
 Included:
 
-* Role model
-* Permission model
-* Authorization middleware
-* Route protection
-* API authorization
-* UI authorization helpers
-* Shared authorization utilities
+- Role model
+- Permission model
+- Authorization middleware
+- Route protection
+- API authorization
+- UI authorization helpers
+- Shared authorization utilities
 
 ---
 
@@ -61,13 +61,13 @@ Included:
 
 Do **not** implement:
 
-* Dashboard content
-* User administration UI
-* Question Bank
-* AI Processing
-* Assessments
-* Notifications
-* Reporting
+- Dashboard content
+- User administration UI
+- Question Bank
+- AI Processing
+- Assessments
+- Notifications
+- Reporting
 
 This task provides the authorization framework only.
 
@@ -77,17 +77,17 @@ This task provides the authorization framework only.
 
 ## Architecture
 
-* 00_MASTER_PROJECT_SPECIFICATION.md
-* 01_SYSTEM_ARCHITECTURE.md
-* User and authorization architecture documents
-* 21_PROJECT_CONSTITUTION.md
+- 00_MASTER_PROJECT_SPECIFICATION.md
+- 01_SYSTEM_ARCHITECTURE.md
+- User and authorization architecture documents
+- 21_PROJECT_CONSTITUTION.md
 
 ## Development
 
-* 16_CODING_STANDARDS.md
-* 19_ERROR_HANDLING.md
-* 22_SECURITY_CHECKLIST.md
-* 24_AI_AGENT_WORKFLOW.md
+- 16_CODING_STANDARDS.md
+- 19_ERROR_HANDLING.md
+- 22_SECURITY_CHECKLIST.md
+- 24_AI_AGENT_WORKFLOW.md
 
 ---
 
@@ -95,15 +95,15 @@ This task provides the authorization framework only.
 
 Complete:
 
-* 001_PROJECT_SETUP.md
-* 002_AUTHENTICATION.md
-* 003_USER_PROFILE.md
+- 001_PROJECT_SETUP.md
+- 002_AUTHENTICATION.md
+- 003_USER_PROFILE.md
 
 Verify:
 
-* Authentication is working.
-* User profiles are available.
-* Session management is stable.
+- Authentication is working.
+- User profiles are available.
+- Session management is stable.
 
 ---
 
@@ -111,13 +111,13 @@ Verify:
 
 The AI may modify:
 
-* Authorization services
-* Middleware
-* Permission utilities
-* Route guards
-* Shared access-control components
-* Database schema related to roles and permissions
-* Authentication integration (only where required for RBAC)
+- Authorization services
+- Middleware
+- Permission utilities
+- Route guards
+- Shared access-control components
+- Database schema related to roles and permissions
+- Authentication integration (only where required for RBAC)
 
 ---
 
@@ -125,14 +125,14 @@ The AI may modify:
 
 Do **not** modify:
 
-* AI modules
-* Dashboard implementation
-* Question Bank
-* Practice Mode
-* Assessment modules
-* Results
-* Leaderboards
-* Notifications
+- AI modules
+- Dashboard implementation
+- Question Bank
+- Practice Mode
+- Assessment modules
+- Results
+- Leaderboards
+- Notifications
 
 If additional functionality is required, document it rather than implementing it.
 
@@ -142,11 +142,11 @@ If additional functionality is required, document it rather than implementing it
 
 Allowed:
 
-* Roles table (or equivalent structure)
-* Permissions table (if applicable)
-* User-role relationships
-* Required indexes
-* RLS policies aligned with role-based access
+- Roles table (or equivalent structure)
+- Permissions table (if applicable)
+- User-role relationships
+- Required indexes
+- RLS policies aligned with role-based access
 
 Design the schema to support future role expansion.
 
@@ -166,11 +166,11 @@ No business-specific APIs should be added.
 
 Implement:
 
-* Route guards
-* Permission-aware navigation
-* Conditional rendering based on permissions
-* Unauthorized access page
-* Loading states during permission checks
+- Route guards
+- Permission-aware navigation
+- Conditional rendering based on permissions
+- Unauthorized access page
+- Loading states during permission checks
 
 Authorization decisions should not rely solely on client-side logic.
 
@@ -180,11 +180,11 @@ Authorization decisions should not rely solely on client-side logic.
 
 Implement:
 
-* Authorization middleware
-* Permission validation
-* Role resolution
-* Shared authorization utilities
-* Audit logging for permission-denied events (where appropriate)
+- Authorization middleware
+- Permission validation
+- Role resolution
+- Shared authorization utilities
+- Audit logging for permission-denied events (where appropriate)
 
 ---
 
@@ -192,23 +192,23 @@ Implement:
 
 The AI must:
 
-* Keep authentication and authorization separate.
-* Centralize permission logic.
-* Avoid duplicated permission checks.
-* Follow the principle of least privilege.
-* Ensure every protected API validates permissions on the server.
+- Keep authentication and authorization separate.
+- Centralize permission logic.
+- Avoid duplicated permission checks.
+- Follow the principle of least privilege.
+- Ensure every protected API validates permissions on the server.
 
 ---
 
 # 15. Implementation Checklist
 
-* Roles defined
-* Authorization middleware implemented
-* Route protection configured
-* API authorization enforced
-* Permission helpers created
-* Unauthorized page implemented
-* Logging integrated
+- Roles defined
+- Authorization middleware implemented
+- Route protection configured
+- API authorization enforced
+- Permission helpers created
+- Unauthorized page implemented
+- Logging integrated
 
 ---
 
@@ -216,11 +216,11 @@ The AI must:
 
 Verify:
 
-* Each role can access only permitted resources.
-* Unauthorized users receive appropriate responses.
-* Navigation reflects permissions correctly.
-* Server-side authorization blocks restricted actions.
-* Protected APIs cannot be bypassed.
+- Each role can access only permitted resources.
+- Unauthorized users receive appropriate responses.
+- Navigation reflects permissions correctly.
+- Server-side authorization blocks restricted actions.
+- Protected APIs cannot be bypassed.
 
 ---
 
@@ -228,11 +228,11 @@ Verify:
 
 Task is complete when:
 
-* Roles function correctly.
-* Authorization is centralized.
-* Protected resources enforce permissions.
-* Code follows project standards.
-* No unrelated modules are modified.
+- Roles function correctly.
+- Authorization is centralized.
+- Protected resources enforce permissions.
+- Code follows project standards.
+- No unrelated modules are modified.
 
 ---
 
@@ -240,11 +240,11 @@ Task is complete when:
 
 RBAC is complete when:
 
-* Roles are assigned and resolved correctly.
-* Permission checks are reusable.
-* Client and server authorization are aligned.
-* Tests pass.
-* Documentation remains accurate.
+- Roles are assigned and resolved correctly.
+- Permission checks are reusable.
+- Client and server authorization are aligned.
+- Tests pass.
+- Documentation remains accurate.
 
 ---
 
@@ -252,12 +252,12 @@ RBAC is complete when:
 
 Expected outputs:
 
-* Role model
-* Permission model
-* Authorization middleware
-* Route guards
-* Shared authorization utilities
-* Supporting tests
+- Role model
+- Permission model
+- Authorization middleware
+- Route guards
+- Shared authorization utilities
+- Supporting tests
 
 ---
 

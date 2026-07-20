@@ -13,14 +13,14 @@ The Decision Log captures important project decisions that do not require a form
 
 These may include:
 
-* Technical implementation choices
-* Library selections
-* UI/UX decisions
-* Naming conventions
-* Coding standard updates
-* Testing strategies
-* Performance optimizations
-* Product refinements
+- Technical implementation choices
+- Library selections
+- UI/UX decisions
+- Naming conventions
+- Coding standard updates
+- Testing strategies
+- Performance optimizations
+- Product refinements
 
 This document provides historical context for future developers and AI coding agents.
 
@@ -30,12 +30,12 @@ This document provides historical context for future developers and AI coding ag
 
 Record decisions that:
 
-* Affect more than one feature.
-* Change development practices.
-* Introduce or replace dependencies.
-* Influence user experience.
-* Modify workflows or conventions.
-* Clarify implementation direction.
+- Affect more than one feature.
+- Change development practices.
+- Introduce or replace dependencies.
+- Influence user experience.
+- Modify workflows or conventions.
+- Clarify implementation direction.
 
 Do **not** duplicate formal architectural decisions documented in `ARCHITECTURAL_DECISIONS.md`.
 
@@ -62,19 +62,19 @@ Each entry should contain:
 
 Recommended categories:
 
-* Technical
-* Product
-* User Experience (UX)
-* User Interface (UI)
-* Testing
-* Documentation
-* Performance
-* Security
-* AI
-* Database
-* API
-* Deployment
-* Operations
+- Technical
+- Product
+- User Experience (UX)
+- User Interface (UI)
+- Testing
+- Documentation
+- Performance
+- Security
+- AI
+- Database
+- API
+- Deployment
+- Operations
 
 ---
 
@@ -226,10 +226,10 @@ When updating an existing decision:
 
 Use an **Architectural Decision Record (ADR)** when a decision:
 
-* Changes system architecture.
-* Introduces a major technology.
-* Affects long-term maintainability.
-* Has significant trade-offs.
+- Changes system architecture.
+- Introduces a major technology.
+- Affects long-term maintainability.
+- Has significant trade-offs.
 
 Use the **Decision Log** for implementation-level choices that do not require a full ADR.
 
@@ -237,11 +237,11 @@ Use the **Decision Log** for implementation-level choices that do not require a 
 
 # 9. Best Practices
 
-* Keep entries concise.
-* Record the reason, not just the outcome.
-* Prefer factual descriptions over opinions.
-* Include the impact on the project.
-* Update related documentation if the decision affects standards or workflows.
+- Keep entries concise.
+- Record the reason, not just the outcome.
+- Prefer factual descriptions over opinions.
+- Include the impact on the project.
+- Update related documentation if the decision affects standards or workflows.
 
 ---
 
@@ -261,10 +261,10 @@ Before making a significant implementation change, the AI agent should:
 
 Review the Decision Log:
 
-* During major feature planning.
-* Before introducing new dependencies.
-* During architecture reviews.
-* Before major releases.
+- During major feature planning.
+- Before introducing new dependencies.
+- During architecture reviews.
+- Before major releases.
 
 Ensure obsolete decisions are clearly marked while preserving historical context.
 
@@ -274,10 +274,10 @@ Ensure obsolete decisions are clearly marked while preserving historical context
 
 Update this document whenever:
 
-* A project-wide implementation decision is made.
-* Development standards change.
-* Libraries or frameworks are adopted or replaced.
-* User experience conventions evolve.
-* Documentation or testing practices are updated.
+- A project-wide implementation decision is made.
+- Development standards change.
+- Libraries or frameworks are adopted or replaced.
+- User experience conventions evolve.
+- Documentation or testing practices are updated.
 
 Preserve historical entries to maintain a clear evolution of the project's technical and product decisions.

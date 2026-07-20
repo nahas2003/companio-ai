@@ -21,11 +21,11 @@ Testing is not a final phase—it is integrated throughout the development lifec
 
 After implementing this testing strategy:
 
-* Critical business logic is covered by automated tests.
-* Frontend and backend integrations are verified.
-* AI-generated outputs are validated.
-* Performance regressions are detected early.
-* Production issues are minimized.
+- Critical business logic is covered by automated tests.
+- Frontend and backend integrations are verified.
+- AI-generated outputs are validated.
+- Performance regressions are detected early.
+- Production issues are minimized.
 
 ---
 
@@ -33,18 +33,18 @@ After implementing this testing strategy:
 
 Testing applies to:
 
-* Frontend
-* Backend
-* Database
-* Authentication
-* AI workflows
-* APIs
-* Assessment flow
-* Practice Mode
-* Results
-* Leaderboard
-* Dashboard
-* Mobile application (future-ready)
+- Frontend
+- Backend
+- Database
+- Authentication
+- AI workflows
+- APIs
+- Assessment flow
+- Practice Mode
+- Results
+- Leaderboard
+- Dashboard
+- Mobile application (future-ready)
 
 ---
 
@@ -62,9 +62,9 @@ Use the following testing distribution:
 
 Aim for:
 
-* 70% Unit Tests
-* 20% Integration Tests
-* 10% End-to-End Tests
+- 70% Unit Tests
+- 20% Integration Tests
+- 10% End-to-End Tests
 
 ---
 
@@ -74,18 +74,18 @@ Test individual components in isolation.
 
 Examples:
 
-* Utility functions
-* Validation logic
-* Scoring algorithms
-* Question selection
-* Data transformers
-* AI response validators
+- Utility functions
+- Validation logic
+- Scoring algorithms
+- Question selection
+- Data transformers
+- AI response validators
 
 Guidelines:
 
-* Fast execution
-* No external dependencies
-* Deterministic results
+- Fast execution
+- No external dependencies
+- Deterministic results
 
 ---
 
@@ -95,11 +95,11 @@ Verify interactions between modules.
 
 Examples:
 
-* Authentication → Dashboard
-* Question Bank → Assessment Module
-* Assessment → Results
-* Results → Leaderboard
-* Content Ingestion → AI Processing
+- Authentication → Dashboard
+- Question Bank → Assessment Module
+- Assessment → Results
+- Results → Leaderboard
+- Content Ingestion → AI Processing
 
 Ensure APIs, database interactions, and service boundaries work correctly.
 
@@ -111,15 +111,15 @@ Validate complete user workflows.
 
 Core scenarios:
 
-* Register and log in
-* Upload a source
-* Generate questions
-* Create a Question Bank
-* Publish an assessment
-* Complete an assessment
-* Generate results
-* View leaderboard
-* Practice session lifecycle
+- Register and log in
+- Upload a source
+- Generate questions
+- Create a Question Bank
+- Publish an assessment
+- Complete an assessment
+- Generate results
+- View leaderboard
+- Practice session lifecycle
 
 These tests should simulate real user behavior.
 
@@ -131,13 +131,13 @@ AI outputs should be validated before acceptance.
 
 Verify:
 
-* Response structure
-* Required fields
-* Schema compliance
-* Empty responses
-* Malformed responses
-* Timeout handling
-* Retry behavior
+- Response structure
+- Required fields
+- Schema compliance
+- Empty responses
+- Malformed responses
+- Timeout handling
+- Retry behavior
 
 Do not rely solely on AI output without validation.
 
@@ -147,12 +147,12 @@ Do not rely solely on AI output without validation.
 
 Test all public APIs for:
 
-* Success responses
-* Validation failures
-* Unauthorized access
-* Invalid input
-* Rate limiting (if implemented)
-* Error responses
+- Success responses
+- Validation failures
+- Unauthorized access
+- Invalid input
+- Rate limiting (if implemented)
+- Error responses
 
 Maintain consistent request and response contracts.
 
@@ -162,13 +162,13 @@ Maintain consistent request and response contracts.
 
 Verify:
 
-* CRUD operations
-* Relationships
-* Foreign keys
-* Constraints
-* Transactions
-* Rollbacks
-* Migration scripts
+- CRUD operations
+- Relationships
+- Foreign keys
+- Constraints
+- Transactions
+- Rollbacks
+- Migration scripts
 
 Ensure test data is isolated from production data.
 
@@ -178,13 +178,13 @@ Ensure test data is isolated from production data.
 
 Test:
 
-* Login
-* Logout
-* Session expiration
-* Password reset
-* Protected routes
-* Role-based access
-* Unauthorized requests
+- Login
+- Logout
+- Session expiration
+- Password reset
+- Protected routes
+- Role-based access
+- Unauthorized requests
 
 Security-related tests should be part of every release cycle.
 
@@ -194,14 +194,14 @@ Security-related tests should be part of every release cycle.
 
 Verify:
 
-* Responsive layouts
-* Navigation
-* Forms
-* Validation messages
-* Accessibility basics
-* Loading indicators
-* Error states
-* Empty states
+- Responsive layouts
+- Navigation
+- Forms
+- Validation messages
+- Accessibility basics
+- Loading indicators
+- Error states
+- Empty states
 
 The UI should remain usable across supported devices.
 
@@ -211,11 +211,11 @@ The UI should remain usable across supported devices.
 
 Measure:
 
-* Initial page load
-* API response time
-* Database query performance
-* Large Question Bank handling
-* Concurrent assessment attempts
+- Initial page load
+- API response time
+- Database query performance
+- Large Question Bank handling
+- Concurrent assessment attempts
 
 Establish baseline performance metrics and monitor regressions.
 
@@ -225,12 +225,12 @@ Establish baseline performance metrics and monitor regressions.
 
 Verify:
 
-* Input validation
-* SQL injection protection
-* Cross-site scripting (XSS) prevention
-* Cross-site request forgery (CSRF) protection (where applicable)
-* Authorization enforcement
-* Secure file uploads
+- Input validation
+- SQL injection protection
+- Cross-site scripting (XSS) prevention
+- Cross-site request forgery (CSRF) protection (where applicable)
+- Authorization enforcement
+- Secure file uploads
 
 Security testing should be repeated after major architectural changes.
 
@@ -240,15 +240,15 @@ Security testing should be repeated after major architectural changes.
 
 Before every release:
 
-* Critical user flows
-* Dashboard
-* Question Bank
-* Practice Mode
-* Assessment Module
-* Results
-* Leaderboard
-* Notifications
-* Mobile responsiveness
+- Critical user flows
+- Dashboard
+- Question Bank
+- Practice Mode
+- Assessment Module
+- Results
+- Leaderboard
+- Notifications
+- Mobile responsiveness
 
 Document findings and resolve critical issues before deployment.
 
@@ -258,11 +258,11 @@ Document findings and resolve critical issues before deployment.
 
 Maintain:
 
-* Seed data
-* Mock users
-* Sample assessments
-* Sample Question Banks
-* AI response fixtures
+- Seed data
+- Mock users
+- Sample assessments
+- Sample Question Banks
+- AI response fixtures
 
 Test datasets should be reusable and version-controlled.
 
@@ -272,11 +272,11 @@ Test datasets should be reusable and version-controlled.
 
 Every pull request should automatically run:
 
-* Linting
-* Type checking
-* Unit tests
-* Integration tests
-* Build verification
+- Linting
+- Type checking
+- Unit tests
+- Integration tests
+- Build verification
 
 Failed checks should block merging until resolved.
 
@@ -286,10 +286,10 @@ Failed checks should block merging until resolved.
 
 Testing strategy is complete when:
 
-* Automated tests cover critical functionality.
-* Manual testing procedures are documented.
-* AI workflows are validated.
-* CI pipelines enforce quality gates.
+- Automated tests cover critical functionality.
+- Manual testing procedures are documented.
+- AI workflows are validated.
+- CI pipelines enforce quality gates.
 
 ---
 
@@ -297,11 +297,11 @@ Testing strategy is complete when:
 
 Avoid:
 
-* Testing only the happy path.
-* Skipping AI response validation.
-* Ignoring edge cases.
-* Sharing production data with test environments.
-* Releasing without regression testing.
+- Testing only the happy path.
+- Skipping AI response validation.
+- Ignoring edge cases.
+- Sharing production data with test environments.
+- Releasing without regression testing.
 
 ---
 
@@ -309,10 +309,10 @@ Avoid:
 
 Testing is complete when:
 
-* Critical workflows pass.
-* No high-severity defects remain.
-* Automated quality gates succeed.
-* The application is stable for deployment.
+- Critical workflows pass.
+- No high-severity defects remain.
+- Automated quality gates succeed.
+- The application is stable for deployment.
 
 ---
 
@@ -320,14 +320,14 @@ Testing is complete when:
 
 Recommended tools (or equivalent):
 
-* Unit Testing
-* Integration Testing
-* End-to-End Testing
-* API Testing
-* Mocking Libraries
-* Code Coverage
-* Performance Testing
-* Accessibility Testing
+- Unit Testing
+- Integration Testing
+- End-to-End Testing
+- API Testing
+- Mocking Libraries
+- Code Coverage
+- Performance Testing
+- Accessibility Testing
 
 Choose tools that integrate well with the project's technology stack and CI pipeline.
 

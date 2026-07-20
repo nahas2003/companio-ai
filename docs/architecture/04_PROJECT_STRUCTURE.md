@@ -30,14 +30,14 @@ Companio uses a **Feature-Based Architecture**.
 
 Each feature owns:
 
-* UI
-* Components
-* Pages
-* Hooks
-* Services
-* Types
-* Validation
-* Tests
+- UI
+- Components
+- Pages
+- Hooks
+- Services
+- Types
+- Validation
+- Tests
 
 Shared functionality belongs in shared folders.
 
@@ -47,212 +47,78 @@ Shared functionality belongs in shared folders.
 
 ```text
 companio/
-
-├── docs/
-├── public/
-├── src/
-├── supabase/
-├── scripts/
-├── tests/
-├── .github/
-├── package.json
-├── tsconfig.json
-├── vite.config.ts
-├── README.md
-└── .env.example
+├── apps/                  <-- Application projects
+│   └── web/               <-- Next.js frontend web app
+├── packages/              <-- Shared workspace packages
+│   ├── db/                <-- Prisma ORM package
+│   ├── ui/                <-- Shared component library
+│   ├── tsconfig/          <-- Shared TypeScript configurations
+│   └── eslint-config/     <-- Shared ESLint configurations
+├── docs/                  <-- Technical documentation
+├── supabase/              <-- Supabase config, migrations, seed, functions
+├── scripts/               <-- Helper scripts
+├── pnpm-workspace.yaml    <-- Monorepo workspaces definition
+├── package.json           <-- Root package config
+├── tsconfig.json          <-- Root TS config
+├── eslint.config.js       <-- Root ESLint config
+├── prettier.config.js     <-- Root Prettier config
+├── README.md              <-- Project README
+└── .env.example           <-- Environment template
 ```
 
 ---
 
-# 4. Source Structure
+# 4. Web Application Structure (`apps/web`)
 
 ```text
-src/
-
-├── app/
-├── assets/
-├── components/
-├── features/
-├── hooks/
-├── lib/
-├── providers/
-├── services/
-├── types/
-├── utils/
-├── constants/
-├── styles/
-└── main.tsx
+apps/web/
+├── app/                   <-- Next.js App Router (pages/layouts/routing)
+├── features/              <-- Business features (practice, assessment, auth, etc.)
+│   └── [feature_name]/
+│       ├── components/    <-- Feature-specific components
+│       ├── hooks/         <-- Feature-specific hooks
+│       ├── services/      <-- Feature-specific business services
+│       ├── types/         <-- Feature-specific types
+│       └── utils/         <-- Feature-specific utilities
+├── components/            <-- Web app reusable UI components (from packages/ui wrapper)
+├── hooks/                 <-- Web app shared React hooks
+├── lib/                   <-- Web app wrappers/initializations (e.g., supabase.ts client)
+├── services/              <-- Web app shared business services
+├── styles/                <-- Global styling (globals.css containing Tailwind directives)
+├── types/                 <-- Web app shared TypeScript types
+└── utils/                 <-- Web app shared pure utility functions
 ```
 
 ---
 
-# 5. Folder Responsibilities
+# 5. Shared Packages Structure (`packages/`)
 
-## app/
+## db/
 
-Contains:
+Contains Prisma ORM configuration, schema, database client, and migrations:
 
-* Routing
-* Route guards
-* Layouts
-* Global application initialization
+- `prisma/schema.prisma` - Database schema definition.
+- `src/index.ts` - Exports a PrismaClient singleton.
+- `package.json` - Declares `@prisma/client` and custom Prisma scripts.
 
-Must NOT contain business logic.
+## ui/
 
----
+Contains shared UI components and design tokens (built on shadcn/ui and Tailwind):
 
-## assets/
+- `src/components/` - Button, Card, Modal, Input, Dialog, etc.
+- `package.json` - Tailwind config and UI dependencies.
 
-Contains:
+## tsconfig/
 
-* Images
-* Icons
-* Fonts
-* Static files
+Contains base TypeScript config files extended by projects in the workspace:
 
----
+- `base.json` - Base options.
+- `nextjs.json` - Next.js-specific options.
+- `react-library.json` - React component library options.
 
-## components/
+## eslint-config/
 
-Contains only reusable UI components.
-
-Examples:
-
-* Button
-* Card
-* Modal
-* Input
-* Dialog
-* Loader
-* Empty State
-
-Must never contain feature-specific business logic.
-
----
-
-## features/
-
-Contains business features.
-
-Example:
-
-```text
-features/
-
-practice/
-
-assessment/
-
-leaderboard/
-
-authentication/
-
-results/
-```
-
-Each feature is self-contained.
-
----
-
-## hooks/
-
-Reusable React hooks only.
-
-Example:
-
-```text
-useDebounce
-
-useTimer
-
-useCountdown
-
-useNetworkStatus
-```
-
----
-
-## lib/
-
-Contains wrappers and integrations.
-
-Example:
-
-* Supabase client
-* AI client
-* Logger
-* Configuration
-
----
-
-## providers/
-
-Application providers.
-
-Example:
-
-* AuthProvider
-* ThemeProvider
-* QueryProvider
-
----
-
-## services/
-
-Shared services.
-
-Example:
-
-* API Service
-* Cache Service
-* File Service
-* Validation Service
-
-Business logic shared across multiple features belongs here.
-
----
-
-## types/
-
-Shared TypeScript types.
-
-Never duplicate interfaces.
-
----
-
-## utils/
-
-Pure utility functions.
-
-Examples:
-
-* Date formatting
-* String helpers
-* Hashing
-* Random generators
-
-Utilities must never depend on React.
-
----
-
-## constants/
-
-Application constants.
-
-Examples:
-
-* Limits
-* Default values
-* Supported file types
-* Assessment settings
-
----
-
-## styles/
-
-Global styles only.
-
-Tailwind should remain the primary styling solution.
+Shared ESLint configs for consistency across packages and apps.
 
 ---
 
@@ -292,8 +158,8 @@ This consistency makes the project easy to navigate.
 
 Folders
 
-* lowercase
-* kebab-case
+- lowercase
+- kebab-case
 
 Example
 
@@ -363,10 +229,10 @@ Prefer path aliases where appropriate.
 
 Each component should:
 
-* Have one responsibility.
-* Be reusable when practical.
-* Avoid unnecessary props.
-* Avoid hidden side effects.
+- Have one responsibility.
+- Be reusable when practical.
+- Avoid unnecessary props.
+- Avoid hidden side effects.
 
 Split components when they become difficult to understand.
 
@@ -376,10 +242,10 @@ Split components when they become difficult to understand.
 
 Services should:
 
-* Be stateless.
-* Handle business logic.
-* Communicate with APIs.
-* Never render UI.
+- Be stateless.
+- Handle business logic.
+- Communicate with APIs.
+- Never render UI.
 
 ---
 
@@ -387,9 +253,9 @@ Services should:
 
 Hooks should:
 
-* Encapsulate reusable logic.
-* Never return JSX.
-* Keep side effects isolated.
+- Encapsulate reusable logic.
+- Never return JSX.
+- Keep side effects isolated.
 
 ---
 
@@ -397,9 +263,9 @@ Hooks should:
 
 Utilities should:
 
-* Be pure functions.
-* Avoid external state.
-* Be independently testable.
+- Be pure functions.
+- Avoid external state.
+- Be independently testable.
 
 ---
 
@@ -407,10 +273,10 @@ Utilities should:
 
 Recommended limits:
 
-* Component: ≤ 250 lines
-* Service: ≤ 300 lines
-* Hook: ≤ 150 lines
-* Utility: ≤ 150 lines
+- Component: ≤ 250 lines
+- Service: ≤ 300 lines
+- Hook: ≤ 150 lines
+- Utility: ≤ 150 lines
 
 If a file grows significantly beyond these guidelines, consider refactoring.
 
@@ -442,9 +308,9 @@ Database/API
 
 Not allowed:
 
-* Utility importing React
-* Shared components importing feature code
-* Circular dependencies
+- Utility importing React
+- Shared components importing feature code
+- Circular dependencies
 
 ---
 
@@ -452,10 +318,10 @@ Not allowed:
 
 Before creating:
 
-* Component
-* Hook
-* Service
-* Utility
+- Component
+- Hook
+- Service
+- Utility
 
 Search the existing project first.
 
@@ -467,12 +333,12 @@ Do not duplicate functionality.
 
 Every AI agent must:
 
-* Place files in the correct folder.
-* Reuse existing code before creating new files.
-* Avoid creating duplicate utilities.
-* Avoid duplicate services.
-* Preserve folder consistency.
-* Keep public APIs stable unless requirements change.
+- Place files in the correct folder.
+- Reuse existing code before creating new files.
+- Avoid creating duplicate utilities.
+- Avoid duplicate services.
+- Preserve folder consistency.
+- Keep public APIs stable unless requirements change.
 
 ---
 
@@ -480,15 +346,15 @@ Every AI agent must:
 
 Before completing implementation:
 
-* Correct folder placement.
-* Naming conventions followed.
-* No duplicate code.
-* No circular dependencies.
-* Build succeeds.
-* Type check succeeds.
-* Lint succeeds.
-* Imports are clean.
-* Project structure remains consistent.
+- Correct folder placement.
+- Naming conventions followed.
+- No duplicate code.
+- No circular dependencies.
+- Build succeeds.
+- Type check succeeds.
+- Lint succeeds.
+- Imports are clean.
+- Project structure remains consistent.
 
 ---
 
@@ -496,13 +362,13 @@ Before completing implementation:
 
 Depends on:
 
-* 00_PROJECT_OVERVIEW.md
-* 01_PRODUCT_REQUIREMENTS.md
-* 02_SYSTEM_ARCHITECTURE.md
-* 03_TECH_STACK.md
+- 00_PROJECT_OVERVIEW.md
+- 01_PRODUCT_REQUIREMENTS.md
+- 02_SYSTEM_ARCHITECTURE.md
+- 03_TECH_STACK.md
 
 Referenced by:
 
-* 05_DATABASE_ARCHITECTURE.md
-* 06_API_SPECIFICATION.md
-* All feature documents.
+- 05_DATABASE_ARCHITECTURE.md
+- 06_API_SPECIFICATION.md
+- All feature documents.

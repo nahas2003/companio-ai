@@ -14,11 +14,11 @@ This document defines the official API contract for Companio.
 
 The API is the single communication layer between:
 
-* Web Frontend
-* Mobile Application
-* AI Services
-* Backend Services
-* Future Third-Party Integrations
+- Web Frontend
+- Mobile Application
+- AI Services
+- Backend Services
+- Future Third-Party Integrations
 
 Every implementation must follow this specification.
 
@@ -28,14 +28,14 @@ Every implementation must follow this specification.
 
 The API must be:
 
-* RESTful
-* Predictable
-* Versioned
-* Secure
-* Consistent
-* Stateless
-* Easy to document
-* Easy to test
+- RESTful
+- Predictable
+- Versioned
+- Secure
+- Consistent
+- Stateless
+- Easy to document
+- Easy to test
 
 ---
 
@@ -87,9 +87,9 @@ Accessible without login.
 
 Examples:
 
-* Practice
-* Join Assessment
-* View Public Leaderboard
+- Practice
+- Join Assessment
+- View Public Leaderboard
 
 ---
 
@@ -99,11 +99,11 @@ Require authentication.
 
 Examples:
 
-* Create Assessment
-* Update Assessment
-* Delete Assessment
-* View Dashboard
-* Manage Question Banks
+- Create Assessment
+- Update Assessment
+- Delete Assessment
+- View Dashboard
+- Manage Question Banks
 
 ---
 
@@ -111,18 +111,18 @@ Examples:
 
 The API is divided into the following modules:
 
-* Authentication
-* Sources
-* Question Banks
-* Questions
-* Practice
-* Assessments
-* Participants
-* Attempts
-* Leaderboards
-* Users
-* AI
-* Uploads
+- Authentication
+- Sources
+- Question Banks
+- Questions
+- Practice
+- Assessments
+- Participants
+- Attempts
+- Leaderboards
+- Users
+- AI
+- Uploads
 
 Each module owns its own endpoints.
 
@@ -168,14 +168,14 @@ POST /sources
 
 Supports:
 
-* PDF
-* Topic
-* Notes
+- PDF
+- Topic
+- Notes
 
 Returns:
 
-* Source ID
-* Processing Status
+- Source ID
+- Processing Status
 
 ---
 
@@ -197,10 +197,10 @@ POST /question-banks
 
 Workflow:
 
-* Check cache
-* Generate AI questions if needed
-* Store question bank
-* Return identifier
+- Check cache
+- Generate AI questions if needed
+- Store question bank
+- Return identifier
 
 ---
 
@@ -220,9 +220,9 @@ GET /question-banks
 
 Supports:
 
-* Pagination
-* Search
-* Filtering
+- Pagination
+- Search
+- Filtering
 
 ---
 
@@ -236,8 +236,8 @@ POST /practice/start
 
 Returns:
 
-* Practice session
-* Questions
+- Practice session
+- Questions
 
 ---
 
@@ -249,9 +249,9 @@ POST /practice/submit
 
 Returns:
 
-* Score
-* Correct answers
-* Explanations
+- Score
+- Correct answers
+- Explanations
 
 Practice sessions are not added to assessment leaderboards.
 
@@ -283,7 +283,7 @@ POST /assessments/{id}/publish
 
 Returns:
 
-* Assessment Code
+- Assessment Code
 
 ---
 
@@ -303,8 +303,8 @@ POST /assessments/{code}/join
 
 Supports:
 
-* Guest participant
-* Registered participant
+- Guest participant
+- Registered participant
 
 ---
 
@@ -326,9 +326,9 @@ POST /attempts/{id}/submit
 
 Returns:
 
-* Score
-* Time Taken
-* Rank (if available)
+- Score
+- Time Taken
+- Rank (if available)
 
 ---
 
@@ -350,10 +350,10 @@ GET /leaderboards/{assessmentId}
 
 Returns:
 
-* Ranking
-* Score
-* Time Taken
-* Participant Name
+- Ranking
+- Score
+- Time Taken
+- Participant Name
 
 ---
 
@@ -405,9 +405,9 @@ POST /uploads/pdf
 
 Returns:
 
-* Upload ID
-* Storage Path
-* Processing Status
+- Upload ID
+- Storage Path
+- Processing Status
 
 ---
 
@@ -441,10 +441,10 @@ Response example:
 
 Recommended query parameters:
 
-* `search`
-* `status`
-* `sort`
-* `order`
+- `search`
+- `status`
+- `sort`
+- `order`
 
 Example:
 
@@ -458,17 +458,17 @@ GET /question-banks?search=networking&sort=createdAt&order=desc
 
 Use standard status codes consistently:
 
-* 200 OK
-* 201 Created
-* 204 No Content
-* 400 Bad Request
-* 401 Unauthorized
-* 403 Forbidden
-* 404 Not Found
-* 409 Conflict
-* 422 Unprocessable Entity
-* 429 Too Many Requests
-* 500 Internal Server Error
+- 200 OK
+- 201 Created
+- 204 No Content
+- 400 Bad Request
+- 401 Unauthorized
+- 403 Forbidden
+- 404 Not Found
+- 409 Conflict
+- 422 Unprocessable Entity
+- 429 Too Many Requests
+- 500 Internal Server Error
 
 ---
 
@@ -476,11 +476,11 @@ Use standard status codes consistently:
 
 Every endpoint must:
 
-* Validate input.
-* Validate authentication where required.
-* Validate authorization.
-* Sanitize output.
-* Return consistent error messages.
+- Validate input.
+- Validate authentication where required.
+- Validate authorization.
+- Sanitize output.
+- Return consistent error messages.
 
 ---
 
@@ -488,9 +488,9 @@ Every endpoint must:
 
 Recommended defaults:
 
-* Public endpoints: 60 requests/minute/IP
-* Authenticated endpoints: 300 requests/minute/user
-* AI generation endpoints: lower limits to prevent abuse
+- Public endpoints: 60 requests/minute/IP
+- Authenticated endpoints: 300 requests/minute/user
+- AI generation endpoints: lower limits to prevent abuse
 
 These values can be adjusted based on deployment needs.
 
@@ -504,16 +504,16 @@ Operations that create resources (such as assessment creation) should support id
 
 # 23. API Naming Rules
 
-* Use plural resource names.
-* Use nouns rather than verbs where practical.
-* Keep URLs lowercase.
-* Avoid exposing implementation details.
+- Use plural resource names.
+- Use nouns rather than verbs where practical.
+- Keep URLs lowercase.
+- Avoid exposing implementation details.
 
 Examples:
 
-* `/assessments`
-* `/question-banks`
-* `/attempts`
+- `/assessments`
+- `/question-banks`
+- `/attempts`
 
 ---
 
@@ -521,11 +521,11 @@ Examples:
 
 Every AI coding agent must:
 
-* Follow the documented endpoints.
-* Preserve request and response contracts.
-* Avoid introducing undocumented APIs.
-* Maintain backward compatibility within the same API version.
-* Update this document if a new endpoint is added.
+- Follow the documented endpoints.
+- Preserve request and response contracts.
+- Avoid introducing undocumented APIs.
+- Maintain backward compatibility within the same API version.
+- Update this document if a new endpoint is added.
 
 ---
 
@@ -533,14 +533,14 @@ Every AI coding agent must:
 
 Before releasing an API change:
 
-* Endpoint implemented.
-* Authentication verified.
-* Authorization verified.
-* Input validation complete.
-* Error responses standardized.
-* Documentation updated.
-* Existing endpoints remain compatible.
-* Automated tests added or updated.
+- Endpoint implemented.
+- Authentication verified.
+- Authorization verified.
+- Input validation complete.
+- Error responses standardized.
+- Documentation updated.
+- Existing endpoints remain compatible.
+- Automated tests added or updated.
 
 ---
 
@@ -548,16 +548,16 @@ Before releasing an API change:
 
 Depends on:
 
-* 00_PROJECT_OVERVIEW.md
-* 01_PRODUCT_REQUIREMENTS.md
-* 02_SYSTEM_ARCHITECTURE.md
-* 03_TECH_STACK.md
-* 04_PROJECT_STRUCTURE.md
-* 05_DATABASE_ARCHITECTURE.md
-* 06_BUSINESS_WORKFLOWS.md
+- 00_PROJECT_OVERVIEW.md
+- 01_PRODUCT_REQUIREMENTS.md
+- 02_SYSTEM_ARCHITECTURE.md
+- 03_TECH_STACK.md
+- 04_PROJECT_STRUCTURE.md
+- 05_DATABASE_ARCHITECTURE.md
+- 06_BUSINESS_WORKFLOWS.md
 
 Referenced by:
 
-* 08_SECURITY_ARCHITECTURE.md
-* 09_AI_ARCHITECTURE.md
-* All implementation documents.
+- 08_SECURITY_ARCHITECTURE.md
+- 09_AI_ARCHITECTURE.md
+- All implementation documents.

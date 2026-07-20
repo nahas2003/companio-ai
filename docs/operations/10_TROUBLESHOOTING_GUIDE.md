@@ -13,11 +13,11 @@ This document provides a structured approach for diagnosing, investigating, and 
 
 Its objectives are to:
 
-* Reduce mean time to resolution (MTTR).
-* Standardize troubleshooting procedures.
-* Improve operational consistency.
-* Support both human operators and AI agents.
-* Capture common issues and proven solutions.
+- Reduce mean time to resolution (MTTR).
+- Standardize troubleshooting procedures.
+- Improve operational consistency.
+- Support both human operators and AI agents.
+- Capture common issues and proven solutions.
 
 ---
 
@@ -42,25 +42,25 @@ Follow this sequence for all operational issues:
 
 ## Symptoms
 
-* Users cannot log in.
-* Session expires unexpectedly.
-* "Unauthorized" or "Forbidden" responses.
-* Repeated login failures.
+- Users cannot log in.
+- Session expires unexpectedly.
+- "Unauthorized" or "Forbidden" responses.
+- Repeated login failures.
 
 ### Diagnostic Steps
 
-* Verify authentication service availability.
-* Check environment configuration.
-* Confirm session management.
-* Review authentication logs.
-* Validate user roles and permissions.
+- Verify authentication service availability.
+- Check environment configuration.
+- Confirm session management.
+- Review authentication logs.
+- Validate user roles and permissions.
 
 ### Resolution
 
-* Correct configuration issues.
-* Restore authentication services.
-* Reset affected sessions if required.
-* Re-test login and authorization workflows.
+- Correct configuration issues.
+- Restore authentication services.
+- Reset affected sessions if required.
+- Re-test login and authorization workflows.
 
 ---
 
@@ -68,25 +68,25 @@ Follow this sequence for all operational issues:
 
 ## Symptoms
 
-* Connection failures.
-* Slow queries.
-* Migration errors.
-* Missing or inconsistent data.
+- Connection failures.
+- Slow queries.
+- Migration errors.
+- Missing or inconsistent data.
 
 ### Diagnostic Steps
 
-* Verify database connectivity.
-* Check migration status.
-* Review slow query logs.
-* Confirm storage availability.
-* Validate database health metrics.
+- Verify database connectivity.
+- Check migration status.
+- Review slow query logs.
+- Confirm storage availability.
+- Validate database health metrics.
 
 ### Resolution
 
-* Restore connectivity.
-* Apply or roll back migrations as appropriate.
-* Optimize slow queries.
-* Restore data from backup if necessary.
+- Restore connectivity.
+- Apply or roll back migrations as appropriate.
+- Optimize slow queries.
+- Restore data from backup if necessary.
 
 ---
 
@@ -94,25 +94,25 @@ Follow this sequence for all operational issues:
 
 ## Symptoms
 
-* AI responses fail.
-* Increased latency.
-* Invalid or incomplete output.
-* Provider authentication errors.
+- AI responses fail.
+- Increased latency.
+- Invalid or incomplete output.
+- Provider authentication errors.
 
 ### Diagnostic Steps
 
-* Verify provider availability.
-* Check API credentials.
-* Review request and response logs.
-* Validate prompt templates.
-* Examine rate-limit or quota usage.
+- Verify provider availability.
+- Check API credentials.
+- Review request and response logs.
+- Validate prompt templates.
+- Examine rate-limit or quota usage.
 
 ### Resolution
 
-* Retry transient failures.
-* Switch to an approved fallback provider if available.
-* Correct prompt or configuration issues.
-* Escalate persistent provider problems.
+- Retry transient failures.
+- Switch to an approved fallback provider if available.
+- Correct prompt or configuration issues.
+- Escalate persistent provider problems.
 
 ---
 
@@ -120,25 +120,25 @@ Follow this sequence for all operational issues:
 
 ## Symptoms
 
-* Upload failures.
-* Missing files.
-* Access denied errors.
-* Storage quota warnings.
+- Upload failures.
+- Missing files.
+- Access denied errors.
+- Storage quota warnings.
 
 ### Diagnostic Steps
 
-* Verify storage service health.
-* Check permissions.
-* Confirm available storage capacity.
-* Review upload logs.
-* Validate file metadata.
+- Verify storage service health.
+- Check permissions.
+- Confirm available storage capacity.
+- Review upload logs.
+- Validate file metadata.
 
 ### Resolution
 
-* Restore storage connectivity.
-* Correct access permissions.
-* Expand storage if required.
-* Restore files from backup where appropriate.
+- Restore storage connectivity.
+- Correct access permissions.
+- Expand storage if required.
+- Restore files from backup where appropriate.
 
 ---
 
@@ -146,22 +146,22 @@ Follow this sequence for all operational issues:
 
 ## Symptoms
 
-* Emails not delivered.
-* In-app notifications missing.
-* Delayed notifications.
+- Emails not delivered.
+- In-app notifications missing.
+- Delayed notifications.
 
 ### Diagnostic Steps
 
-* Verify notification service configuration.
-* Review delivery logs.
-* Check provider status.
-* Validate notification templates.
+- Verify notification service configuration.
+- Review delivery logs.
+- Check provider status.
+- Validate notification templates.
 
 ### Resolution
 
-* Correct configuration.
-* Retry failed deliveries where appropriate.
-* Restore notification service connectivity.
+- Correct configuration.
+- Retry failed deliveries where appropriate.
+- Restore notification service connectivity.
 
 ---
 
@@ -169,25 +169,25 @@ Follow this sequence for all operational issues:
 
 ## Symptoms
 
-* Slow page loads.
-* Increased API latency.
-* Timeouts.
-* High resource utilization.
+- Slow page loads.
+- Increased API latency.
+- Timeouts.
+- High resource utilization.
 
 ### Diagnostic Steps
 
-* Review monitoring dashboards.
-* Check database performance.
-* Analyze application logs.
-* Review recent deployments.
-* Identify resource bottlenecks.
+- Review monitoring dashboards.
+- Check database performance.
+- Analyze application logs.
+- Review recent deployments.
+- Identify resource bottlenecks.
 
 ### Resolution
 
-* Optimize slow queries.
-* Scale infrastructure where appropriate.
-* Reduce unnecessary workload.
-* Reassess caching strategy.
+- Optimize slow queries.
+- Scale infrastructure where appropriate.
+- Reduce unnecessary workload.
+- Reassess caching strategy.
 
 ---
 
@@ -195,24 +195,24 @@ Follow this sequence for all operational issues:
 
 ## Symptoms
 
-* Deployment fails.
-* Application does not start.
-* Configuration mismatch.
-* Feature unavailable after release.
+- Deployment fails.
+- Application does not start.
+- Configuration mismatch.
+- Feature unavailable after release.
 
 ### Diagnostic Steps
 
-* Review deployment logs.
-* Validate environment variables.
-* Confirm migration status.
-* Compare deployed version with release plan.
+- Review deployment logs.
+- Validate environment variables.
+- Confirm migration status.
+- Compare deployed version with release plan.
 
 ### Resolution
 
-* Correct configuration.
-* Redeploy if appropriate.
-* Roll back to the previous stable release if required.
-* Re-run post-deployment validation.
+- Correct configuration.
+- Redeploy if appropriate.
+- Roll back to the previous stable release if required.
+- Re-run post-deployment validation.
 
 ---
 
@@ -220,23 +220,23 @@ Follow this sequence for all operational issues:
 
 ## Symptoms
 
-* Missing alerts.
-* Excessive alert noise.
-* Incorrect health status.
-* Dashboard inconsistencies.
+- Missing alerts.
+- Excessive alert noise.
+- Incorrect health status.
+- Dashboard inconsistencies.
 
 ### Diagnostic Steps
 
-* Verify monitoring service health.
-* Review alert configuration.
-* Confirm health check endpoints.
-* Validate metric collection.
+- Verify monitoring service health.
+- Review alert configuration.
+- Confirm health check endpoints.
+- Validate metric collection.
 
 ### Resolution
 
-* Correct monitoring configuration.
-* Update alert thresholds.
-* Restore metric collection.
+- Correct monitoring configuration.
+- Update alert thresholds.
+- Restore metric collection.
 
 ---
 
@@ -244,24 +244,24 @@ Follow this sequence for all operational issues:
 
 ## Symptoms
 
-* Suspicious login activity.
-* Unexpected permission changes.
-* Secret exposure.
-* Unauthorized API access.
+- Suspicious login activity.
+- Unexpected permission changes.
+- Secret exposure.
+- Unauthorized API access.
 
 ### Diagnostic Steps
 
-* Review audit logs.
-* Verify access permissions.
-* Inspect recent administrative actions.
-* Check authentication events.
+- Review audit logs.
+- Verify access permissions.
+- Inspect recent administrative actions.
+- Check authentication events.
 
 ### Resolution
 
-* Revoke compromised credentials.
-* Rotate affected secrets.
-* Restore correct permissions.
-* Follow the Security Operations and Incident Response guides.
+- Revoke compromised credentials.
+- Rotate affected secrets.
+- Restore correct permissions.
+- Follow the Security Operations and Incident Response guides.
 
 ---
 
@@ -269,13 +269,13 @@ Follow this sequence for all operational issues:
 
 Before escalating an issue, confirm:
 
-* Environment identified.
-* Issue reproduced (where safe).
-* Recent changes reviewed.
-* Logs collected.
-* Metrics reviewed.
-* Root cause investigated.
-* Temporary mitigation applied if necessary.
+- Environment identified.
+- Issue reproduced (where safe).
+- Recent changes reviewed.
+- Logs collected.
+- Metrics reviewed.
+- Root cause investigated.
+- Temporary mitigation applied if necessary.
 
 ---
 
@@ -283,11 +283,11 @@ Before escalating an issue, confirm:
 
 Escalate immediately if:
 
-* Production is unavailable.
-* Data integrity is threatened.
-* Security is compromised.
-* Multiple core services fail.
-* Recovery procedures are unsuccessful.
+- Production is unavailable.
+- Data integrity is threatened.
+- Security is compromised.
+- Multiple core services fail.
+- Recovery procedures are unsuccessful.
 
 Record all escalation actions for future review.
 
@@ -326,12 +326,12 @@ When assisting with troubleshooting, the AI agent should:
 
 Review troubleshooting records periodically to:
 
-* Identify recurring issues.
-* Improve monitoring.
-* Refine alert thresholds.
-* Enhance documentation.
-* Strengthen preventive maintenance.
-* Improve platform reliability.
+- Identify recurring issues.
+- Improve monitoring.
+- Refine alert thresholds.
+- Enhance documentation.
+- Strengthen preventive maintenance.
+- Improve platform reliability.
 
 ---
 
@@ -339,10 +339,10 @@ Review troubleshooting records periodically to:
 
 Review and update this guide whenever:
 
-* New platform components are introduced.
-* Operational procedures change.
-* Significant incidents occur.
-* New troubleshooting techniques are identified.
-* Lessons learned improve operational practices.
+- New platform components are introduced.
+- Operational procedures change.
+- Significant incidents occur.
+- New troubleshooting techniques are identified.
+- Lessons learned improve operational practices.
 
 This document should remain the authoritative troubleshooting reference for the Companio platform.

@@ -34,12 +34,12 @@ Provide a reliable, extensible, and provider-agnostic AI integration layer that 
 
 At the end of this task:
 
-* AI providers can be configured.
-* Requests are routed through one orchestration layer.
-* Prompt templates are managed centrally.
-* Responses are validated.
-* Failures are handled consistently.
-* Usage metrics are recorded.
+- AI providers can be configured.
+- Requests are routed through one orchestration layer.
+- Prompt templates are managed centrally.
+- Responses are validated.
+- Failures are handled consistently.
+- Usage metrics are recorded.
 
 ---
 
@@ -49,36 +49,36 @@ Implement:
 
 ### Provider Management
 
-* Provider interface
-* Provider configuration
-* Active provider selection
-* Provider health status
+- Provider interface
+- Provider configuration
+- Active provider selection
+- Provider health status
 
 ### Prompt Management
 
-* Prompt template registry
-* Prompt versioning
-* Variable injection
-* Prompt validation
+- Prompt template registry
+- Prompt versioning
+- Variable injection
+- Prompt validation
 
 ### Request Handling
 
-* Request creation
-* Timeout handling
-* Retry strategy
-* Error handling
-* Structured response validation
+- Request creation
+- Timeout handling
+- Retry strategy
+- Error handling
+- Structured response validation
 
 ### Usage Tracking
 
 Track:
 
-* Provider used
-* Model used
-* Request timestamp
-* Response duration
-* Token usage (if available)
-* Success or failure status
+- Provider used
+- Model used
+- Request timestamp
+- Response duration
+- Token usage (if available)
+- Success or failure status
 
 ---
 
@@ -86,14 +86,14 @@ Track:
 
 Future versions may include:
 
-* Automatic provider failover
-* Cost-aware routing
-* Multi-provider consensus
-* A/B testing of prompts
-* Streaming responses
-* Prompt analytics
-* Caching of AI responses
-* Local model support
+- Automatic provider failover
+- Cost-aware routing
+- Multi-provider consensus
+- A/B testing of prompts
+- Streaming responses
+- Prompt analytics
+- Caching of AI responses
+- Local model support
 
 ---
 
@@ -101,11 +101,11 @@ Future versions may include:
 
 Do **not** implement:
 
-* Question generation
-* Practice Mode
-* Assessments
-* Results
-* Dashboard logic
+- Question generation
+- Practice Mode
+- Assessments
+- Results
+- Dashboard logic
 
 This task builds the AI infrastructure only.
 
@@ -115,20 +115,20 @@ This task builds the AI infrastructure only.
 
 ## Architecture
 
-* AI architecture
-* Master Project Specification
-* System Architecture
-* Project Constitution
+- AI architecture
+- Master Project Specification
+- System Architecture
+- Project Constitution
 
 ## Development
 
-* Coding Standards
-* Environment Configuration
-* Error Handling
-* Logging & Monitoring
-* Performance Guidelines
-* Security Checklist
-* AI Agent Workflow
+- Coding Standards
+- Environment Configuration
+- Error Handling
+- Logging & Monitoring
+- Performance Guidelines
+- Security Checklist
+- AI Agent Workflow
 
 ---
 
@@ -136,12 +136,12 @@ This task builds the AI infrastructure only.
 
 Complete:
 
-* Tasks 001–008
+- Tasks 001–008
 
 Verify:
 
-* Document Processing produces structured content.
-* Environment variables are configured for AI providers.
+- Document Processing produces structured content.
+- Environment variables are configured for AI providers.
 
 ---
 
@@ -149,16 +149,16 @@ Verify:
 
 ### Input
 
-* Structured content from Document Processing
-* Prompt template
-* Request parameters
+- Structured content from Document Processing
+- Prompt template
+- Request parameters
 
 ### Output
 
-* Validated AI response
-* Processing metadata
-* Usage statistics
-* Standardized errors
+- Validated AI response
+- Processing metadata
+- Usage statistics
+- Standardized errors
 
 Future modules consume these outputs.
 
@@ -168,13 +168,13 @@ Future modules consume these outputs.
 
 The AI may modify:
 
-* AI services
-* Provider adapters
-* Prompt registry
-* Validation utilities
-* Orchestration services
-* Configuration
-* Logging components
+- AI services
+- Provider adapters
+- Prompt registry
+- Validation utilities
+- Orchestration services
+- Configuration
+- Logging components
 
 ---
 
@@ -182,11 +182,11 @@ The AI may modify:
 
 Do **not** implement:
 
-* Question Bank
-* Practice Mode
-* Assessment Module
-* Results
-* Dashboard
+- Question Bank
+- Practice Mode
+- Assessment Module
+- Results
+- Dashboard
 
 Provide reusable AI services only.
 
@@ -196,11 +196,11 @@ Provide reusable AI services only.
 
 Allowed:
 
-* Prompt templates
-* Prompt versions
-* AI request history
-* AI response metadata
-* Usage metrics
+- Prompt templates
+- Prompt versions
+- AI request history
+- AI response metadata
+- Usage metrics
 
 Do not store business-specific AI outputs here unless defined by the architecture.
 
@@ -210,14 +210,14 @@ Do not store business-specific AI outputs here unless defined by the architectur
 
 Implement:
 
-* Provider abstraction layer
-* Provider adapters
-* Prompt registry
-* Request orchestration
-* Response validation
-* Retry logic
-* Timeout management
-* Usage logging
+- Provider abstraction layer
+- Provider adapters
+- Prompt registry
+- Request orchestration
+- Response validation
+- Retry logic
+- Timeout management
+- Usage logging
 
 ---
 
@@ -225,9 +225,9 @@ Implement:
 
 If an admin interface is planned for V1, implement only:
 
-* Provider status view
-* Basic configuration display
-* AI health indicator
+- Provider status view
+- Basic configuration display
+- AI health indicator
 
 Do not build AI feature pages in this task.
 
@@ -237,24 +237,24 @@ Do not build AI feature pages in this task.
 
 The AI must:
 
-* Never hardcode API keys.
-* Keep provider implementations interchangeable.
-* Centralize prompt handling.
-* Validate every AI response.
-* Expose a consistent API to downstream modules.
-* Avoid provider-specific logic outside adapter classes.
+- Never hardcode API keys.
+- Keep provider implementations interchangeable.
+- Centralize prompt handling.
+- Validate every AI response.
+- Expose a consistent API to downstream modules.
+- Avoid provider-specific logic outside adapter classes.
 
 ---
 
 # 17. Implementation Checklist
 
-* Provider abstraction implemented
-* At least one provider adapter integrated
-* Prompt registry created
-* Request pipeline operational
-* Response validation implemented
-* Retry logic configured
-* Usage tracking enabled
+- Provider abstraction implemented
+- At least one provider adapter integrated
+- Prompt registry created
+- Request pipeline operational
+- Response validation implemented
+- Retry logic configured
+- Usage tracking enabled
 
 ---
 
@@ -262,12 +262,12 @@ The AI must:
 
 Verify:
 
-* Provider configuration loads correctly.
-* Requests reach the selected provider.
-* Invalid responses are handled gracefully.
-* Retries work as expected.
-* Timeouts are respected.
-* Usage metrics are recorded.
+- Provider configuration loads correctly.
+- Requests reach the selected provider.
+- Invalid responses are handled gracefully.
+- Retries work as expected.
+- Timeouts are respected.
+- Usage metrics are recorded.
 
 ---
 
@@ -275,11 +275,11 @@ Verify:
 
 Task is complete when:
 
-* All AI communication passes through the orchestrator.
-* Providers are interchangeable.
-* Responses are validated.
-* Prompt templates are managed centrally.
-* The implementation follows project standards.
+- All AI communication passes through the orchestrator.
+- Providers are interchangeable.
+- Responses are validated.
+- Prompt templates are managed centrally.
+- The implementation follows project standards.
 
 ---
 
@@ -287,11 +287,11 @@ Task is complete when:
 
 The AI Orchestrator is complete when:
 
-* Provider abstraction is stable.
-* Prompt management is operational.
-* Error handling is consistent.
-* Monitoring is available.
-* Tests pass.
+- Provider abstraction is stable.
+- Prompt management is operational.
+- Error handling is consistent.
+- Monitoring is available.
+- Tests pass.
 
 ---
 
@@ -299,13 +299,13 @@ The AI Orchestrator is complete when:
 
 Expected outputs:
 
-* AI Orchestrator
-* Provider interface
-* Provider adapters
-* Prompt registry
-* Response validation
-* Usage tracking
-* Supporting tests
+- AI Orchestrator
+- Provider interface
+- Provider adapters
+- Prompt registry
+- Response validation
+- Usage tracking
+- Supporting tests
 
 ---
 

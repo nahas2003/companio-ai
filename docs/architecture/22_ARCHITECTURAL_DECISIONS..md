@@ -14,10 +14,10 @@ This document records the significant architectural decisions made during the de
 
 Each decision explains:
 
-* The problem.
-* The chosen solution.
-* Alternatives considered.
-* Consequences.
+- The problem.
+- The chosen solution.
+- Alternatives considered.
+- Consequences.
 
 Architectural decisions should not be changed without updating this document.
 
@@ -49,15 +49,15 @@ Generate questions directly into assessments.
 
 ### Consequences
 
-* Better reuse.
-* Lower AI costs.
-* Cleaner architecture.
+- Better reuse.
+- Lower AI costs.
+- Cleaner architecture.
 
 ### Related Documents
 
-* 05_DATABASE_ARCHITECTURE.md
-* 13_AI_CONTENT_PROCESSING.md
-* 15_QUESTION_BANK.md
+- 05_DATABASE_ARCHITECTURE.md
+- 13_AI_CONTENT_PROCESSING.md
+- 15_QUESTION_BANK.md
 
 ---
 
@@ -85,9 +85,9 @@ Overwrite existing generated questions.
 
 ### Consequences
 
-* Reproducibility.
-* Auditability.
-* Safe regeneration.
+- Reproducibility.
+- Auditability.
+- Safe regeneration.
 
 ---
 
@@ -115,9 +115,9 @@ Allow editing published assessments.
 
 ### Consequences
 
-* Stable participant experience.
-* Reliable analytics.
-* Better audit trail.
+- Stable participant experience.
+- Reliable analytics.
+- Better audit trail.
 
 ---
 
@@ -145,9 +145,9 @@ Direct provider integrations throughout the codebase.
 
 ### Consequences
 
-* Provider independence.
-* Easier maintenance.
-* Centralized retries and validation.
+- Provider independence.
+- Easier maintenance.
+- Centralized retries and validation.
 
 ---
 
@@ -175,9 +175,9 @@ Compute rankings and analytics directly from Attempts.
 
 ### Consequences
 
-* Consistent reporting.
-* Simpler analytics.
-* Clear separation of concerns.
+- Consistent reporting.
+- Simpler analytics.
+- Clear separation of concerns.
 
 ---
 
@@ -205,9 +205,9 @@ Role-based authentication only.
 
 ### Consequences
 
-* Greater flexibility.
-* Easier future expansion.
-* Cleaner security model.
+- Greater flexibility.
+- Easier future expansion.
+- Cleaner security model.
 
 ---
 
@@ -235,9 +235,9 @@ Single monolithic AI pipeline.
 
 ### Consequences
 
-* Better separation of concerns.
-* Easier testing.
-* Easier future content integrations.
+- Better separation of concerns.
+- Easier testing.
+- Easier future content integrations.
 
 ---
 
@@ -265,9 +265,9 @@ Feature-only testing.
 
 ### Consequences
 
-* Improved long-term reliability.
-* Better regression protection.
-* Higher confidence in refactoring.
+- Improved long-term reliability.
+- Better regression protection.
+- Higher confidence in refactoring.
 
 ---
 
@@ -275,13 +275,13 @@ Feature-only testing.
 
 Every new architectural decision should include:
 
-* Decision ID
-* Status
-* Context
-* Decision
-* Alternatives
-* Consequences
-* Related Documents
+- Decision ID
+- Status
+- Context
+- Decision
+- Alternatives
+- Consequences
+- Related Documents
 
 Existing ADRs should never be deleted.
 
@@ -293,10 +293,10 @@ If a decision changes, mark the previous ADR as **Superseded** and create a new 
 
 Architectural changes require:
 
-* Updated ADR.
-* Documentation updates.
-* Impact assessment.
-* Review before implementation.
+- Updated ADR.
+- Documentation updates.
+- Impact assessment.
+- Review before implementation.
 
 ---
 
@@ -304,10 +304,10 @@ Architectural changes require:
 
 The ADR log is complete when:
 
-* Major architectural decisions are documented.
-* Rationale is recorded.
-* Alternatives are preserved.
-* Future contributors can understand the reasoning behind the architecture.
+- Major architectural decisions are documented.
+- Rationale is recorded.
+- Alternatives are preserved.
+- Future contributors can understand the reasoning behind the architecture.
 
 ---
 
@@ -315,16 +315,16 @@ The ADR log is complete when:
 
 ## Depends On
 
-* 00–21
+- 00–21
 
 ## Used By
 
-* Future architectural reviews.
-* Major feature proposals.
-* Refactoring efforts.
+- Future architectural reviews.
+- Major feature proposals.
+- Refactoring efforts.
 
 ## Related Documents
 
-* 02_SYSTEM_ARCHITECTURE.md
-* 21_PROJECT_CONSTITUTION.md
-* All feature specifications.
+- 02_SYSTEM_ARCHITECTURE.md
+- 21_PROJECT_CONSTITUTION.md
+- All feature specifications.

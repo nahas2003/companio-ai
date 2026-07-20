@@ -28,11 +28,11 @@ Deliver a secure, reliable, and performant platform that protects user data, sca
 
 At the end of this task:
 
-* Security best practices are implemented.
-* Performance bottlenecks are addressed.
-* Error handling is consistent.
-* Resource usage is optimized.
-* The application is ready for production deployment.
+- Security best practices are implemented.
+- Performance bottlenecks are addressed.
+- Error handling is consistent.
+- Resource usage is optimized.
+- The application is ready for production deployment.
 
 ---
 
@@ -42,44 +42,44 @@ At the end of this task:
 
 Review and strengthen:
 
-* Authentication
-* Authorization
-* Session management
-* Input validation
-* Output encoding
-* File upload security
-* API security
-* Rate limiting
-* CSRF protection (if applicable)
-* XSS protection
-* SQL injection prevention
-* Secure headers
-* Secret management
+- Authentication
+- Authorization
+- Session management
+- Input validation
+- Output encoding
+- File upload security
+- API security
+- Rate limiting
+- CSRF protection (if applicable)
+- XSS protection
+- SQL injection prevention
+- Secure headers
+- Secret management
 
 ## Performance
 
 Optimize:
 
-* Database queries
-* API response times
-* Image and asset loading
-* Lazy loading
-* Code splitting
-* Caching strategy
-* Pagination
-* Bundle size
-* Memory usage
+- Database queries
+- API response times
+- Image and asset loading
+- Lazy loading
+- Code splitting
+- Caching strategy
+- Pagination
+- Bundle size
+- Memory usage
 
 ## Reliability
 
 Implement:
 
-* Global error boundaries
-* Graceful error handling
-* Retry strategies
-* Timeout handling
-* Health checks
-* Logging improvements
+- Global error boundaries
+- Graceful error handling
+- Retry strategies
+- Timeout handling
+- Health checks
+- Logging improvements
 
 ---
 
@@ -87,14 +87,14 @@ Implement:
 
 Future versions may include:
 
-* Web Application Firewall integration
-* DDoS protection
-* Distributed caching
-* Multi-region deployment
-* Advanced observability
-* Auto-scaling
-* Chaos testing
-* Security penetration testing
+- Web Application Firewall integration
+- DDoS protection
+- Distributed caching
+- Multi-region deployment
+- Advanced observability
+- Auto-scaling
+- Chaos testing
+- Security penetration testing
 
 ---
 
@@ -102,10 +102,10 @@ Future versions may include:
 
 Do **not** implement:
 
-* New business features
-* UI redesigns
-* Major architectural rewrites
-* Feature expansion
+- New business features
+- UI redesigns
+- Major architectural rewrites
+- Feature expansion
 
 Focus only on improving the existing implementation.
 
@@ -115,17 +115,17 @@ Focus only on improving the existing implementation.
 
 ## Architecture
 
-* Security Architecture
-* Performance Guidelines
-* Logging & Monitoring
-* Project Constitution
+- Security Architecture
+- Performance Guidelines
+- Logging & Monitoring
+- Project Constitution
 
 ## Development
 
-* Coding Standards
-* Error Handling
-* Deployment Guide
-* AI Agent Workflow
+- Coding Standards
+- Error Handling
+- Deployment Guide
+- AI Agent Workflow
 
 ---
 
@@ -133,12 +133,12 @@ Focus only on improving the existing implementation.
 
 Complete:
 
-* Tasks 001–018
+- Tasks 001–018
 
 Verify:
 
-* Core platform functionality is complete.
-* All major modules are operational.
+- Core platform functionality is complete.
+- All major modules are operational.
 
 ---
 
@@ -146,22 +146,22 @@ Verify:
 
 Review every major module:
 
-* Authentication
-* User Management
-* Layout
-* Dashboard
-* Source Upload
-* Document Processing
-* AI Orchestrator
-* Question Generation
-* Question Bank
-* Practice Mode
-* Assessment Management
-* Assessment Delivery
-* Results
-* Analytics
-* Notifications
-* Administration
+- Authentication
+- User Management
+- Layout
+- Dashboard
+- Source Upload
+- Document Processing
+- AI Orchestrator
+- Question Generation
+- Question Bank
+- Practice Mode
+- Assessment Management
+- Assessment Delivery
+- Results
+- Analytics
+- Notifications
+- Administration
 
 ---
 
@@ -169,14 +169,14 @@ Review every major module:
 
 The AI may modify:
 
-* Security middleware
-* API middleware
-* Performance utilities
-* Shared services
-* Database queries
-* Configuration
-* Logging
-* Monitoring
+- Security middleware
+- API middleware
+- Performance utilities
+- Shared services
+- Database queries
+- Configuration
+- Logging
+- Monitoring
 
 Only where necessary to improve quality.
 
@@ -186,9 +186,9 @@ Only where necessary to improve quality.
 
 Do **not** change:
 
-* Core business requirements
-* Functional workflows
-* User-facing feature scope
+- Core business requirements
+- Functional workflows
+- User-facing feature scope
 
 Enhance existing implementations without altering business behavior.
 
@@ -198,15 +198,15 @@ Enhance existing implementations without altering business behavior.
 
 Review and verify:
 
-* Authentication security
-* Authorization checks
-* Secure API endpoints
-* Input validation
-* Output sanitization
-* Secure file uploads
-* Secrets management
-* Dependency vulnerabilities
-* Audit logging
+- Authentication security
+- Authorization checks
+- Secure API endpoints
+- Input validation
+- Output sanitization
+- Secure file uploads
+- Secrets management
+- Dependency vulnerabilities
+- Audit logging
 
 ---
 
@@ -214,15 +214,15 @@ Review and verify:
 
 Optimize:
 
-* Database indexes
-* Slow queries
-* API latency
-* Frontend rendering
-* Bundle size
-* Asset loading
-* Caching
-* Network requests
-* Background processing
+- Database indexes
+- Slow queries
+- API latency
+- Frontend rendering
+- Bundle size
+- Asset loading
+- Caching
+- Network requests
+- Background processing
 
 ---
 
@@ -230,12 +230,12 @@ Optimize:
 
 Implement or improve:
 
-* Lazy loading
-* Route-level code splitting
-* Error boundaries
-* Skeleton loaders
-* Accessibility improvements
-* Performance optimizations
+- Lazy loading
+- Route-level code splitting
+- Error boundaries
+- Skeleton loaders
+- Accessibility improvements
+- Performance optimizations
 
 ---
 
@@ -243,13 +243,13 @@ Implement or improve:
 
 Implement or improve:
 
-* Query optimization
-* Rate limiting
-* Caching
-* API validation
-* Logging
-* Health endpoints
-* Monitoring hooks
+- Query optimization
+- Rate limiting
+- Caching
+- API validation
+- Logging
+- Health endpoints
+- Monitoring hooks
 
 ---
 
@@ -257,24 +257,24 @@ Implement or improve:
 
 The AI must:
 
-* Preserve existing functionality.
-* Avoid unnecessary refactoring.
-* Prioritize measurable improvements.
-* Document all optimizations.
-* Validate every security enhancement.
+- Preserve existing functionality.
+- Avoid unnecessary refactoring.
+- Prioritize measurable improvements.
+- Document all optimizations.
+- Validate every security enhancement.
 
 ---
 
 # 17. Implementation Checklist
 
-* Security review completed
-* Performance optimization completed
-* Logging improved
-* Rate limiting implemented
-* Caching implemented
-* Error handling reviewed
-* Health checks added
-* Documentation updated
+- Security review completed
+- Performance optimization completed
+- Logging improved
+- Rate limiting implemented
+- Caching implemented
+- Error handling reviewed
+- Health checks added
+- Documentation updated
 
 ---
 
@@ -282,13 +282,13 @@ The AI must:
 
 Verify:
 
-* No regression in existing features.
-* Authentication remains secure.
-* Authorization rules are enforced.
-* Upload security is intact.
-* Performance improvements are measurable.
-* Error handling behaves correctly.
-* Security headers are present.
+- No regression in existing features.
+- Authentication remains secure.
+- Authorization rules are enforced.
+- Upload security is intact.
+- Performance improvements are measurable.
+- Error handling behaves correctly.
+- Security headers are present.
 
 ---
 
@@ -296,11 +296,11 @@ Verify:
 
 Task is complete when:
 
-* Security review is completed.
-* Performance targets are achieved.
-* No critical vulnerabilities remain.
-* Existing functionality remains unchanged.
-* The application is ready for deployment.
+- Security review is completed.
+- Performance targets are achieved.
+- No critical vulnerabilities remain.
+- Existing functionality remains unchanged.
+- The application is ready for deployment.
 
 ---
 
@@ -308,11 +308,11 @@ Task is complete when:
 
 Security & Performance Hardening is complete when:
 
-* Security best practices are implemented.
-* Performance improvements are verified.
-* Logging and monitoring are operational.
-* Regression testing passes.
-* Documentation is updated.
+- Security best practices are implemented.
+- Performance improvements are verified.
+- Logging and monitoring are operational.
+- Regression testing passes.
+- Documentation is updated.
 
 ---
 
@@ -320,14 +320,14 @@ Security & Performance Hardening is complete when:
 
 Expected outputs:
 
-* Security improvements
-* Performance optimizations
-* Updated middleware
-* Health checks
-* Logging improvements
-* Monitoring hooks
-* Supporting tests
-* Hardening report
+- Security improvements
+- Performance optimizations
+- Updated middleware
+- Health checks
+- Logging improvements
+- Monitoring hooks
+- Supporting tests
+- Hardening report
 
 ---
 

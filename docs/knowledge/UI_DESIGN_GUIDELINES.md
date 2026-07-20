@@ -19,13 +19,13 @@ It ensures consistency across all screens and provides guidance for developers, 
 
 The interface should be:
 
-* Clean
-* Modern
-* Accessible
-* Responsive
-* Consistent
-* Minimal
-* User-focused
+- Clean
+- Modern
+- Accessible
+- Responsive
+- Consistent
+- Minimal
+- User-focused
 
 Every screen should prioritize readability and task completion over visual complexity.
 
@@ -35,14 +35,14 @@ Every screen should prioritize readability and task completion over visual compl
 
 The design system should include:
 
-* Color palette
-* Typography
-* Spacing scale
-* Border radius
-* Shadows
-* Icons
-* Layout grid
-* Motion guidelines
+- Color palette
+- Typography
+- Spacing scale
+- Border radius
+- Shadows
+- Icons
+- Layout grid
+- Motion guidelines
 
 These design tokens should be centralized and reused throughout the application.
 
@@ -54,18 +54,18 @@ Define semantic color roles instead of hardcoding colors.
 
 Recommended roles:
 
-* Primary
-* Secondary
-* Success
-* Warning
-* Error
-* Information
-* Background
-* Surface
-* Border
-* Text Primary
-* Text Secondary
-* Disabled
+- Primary
+- Secondary
+- Success
+- Warning
+- Error
+- Information
+- Background
+- Surface
+- Border
+- Text Primary
+- Text Secondary
+- Disabled
 
 Avoid assigning meaning through color alone. Pair colors with text, icons, or other indicators.
 
@@ -77,23 +77,23 @@ Define a consistent type scale.
 
 Recommended text styles:
 
-* Display
-* Heading 1
-* Heading 2
-* Heading 3
-* Heading 4
-* Body Large
-* Body
-* Small
-* Caption
-* Label
+- Display
+- Heading 1
+- Heading 2
+- Heading 3
+- Heading 4
+- Body Large
+- Body
+- Small
+- Caption
+- Label
 
 Guidelines:
 
-* Use consistent font weights.
-* Maintain comfortable line height.
-* Avoid excessive text sizes.
-* Limit the number of font families.
+- Use consistent font weights.
+- Maintain comfortable line height.
+- Avoid excessive text sizes.
+- Limit the number of font families.
 
 ---
 
@@ -103,19 +103,19 @@ Adopt a consistent spacing scale.
 
 Examples:
 
-* Extra Small (XS)
-* Small (S)
-* Medium (M)
-* Large (L)
-* Extra Large (XL)
+- Extra Small (XS)
+- Small (S)
+- Medium (M)
+- Large (L)
+- Extra Large (XL)
 
 Use spacing consistently for:
 
-* Margins
-* Padding
-* Gaps
-* Sections
-* Component alignment
+- Margins
+- Padding
+- Gaps
+- Sections
+- Component alignment
 
 ---
 
@@ -132,10 +132,10 @@ Footer (optional)
 
 Guidelines:
 
-* Keep navigation consistent.
-* Maintain predictable page widths.
-* Use responsive grids.
-* Avoid unnecessary nesting.
+- Keep navigation consistent.
+- Maintain predictable page widths.
+- Use responsive grids.
+- Avoid unnecessary nesting.
 
 ---
 
@@ -143,18 +143,18 @@ Guidelines:
 
 Support:
 
-* Mobile
-* Tablet
-* Laptop
-* Desktop
+- Mobile
+- Tablet
+- Laptop
+- Desktop
 
 Guidelines:
 
-* Mobile-first approach where practical.
-* Flexible layouts.
-* Responsive navigation.
-* Scalable typography.
-* Touch-friendly controls.
+- Mobile-first approach where practical.
+- Flexible layouts.
+- Responsive navigation.
+- Scalable typography.
+- Touch-friendly controls.
 
 ---
 
@@ -164,17 +164,17 @@ Primary navigation should remain consistent across the application.
 
 Include:
 
-* Sidebar
-* Top navigation
-* Breadcrumbs
-* Page titles
-* Back navigation where appropriate
+- Sidebar
+- Top navigation
+- Breadcrumbs
+- Page titles
+- Back navigation where appropriate
 
 Users should always know:
 
-* Where they are.
-* How to navigate back.
-* What actions are available.
+- Where they are.
+- How to navigate back.
+- What actions are available.
 
 ---
 
@@ -182,11 +182,11 @@ Users should always know:
 
 Forms should:
 
-* Clearly label all fields.
-* Indicate required inputs.
-* Validate before submission where appropriate.
-* Display inline validation messages.
-* Preserve entered data when possible after validation errors.
+- Clearly label all fields.
+- Indicate required inputs.
+- Validate before submission where appropriate.
+- Display inline validation messages.
+- Preserve entered data when possible after validation errors.
 
 Group related fields logically to reduce cognitive load.
 
@@ -196,12 +196,12 @@ Group related fields logically to reduce cognitive load.
 
 Tables should support:
 
-* Sorting
-* Filtering
-* Pagination
-* Responsive layouts
-* Empty states
-* Loading states
+- Sorting
+- Filtering
+- Pagination
+- Responsive layouts
+- Empty states
+- Loading states
 
 Avoid horizontal scrolling whenever practical.
 
@@ -211,12 +211,12 @@ Avoid horizontal scrolling whenever practical.
 
 Use cards for:
 
-* Dashboards
-* Statistics
-* Learning materials
-* Assessments
-* AI results
-* User information
+- Dashboards
+- Statistics
+- Learning materials
+- Assessments
+- AI results
+- User information
 
 Each card should have a clear visual hierarchy.
 
@@ -226,11 +226,11 @@ Each card should have a clear visual hierarchy.
 
 Dialogs should:
 
-* Explain the action clearly.
-* Indicate destructive operations.
-* Support keyboard interaction.
-* Trap focus while open.
-* Provide clear confirmation and cancellation actions.
+- Explain the action clearly.
+- Indicate destructive operations.
+- Support keyboard interaction.
+- Trap focus while open.
+- Provide clear confirmation and cancellation actions.
 
 ---
 
@@ -240,10 +240,10 @@ Use a single icon library throughout the application.
 
 Guidelines:
 
-* Use icons to support, not replace, text.
-* Maintain consistent sizing.
-* Avoid decorative overuse.
-* Pair icons with labels where ambiguity may arise.
+- Use icons to support, not replace, text.
+- Maintain consistent sizing.
+- Avoid decorative overuse.
+- Pair icons with labels where ambiguity may arise.
 
 ---
 
@@ -251,12 +251,12 @@ Guidelines:
 
 Provide clear feedback for:
 
-* Loading
-* Success
-* Error
-* Warning
-* Empty data
-* Offline (if applicable)
+- Loading
+- Success
+- Error
+- Warning
+- Empty data
+- Offline (if applicable)
 
 Avoid leaving users without feedback during long-running operations.
 
@@ -268,13 +268,13 @@ Aim to meet WCAG 2.1 AA standards where practical.
 
 Guidelines:
 
-* Keyboard navigation
-* Visible focus indicators
-* Semantic HTML
-* Appropriate ARIA attributes
-* Sufficient color contrast
-* Screen reader compatibility
-* Descriptive labels for interactive elements
+- Keyboard navigation
+- Visible focus indicators
+- Semantic HTML
+- Appropriate ARIA attributes
+- Sufficient color contrast
+- Screen reader compatibility
+- Descriptive labels for interactive elements
 
 Accessibility should be considered throughout the design process rather than added later.
 
@@ -284,10 +284,10 @@ Accessibility should be considered throughout the design process rather than add
 
 Animations should:
 
-* Support user understanding.
-* Be subtle and purposeful.
-* Avoid unnecessary distraction.
-* Respect reduced-motion user preferences where supported.
+- Support user understanding.
+- Be subtle and purposeful.
+- Avoid unnecessary distraction.
+- Respect reduced-motion user preferences where supported.
 
 Use transitions to communicate state changes rather than for decoration.
 
@@ -297,14 +297,14 @@ Use transitions to communicate state changes rather than for decoration.
 
 Maintain consistency across:
 
-* Colors
-* Typography
-* Button styles
-* Form layouts
-* Navigation
-* Icons
-* Error messages
-* Page spacing
+- Colors
+- Typography
+- Button styles
+- Form layouts
+- Navigation
+- Icons
+- Error messages
+- Page spacing
 
 Avoid introducing unique patterns for individual pages unless justified.
 
@@ -327,8 +327,8 @@ Before creating a new screen, the AI agent should:
 
 Update this document whenever:
 
-* The design system changes.
-* New global UI patterns are introduced.
-* Accessibility standards evolve.
-* Navigation patterns change.
-* Design tokens are updated.
+- The design system changes.
+- New global UI patterns are introduced.
+- Accessibility standards evolve.
+- Navigation patterns change.
+- Design tokens are updated.

@@ -19,11 +19,11 @@ The objective is to ensure that errors are handled consistently, logged appropri
 
 After implementing this strategy:
 
-* Errors are handled consistently across the platform.
-* Users receive meaningful, non-technical error messages.
-* Developers receive sufficient diagnostic information.
-* Critical failures are logged and monitored.
-* Recovery strategies are implemented where appropriate.
+- Errors are handled consistently across the platform.
+- Users receive meaningful, non-technical error messages.
+- Developers receive sufficient diagnostic information.
+- Critical failures are logged and monitored.
+- Recovery strategies are implemented where appropriate.
 
 ---
 
@@ -31,12 +31,12 @@ After implementing this strategy:
 
 Follow these principles:
 
-* Fail gracefully.
-* Fail securely.
-* Log useful diagnostic information.
-* Do not expose internal implementation details.
-* Recover automatically when reasonable.
-* Escalate unrecoverable failures.
+- Fail gracefully.
+- Fail securely.
+- Log useful diagnostic information.
+- Do not expose internal implementation details.
+- Recover automatically when reasonable.
+- Escalate unrecoverable failures.
 
 ---
 
@@ -48,9 +48,9 @@ Classify errors into:
 
 Examples:
 
-* Invalid form input
-* Missing required fields
-* Unsupported file format
+- Invalid form input
+- Missing required fields
+- Unsupported file format
 
 Return clear guidance so users can correct the issue.
 
@@ -60,9 +60,9 @@ Return clear guidance so users can correct the issue.
 
 Examples:
 
-* Invalid credentials
-* Expired session
-* Unauthorized access
+- Invalid credentials
+- Expired session
+- Unauthorized access
 
 Redirect or prompt users to authenticate again when appropriate.
 
@@ -72,8 +72,8 @@ Redirect or prompt users to authenticate again when appropriate.
 
 Examples:
 
-* Insufficient permissions
-* Restricted resources
+- Insufficient permissions
+- Restricted resources
 
 Do not reveal protected resource details.
 
@@ -83,9 +83,9 @@ Do not reveal protected resource details.
 
 Examples:
 
-* Assessment already submitted
-* Question Bank archived
-* Practice session already completed
+- Assessment already submitted
+- Question Bank archived
+- Practice session already completed
 
 Return descriptive, user-friendly messages.
 
@@ -95,9 +95,9 @@ Return descriptive, user-friendly messages.
 
 Examples:
 
-* AI provider unavailable
-* Email delivery failure
-* Storage service timeout
+- AI provider unavailable
+- Email delivery failure
+- Storage service timeout
 
 Retry when appropriate and surface a generic message to users.
 
@@ -107,9 +107,9 @@ Retry when appropriate and surface a generic message to users.
 
 Examples:
 
-* Database unavailable
-* Unexpected exception
-* Resource exhaustion
+- Database unavailable
+- Unexpected exception
+- Resource exhaustion
 
 Capture diagnostics and notify operational monitoring systems.
 
@@ -119,11 +119,11 @@ Capture diagnostics and notify operational monitoring systems.
 
 All backend APIs should return a consistent error structure containing:
 
-* Error code
-* Human-readable message
-* Timestamp
-* Correlation/request ID
-* Optional validation details
+- Error code
+- Human-readable message
+- Timestamp
+- Correlation/request ID
+- Optional validation details
 
 Avoid exposing stack traces or sensitive implementation details in API responses.
 
@@ -133,12 +133,12 @@ Avoid exposing stack traces or sensitive implementation details in API responses
 
 Implement:
 
-* Global error boundary
-* Route-level error handling
-* Form validation messages
-* Network failure handling
-* Retry options (where appropriate)
-* Offline indicators (future-ready)
+- Global error boundary
+- Route-level error handling
+- Form validation messages
+- Network failure handling
+- Retry options (where appropriate)
+- Offline indicators (future-ready)
 
 Display actionable messages instead of raw error details.
 
@@ -148,11 +148,11 @@ Display actionable messages instead of raw error details.
 
 Implement centralized error handling for:
 
-* API routes
-* Services
-* Background jobs
-* AI workflows
-* Scheduled tasks
+- API routes
+- Services
+- Background jobs
+- AI workflows
+- Scheduled tasks
 
 Avoid duplicating error handling logic across modules.
 
@@ -162,11 +162,11 @@ Avoid duplicating error handling logic across modules.
 
 Handle scenarios such as:
 
-* Provider timeout
-* Invalid AI response
-* Schema validation failure
-* Retry exhaustion
-* Workflow cancellation
+- Provider timeout
+- Invalid AI response
+- Schema validation failure
+- Retry exhaustion
+- Workflow cancellation
 
 Record workflow failures for future analysis without interrupting unrelated operations.
 
@@ -178,16 +178,16 @@ Use retries only for transient failures.
 
 Suitable candidates:
 
-* Temporary network failures
-* External AI provider timeouts
-* Storage service interruptions
+- Temporary network failures
+- External AI provider timeouts
+- Storage service interruptions
 
 Do not retry:
 
-* Validation errors
-* Authentication failures
-* Authorization failures
-* Business rule violations
+- Validation errors
+- Authentication failures
+- Authorization failures
+- Business rule violations
 
 ---
 
@@ -195,13 +195,13 @@ Do not retry:
 
 Every significant error should include:
 
-* Timestamp
-* Severity
-* Module
-* Request ID
-* User ID (if available and appropriate)
-* Error category
-* Stack trace (server-side only)
+- Timestamp
+- Severity
+- Module
+- Request ID
+- User ID (if available and appropriate)
+- Error category
+- Stack trace (server-side only)
 
 Never log secrets or sensitive personal information.
 
@@ -211,15 +211,15 @@ Never log secrets or sensitive personal information.
 
 Users should always know:
 
-* What happened
-* Whether their action succeeded
-* What they can do next
+- What happened
+- Whether their action succeeded
+- What they can do next
 
 Provide:
 
-* Retry actions
-* Navigation options
-* Contact/support guidance where appropriate
+- Retry actions
+- Navigation options
+- Contact/support guidance where appropriate
 
 ---
 
@@ -229,10 +229,10 @@ Maintain error state separately from business state.
 
 Track:
 
-* Current error
-* Error category
-* Retry status
-* Recovery status
+- Current error
+- Error category
+- Retry status
+- Recovery status
 
 Clear resolved errors promptly to avoid stale UI states.
 
@@ -242,10 +242,10 @@ Clear resolved errors promptly to avoid stale UI states.
 
 Ensure:
 
-* Internal exceptions are not exposed publicly.
-* Sensitive information is redacted.
-* Authorization failures reveal minimal information.
-* Error logs are protected from unauthorized access.
+- Internal exceptions are not exposed publicly.
+- Sensitive information is redacted.
+- Authorization failures reveal minimal information.
+- Error logs are protected from unauthorized access.
 
 ---
 
@@ -253,14 +253,14 @@ Ensure:
 
 Verify:
 
-* Validation errors
-* Authentication failures
-* Authorization failures
-* API failures
-* Database failures
-* AI provider failures
-* Network interruptions
-* Unexpected exceptions
+- Validation errors
+- Authentication failures
+- Authorization failures
+- API failures
+- Database failures
+- AI provider failures
+- Network interruptions
+- Unexpected exceptions
 
 Confirm consistent behavior across modules.
 
@@ -270,10 +270,10 @@ Confirm consistent behavior across modules.
 
 Support recovery through:
 
-* Automatic retries
-* User-initiated retries
-* Session restoration
-* Graceful degradation where possible
+- Automatic retries
+- User-initiated retries
+- Session restoration
+- Graceful degradation where possible
 
 Document recovery behavior for critical workflows.
 
@@ -283,11 +283,11 @@ Document recovery behavior for critical workflows.
 
 Avoid:
 
-* Swallowing exceptions silently.
-* Returning inconsistent error formats.
-* Displaying stack traces to users.
-* Logging sensitive credentials.
-* Retrying non-recoverable failures.
+- Swallowing exceptions silently.
+- Returning inconsistent error formats.
+- Displaying stack traces to users.
+- Logging sensitive credentials.
+- Retrying non-recoverable failures.
 
 ---
 
@@ -295,11 +295,11 @@ Avoid:
 
 The error handling strategy is complete when:
 
-* Errors are categorized consistently.
-* API responses follow a standard format.
-* Logging captures sufficient diagnostics.
-* User-facing messages remain clear and secure.
-* Recovery behavior is documented.
+- Errors are categorized consistently.
+- API responses follow a standard format.
+- Logging captures sufficient diagnostics.
+- User-facing messages remain clear and secure.
+- Recovery behavior is documented.
 
 ---
 
@@ -307,10 +307,10 @@ The error handling strategy is complete when:
 
 Error handling is considered complete when:
 
-* Centralized handling is implemented.
-* User experience remains consistent during failures.
-* Monitoring receives actionable diagnostics.
-* Security requirements are satisfied.
+- Centralized handling is implemented.
+- User experience remains consistent during failures.
+- Monitoring receives actionable diagnostics.
+- Security requirements are satisfied.
 
 ---
 

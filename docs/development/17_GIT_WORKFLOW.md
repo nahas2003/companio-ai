@@ -19,11 +19,11 @@ It establishes a consistent branching strategy, commit conventions, code review 
 
 After adopting this workflow:
 
-* Development is organized and traceable.
-* Parallel feature development is simplified.
-* Releases become predictable.
-* Rollbacks are easier.
-* Collaboration between developers and AI coding agents remains consistent.
+- Development is organized and traceable.
+- Parallel feature development is simplified.
+- Releases become predictable.
+- Rollbacks are easier.
+- Collaboration between developers and AI coding agents remains consistent.
 
 ---
 
@@ -46,23 +46,23 @@ main
 
 ### `main`
 
-* Production-ready code only.
-* Protected branch.
-* Updated only through reviewed merges.
+- Production-ready code only.
+- Protected branch.
+- Updated only through reviewed merges.
 
 ### `develop`
 
-* Primary integration branch.
-* Receives completed feature branches.
-* Used for staging and pre-release validation.
+- Primary integration branch.
+- Receives completed feature branches.
+- Used for staging and pre-release validation.
 
 ### `feature/*`
 
 Examples:
 
-* `feature/authentication`
-* `feature/question-bank`
-* `feature/assessment-module`
+- `feature/authentication`
+- `feature/question-bank`
+- `feature/assessment-module`
 
 One feature per branch.
 
@@ -72,7 +72,7 @@ For non-production bug fixes.
 
 Example:
 
-* `bugfix/question-filter`
+- `bugfix/question-filter`
 
 ### `hotfix/*`
 
@@ -86,7 +86,7 @@ Used to stabilize an upcoming release.
 
 Example:
 
-* `release/v1.0.0`
+- `release/v1.0.0`
 
 ---
 
@@ -102,23 +102,23 @@ Recommended format:
 
 Examples:
 
-* `feat: add assessment publishing`
-* `fix: resolve timer synchronization issue`
-* `docs: update deployment guide`
-* `refactor: simplify question validation`
-* `test: add scoring integration tests`
-* `chore: update dependencies`
+- `feat: add assessment publishing`
+- `fix: resolve timer synchronization issue`
+- `docs: update deployment guide`
+- `refactor: simplify question validation`
+- `test: add scoring integration tests`
+- `chore: update dependencies`
 
 Common types:
 
-* feat
-* fix
-* docs
-* refactor
-* test
-* chore
-* ci
-* perf
+- feat
+- fix
+- docs
+- refactor
+- test
+- chore
+- ci
+- perf
 
 ---
 
@@ -126,12 +126,12 @@ Common types:
 
 Every pull request should include:
 
-* Purpose of the change
-* Related issue or task
-* Summary of implementation
-* Testing performed
-* Screenshots (if UI changes)
-* Known limitations (if any)
+- Purpose of the change
+- Related issue or task
+- Summary of implementation
+- Testing performed
+- Screenshots (if UI changes)
+- Known limitations (if any)
 
 Keep pull requests focused on a single logical change.
 
@@ -141,8 +141,8 @@ Keep pull requests focused on a single logical change.
 
 Prefer:
 
-* **Squash merge** for feature branches to keep history concise.
-* **Merge commit** for release branches when preserving context is valuable.
+- **Squash merge** for feature branches to keep history concise.
+- **Merge commit** for release branches when preserving context is valuable.
 
 Avoid unnecessary merge commits from frequently rebasing feature branches.
 
@@ -152,10 +152,10 @@ Avoid unnecessary merge commits from frequently rebasing feature branches.
 
 Protect critical branches:
 
-* Require pull requests.
-* Require passing CI checks.
-* Prevent force pushes.
-* Require at least one review (or equivalent approval process).
+- Require pull requests.
+- Require passing CI checks.
+- Prevent force pushes.
+- Require at least one review (or equivalent approval process).
 
 ---
 
@@ -189,10 +189,10 @@ MAJOR.MINOR.PATCH
 
 Examples:
 
-* `1.0.0` – Initial stable release
-* `1.1.0` – New backward-compatible feature
-* `1.1.2` – Backward-compatible bug fix
-* `2.0.0` – Breaking changes
+- `1.0.0` – Initial stable release
+- `1.1.0` – New backward-compatible feature
+- `1.1.2` – Backward-compatible bug fix
+- `2.0.0` – Breaking changes
 
 ---
 
@@ -200,10 +200,10 @@ Examples:
 
 When resolving merge conflicts:
 
-* Understand both changes before merging.
-* Preserve intended functionality.
-* Re-run tests after resolution.
-* Avoid blindly accepting one side.
+- Understand both changes before merging.
+- Preserve intended functionality.
+- Re-run tests after resolution.
+- Avoid blindly accepting one side.
 
 Document significant conflict resolutions if they affect architecture.
 
@@ -213,11 +213,11 @@ Document significant conflict resolutions if they affect architecture.
 
 When using AI coding agents:
 
-* Create a dedicated feature branch.
-* Keep prompts aligned with project documentation.
-* Review AI-generated commits before merging.
-* Avoid combining unrelated AI-generated changes in a single branch.
-* Ensure generated code passes all quality checks.
+- Create a dedicated feature branch.
+- Keep prompts aligned with project documentation.
+- Review AI-generated commits before merging.
+- Avoid combining unrelated AI-generated changes in a single branch.
+- Ensure generated code passes all quality checks.
 
 ---
 
@@ -225,10 +225,10 @@ When using AI coding agents:
 
 Regularly:
 
-* Delete merged feature branches.
-* Keep dependencies updated.
-* Archive obsolete branches.
-* Tag stable releases.
+- Delete merged feature branches.
+- Keep dependencies updated.
+- Archive obsolete branches.
+- Tag stable releases.
 
 Maintain a clean repository history.
 
@@ -238,13 +238,13 @@ Maintain a clean repository history.
 
 Review:
 
-* Architecture compliance
-* Coding standards
-* Security considerations
-* Performance implications
-* Test coverage
-* Documentation updates
-* Backward compatibility
+- Architecture compliance
+- Coding standards
+- Security considerations
+- Performance implications
+- Test coverage
+- Documentation updates
+- Backward compatibility
 
 Focus reviews on correctness and maintainability.
 
@@ -254,12 +254,12 @@ Focus reviews on correctness and maintainability.
 
 Every branch should automatically run:
 
-* Dependency installation
-* Linting
-* Type checking
-* Unit tests
-* Integration tests
-* Build verification
+- Dependency installation
+- Linting
+- Type checking
+- Unit tests
+- Integration tests
+- Build verification
 
 Branches failing required checks should not be merged.
 
@@ -269,10 +269,10 @@ Branches failing required checks should not be merged.
 
 Be prepared to recover from:
 
-* Accidental merges
-* Failed releases
-* Broken builds
-* Incorrect commits
+- Accidental merges
+- Failed releases
+- Broken builds
+- Incorrect commits
 
 Use revert operations rather than rewriting shared history whenever practical.
 
@@ -282,11 +282,11 @@ Use revert operations rather than rewriting shared history whenever practical.
 
 Avoid:
 
-* Committing directly to `main`.
-* Mixing unrelated changes in one commit.
-* Large, unreviewable pull requests.
-* Force-pushing shared branches.
-* Leaving stale branches indefinitely.
+- Committing directly to `main`.
+- Mixing unrelated changes in one commit.
+- Large, unreviewable pull requests.
+- Force-pushing shared branches.
+- Leaving stale branches indefinitely.
 
 ---
 
@@ -294,11 +294,11 @@ Avoid:
 
 The Git workflow is complete when:
 
-* Branches follow the defined strategy.
-* Commit messages are consistent.
-* Pull requests include required information.
-* CI checks are enforced.
-* Releases are versioned correctly.
+- Branches follow the defined strategy.
+- Commit messages are consistent.
+- Pull requests include required information.
+- CI checks are enforced.
+- Releases are versioned correctly.
 
 ---
 
@@ -306,10 +306,10 @@ The Git workflow is complete when:
 
 The Git workflow is established when:
 
-* Contributors consistently follow it.
-* Repository history remains clean.
-* Releases are repeatable.
-* AI-assisted development integrates smoothly with human review.
+- Contributors consistently follow it.
+- Repository history remains clean.
+- Releases are repeatable.
+- AI-assisted development integrates smoothly with human review.
 
 ---
 

@@ -13,11 +13,11 @@ This document defines the reusable UI component library for Companio.
 
 Its goals are to:
 
-* Ensure a consistent user interface.
-* Encourage component reuse.
-* Reduce duplicate code.
-* Improve maintainability.
-* Guide AI coding agents toward existing components before creating new ones.
+- Ensure a consistent user interface.
+- Encourage component reuse.
+- Reduce duplicate code.
+- Improve maintainability.
+- Guide AI coding agents toward existing components before creating new ones.
 
 This document is the primary reference for all frontend development.
 
@@ -27,13 +27,13 @@ This document is the primary reference for all frontend development.
 
 Components should be:
 
-* Reusable
-* Accessible
-* Responsive
-* Composable
-* Theme-aware
-* Easy to test
-* Independent of business logic where practical
+- Reusable
+- Accessible
+- Responsive
+- Composable
+- Theme-aware
+- Easy to test
+- Independent of business logic where practical
 
 ---
 
@@ -64,22 +64,22 @@ src/
 
 Variants:
 
-* Primary
-* Secondary
-* Outline
-* Ghost
-* Destructive
-* Success
-* Link
+- Primary
+- Secondary
+- Outline
+- Ghost
+- Destructive
+- Success
+- Link
 
 States:
 
-* Default
-* Hover
-* Focus
-* Active
-* Loading
-* Disabled
+- Default
+- Hover
+- Focus
+- Active
+- Loading
+- Disabled
 
 ---
 
@@ -87,21 +87,21 @@ States:
 
 Support:
 
-* Text
-* Email
-* Password
-* Number
-* Search
-* URL
-* File
+- Text
+- Email
+- Password
+- Number
+- Search
+- URL
+- File
 
 Features:
 
-* Validation
-* Helper text
-* Error message
-* Icons
-* Character counter
+- Validation
+- Helper text
+- Error message
+- Icons
+- Character counter
 
 ---
 
@@ -109,10 +109,10 @@ Features:
 
 Features:
 
-* Auto resize
-* Character limit
-* Validation
-* Markdown support (optional)
+- Auto resize
+- Character limit
+- Validation
+- Markdown support (optional)
 
 ---
 
@@ -120,11 +120,11 @@ Features:
 
 Support:
 
-* Single select
-* Multi-select
-* Searchable
-* Async loading
-* Clear option
+- Single select
+- Multi-select
+- Searchable
+- Async loading
+- Clear option
 
 ---
 
@@ -132,9 +132,9 @@ Support:
 
 Support:
 
-* Single
-* Group
-* Indeterminate
+- Single
+- Group
+- Indeterminate
 
 ---
 
@@ -142,8 +142,8 @@ Support:
 
 Support:
 
-* Horizontal
-* Vertical
+- Horizontal
+- Vertical
 
 ---
 
@@ -151,9 +151,9 @@ Support:
 
 Used for:
 
-* Settings
-* Feature toggles
-* Preferences
+- Settings
+- Feature toggles
+- Preferences
 
 ---
 
@@ -161,11 +161,11 @@ Used for:
 
 Variants:
 
-* Default
-* Success
-* Warning
-* Error
-* Info
+- Default
+- Success
+- Warning
+- Error
+- Info
 
 ---
 
@@ -173,9 +173,9 @@ Variants:
 
 Support:
 
-* Image
-* Initials
-* Placeholder
+- Image
+- Initials
+- Placeholder
 
 ---
 
@@ -183,9 +183,9 @@ Support:
 
 Use for:
 
-* Loading states
-* API calls
-* AI generation
+- Loading states
+- API calls
+- AI generation
 
 ---
 
@@ -195,10 +195,10 @@ Use for:
 
 Contains:
 
-* Header
-* Sidebar
-* Content area
-* Footer (optional)
+- Header
+- Sidebar
+- Content area
+- Footer (optional)
 
 ---
 
@@ -206,9 +206,9 @@ Contains:
 
 Provides:
 
-* Standard page width
-* Padding
-* Responsive spacing
+- Standard page width
+- Padding
+- Responsive spacing
 
 ---
 
@@ -216,9 +216,9 @@ Provides:
 
 Reusable content block with:
 
-* Title
-* Description
-* Actions
+- Title
+- Description
+- Actions
 
 ---
 
@@ -226,21 +226,21 @@ Reusable content block with:
 
 Support:
 
-* Responsive columns
-* Gap utilities
-* Auto layout
+- Responsive columns
+- Gap utilities
+- Auto layout
 
 ---
 
 # 6. Navigation Components
 
-* Sidebar
-* Top Navigation
-* Breadcrumbs
-* Tabs
-* Pagination
-* Stepper
-* Navigation Menu
+- Sidebar
+- Top Navigation
+- Breadcrumbs
+- Tabs
+- Pagination
+- Stepper
+- Navigation Menu
 
 ---
 
@@ -248,32 +248,32 @@ Support:
 
 Reusable forms:
 
-* Login Form
-* Registration Form
-* Profile Form
-* Upload Form
-* Assessment Form
-* Settings Form
+- Login Form
+- Registration Form
+- Profile Form
+- Upload Form
+- Assessment Form
+- Settings Form
 
 Shared utilities:
 
-* Validation messages
-* Error summary
-* Form actions
+- Validation messages
+- Error summary
+- Form actions
 
 ---
 
 # 8. Feedback Components
 
-* Alert
-* Toast
-* Snackbar
-* Confirmation Dialog
-* Error Dialog
-* Empty State
-* Success State
-* Loading State
-* Skeleton Loader
+- Alert
+- Toast
+- Snackbar
+- Confirmation Dialog
+- Error Dialog
+- Empty State
+- Success State
+- Loading State
+- Skeleton Loader
 
 ---
 
@@ -283,12 +283,12 @@ Shared utilities:
 
 Variants:
 
-* Statistic
-* Information
-* Dashboard
-* AI Result
-* Assessment
-* User Profile
+- Statistic
+- Information
+- Dashboard
+- AI Result
+- Assessment
+- User Profile
 
 ---
 
@@ -296,12 +296,12 @@ Variants:
 
 Features:
 
-* Sorting
-* Pagination
-* Search
-* Filters
-* Row selection
-* Responsive layout
+- Sorting
+- Pagination
+- Search
+- Filters
+- Row selection
+- Responsive layout
 
 ---
 
@@ -309,9 +309,9 @@ Features:
 
 Support:
 
-* Simple list
-* Activity list
-* Notification list
+- Simple list
+- Activity list
+- Notification list
 
 ---
 
@@ -319,9 +319,9 @@ Support:
 
 Used for:
 
-* Activity history
-* Processing status
-* Assessment progress
+- Activity history
+- Processing status
+- Assessment progress
 
 ---
 
@@ -329,14 +329,14 @@ Used for:
 
 Reusable components:
 
-* Question Card
-* Question Navigator
-* Answer Options
-* Timer
-* Progress Bar
-* Score Summary
-* Review Panel
-* Results Breakdown
+- Question Card
+- Question Navigator
+- Answer Options
+- Timer
+- Progress Bar
+- Score Summary
+- Review Panel
+- Results Breakdown
 
 ---
 
@@ -344,12 +344,12 @@ Reusable components:
 
 Reusable components:
 
-* AI Generation Status
-* Prompt Preview
-* AI Request Card
-* AI Usage Indicator
-* Generation Progress
-* AI Provider Badge
+- AI Generation Status
+- Prompt Preview
+- AI Request Card
+- AI Usage Indicator
+- Generation Progress
+- AI Provider Badge
 
 ---
 
@@ -357,12 +357,12 @@ Reusable components:
 
 Support:
 
-* Bar Chart
-* Line Chart
-* Pie Chart
-* Donut Chart
-* Area Chart
-* KPI Cards
+- Bar Chart
+- Line Chart
+- Pie Chart
+- Donut Chart
+- Area Chart
+- KPI Cards
 
 Charts should consume standardized data structures.
 
@@ -372,19 +372,19 @@ Charts should consume standardized data structures.
 
 Standard dialogs:
 
-* Confirmation
-* Delete
-* Edit
-* Create
-* Preview
-* Settings
-* Error
+- Confirmation
+- Delete
+- Edit
+- Create
+- Preview
+- Settings
+- Error
 
 Requirements:
 
-* Keyboard accessible
-* Focus management
-* Escape key support
+- Keyboard accessible
+- Focus management
+- Escape key support
 
 ---
 
@@ -392,11 +392,11 @@ Requirements:
 
 All reusable components should:
 
-* Support keyboard navigation.
-* Include visible focus indicators.
-* Use semantic HTML where appropriate.
-* Provide ARIA attributes when necessary.
-* Meet WCAG 2.1 AA standards where practical.
+- Support keyboard navigation.
+- Include visible focus indicators.
+- Use semantic HTML where appropriate.
+- Provide ARIA attributes when necessary.
+- Meet WCAG 2.1 AA standards where practical.
 
 ---
 
@@ -404,12 +404,12 @@ All reusable components should:
 
 Use:
 
-* Shared design tokens
-* Consistent spacing scale
-* Typography scale
-* Color palette
-* Border radius
-* Elevation/shadows
+- Shared design tokens
+- Consistent spacing scale
+- Typography scale
+- Color palette
+- Border radius
+- Elevation/shadows
 
 Avoid inline styles except where necessary.
 
@@ -421,12 +421,12 @@ Use PascalCase.
 
 Examples:
 
-* Button
-* DataTable
-* QuestionCard
-* UploadDialog
-* PracticeTimer
-* UserAvatar
+- Button
+- DataTable
+- QuestionCard
+- UploadDialog
+- PracticeTimer
+- UserAvatar
 
 Component files should match component names.
 
@@ -449,12 +449,12 @@ Before creating a new component, the AI agent should:
 
 Reusable components should include tests for:
 
-* Rendering
-* Props
-* User interactions
-* Accessibility
-* Responsive behavior
-* Error states
+- Rendering
+- Props
+- User interactions
+- Accessibility
+- Responsive behavior
+- Error states
 
 ---
 
@@ -462,8 +462,8 @@ Reusable components should include tests for:
 
 Update this document whenever:
 
-* A reusable component is added.
-* A component is deprecated.
-* Naming conventions change.
-* Design tokens evolve.
-* New accessibility requirements are adopted.
+- A reusable component is added.
+- A component is deprecated.
+- Naming conventions change.
+- Design tokens evolve.
+- New accessibility requirements are adopted.

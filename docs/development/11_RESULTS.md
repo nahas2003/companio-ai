@@ -21,11 +21,11 @@ This module does not conduct assessments or manage rankings.
 
 After completing this module:
 
-* Assessment attempts can be evaluated.
-* Scores are calculated consistently.
-* Performance summaries are generated.
-* Results are stored and retrieved efficiently.
-* Participants can review their outcomes according to assessment settings.
+- Assessment attempts can be evaluated.
+- Scores are calculated consistently.
+- Performance summaries are generated.
+- Results are stored and retrieved efficiently.
+- Participants can review their outcomes according to assessment settings.
 
 ---
 
@@ -33,13 +33,13 @@ After completing this module:
 
 Complete before starting:
 
-* Development documents 00–10
+- Development documents 00–10
 
 Review architecture:
 
-* 18_RESULTS_AND_ANALYTICS.md
-* 12_ASSESSMENT_MODE.md
-* 21_PROJECT_CONSTITUTION.md
+- 18_RESULTS_AND_ANALYTICS.md
+- 12_ASSESSMENT_MODE.md
+- 21_PROJECT_CONSTITUTION.md
 
 ---
 
@@ -53,26 +53,26 @@ Implement a reliable Results module that evaluates completed assessment attempts
 
 The module should support:
 
-* Score calculation
-* Pass/fail evaluation
-* Section-wise performance
-* Performance summaries
-* Result retrieval
-* Result review (when enabled)
+- Score calculation
+- Pass/fail evaluation
+- Section-wise performance
+- Performance summaries
+- Result retrieval
+- Result review (when enabled)
 
 ## Files Allowed to Modify
 
-* `src/features/results/`
-* `src/services/results/`
-* Shared scoring utilities
-* Result schemas
+- `src/features/results/`
+- `src/services/results/`
+- Shared scoring utilities
+- Result schemas
 
 ## Files That Must NOT Be Modified
 
-* Assessment Module
-* Question Bank
-* Leaderboard
-* AI Orchestrator
+- Assessment Module
+- Question Bank
+- Leaderboard
+- AI Orchestrator
 
 ---
 
@@ -123,12 +123,12 @@ A generated result should be immutable. Any re-evaluation should create a new ve
 
 Support configurable scoring rules, including:
 
-* Correct answer scoring
-* Incorrect answer scoring
-* Negative marking (optional)
-* Unanswered questions
-* Partial credit (future-ready)
-* Section-specific scoring (future-ready)
+- Correct answer scoring
+- Incorrect answer scoring
+- Negative marking (optional)
+- Unanswered questions
+- Partial credit (future-ready)
+- Section-specific scoring (future-ready)
 
 Keep scoring logic isolated from presentation logic.
 
@@ -138,14 +138,14 @@ Keep scoring logic isolated from presentation logic.
 
 Implement:
 
-* Results dashboard
-* Individual result page
-* Section-wise breakdown
-* Question review (if enabled)
-* Score summary
-* Pass/fail indicator
-* Performance charts (future-ready)
-* Empty, loading, and error states
+- Results dashboard
+- Individual result page
+- Section-wise breakdown
+- Question review (if enabled)
+- Score summary
+- Pass/fail indicator
+- Performance charts (future-ready)
+- Empty, loading, and error states
 
 Display only information permitted by the assessment configuration.
 
@@ -155,13 +155,13 @@ Display only information permitted by the assessment configuration.
 
 Implement services for:
 
-* Evaluate attempt
-* Calculate score
-* Generate summary
-* Store result
-* Retrieve participant result
-* Retrieve administrative result
-* Audit result generation
+- Evaluate attempt
+- Calculate score
+- Generate summary
+- Store result
+- Retrieve participant result
+- Retrieve administrative result
+- Audit result generation
 
 Evaluation should be deterministic and repeatable.
 
@@ -171,11 +171,11 @@ Evaluation should be deterministic and repeatable.
 
 Create or verify support for:
 
-* Result entity
-* Section summaries
-* Score details
-* Evaluation metadata
-* Audit history
+- Result entity
+- Section summaries
+- Score details
+- Evaluation metadata
+- Audit history
 
 Maintain referential integrity with assessment attempts.
 
@@ -185,11 +185,11 @@ Maintain referential integrity with assessment attempts.
 
 Validate:
 
-* Completed attempt
-* Assessment configuration
-* Question scoring rules
-* Duplicate evaluations
-* Authorized result access
+- Completed attempt
+- Assessment configuration
+- Question scoring rules
+- Duplicate evaluations
+- Authorized result access
 
 Reject evaluations for incomplete attempts unless explicitly supported.
 
@@ -199,12 +199,12 @@ Reject evaluations for incomplete attempts unless explicitly supported.
 
 Manage:
 
-* Current result
-* Loading state
-* Review mode
-* Section summaries
-* Question review state
-* Error state
+- Current result
+- Loading state
+- Review mode
+- Section summaries
+- Question review state
+- Error state
 
 Keep result state synchronized with backend updates.
 
@@ -214,10 +214,10 @@ Keep result state synchronized with backend updates.
 
 Ensure:
 
-* Participants access only their own results unless sharing is enabled.
-* Administrative access follows role-based permissions.
-* Results cannot be modified after publication.
-* Sensitive scoring metadata is protected.
+- Participants access only their own results unless sharing is enabled.
+- Administrative access follows role-based permissions.
+- Results cannot be modified after publication.
+- Sensitive scoring metadata is protected.
 
 ---
 
@@ -225,11 +225,11 @@ Ensure:
 
 The Results interface should provide:
 
-* Clear score presentation
-* Easy-to-read summaries
-* Section performance
-* Optional answer review
-* Consistent navigation
+- Clear score presentation
+- Easy-to-read summaries
+- Section performance
+- Optional answer review
+- Consistent navigation
 
 Avoid overwhelming users with unnecessary technical details.
 
@@ -239,13 +239,13 @@ Avoid overwhelming users with unnecessary technical details.
 
 Verify:
 
-* Scores are calculated correctly.
-* Negative marking behaves correctly.
-* Pass/fail evaluation is accurate.
-* Results persist correctly.
-* Review mode respects configuration.
-* Unauthorized access is blocked.
-* Audit records are created.
+- Scores are calculated correctly.
+- Negative marking behaves correctly.
+- Pass/fail evaluation is accurate.
+- Results persist correctly.
+- Review mode respects configuration.
+- Unauthorized access is blocked.
+- Audit records are created.
 
 ---
 
@@ -253,11 +253,11 @@ Verify:
 
 The module is complete when:
 
-* Scores are generated accurately.
-* Results are stored reliably.
-* Review works according to assessment settings.
-* Security requirements are satisfied.
-* Tests pass.
+- Scores are generated accurately.
+- Results are stored reliably.
+- Review works according to assessment settings.
+- Security requirements are satisfied.
+- Tests pass.
 
 ---
 
@@ -265,11 +265,11 @@ The module is complete when:
 
 Avoid:
 
-* Mixing leaderboard logic into results.
-* Recalculating scores unnecessarily.
-* Allowing edits to published results.
-* Exposing restricted review information.
-* Embedding presentation logic inside scoring services.
+- Mixing leaderboard logic into results.
+- Recalculating scores unnecessarily.
+- Allowing edits to published results.
+- Exposing restricted review information.
+- Embedding presentation logic inside scoring services.
 
 ---
 
@@ -277,10 +277,10 @@ Avoid:
 
 The Results module is complete when:
 
-* Completed attempts can be evaluated consistently.
-* Results are reliable and immutable.
-* Participants and administrators receive appropriate views.
-* The implementation aligns with the project architecture.
+- Completed attempts can be evaluated consistently.
+- Results are reliable and immutable.
+- Participants and administrators receive appropriate views.
+- The implementation aligns with the project architecture.
 
 ---
 

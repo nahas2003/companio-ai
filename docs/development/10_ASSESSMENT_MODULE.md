@@ -21,13 +21,13 @@ Unlike Practice Mode, assessments are controlled, time-bound (when configured), 
 
 After completing this module:
 
-* Assessment Templates can be created.
-* Published Assessments can be generated.
-* Participants can join assessments.
-* Attempts are tracked.
-* Timers are supported.
-* Automatic submission works.
-* Results are generated for evaluation.
+- Assessment Templates can be created.
+- Published Assessments can be generated.
+- Participants can join assessments.
+- Attempts are tracked.
+- Timers are supported.
+- Automatic submission works.
+- Results are generated for evaluation.
 
 ---
 
@@ -35,14 +35,14 @@ After completing this module:
 
 Complete before starting:
 
-* Development documents 00–09
+- Development documents 00–09
 
 Review architecture:
 
-* 12_ASSESSMENT_MODE.md
-* 15_QUESTION_BANK.md
-* 18_RESULTS_AND_ANALYTICS.md
-* 21_PROJECT_CONSTITUTION.md
+- 12_ASSESSMENT_MODE.md
+- 15_QUESTION_BANK.md
+- 18_RESULTS_AND_ANALYTICS.md
+- 21_PROJECT_CONSTITUTION.md
 
 ---
 
@@ -56,28 +56,28 @@ Implement the complete assessment lifecycle from template creation to participan
 
 A module supporting:
 
-* Assessment Template management
-* Publishing assessments
-* Secure participant attempts
-* Timer management
-* Question navigation
-* Submission workflow
-* Auto-submission
-* Attempt persistence
+- Assessment Template management
+- Publishing assessments
+- Secure participant attempts
+- Timer management
+- Question navigation
+- Submission workflow
+- Auto-submission
+- Attempt persistence
 
 ## Files Allowed to Modify
 
-* `src/features/assessment/`
-* `src/services/assessment/`
-* Assessment routing
-* Shared utilities related to assessment flow
+- `src/features/assessment/`
+- `src/services/assessment/`
+- Assessment routing
+- Shared utilities related to assessment flow
 
 ## Files That Must NOT Be Modified
 
-* AI Orchestrator
-* AI Content Processing
-* Question Bank generation
-* Leaderboard calculations
+- AI Orchestrator
+- AI Content Processing
+- Question Bank generation
+- Leaderboard calculations
 
 ---
 
@@ -128,18 +128,18 @@ Published Assessments are immutable. Any changes require publishing a new versio
 
 Implement:
 
-* Assessment Template list
-* Create/Edit Template
-* Publish Assessment
-* Assessment details
-* Participant landing page
-* Attempt screen
-* Question navigation
-* Progress indicator
-* Countdown timer
-* Submit confirmation
-* Auto-submit notification
-* Completion screen
+- Assessment Template list
+- Create/Edit Template
+- Publish Assessment
+- Assessment details
+- Participant landing page
+- Attempt screen
+- Question navigation
+- Progress indicator
+- Countdown timer
+- Submit confirmation
+- Auto-submit notification
+- Completion screen
 
 Provide responsive layouts and accessibility support.
 
@@ -149,16 +149,16 @@ Provide responsive layouts and accessibility support.
 
 Implement services for:
 
-* Create Template
-* Update Template
-* Publish Assessment
-* Start Attempt
-* Load Questions
-* Save Answers
-* Auto-save progress
-* Submit Attempt
-* Auto-submit on timeout
-* Lock completed attempts
+- Create Template
+- Update Template
+- Publish Assessment
+- Start Attempt
+- Load Questions
+- Save Answers
+- Auto-save progress
+- Submit Attempt
+- Auto-submit on timeout
+- Lock completed attempts
 
 ---
 
@@ -166,12 +166,12 @@ Implement services for:
 
 Create or verify support for:
 
-* Assessment Templates
-* Published Assessments
-* Participant Attempts
-* Attempt Answers
-* Submission records
-* Timing metadata
+- Assessment Templates
+- Published Assessments
+- Participant Attempts
+- Attempt Answers
+- Submission records
+- Timing metadata
 
 Ensure foreign keys and indexes support efficient retrieval.
 
@@ -181,12 +181,12 @@ Ensure foreign keys and indexes support efficient retrieval.
 
 Validate:
 
-* Assessment ownership
-* Publication state
-* Attempt eligibility
-* Timer rules
-* Submission state
-* Question availability
+- Assessment ownership
+- Publication state
+- Attempt eligibility
+- Timer rules
+- Submission state
+- Question availability
 
 Prevent duplicate or invalid submissions.
 
@@ -196,14 +196,14 @@ Prevent duplicate or invalid submissions.
 
 Manage:
 
-* Current assessment
-* Attempt
-* Active question
-* Answers
-* Timer
-* Navigation state
-* Submission state
-* Error state
+- Current assessment
+- Attempt
+- Active question
+- Answers
+- Timer
+- Navigation state
+- Submission state
+- Error state
 
 Support recovery after browser refresh when appropriate.
 
@@ -213,11 +213,11 @@ Support recovery after browser refresh when appropriate.
 
 Ensure:
 
-* Participants access only authorized assessments.
-* Published Assessments cannot be modified.
-* Attempts cannot be altered after submission.
-* Timer logic is enforced server-side where required.
-* Input is validated and sanitized.
+- Participants access only authorized assessments.
+- Published Assessments cannot be modified.
+- Attempts cannot be altered after submission.
+- Timer logic is enforced server-side where required.
+- Input is validated and sanitized.
 
 ---
 
@@ -225,12 +225,12 @@ Ensure:
 
 The assessment experience should provide:
 
-* Clear instructions
-* Reliable timer
-* Auto-save
-* Smooth navigation
-* Submission confirmation
-* Consistent completion flow
+- Clear instructions
+- Reliable timer
+- Auto-save
+- Smooth navigation
+- Submission confirmation
+- Consistent completion flow
 
 The interface should minimize distractions during evaluation.
 
@@ -240,14 +240,14 @@ The interface should minimize distractions during evaluation.
 
 Verify:
 
-* Templates are created successfully.
-* Assessments publish correctly.
-* Participants start attempts.
-* Answers auto-save.
-* Timer expires correctly.
-* Auto-submit works.
-* Submitted attempts become read-only.
-* Evaluation is triggered successfully.
+- Templates are created successfully.
+- Assessments publish correctly.
+- Participants start attempts.
+- Answers auto-save.
+- Timer expires correctly.
+- Auto-submit works.
+- Submitted attempts become read-only.
+- Evaluation is triggered successfully.
 
 ---
 
@@ -255,11 +255,11 @@ Verify:
 
 The module is complete when:
 
-* Full assessment lifecycle functions correctly.
-* Published Assessments remain immutable.
-* Participant attempts are reliable.
-* Submission and timing rules are enforced.
-* Tests pass.
+- Full assessment lifecycle functions correctly.
+- Published Assessments remain immutable.
+- Participant attempts are reliable.
+- Submission and timing rules are enforced.
+- Tests pass.
 
 ---
 
@@ -267,11 +267,11 @@ The module is complete when:
 
 Avoid:
 
-* Editing Published Assessments.
-* Mixing Practice Mode logic into assessments.
-* Regenerating AI questions during attempts.
-* Allowing answer changes after submission.
-* Trusting client-side timer enforcement alone.
+- Editing Published Assessments.
+- Mixing Practice Mode logic into assessments.
+- Regenerating AI questions during attempts.
+- Allowing answer changes after submission.
+- Trusting client-side timer enforcement alone.
 
 ---
 
@@ -279,10 +279,10 @@ Avoid:
 
 The Assessment Module is complete when:
 
-* Templates, publication, attempts, and submission all work end-to-end.
-* Data integrity is maintained.
-* Security requirements are satisfied.
-* The module integrates correctly with Results generation.
+- Templates, publication, attempts, and submission all work end-to-end.
+- Data integrity is maintained.
+- Security requirements are satisfied.
+- The module integrates correctly with Results generation.
 
 ---
 

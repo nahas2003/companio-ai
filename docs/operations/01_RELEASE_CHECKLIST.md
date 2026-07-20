@@ -13,11 +13,11 @@ This checklist defines the minimum verification steps required before releasing 
 
 Its objectives are to:
 
-* Reduce deployment risk.
-* Improve release quality.
-* Ensure consistency across releases.
-* Verify operational readiness.
-* Provide a repeatable release process.
+- Reduce deployment risk.
+- Improve release quality.
+- Ensure consistency across releases.
+- Verify operational readiness.
+- Provide a repeatable release process.
 
 No deployment should proceed without completing this checklist.
 
@@ -43,11 +43,11 @@ Record the following information for each release:
 
 Verify:
 
-* Release scope is finalized.
-* All planned tasks are completed.
-* Outstanding issues are reviewed.
-* High-priority defects are resolved or accepted.
-* Stakeholders have been informed (if applicable).
+- Release scope is finalized.
+- All planned tasks are completed.
+- Outstanding issues are reviewed.
+- High-priority defects are resolved or accepted.
+- Stakeholders have been informed (if applicable).
 
 ---
 
@@ -55,12 +55,12 @@ Verify:
 
 Confirm:
 
-* Code review completed.
-* Coding standards followed.
-* No debug code remains.
-* No temporary workarounds left in production code.
-* No unresolved merge conflicts.
-* No unnecessary commented code.
+- Code review completed.
+- Coding standards followed.
+- No debug code remains.
+- No temporary workarounds left in production code.
+- No unresolved merge conflicts.
+- No unnecessary commented code.
 
 ---
 
@@ -70,21 +70,21 @@ Verify:
 
 ## Automated Testing
 
-* Unit tests pass.
-* Integration tests pass.
-* API tests pass.
-* End-to-end tests pass (if applicable).
+- Unit tests pass.
+- Integration tests pass.
+- API tests pass.
+- End-to-end tests pass (if applicable).
 
 ## Manual Testing
 
-* Critical user flows verified.
-* Authentication works.
-* Practice Mode works.
-* Assessment workflow works.
-* AI question generation works.
-* Dashboard loads correctly.
-* Notifications function correctly.
-* Administration pages operate as expected.
+- Critical user flows verified.
+- Authentication works.
+- Practice Mode works.
+- Assessment workflow works.
+- AI question generation works.
+- Dashboard loads correctly.
+- Notifications function correctly.
+- Administration pages operate as expected.
 
 ---
 
@@ -92,11 +92,11 @@ Verify:
 
 Confirm:
 
-* Required migrations have been reviewed.
-* Migrations execute successfully.
-* Rollback strategy exists where practical.
-* Seed data is valid.
-* Database backups are available before production changes.
+- Required migrations have been reviewed.
+- Migrations execute successfully.
+- Rollback strategy exists where practical.
+- Seed data is valid.
+- Database backups are available before production changes.
 
 ---
 
@@ -104,13 +104,13 @@ Confirm:
 
 Verify:
 
-* Secrets are not committed to source control.
-* Environment variables are configured correctly.
-* Authentication works.
-* Authorization rules are enforced.
-* File upload restrictions are active.
-* Rate limiting is enabled.
-* Dependency vulnerabilities have been reviewed.
+- Secrets are not committed to source control.
+- Environment variables are configured correctly.
+- Authentication works.
+- Authorization rules are enforced.
+- File upload restrictions are active.
+- Rate limiting is enabled.
+- Dependency vulnerabilities have been reviewed.
 
 ---
 
@@ -118,12 +118,12 @@ Verify:
 
 Confirm:
 
-* Application builds successfully.
-* Bundle size reviewed.
-* Slow queries optimized.
-* API performance verified.
-* Large file uploads tested.
-* AI response times reviewed.
+- Application builds successfully.
+- Bundle size reviewed.
+- Slow queries optimized.
+- API performance verified.
+- Large file uploads tested.
+- AI response times reviewed.
 
 ---
 
@@ -131,12 +131,12 @@ Confirm:
 
 Verify:
 
-* Environment variables are complete.
-* Storage is accessible.
-* Database connectivity works.
-* AI provider configuration is valid.
-* Email services are operational.
-* Monitoring systems are available.
+- Environment variables are complete.
+- Storage is accessible.
+- Database connectivity works.
+- AI provider configuration is valid.
+- Email services are operational.
+- Monitoring systems are available.
 
 ---
 
@@ -144,12 +144,12 @@ Verify:
 
 Confirm:
 
-* Application logging enabled.
-* Error logging operational.
-* Audit logging active.
-* Health checks responding.
-* Monitoring dashboards available.
-* Alerts configured for critical failures.
+- Application logging enabled.
+- Error logging operational.
+- Audit logging active.
+- Health checks responding.
+- Monitoring dashboards available.
+- Alerts configured for critical failures.
 
 ---
 
@@ -157,13 +157,13 @@ Confirm:
 
 Ensure the following are up to date:
 
-* README
-* CHANGELOG
-* Deployment Guide
-* API Reference
-* Database Dictionary
-* Architecture documents
-* Task documentation (if applicable)
+- README
+- CHANGELOG
+- Deployment Guide
+- API Reference
+- Database Dictionary
+- Architecture documents
+- Task documentation (if applicable)
 
 ---
 
@@ -171,12 +171,12 @@ Ensure the following are up to date:
 
 Before deployment:
 
-* Build artifacts generated successfully.
-* Version number updated.
-* Release notes prepared.
-* Configuration validated.
-* Rollback plan confirmed.
-* Maintenance window communicated (if required).
+- Build artifacts generated successfully.
+- Version number updated.
+- Release notes prepared.
+- Configuration validated.
+- Rollback plan confirmed.
+- Maintenance window communicated (if required).
 
 ---
 
@@ -184,16 +184,16 @@ Before deployment:
 
 Immediately after deployment:
 
-* Application starts successfully.
-* Login works.
-* Dashboard loads.
-* File uploads succeed.
-* AI services respond correctly.
-* Practice Mode works.
-* Assessment flow completes successfully.
-* Results are generated.
-* Notifications are delivered.
-* Admin functions are accessible.
+- Application starts successfully.
+- Login works.
+- Dashboard loads.
+- File uploads succeed.
+- AI services respond correctly.
+- Practice Mode works.
+- Assessment flow completes successfully.
+- Results are generated.
+- Notifications are delivered.
+- Admin functions are accessible.
 
 ---
 
@@ -201,12 +201,12 @@ Immediately after deployment:
 
 Rollback should be considered if:
 
-* Critical authentication failures occur.
-* Data corruption is detected.
-* AI services consistently fail.
-* Core workflows become unusable.
-* Severe performance degradation occurs.
-* Security vulnerabilities are identified after deployment.
+- Critical authentication failures occur.
+- Data corruption is detected.
+- AI services consistently fail.
+- Core workflows become unusable.
+- Severe performance degradation occurs.
+- Security vulnerabilities are identified after deployment.
 
 ---
 
@@ -238,10 +238,10 @@ Before initiating a deployment, the AI agent should:
 
 Review and update this checklist whenever:
 
-* The deployment process changes.
-* New infrastructure is introduced.
-* Security requirements evolve.
-* Testing standards are updated.
-* Release governance changes.
+- The deployment process changes.
+- New infrastructure is introduced.
+- Security requirements evolve.
+- Testing standards are updated.
+- Release governance changes.
 
 This checklist should be used for every staging and production release to ensure consistent quality and operational readiness.

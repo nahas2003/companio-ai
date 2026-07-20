@@ -34,11 +34,11 @@ Transform uploaded documents into structured, normalized content that can be rel
 
 At the end of this task:
 
-* Uploaded documents are processed.
-* Text is extracted successfully.
-* Metadata is generated.
-* Processing status is tracked.
-* Failed processing can be retried.
+- Uploaded documents are processed.
+- Text is extracted successfully.
+- Metadata is generated.
+- Processing status is tracked.
+- Failed processing can be retried.
 
 ---
 
@@ -48,31 +48,31 @@ Implement:
 
 ### Processing Pipeline
 
-* Detect file type
-* Extract text
-* Normalize formatting
-* Remove unsupported elements
-* Preserve document structure where practical
+- Detect file type
+- Extract text
+- Normalize formatting
+- Remove unsupported elements
+- Preserve document structure where practical
 
 ### Metadata
 
 Generate:
 
-* Title
-* File size
-* Page count (where applicable)
-* Word count
-* Processing timestamp
-* Processing status
+- Title
+- File size
+- Page count (where applicable)
+- Word count
+- Processing timestamp
+- Processing status
 
 ### Status Management
 
 Support:
 
-* Pending
-* Processing
-* Completed
-* Failed
+- Pending
+- Processing
+- Completed
+- Failed
 
 ### Retry
 
@@ -84,14 +84,14 @@ Allow failed processing to be retried without requiring the user to upload the f
 
 Future versions may include:
 
-* OCR for scanned PDFs
-* Table extraction
-* Image extraction
-* Multi-language detection
-* Section detection
-* Automatic chapter segmentation
-* Content summarization
-* Duplicate content detection
+- OCR for scanned PDFs
+- Table extraction
+- Image extraction
+- Multi-language detection
+- Section detection
+- Automatic chapter segmentation
+- Content summarization
+- Duplicate content detection
 
 ---
 
@@ -99,13 +99,13 @@ Future versions may include:
 
 Do **not** implement:
 
-* AI API calls
-* Prompt generation
-* Question generation
-* Embeddings
-* Vector storage
-* Practice mode
-* Assessment generation
+- AI API calls
+- Prompt generation
+- Question generation
+- Embeddings
+- Vector storage
+- Practice mode
+- Assessment generation
 
 This task ends once structured content is ready.
 
@@ -115,17 +115,17 @@ This task ends once structured content is ready.
 
 ## Architecture
 
-* Source Upload architecture
-* Document Processing architecture
-* AI architecture overview
-* Master Project Specification
+- Source Upload architecture
+- Document Processing architecture
+- AI architecture overview
+- Master Project Specification
 
 ## Development
 
-* Coding Standards
-* Error Handling
-* Performance Guidelines
-* AI Agent Workflow
+- Coding Standards
+- Error Handling
+- Performance Guidelines
+- AI Agent Workflow
 
 ---
 
@@ -133,13 +133,13 @@ This task ends once structured content is ready.
 
 Complete:
 
-* 001–007
+- 001–007
 
 Verify:
 
-* Upload module functions correctly.
-* Files are securely stored.
-* Metadata is available.
+- Upload module functions correctly.
+- Files are securely stored.
+- Metadata is available.
 
 ---
 
@@ -147,13 +147,13 @@ Verify:
 
 ### Input
 
-* Uploaded learning materials
+- Uploaded learning materials
 
 ### Output
 
-* Structured content
-* Processing metadata
-* Processing status
+- Structured content
+- Processing metadata
+- Processing status
 
 Future modules consume these outputs.
 
@@ -163,12 +163,12 @@ Future modules consume these outputs.
 
 The AI may modify:
 
-* Processing services
-* File parsers
-* Text extraction utilities
-* Processing queue (if introduced)
-* Metadata services
-* Status tracking components
+- Processing services
+- File parsers
+- Text extraction utilities
+- Processing queue (if introduced)
+- Metadata services
+- Status tracking components
 
 ---
 
@@ -176,11 +176,11 @@ The AI may modify:
 
 Do **not** implement:
 
-* AI providers
-* Prompt management
-* Question generation
-* Practice
-* Assessment
+- AI providers
+- Prompt management
+- Question generation
+- Practice
+- Assessment
 
 Prepare clean content only.
 
@@ -190,10 +190,10 @@ Prepare clean content only.
 
 Allowed:
 
-* Processing status
-* Extracted text storage
-* Processing metadata
-* Retry tracking
+- Processing status
+- Extracted text storage
+- Processing metadata
+- Retry tracking
 
 Avoid AI-specific database structures.
 
@@ -203,11 +203,11 @@ Avoid AI-specific database structures.
 
 The processor should:
 
-* Handle supported file types.
-* Validate processing success.
-* Produce consistent output.
-* Handle failures gracefully.
-* Preserve meaningful document structure.
+- Handle supported file types.
+- Validate processing success.
+- Produce consistent output.
+- Handle failures gracefully.
+- Preserve meaningful document structure.
 
 ---
 
@@ -215,11 +215,11 @@ The processor should:
 
 Implement:
 
-* Processing status indicator
-* Progress display
-* Retry action
-* Processing history
-* Error messages
+- Processing status indicator
+- Progress display
+- Retry action
+- Processing history
+- Error messages
 
 ---
 
@@ -227,12 +227,12 @@ Implement:
 
 Implement:
 
-* Text extraction
-* Content normalization
-* Metadata generation
-* Processing service
-* Retry handling
-* Logging
+- Text extraction
+- Content normalization
+- Metadata generation
+- Processing service
+- Retry handling
+- Logging
 
 ---
 
@@ -240,22 +240,22 @@ Implement:
 
 The AI must:
 
-* Keep processing independent of AI providers.
-* Build reusable extraction utilities.
-* Produce deterministic output.
-* Log processing failures.
-* Validate extracted content.
+- Keep processing independent of AI providers.
+- Build reusable extraction utilities.
+- Produce deterministic output.
+- Log processing failures.
+- Validate extracted content.
 
 ---
 
 # 18. Implementation Checklist
 
-* File type detection implemented
-* Text extraction completed
-* Metadata generated
-* Processing status tracked
-* Retry mechanism implemented
-* Error handling completed
+- File type detection implemented
+- Text extraction completed
+- Metadata generated
+- Processing status tracked
+- Retry mechanism implemented
+- Error handling completed
 
 ---
 
@@ -263,12 +263,12 @@ The AI must:
 
 Verify:
 
-* PDFs process correctly.
-* DOCX files process correctly.
-* TXT files process correctly.
-* Invalid files fail gracefully.
-* Retry succeeds after transient failures.
-* Metadata is generated accurately.
+- PDFs process correctly.
+- DOCX files process correctly.
+- TXT files process correctly.
+- Invalid files fail gracefully.
+- Retry succeeds after transient failures.
+- Metadata is generated accurately.
 
 ---
 
@@ -276,11 +276,11 @@ Verify:
 
 Task is complete when:
 
-* Supported documents are processed successfully.
-* Structured content is available.
-* Status tracking works.
-* Retry functionality operates correctly.
-* No AI processing occurs in this task.
+- Supported documents are processed successfully.
+- Structured content is available.
+- Status tracking works.
+- Retry functionality operates correctly.
+- No AI processing occurs in this task.
 
 ---
 
@@ -288,11 +288,11 @@ Task is complete when:
 
 Document Processing is complete when:
 
-* Extraction is reliable.
-* Content is normalized.
-* Metadata is available.
-* Processing failures are recoverable.
-* Tests pass.
+- Extraction is reliable.
+- Content is normalized.
+- Metadata is available.
+- Processing failures are recoverable.
+- Tests pass.
 
 ---
 
@@ -300,12 +300,12 @@ Document Processing is complete when:
 
 Expected outputs:
 
-* Processing service
-* Text extraction utilities
-* Metadata generation
-* Processing status tracking
-* Retry workflow
-* Supporting tests
+- Processing service
+- Text extraction utilities
+- Metadata generation
+- Processing status tracking
+- Retry workflow
+- Supporting tests
 
 ---
 

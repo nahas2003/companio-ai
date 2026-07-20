@@ -28,13 +28,13 @@ No implementation should violate this architecture.
 
 The architecture is designed for:
 
-* Simplicity
-* Maintainability
-* Reusability
-* Security
-* Scalability
-* Testability
-* AI-assisted development
+- Simplicity
+- Maintainability
+- Reusability
+- Security
+- Scalability
+- Testability
+- AI-assisted development
 
 ---
 
@@ -77,16 +77,16 @@ The architecture is designed for:
 
 Responsible for:
 
-* UI
-* User interaction
-* Forms
-* Navigation
-* Validation before API calls
+- UI
+- User interaction
+- Forms
+- Navigation
+- Validation before API calls
 
 Never:
 
-* Access database directly
-* Call AI providers directly
+- Access database directly
+- Call AI providers directly
 
 ---
 
@@ -94,11 +94,11 @@ Never:
 
 Responsible for:
 
-* Business logic
-* API communication
-* Validation
-* Data transformation
-* Error handling
+- Business logic
+- API communication
+- Validation
+- Data transformation
+- Error handling
 
 ---
 
@@ -106,12 +106,12 @@ Responsible for:
 
 Responsible for:
 
-* Authentication
-* Database operations
-* File storage
-* Assessment management
-* Security
-* AI orchestration
+- Authentication
+- Database operations
+- File storage
+- Assessment management
+- Security
+- AI orchestration
 
 ---
 
@@ -119,11 +119,11 @@ Responsible for:
 
 Responsible for:
 
-* Persistent storage
-* Relationships
-* Constraints
-* Indexes
-* Security policies
+- Persistent storage
+- Relationships
+- Constraints
+- Indexes
+- Security policies
 
 ---
 
@@ -131,11 +131,11 @@ Responsible for:
 
 Responsible for:
 
-* Prompt creation
-* AI provider selection
-* Response validation
-* Structured output
-* Caching
+- Prompt creation
+- AI provider selection
+- Response validation
+- Structured output
+- Caching
 
 ---
 
@@ -143,10 +143,10 @@ Responsible for:
 
 ## Authentication
 
-* Login
-* Registration
-* Session management
-* User profile
+- Login
+- Registration
+- Session management
+- User profile
 
 ---
 
@@ -154,9 +154,9 @@ Responsible for:
 
 Responsible for:
 
-* Topic practice
-* PDF practice
-* Notes practice
+- Topic practice
+- PDF practice
+- Notes practice
 
 ---
 
@@ -164,10 +164,10 @@ Responsible for:
 
 Responsible for:
 
-* Assessment creation
-* Assessment editing
-* Assessment publishing
-* Assessment joining
+- Assessment creation
+- Assessment editing
+- Assessment publishing
+- Assessment joining
 
 ---
 
@@ -175,10 +175,10 @@ Responsible for:
 
 Responsible for:
 
-* AI questions
-* Cache
-* Reuse
-* Validation
+- AI questions
+- Cache
+- Reuse
+- Validation
 
 ---
 
@@ -186,9 +186,9 @@ Responsible for:
 
 Responsible for:
 
-* Rankings
-* Live updates
-* Score calculation
+- Rankings
+- Live updates
+- Score calculation
 
 ---
 
@@ -196,9 +196,9 @@ Responsible for:
 
 Responsible for:
 
-* Score
-* History
-* Review
+- Score
+- History
+- Review
 
 ---
 
@@ -482,11 +482,11 @@ Future additions should require minimal changes.
 
 Examples:
 
-* New AI provider
-* New question type
-* Mobile application
-* Coding assessments
-* Essay evaluation
+- New AI provider
+- New question type
+- Mobile application
+- Coding assessments
+- Essay evaluation
 
 These should be added by extending existing modules rather than rewriting them.
 
@@ -498,22 +498,22 @@ Every layer handles its own errors.
 
 Frontend
 
-* Display friendly messages.
+- Display friendly messages.
 
 Backend
 
-* Log errors.
-* Return safe responses.
+- Log errors.
+- Return safe responses.
 
 AI Layer
 
-* Retry safe requests.
-* Switch provider if possible.
+- Retry safe requests.
+- Switch provider if possible.
 
 Database
 
-* Enforce constraints.
-* Prevent invalid data.
+- Enforce constraints.
+- Prevent invalid data.
 
 ---
 
@@ -521,19 +521,19 @@ Database
 
 Log:
 
-* Authentication events
-* Assessment creation
-* AI requests
-* AI failures
-* Upload failures
-* Critical exceptions
+- Authentication events
+- Assessment creation
+- AI requests
+- AI failures
+- Upload failures
+- Critical exceptions
 
 Never log:
 
-* Passwords
-* Tokens
-* API keys
-* Sensitive personal information
+- Passwords
+- Tokens
+- API keys
+- Sensitive personal information
 
 ---
 
@@ -541,16 +541,16 @@ Never log:
 
 Every AI coding agent must:
 
-* Read this architecture before implementation.
-* Modify only the required files.
-* Never refactor unrelated modules.
-* Preserve public interfaces unless explicitly instructed.
-* Follow folder responsibilities.
-* Reuse existing services.
-* Reuse existing components.
-* Keep components focused.
-* Avoid duplicate code.
-* Prefer extension over replacement.
+- Read this architecture before implementation.
+- Modify only the required files.
+- Never refactor unrelated modules.
+- Preserve public interfaces unless explicitly instructed.
+- Follow folder responsibilities.
+- Reuse existing services.
+- Reuse existing components.
+- Keep components focused.
+- Avoid duplicate code.
+- Prefer extension over replacement.
 
 ---
 
@@ -558,14 +558,14 @@ Every AI coding agent must:
 
 Before completing any implementation:
 
-* Project builds successfully.
-* No TypeScript errors.
-* No lint errors.
-* Existing routes still work.
-* Existing APIs still work.
-* No database schema conflicts.
-* No duplicated logic introduced.
-* Documentation updated if behavior changed.
+- Project builds successfully.
+- No TypeScript errors.
+- No lint errors.
+- Existing routes still work.
+- Existing APIs still work.
+- No database schema conflicts.
+- No duplicated logic introduced.
+- Documentation updated if behavior changed.
 
 If any check fails, the implementation is incomplete.
 
@@ -575,15 +575,15 @@ If any check fails, the implementation is incomplete.
 
 Depends on:
 
-* 00_PROJECT_OVERVIEW.md
-* 01_PRODUCT_REQUIREMENTS.md
+- 00_PROJECT_OVERVIEW.md
+- 01_PRODUCT_REQUIREMENTS.md
 
 Referenced by:
 
-* 03_TECH_STACK.md
-* 04_PROJECT_STRUCTURE.md
-* 05_DATABASE_ARCHITECTURE.md
-* 06_API_SPECIFICATION.md
-* 07_SECURITY_ARCHITECTURE.md
-* 08_AI_ARCHITECTURE.md
-* All feature specification documents
+- 03_TECH_STACK.md
+- 04_PROJECT_STRUCTURE.md
+- 05_DATABASE_ARCHITECTURE.md
+- 06_API_SPECIFICATION.md
+- 07_SECURITY_ARCHITECTURE.md
+- 08_AI_ARCHITECTURE.md
+- All feature specification documents

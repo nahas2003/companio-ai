@@ -22,11 +22,11 @@ The source of truth is the **Result** generated after an assessment attempt is e
 
 The ranking engine should:
 
-* Rank participants fairly.
-* Support configurable ranking strategies.
-* Handle ties consistently.
-* Scale to large participant counts.
-* Be reusable for future ranking scenarios.
+- Rank participants fairly.
+- Support configurable ranking strategies.
+- Handle ties consistently.
+- Scale to large participant counts.
+- Be reusable for future ranking scenarios.
 
 ---
 
@@ -67,12 +67,12 @@ If all criteria are equal, participants share the same rank.
 
 Each leaderboard entry should include:
 
-* Rank
-* Participant display name
-* Score
-* Percentage
-* Completion time
-* Submission time
+- Rank
+- Participant display name
+- Score
+- Percentage
+- Completion time
+- Submission time
 
 Optional fields depend on assessment settings.
 
@@ -82,16 +82,16 @@ Optional fields depend on assessment settings.
 
 ## MVP
 
-* Per Published Assessment
+- Per Published Assessment
 
 ## Future
 
-* Organization leaderboard
-* Class leaderboard
-* Monthly leaderboard
-* Weekly leaderboard
-* Overall platform leaderboard
-* Subject leaderboard
+- Organization leaderboard
+- Class leaderboard
+- Monthly leaderboard
+- Weekly leaderboard
+- Overall platform leaderboard
+- Subject leaderboard
 
 ---
 
@@ -99,10 +99,10 @@ Optional fields depend on assessment settings.
 
 The creator controls whether a leaderboard is:
 
-* Public
-* Participants only
-* Creator only
-* Disabled
+- Public
+- Participants only
+- Creator only
+- Disabled
 
 If disabled, rankings must not be exposed to participants.
 
@@ -112,8 +112,8 @@ If disabled, rankings must not be exposed to participants.
 
 If multiple participants have identical ranking values:
 
-* Assign the same rank.
-* Skip subsequent rank numbers as appropriate.
+- Assign the same rank.
+- Skip subsequent rank numbers as appropriate.
 
 Example:
 
@@ -130,10 +130,10 @@ Rank 4
 
 Recommendations:
 
-* Calculate rankings after result generation.
-* Cache leaderboard views.
-* Refresh only when new results are added.
-* Avoid recomputing unchanged rankings.
+- Calculate rankings after result generation.
+- Cache leaderboard views.
+- Refresh only when new results are added.
+- Avoid recomputing unchanged rankings.
 
 ---
 
@@ -141,9 +141,9 @@ Recommendations:
 
 Primary endpoints:
 
-* `GET /leaderboards/{publishedAssessmentId}`
-* `GET /leaderboards/{publishedAssessmentId}/top`
-* `GET /leaderboards/{publishedAssessmentId}/me`
+- `GET /leaderboards/{publishedAssessmentId}`
+- `GET /leaderboards/{publishedAssessmentId}/top`
+- `GET /leaderboards/{publishedAssessmentId}/me`
 
 Future endpoints may support additional leaderboard scopes.
 
@@ -153,10 +153,10 @@ Future endpoints may support additional leaderboard scopes.
 
 Primary entities:
 
-* published_assessments
-* participants
-* attempts
-* results
+- published_assessments
+- participants
+- attempts
+- results
 
 The leaderboard itself may be generated dynamically or cached, but it should not replace the underlying result records.
 
@@ -166,10 +166,10 @@ The leaderboard itself may be generated dynamically or cached, but it should not
 
 Rules:
 
-* Respect assessment visibility settings.
-* Never expose hidden participant information.
-* Enforce authorization for creator-only views.
-* Prevent unauthorized access to private rankings.
+- Respect assessment visibility settings.
+- Never expose hidden participant information.
+- Enforce authorization for creator-only views.
+- Prevent unauthorized access to private rankings.
 
 ---
 
@@ -177,11 +177,11 @@ Rules:
 
 Handle:
 
-* Assessment not found.
-* Leaderboard disabled.
-* No completed results.
-* Unauthorized access.
-* Ranking calculation failure.
+- Assessment not found.
+- Leaderboard disabled.
+- No completed results.
+- Unauthorized access.
+- Ranking calculation failure.
 
 Provide clear responses without exposing internal details.
 
@@ -189,14 +189,14 @@ Provide clear responses without exposing internal details.
 
 # 14. Future Enhancements
 
-* Negative marking support.
-* Weighted ranking.
-* Section-wise ranking.
-* Percentile calculation.
-* Achievement badges.
-* Certificates based on rank.
-* Export to CSV/PDF.
-* Live leaderboard updates.
+- Negative marking support.
+- Weighted ranking.
+- Section-wise ranking.
+- Percentile calculation.
+- Achievement badges.
+- Certificates based on rank.
+- Export to CSV/PDF.
+- Live leaderboard updates.
 
 ---
 
@@ -204,10 +204,10 @@ Provide clear responses without exposing internal details.
 
 Every AI coding agent must:
 
-* Treat the leaderboard as a derived view.
-* Never modify Result records during ranking.
-* Keep ranking logic deterministic.
-* Support future ranking strategies without breaking existing APIs.
+- Treat the leaderboard as a derived view.
+- Never modify Result records during ranking.
+- Keep ranking logic deterministic.
+- Support future ranking strategies without breaking existing APIs.
 
 ---
 
@@ -215,12 +215,12 @@ Every AI coding agent must:
 
 The feature is complete when:
 
-* Results can be ranked.
-* Ties are handled consistently.
-* Visibility rules are enforced.
-* Rankings update after new results.
-* APIs return correct leaderboard data.
-* Performance remains acceptable for expected participant volumes.
+- Results can be ranked.
+- Ties are handled consistently.
+- Visibility rules are enforced.
+- Rankings update after new results.
+- APIs return correct leaderboard data.
+- Performance remains acceptable for expected participant volumes.
 
 ---
 
@@ -228,16 +228,16 @@ The feature is complete when:
 
 ## Depends On
 
-* 00–16
+- 00–16
 
 ## Used By
 
-* 18_RESULTS_AND_HISTORY.md
-* Future Analytics modules
-* Certificate generation
+- 18_RESULTS_AND_HISTORY.md
+- Future Analytics modules
+- Certificate generation
 
 ## Related Documents
 
-* 08_SECURITY_ARCHITECTURE.md
-* 12_ASSESSMENT_MODE.md
-* 15_QUESTION_BANK.md
+- 08_SECURITY_ARCHITECTURE.md
+- 12_ASSESSMENT_MODE.md
+- 15_QUESTION_BANK.md

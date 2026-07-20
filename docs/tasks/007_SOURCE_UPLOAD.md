@@ -34,12 +34,12 @@ Provide a reliable way for users to submit learning materials that will later be
 
 At the end of this task, users should be able to:
 
-* Upload supported learning materials.
-* View uploaded files.
-* Rename learning sources.
-* Delete learning sources.
-* Organize uploaded content.
-* See upload status and validation messages.
+- Upload supported learning materials.
+- View uploaded files.
+- Rename learning sources.
+- Delete learning sources.
+- Organize uploaded content.
+- See upload status and validation messages.
 
 ---
 
@@ -49,34 +49,34 @@ Implement:
 
 ### Upload
 
-* Drag-and-drop upload
-* File picker
-* Upload progress
-* Cancel upload
-* Retry failed upload
+- Drag-and-drop upload
+- File picker
+- Upload progress
+- Cancel upload
+- Retry failed upload
 
 ### Supported File Types
 
-* PDF
-* DOCX
-* TXT
-* PPTX (optional for V1)
-* Markdown (.md)
+- PDF
+- DOCX
+- TXT
+- PPTX (optional for V1)
+- Markdown (.md)
 
 ### Source Management
 
-* List uploaded materials
-* View file details
-* Rename files
-* Delete files
-* Search uploaded materials
+- List uploaded materials
+- View file details
+- Rename files
+- Delete files
+- Search uploaded materials
 
 ### Validation
 
-* File type validation
-* File size validation
-* Duplicate filename handling
-* Upload error handling
+- File type validation
+- File size validation
+- Duplicate filename handling
+- Upload error handling
 
 ---
 
@@ -84,16 +84,16 @@ Implement:
 
 Future versions may include:
 
-* Folder organization
-* Bulk uploads
-* ZIP extraction
-* Cloud storage imports
-* Google Drive integration
-* OneDrive integration
-* Dropbox integration
-* Version history
-* OCR for scanned PDFs
-* Automatic language detection
+- Folder organization
+- Bulk uploads
+- ZIP extraction
+- Cloud storage imports
+- Google Drive integration
+- OneDrive integration
+- Dropbox integration
+- Version history
+- OCR for scanned PDFs
+- Automatic language detection
 
 ---
 
@@ -101,12 +101,12 @@ Future versions may include:
 
 Do **not** implement:
 
-* AI processing
-* Text extraction
-* Question generation
-* Practice sessions
-* Assessments
-* Results
+- AI processing
+- Text extraction
+- Question generation
+- Practice sessions
+- Assessments
+- Results
 
 Only upload and manage learning materials.
 
@@ -116,18 +116,18 @@ Only upload and manage learning materials.
 
 ## Architecture
 
-* Source Upload specification
-* Storage architecture
-* System architecture
-* Master Project Specification
+- Source Upload specification
+- Storage architecture
+- System architecture
+- Master Project Specification
 
 ## Development
 
-* Coding Standards
-* Environment Configuration
-* Security Checklist
-* Performance Guidelines
-* AI Agent Workflow
+- Coding Standards
+- Environment Configuration
+- Security Checklist
+- Performance Guidelines
+- AI Agent Workflow
 
 ---
 
@@ -135,12 +135,12 @@ Only upload and manage learning materials.
 
 Complete:
 
-* 001 Project Setup
-* 002 Authentication
-* 003 User Profile
-* 004 RBAC
-* 005 App Layout
-* 006 Dashboard
+- 001 Project Setup
+- 002 Authentication
+- 003 User Profile
+- 004 RBAC
+- 005 App Layout
+- 006 Dashboard
 
 ---
 
@@ -150,17 +150,17 @@ This module connects with:
 
 ### Previous Modules
 
-* Authentication
-* User Profile
-* Dashboard
-* Storage
+- Authentication
+- User Profile
+- Dashboard
+- Storage
 
 ### Future Modules
 
-* AI Processing
-* Question Generation
-* Practice Mode
-* Assessment Module
+- AI Processing
+- Question Generation
+- Practice Mode
+- Assessment Module
 
 The upload module should expose clean interfaces for future AI processing.
 
@@ -170,13 +170,13 @@ The upload module should expose clean interfaces for future AI processing.
 
 The AI may modify:
 
-* Upload pages
-* Upload components
-* Storage services
-* Upload hooks
-* File validation utilities
-* Upload API handlers
-* Source management pages
+- Upload pages
+- Upload components
+- Storage services
+- Upload hooks
+- File validation utilities
+- Upload API handlers
+- Source management pages
 
 ---
 
@@ -184,12 +184,12 @@ The AI may modify:
 
 Do **not** implement:
 
-* AI services
-* Question generation
-* Practice module
-* Assessment module
-* Results
-* Notifications
+- AI services
+- Question generation
+- Practice module
+- Assessment module
+- Results
+- Notifications
 
 Prepare the data for those modules without implementing them.
 
@@ -199,11 +199,11 @@ Prepare the data for those modules without implementing them.
 
 Allowed:
 
-* Learning sources table
-* File metadata
-* Upload status
-* Ownership relationships
-* Required indexes
+- Learning sources table
+- File metadata
+- Upload status
+- Ownership relationships
+- Required indexes
 
 Do not create AI-related tables in this task.
 
@@ -213,12 +213,12 @@ Do not create AI-related tables in this task.
 
 Implement support for:
 
-* Secure file uploads
-* Private storage
-* User ownership
-* File deletion
-* File metadata
-* Storage validation
+- Secure file uploads
+- Private storage
+- User ownership
+- File deletion
+- File metadata
+- Storage validation
 
 ---
 
@@ -226,15 +226,15 @@ Implement support for:
 
 Implement:
 
-* Upload page
-* Drag-and-drop component
-* Upload progress
-* File list
-* File details
-* Search
-* Empty states
-* Loading states
-* Error handling
+- Upload page
+- Drag-and-drop component
+- Upload progress
+- File list
+- File details
+- Search
+- Empty states
+- Loading states
+- Error handling
 
 ---
 
@@ -242,13 +242,13 @@ Implement:
 
 Implement:
 
-* Upload service
-* File validation
-* Storage integration
-* Metadata persistence
-* Ownership validation
-* File deletion
-* Audit logging (where appropriate)
+- Upload service
+- File validation
+- Storage integration
+- Metadata persistence
+- Ownership validation
+- File deletion
+- Audit logging (where appropriate)
 
 ---
 
@@ -256,24 +256,24 @@ Implement:
 
 The AI must:
 
-* Keep storage independent of AI processing.
-* Validate every uploaded file.
-* Prevent unauthorized access to files.
-* Use centralized storage services.
-* Handle upload failures gracefully.
+- Keep storage independent of AI processing.
+- Validate every uploaded file.
+- Prevent unauthorized access to files.
+- Use centralized storage services.
+- Handle upload failures gracefully.
 
 ---
 
 # 18. Implementation Checklist
 
-* Upload implemented
-* Validation completed
-* Metadata stored
-* File list created
-* Rename supported
-* Delete supported
-* Search implemented
-* Error handling completed
+- Upload implemented
+- Validation completed
+- Metadata stored
+- File list created
+- Rename supported
+- Delete supported
+- Search implemented
+- Error handling completed
 
 ---
 
@@ -281,14 +281,14 @@ The AI must:
 
 Verify:
 
-* Valid files upload successfully.
-* Invalid files are rejected.
-* Upload progress updates correctly.
-* Users can rename files.
-* Users can delete files.
-* Users cannot access another user's files.
-* Search works correctly.
-* Error handling behaves as expected.
+- Valid files upload successfully.
+- Invalid files are rejected.
+- Upload progress updates correctly.
+- Users can rename files.
+- Users can delete files.
+- Users cannot access another user's files.
+- Search works correctly.
+- Error handling behaves as expected.
 
 ---
 
@@ -296,11 +296,11 @@ Verify:
 
 The task is complete when:
 
-* Users can upload supported learning materials.
-* Uploaded files are stored securely.
-* Metadata persists correctly.
-* Source management functions correctly.
-* The module is ready for AI processing integration.
+- Users can upload supported learning materials.
+- Uploaded files are stored securely.
+- Metadata persists correctly.
+- Source management functions correctly.
+- The module is ready for AI processing integration.
 
 ---
 
@@ -308,11 +308,11 @@ The task is complete when:
 
 The Source Upload module is complete when:
 
-* Upload workflow is operational.
-* File management is functional.
-* Storage integration is verified.
-* Security requirements are met.
-* Tests pass.
+- Upload workflow is operational.
+- File management is functional.
+- Storage integration is verified.
+- Security requirements are met.
+- Tests pass.
 
 ---
 
@@ -320,13 +320,13 @@ The Source Upload module is complete when:
 
 Expected outputs:
 
-* Upload page
-* Upload components
-* Storage service
-* Source management pages
-* File validation
-* Metadata persistence
-* Supporting tests
+- Upload page
+- Upload components
+- Storage service
+- Source management pages
+- File validation
+- Metadata persistence
+- Supporting tests
 
 ---
 

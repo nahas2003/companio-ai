@@ -40,11 +40,11 @@ Enable data-driven decision-making by presenting meaningful insights into learne
 
 At the end of this task:
 
-* Dashboards display meaningful metrics.
-* Reports can be filtered.
-* Reports can be exported.
-* Historical trends are available.
-* Performance metrics are visualized.
+- Dashboards display meaningful metrics.
+- Reports can be filtered.
+- Reports can be exported.
+- Historical trends are available.
+- Performance metrics are visualized.
 
 ---
 
@@ -54,35 +54,35 @@ At the end of this task:
 
 Display:
 
-* Practice sessions completed
-* Assessments completed
-* Accuracy percentage
-* Average score
-* Time spent learning
-* Recent activity
+- Practice sessions completed
+- Assessments completed
+- Accuracy percentage
+- Average score
+- Time spent learning
+- Recent activity
 
 ## Administrator Analytics
 
 Display:
 
-* Total users
-* Active users
-* Uploaded learning materials
-* AI generations
-* Question Bank statistics
-* Assessment statistics
-* Pass/fail rates
+- Total users
+- Active users
+- Uploaded learning materials
+- AI generations
+- Question Bank statistics
+- Assessment statistics
+- Pass/fail rates
 
 ## Reporting
 
 Support:
 
-* Date filters
-* User filters
-* Assessment filters
-* Export to CSV
-* Export to Excel
-* Print-friendly reports
+- Date filters
+- User filters
+- Assessment filters
+- Export to CSV
+- Export to Excel
+- Print-friendly reports
 
 ---
 
@@ -90,14 +90,14 @@ Support:
 
 Future versions may include:
 
-* Predictive analytics
-* AI-generated learning recommendations
-* Custom dashboards
-* Scheduled reports
-* Email report delivery
-* Real-time analytics
-* Organization-level reporting
-* Learning heatmaps
+- Predictive analytics
+- AI-generated learning recommendations
+- Custom dashboards
+- Scheduled reports
+- Email report delivery
+- Real-time analytics
+- Organization-level reporting
+- Learning heatmaps
 
 ---
 
@@ -105,11 +105,11 @@ Future versions may include:
 
 Do **not** implement:
 
-* Notification delivery
-* Certificates
-* Billing
-* User management
-* Platform settings
+- Notification delivery
+- Certificates
+- Billing
+- User management
+- Platform settings
 
 Use existing data only.
 
@@ -119,17 +119,17 @@ Use existing data only.
 
 ## Architecture
 
-* Analytics specification
-* Reporting specification
-* Dashboard specification
-* Master Project Specification
+- Analytics specification
+- Reporting specification
+- Dashboard specification
+- Master Project Specification
 
 ## Development
 
-* Coding Standards
-* Performance Guidelines
-* Error Handling
-* AI Agent Workflow
+- Coding Standards
+- Performance Guidelines
+- Error Handling
+- AI Agent Workflow
 
 ---
 
@@ -137,13 +137,13 @@ Use existing data only.
 
 Complete:
 
-* Tasks 001–015
+- Tasks 001–015
 
 Verify:
 
-* Practice data exists.
-* Assessment results exist.
-* AI usage metrics are available.
+- Practice data exists.
+- Assessment results exist.
+- AI usage metrics are available.
 
 ---
 
@@ -151,18 +151,18 @@ Verify:
 
 ### Data Sources
 
-* User profiles
-* Practice sessions
-* Assessment results
-* Question Bank
-* AI Orchestrator
-* Upload statistics
+- User profiles
+- Practice sessions
+- Assessment results
+- Question Bank
+- AI Orchestrator
+- Upload statistics
 
 ### Consumers
 
-* Learner dashboards
-* Administrator dashboards
-* Export services
+- Learner dashboards
+- Administrator dashboards
+- Export services
 
 ---
 
@@ -170,13 +170,13 @@ Verify:
 
 The AI may modify:
 
-* Analytics pages
-* Reporting pages
-* Dashboard widgets
-* Chart components
-* Reporting services
-* Export services
-* Analytics APIs
+- Analytics pages
+- Reporting pages
+- Dashboard widgets
+- Chart components
+- Reporting services
+- Export services
+- Analytics APIs
 
 ---
 
@@ -184,11 +184,11 @@ The AI may modify:
 
 Do **not** modify:
 
-* Practice logic
-* Assessment logic
-* AI orchestration
-* Question generation
-* Question Bank
+- Practice logic
+- Assessment logic
+- AI orchestration
+- Question generation
+- Question Bank
 
 Only consume existing data.
 
@@ -198,10 +198,10 @@ Only consume existing data.
 
 Allowed:
 
-* Reporting views
-* Materialized views (if appropriate)
-* Aggregation tables
-* Cached analytics (optional)
+- Reporting views
+- Materialized views (if appropriate)
+- Aggregation tables
+- Cached analytics (optional)
 
 Avoid duplicating transactional data.
 
@@ -211,16 +211,16 @@ Avoid duplicating transactional data.
 
 Implement:
 
-* Learner analytics dashboard
-* Admin analytics dashboard
-* Charts
-* KPI cards
-* Trend indicators
-* Filters
-* Report viewer
-* Export actions
-* Empty states
-* Loading states
+- Learner analytics dashboard
+- Admin analytics dashboard
+- Charts
+- KPI cards
+- Trend indicators
+- Filters
+- Report viewer
+- Export actions
+- Empty states
+- Loading states
 
 ---
 
@@ -228,12 +228,12 @@ Implement:
 
 Implement:
 
-* Analytics aggregation services
-* Reporting APIs
-* Export generation
-* Filter processing
-* Performance optimization
-* Authorization checks
+- Analytics aggregation services
+- Reporting APIs
+- Export generation
+- Filter processing
+- Performance optimization
+- Authorization checks
 
 ---
 
@@ -241,24 +241,24 @@ Implement:
 
 The AI must:
 
-* Use existing platform data only.
-* Separate analytics queries from transactional operations.
-* Optimize large queries.
-* Respect user permissions.
-* Ensure exported reports contain only authorized data.
+- Use existing platform data only.
+- Separate analytics queries from transactional operations.
+- Optimize large queries.
+- Respect user permissions.
+- Ensure exported reports contain only authorized data.
 
 ---
 
 # 17. Implementation Checklist
 
-* Learner dashboard implemented
-* Admin dashboard implemented
-* KPI cards completed
-* Charts implemented
-* Reports generated
-* CSV export implemented
-* Excel export implemented
-* Filters operational
+- Learner dashboard implemented
+- Admin dashboard implemented
+- KPI cards completed
+- Charts implemented
+- Reports generated
+- CSV export implemented
+- Excel export implemented
+- Filters operational
 
 ---
 
@@ -266,12 +266,12 @@ The AI must:
 
 Verify:
 
-* Dashboard metrics are accurate.
-* Charts display correct data.
-* Reports filter correctly.
-* Exports contain expected data.
-* Large datasets perform acceptably.
-* Users only see authorized information.
+- Dashboard metrics are accurate.
+- Charts display correct data.
+- Reports filter correctly.
+- Exports contain expected data.
+- Large datasets perform acceptably.
+- Users only see authorized information.
 
 ---
 
@@ -279,11 +279,11 @@ Verify:
 
 Task is complete when:
 
-* Dashboards display meaningful insights.
-* Reports generate correctly.
-* Export functionality works.
-* Performance is acceptable.
-* Access control is enforced.
+- Dashboards display meaningful insights.
+- Reports generate correctly.
+- Export functionality works.
+- Performance is acceptable.
+- Access control is enforced.
 
 ---
 
@@ -291,11 +291,11 @@ Task is complete when:
 
 Analytics & Reporting is complete when:
 
-* Dashboards are operational.
-* Reports are accurate.
-* Export functionality is reliable.
-* Authorization is verified.
-* Tests pass.
+- Dashboards are operational.
+- Reports are accurate.
+- Export functionality is reliable.
+- Authorization is verified.
+- Tests pass.
 
 ---
 
@@ -303,13 +303,13 @@ Analytics & Reporting is complete when:
 
 Expected outputs:
 
-* Learner analytics dashboard
-* Administrator analytics dashboard
-* Reporting module
-* Export services
-* Analytics APIs
-* Chart components
-* Supporting tests
+- Learner analytics dashboard
+- Administrator analytics dashboard
+- Reporting module
+- Export services
+- Analytics APIs
+- Chart components
+- Supporting tests
 
 ---
 

@@ -13,11 +13,11 @@ This document defines the scaling strategy for the Companio platform.
 
 Its objectives are to:
 
-* Support user growth.
-* Maintain application performance.
-* Ensure reliable AI operations.
-* Scale infrastructure efficiently.
-* Enable long-term platform evolution.
+- Support user growth.
+- Maintain application performance.
+- Ensure reliable AI operations.
+- Scale infrastructure efficiently.
+- Enable long-term platform evolution.
 
 Scaling should be driven by measurable usage patterns and operational data.
 
@@ -27,12 +27,12 @@ Scaling should be driven by measurable usage patterns and operational data.
 
 Companio should scale according to these principles:
 
-* Measure before optimizing.
-* Prefer horizontal scaling where practical.
-* Minimize single points of failure.
-* Keep services stateless where possible.
-* Automate scaling where supported.
-* Validate performance after each scaling change.
+- Measure before optimizing.
+- Prefer horizontal scaling where practical.
+- Minimize single points of failure.
+- Keep services stateless where possible.
+- Automate scaling where supported.
+- Validate performance after each scaling change.
 
 ---
 
@@ -40,14 +40,14 @@ Companio should scale according to these principles:
 
 Review scaling requirements based on:
 
-* Active users.
-* Concurrent sessions.
-* API request volume.
-* AI request volume.
-* Assessment activity.
-* Question generation frequency.
-* Storage consumption.
-* Database growth.
+- Active users.
+- Concurrent sessions.
+- API request volume.
+- AI request volume.
+- Assessment activity.
+- Question generation frequency.
+- Storage consumption.
+- Database growth.
 
 Growth trends should inform capacity planning.
 
@@ -57,11 +57,11 @@ Growth trends should inform capacity planning.
 
 When application demand increases:
 
-* Add additional application instances where supported.
-* Balance traffic across instances.
-* Keep application state externalized.
-* Optimize startup time.
-* Monitor resource utilization after scaling.
+- Add additional application instances where supported.
+- Balance traffic across instances.
+- Keep application state externalized.
+- Optimize startup time.
+- Monitor resource utilization after scaling.
 
 Ensure deployments remain consistent across all instances.
 
@@ -71,19 +71,19 @@ Ensure deployments remain consistent across all instances.
 
 Monitor:
 
-* Table growth.
-* Index efficiency.
-* Query performance.
-* Connection usage.
-* Storage consumption.
+- Table growth.
+- Index efficiency.
+- Query performance.
+- Connection usage.
+- Storage consumption.
 
 Scaling strategies may include:
 
-* Query optimization.
-* Improved indexing.
-* Read replicas (where supported).
-* Database partitioning or sharding when justified.
-* Archive historical data according to retention policies.
+- Query optimization.
+- Improved indexing.
+- Read replicas (where supported).
+- Database partitioning or sharding when justified.
+- Archive historical data according to retention policies.
 
 All schema changes should continue to use approved migration processes.
 
@@ -93,11 +93,11 @@ All schema changes should continue to use approved migration processes.
 
 As uploaded learning resources increase:
 
-* Monitor available storage capacity.
-* Review retention policies.
-* Archive obsolete data where appropriate.
-* Verify backup coverage.
-* Optimize file organization.
+- Monitor available storage capacity.
+- Review retention policies.
+- Archive obsolete data where appropriate.
+- Verify backup coverage.
+- Optimize file organization.
 
 Storage expansion should occur before capacity limits are reached.
 
@@ -107,19 +107,19 @@ Storage expansion should occur before capacity limits are reached.
 
 Monitor:
 
-* Request volume.
-* Response latency.
-* Retry rates.
-* Provider quotas.
-* Failover frequency.
+- Request volume.
+- Response latency.
+- Retry rates.
+- Provider quotas.
+- Failover frequency.
 
 Optimization strategies:
 
-* Route requests through the AI orchestration layer.
-* Use task-appropriate models.
-* Cache repeatable AI outputs where appropriate.
-* Reduce unnecessary requests.
-* Balance workloads across approved providers.
+- Route requests through the AI orchestration layer.
+- Use task-appropriate models.
+- Cache repeatable AI outputs where appropriate.
+- Reduce unnecessary requests.
+- Balance workloads across approved providers.
 
 ---
 
@@ -127,18 +127,18 @@ Optimization strategies:
 
 Review:
 
-* Response times.
-* Error rates.
-* Request throughput.
-* Rate-limit events.
+- Response times.
+- Error rates.
+- Request throughput.
+- Rate-limit events.
 
 Improve scalability through:
 
-* Efficient queries.
-* Pagination.
-* Caching.
-* Asynchronous processing where appropriate.
-* Optimized payload sizes.
+- Efficient queries.
+- Pagination.
+- Caching.
+- Asynchronous processing where appropriate.
+- Optimized payload sizes.
 
 ---
 
@@ -146,17 +146,17 @@ Improve scalability through:
 
 Use caching for data that is:
 
-* Frequently requested.
-* Expensive to compute.
-* Safe to reuse.
+- Frequently requested.
+- Expensive to compute.
+- Safe to reuse.
 
 Examples:
 
-* Configuration data.
-* Reference data.
-* Dashboard summaries.
-* AI responses that are deterministic and reusable.
-* Frequently accessed metadata.
+- Configuration data.
+- Reference data.
+- Dashboard summaries.
+- AI responses that are deterministic and reusable.
+- Frequently accessed metadata.
 
 Define cache invalidation rules to ensure data freshness.
 
@@ -168,11 +168,11 @@ Move long-running operations to background processing where practical.
 
 Examples include:
 
-* Document processing.
-* AI question generation.
-* Notification delivery.
-* Report generation.
-* Data synchronization.
+- Document processing.
+- AI question generation.
+- Notification delivery.
+- Report generation.
+- Data synchronization.
 
 Monitor job completion rates and retry behavior.
 
@@ -182,14 +182,14 @@ Monitor job completion rates and retry behavior.
 
 Track long-term trends in:
 
-* Concurrent users.
-* API throughput.
-* AI usage.
-* Database size.
-* Storage consumption.
-* Memory usage.
-* CPU utilization.
-* Error rates.
+- Concurrent users.
+- API throughput.
+- AI usage.
+- Database size.
+- Storage consumption.
+- Memory usage.
+- CPU utilization.
+- Error rates.
 
 Use historical data to forecast future infrastructure needs.
 
@@ -199,12 +199,12 @@ Use historical data to forecast future infrastructure needs.
 
 Review opportunities to improve:
 
-* API response times.
-* Database efficiency.
-* Front-end performance.
-* AI response latency.
-* File processing duration.
-* Assessment completion times.
+- API response times.
+- Database efficiency.
+- Front-end performance.
+- AI response latency.
+- File processing duration.
+- Assessment completion times.
 
 Optimization efforts should be guided by measurable performance data.
 
@@ -216,12 +216,12 @@ Conduct periodic capacity reviews.
 
 Evaluate:
 
-* Current resource utilization.
-* Projected growth.
-* Infrastructure limits.
-* AI provider quotas.
-* Storage requirements.
-* Budget considerations.
+- Current resource utilization.
+- Projected growth.
+- Infrastructure limits.
+- AI provider quotas.
+- Storage requirements.
+- Budget considerations.
 
 Document scaling decisions and implementation timelines.
 
@@ -257,10 +257,10 @@ When assisting with scaling activities, the AI agent should:
 
 Review and update this guide whenever:
 
-* Infrastructure changes.
-* User growth patterns change.
-* New platform services are introduced.
-* AI workload characteristics evolve.
-* Capacity planning identifies new requirements.
+- Infrastructure changes.
+- User growth patterns change.
+- New platform services are introduced.
+- AI workload characteristics evolve.
+- Capacity planning identifies new requirements.
 
 This document should remain the authoritative reference for scaling and capacity planning across the Companio platform.

@@ -20,11 +20,11 @@ Unlike Practice Mode, assessment results can contribute to leaderboards and hist
 
 Assessment Mode should:
 
-* Create reusable assessments.
-* Reuse existing Question Banks.
-* Support guest participants.
-* Produce reliable results.
-* Maintain assessment integrity.
+- Create reusable assessments.
+- Reuse existing Question Banks.
+- Support guest participants.
+- Produce reliable results.
+- Maintain assessment integrity.
 
 ---
 
@@ -36,9 +36,9 @@ Original learning material.
 
 Examples:
 
-* PDF
-* Topic
-* Notes
+- PDF
+- Topic
+- Notes
 
 ---
 
@@ -56,11 +56,11 @@ Configuration owned by the creator.
 
 Contains:
 
-* Selected questions
-* Timer
-* Passing score
-* Shuffle options
-* Availability settings
+- Selected questions
+- Timer
+- Passing score
+- Shuffle options
+- Availability settings
 
 Templates are editable.
 
@@ -72,10 +72,10 @@ Immutable assessment shared with participants.
 
 Contains:
 
-* Assessment code
-* Publication timestamp
-* Configuration snapshot
-* Participant records
+- Assessment code
+- Publication timestamp
+- Configuration snapshot
+- Participant records
 
 Once published, participant-facing behavior should remain stable.
 
@@ -117,12 +117,12 @@ Participants Join
 
 Creators must be able to:
 
-* Create assessments.
-* Edit templates before publishing.
-* Publish assessments.
-* Duplicate templates.
-* Archive templates.
-* View participant results.
+- Create assessments.
+- Edit templates before publishing.
+- Publish assessments.
+- Duplicate templates.
+- Archive templates.
+- View participant results.
 
 ---
 
@@ -130,16 +130,16 @@ Creators must be able to:
 
 Supported settings:
 
-* Title
-* Description
-* Question count
-* Timer
-* Shuffle questions
-* Shuffle options
-* Passing score
-* Visibility
-* Availability window (future)
-* Attempt limit (future)
+- Title
+- Description
+- Question count
+- Timer
+- Shuffle questions
+- Shuffle options
+- Passing score
+- Visibility
+- Availability window (future)
+- Attempt limit (future)
 
 ---
 
@@ -147,13 +147,13 @@ Supported settings:
 
 Participants should:
 
-* Enter assessment code.
-* Enter display name (guest) or sign in.
-* Join assessment.
-* Read instructions.
-* Start assessment.
-* Submit responses.
-* View results (subject to creator settings).
+- Enter assessment code.
+- Enter display name (guest) or sign in.
+- Join assessment.
+- Read instructions.
+- Start assessment.
+- Submit responses.
+- View results (subject to creator settings).
 
 ---
 
@@ -161,10 +161,10 @@ Participants should:
 
 Publishing should:
 
-* Generate a unique assessment code.
-* Freeze the participant-facing configuration.
-* Record publication metadata.
-* Make the assessment discoverable only by code (MVP).
+- Generate a unique assessment code.
+- Freeze the participant-facing configuration.
+- Record publication metadata.
+- Make the assessment discoverable only by code (MVP).
 
 ---
 
@@ -172,9 +172,9 @@ Publishing should:
 
 For the MVP:
 
-* One active attempt per participant per published assessment.
-* Automatic submission when the timer expires.
-* Prevent duplicate submissions.
+- One active attempt per participant per published assessment.
+- Automatic submission when the timer expires.
+- Prevent duplicate submissions.
 
 Future versions may allow configurable multiple attempts.
 
@@ -184,11 +184,11 @@ Future versions may allow configurable multiple attempts.
 
 Creators can view:
 
-* Total participants.
-* Average score.
-* Highest score.
-* Lowest score.
-* Completion rate.
+- Total participants.
+- Average score.
+- Highest score.
+- Lowest score.
+- Completion rate.
 
 Participants see only the information permitted by assessment settings.
 
@@ -198,12 +198,12 @@ Participants see only the information permitted by assessment settings.
 
 Primary endpoints:
 
-* `POST /assessments`
-* `PUT /assessments/{id}`
-* `POST /assessments/{id}/publish`
-* `POST /assessments/{code}/join`
-* `POST /attempts/start`
-* `POST /attempts/{id}/submit`
+- `POST /assessments`
+- `PUT /assessments/{id}`
+- `POST /assessments/{id}/publish`
+- `POST /assessments/{code}/join`
+- `POST /attempts/start`
+- `POST /attempts/{id}/submit`
 
 ---
 
@@ -211,14 +211,14 @@ Primary endpoints:
 
 Primary entities:
 
-* sources
-* question_banks
-* questions
-* assessment_templates
-* published_assessments
-* participants
-* attempts
-* answers
+- sources
+- question_banks
+- questions
+- assessment_templates
+- published_assessments
+- participants
+- attempts
+- answers
 
 ---
 
@@ -226,11 +226,11 @@ Primary entities:
 
 Validate:
 
-* Creator ownership.
-* Assessment publication permissions.
-* Participant access.
-* Assessment code validity.
-* Timer integrity.
+- Creator ownership.
+- Assessment publication permissions.
+- Participant access.
+- Assessment code validity.
+- Timer integrity.
 
 Never allow clients to manipulate scores or timers.
 
@@ -240,13 +240,13 @@ Never allow clients to manipulate scores or timers.
 
 Handle:
 
-* Invalid assessment code.
-* Expired assessment.
-* Already submitted attempt.
-* Missing questions.
-* AI generation failure.
-* Publication failure.
-* Network interruption.
+- Invalid assessment code.
+- Expired assessment.
+- Already submitted attempt.
+- Missing questions.
+- AI generation failure.
+- Publication failure.
+- Network interruption.
 
 Return clear, user-friendly messages.
 
@@ -256,24 +256,24 @@ Return clear, user-friendly messages.
 
 Examples:
 
-* Publishing with zero questions.
-* Duplicate assessment titles.
-* Question Bank deleted after template creation.
-* Participant reconnects during an active attempt.
-* Browser refresh during assessment.
+- Publishing with zero questions.
+- Duplicate assessment titles.
+- Question Bank deleted after template creation.
+- Participant reconnects during an active attempt.
+- Browser refresh during assessment.
 
 ---
 
 # 16. Future Enhancements
 
-* Scheduled publication.
-* Password-protected assessments.
-* Team assessments.
-* Coding assessments.
-* Essay assessments.
-* Section-based exams.
-* Negative marking.
-* Adaptive assessments.
+- Scheduled publication.
+- Password-protected assessments.
+- Team assessments.
+- Coding assessments.
+- Essay assessments.
+- Section-based exams.
+- Negative marking.
+- Adaptive assessments.
 
 ---
 
@@ -281,11 +281,11 @@ Examples:
 
 Every AI coding agent must:
 
-* Separate templates from published assessments.
-* Reuse Question Banks.
-* Preserve immutable published assessments.
-* Keep participant data isolated from creator configuration.
-* Follow documented workflows and APIs.
+- Separate templates from published assessments.
+- Reuse Question Banks.
+- Preserve immutable published assessments.
+- Keep participant data isolated from creator configuration.
+- Follow documented workflows and APIs.
 
 ---
 
@@ -293,14 +293,14 @@ Every AI coding agent must:
 
 Assessment Mode is complete when:
 
-* Templates can be created.
-* Templates can be edited.
-* Assessments can be published.
-* Participants can join using a code.
-* Attempts are recorded.
-* Results are generated.
-* Leaderboards update correctly.
-* Security and validation rules pass.
+- Templates can be created.
+- Templates can be edited.
+- Assessments can be published.
+- Participants can join using a code.
+- Attempts are recorded.
+- Results are generated.
+- Leaderboards update correctly.
+- Security and validation rules pass.
 
 ---
 
@@ -308,11 +308,11 @@ Assessment Mode is complete when:
 
 Depends on:
 
-* 00–11
+- 00–11
 
 Referenced by:
 
-* 15_QUESTION_BANK.md
-* 16_AUTHENTICATION.md
-* 17_LEADERBOARD.md
-* 18_RESULTS_AND_HISTORY.md
+- 15_QUESTION_BANK.md
+- 16_AUTHENTICATION.md
+- 17_LEADERBOARD.md
+- 18_RESULTS_AND_HISTORY.md

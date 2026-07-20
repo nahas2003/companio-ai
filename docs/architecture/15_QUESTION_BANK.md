@@ -22,11 +22,11 @@ Question Banks are reusable, versioned, and independent of any single assessment
 
 The Question Bank should:
 
-* Minimize AI generation costs.
-* Maximize content reuse.
-* Preserve generation history.
-* Support multiple assessment templates.
-* Enable future learning features.
+- Minimize AI generation costs.
+- Maximize content reuse.
+- Preserve generation history.
+- Support multiple assessment templates.
+- Enable future learning features.
 
 ---
 
@@ -65,12 +65,12 @@ Referenced by Published Assessments
 
 Each version should record:
 
-* Version number
-* Prompt template version
-* AI provider
-* AI model
-* Generation parameters
-* Creation timestamp
+- Version number
+- Prompt template version
+- AI provider
+- AI model
+- Generation parameters
+- Creation timestamp
 
 Existing versions are immutable.
 
@@ -80,12 +80,12 @@ Existing versions are immutable.
 
 Creators should be able to:
 
-* Generate a new Question Bank.
-* View Question Banks.
-* Regenerate a new version.
-* Reuse an existing Question Bank.
-* Archive unused Question Banks.
-* Search Question Banks.
+- Generate a new Question Bank.
+- View Question Banks.
+- Regenerate a new version.
+- Reuse an existing Question Bank.
+- Archive unused Question Banks.
+- Search Question Banks.
 
 ---
 
@@ -93,15 +93,15 @@ Creators should be able to:
 
 Each question should contain:
 
-* Question text
-* Question type
-* Options
-* Correct answer
-* Explanation
-* Difficulty
-* Tags
-* Estimated time
-* Metadata
+- Question text
+- Question type
+- Options
+- Correct answer
+- Explanation
+- Difficulty
+- Tags
+- Estimated time
+- Metadata
 
 Future fields may be added without changing existing contracts.
 
@@ -111,14 +111,14 @@ Future fields may be added without changing existing contracts.
 
 Supported:
 
-* Easy
-* Medium
-* Hard
+- Easy
+- Medium
+- Hard
 
 Future:
 
-* Adaptive
-* Bloom's Taxonomy levels
+- Adaptive
+- Bloom's Taxonomy levels
 
 ---
 
@@ -126,17 +126,17 @@ Future:
 
 MVP:
 
-* Single-choice multiple choice
+- Single-choice multiple choice
 
 Future:
 
-* Multiple-choice (multiple answers)
-* True/False
-* Fill in the blank
-* Matching
-* Ordering
-* Coding
-* Essay
+- Multiple-choice (multiple answers)
+- True/False
+- Fill in the blank
+- Matching
+- Ordering
+- Coding
+- Essay
 
 ---
 
@@ -144,11 +144,11 @@ Future:
 
 Before storing:
 
-* Required fields exist.
-* Correct answer is valid.
-* Option count is correct.
-* Duplicate questions removed.
-* JSON contract verified.
+- Required fields exist.
+- Correct answer is valid.
+- Option count is correct.
+- Duplicate questions removed.
+- JSON contract verified.
 
 ---
 
@@ -156,16 +156,16 @@ Before storing:
 
 Support:
 
-* Title
-* Tags
-* Difficulty
-* Source
-* Owner
-* Creation date
+- Title
+- Tags
+- Difficulty
+- Source
+- Owner
+- Creation date
 
 Future:
 
-* Semantic search.
+- Semantic search.
 
 ---
 
@@ -205,10 +205,10 @@ Templates reference questions.
 
 Store:
 
-* Metadata
-* Generation settings
-* Version information
-* Question records
+- Metadata
+- Generation settings
+- Version information
+- Question records
 
 Do not store provider-specific response formats.
 
@@ -218,11 +218,11 @@ Do not store provider-specific response formats.
 
 Primary endpoints:
 
-* `POST /question-banks`
-* `GET /question-banks`
-* `GET /question-banks/{id}`
-* `POST /question-banks/{id}/versions`
-* `GET /question-banks/{id}/versions`
+- `POST /question-banks`
+- `GET /question-banks`
+- `GET /question-banks/{id}`
+- `POST /question-banks/{id}/versions`
+- `GET /question-banks/{id}/versions`
 
 ---
 
@@ -230,10 +230,10 @@ Primary endpoints:
 
 Rules:
 
-* Only owners may manage private Question Banks.
-* Shared Question Banks must respect access permissions.
-* Archived versions remain read-only.
-* Immutable versions cannot be edited.
+- Only owners may manage private Question Banks.
+- Shared Question Banks must respect access permissions.
+- Archived versions remain read-only.
+- Immutable versions cannot be edited.
 
 ---
 
@@ -241,22 +241,22 @@ Rules:
 
 Recommendations:
 
-* Index Source hashes.
-* Cache frequently accessed Question Banks.
-* Lazy load questions where appropriate.
-* Avoid unnecessary regeneration.
+- Index Source hashes.
+- Cache frequently accessed Question Banks.
+- Lazy load questions where appropriate.
+- Avoid unnecessary regeneration.
 
 ---
 
 # 18. Future Enhancements
 
-* Community Question Banks
-* Organization libraries
-* AI quality scoring
-* Human review workflow
-* Semantic similarity search
-* Difficulty calibration
-* Multi-language versions
+- Community Question Banks
+- Organization libraries
+- AI quality scoring
+- Human review workflow
+- Semantic similarity search
+- Difficulty calibration
+- Multi-language versions
 
 ---
 
@@ -264,11 +264,11 @@ Recommendations:
 
 Every AI coding agent must:
 
-* Reuse Question Banks whenever possible.
-* Preserve version history.
-* Keep versions immutable.
-* Never overwrite generated history.
-* Follow documented validation rules.
+- Reuse Question Banks whenever possible.
+- Preserve version history.
+- Keep versions immutable.
+- Never overwrite generated history.
+- Follow documented validation rules.
 
 ---
 
@@ -276,14 +276,14 @@ Every AI coding agent must:
 
 The feature is complete when:
 
-* Question Banks can be created.
-* Versions can be generated.
-* Existing versions remain immutable.
-* Questions are reusable.
-* Duplicate generation is minimized.
-* Search works.
-* Validation passes.
-* Security rules are enforced.
+- Question Banks can be created.
+- Versions can be generated.
+- Existing versions remain immutable.
+- Questions are reusable.
+- Duplicate generation is minimized.
+- Search works.
+- Validation passes.
+- Security rules are enforced.
 
 ---
 
@@ -291,10 +291,10 @@ The feature is complete when:
 
 Depends on:
 
-* 00–14
+- 00–14
 
 Referenced by:
 
-* 11_PRACTICE_MODE.md
-* 12_ASSESSMENT_MODE.md
-* 18_RESULTS_AND_HISTORY.md
+- 11_PRACTICE_MODE.md
+- 12_ASSESSMENT_MODE.md
+- 18_RESULTS_AND_HISTORY.md

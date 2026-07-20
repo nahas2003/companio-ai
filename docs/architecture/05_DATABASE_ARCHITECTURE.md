@@ -14,13 +14,13 @@ This document defines the logical database architecture for Companio.
 
 The goals are:
 
-* Simple
-* Secure
-* Normalized
-* Scalable
-* AI-friendly
-* Cost-efficient
-* Easy to maintain
+- Simple
+- Secure
+- Normalized
+- Scalable
+- AI-friendly
+- Cost-efficient
+- Easy to maintain
 
 ---
 
@@ -28,12 +28,12 @@ The goals are:
 
 The database must:
 
-* Avoid duplicate data.
-* Store AI results for reuse.
-* Minimize AI API calls.
-* Support guest users.
-* Support authenticated users.
-* Support future expansion.
+- Avoid duplicate data.
+- Store AI results for reuse.
+- Minimize AI API calls.
+- Support guest users.
+- Support authenticated users.
+- Support future expansion.
 
 ---
 
@@ -103,12 +103,12 @@ Stores registered users.
 
 Contains:
 
-* id
-* email
-* display_name
-* avatar_url
-* created_at
-* updated_at
+- id
+- email
+- display_name
+- avatar_url
+- created_at
+- updated_at
 
 ---
 
@@ -122,16 +122,16 @@ One question bank may be reused by many assessments.
 
 Contains:
 
-* id
-* owner_id
-* source_type
-* source_hash
-* title
-* ai_provider
-* ai_model
-* total_questions
-* status
-* created_at
+- id
+- owner_id
+- source_type
+- source_hash
+- title
+- ai_provider
+- ai_model
+- total_questions
+- status
+- created_at
 
 ---
 
@@ -143,17 +143,17 @@ Stores every generated question.
 
 Contains:
 
-* id
-* question_bank_id
-* question
-* option_a
-* option_b
-* option_c
-* option_d
-* correct_answer
-* explanation
-* difficulty
-* created_at
+- id
+- question_bank_id
+- question
+- option_a
+- option_b
+- option_c
+- option_d
+- correct_answer
+- explanation
+- difficulty
+- created_at
 
 ---
 
@@ -165,15 +165,15 @@ Represents a published assessment.
 
 Contains:
 
-* id
-* owner_id
-* question_bank_id
-* assessment_code
-* title
-* timer_minutes
-* total_questions
-* status
-* created_at
+- id
+- owner_id
+- question_bank_id
+- assessment_code
+- title
+- timer_minutes
+- total_questions
+- status
+- created_at
 
 ---
 
@@ -185,16 +185,16 @@ Stores participants for each assessment.
 
 Supports:
 
-* Guest users
-* Registered users
+- Guest users
+- Registered users
 
 Contains:
 
-* id
-* assessment_id
-* user_id (nullable)
-* guest_name
-* joined_at
+- id
+- assessment_id
+- user_id (nullable)
+- guest_name
+- joined_at
 
 ---
 
@@ -206,14 +206,14 @@ Stores every assessment attempt.
 
 Contains:
 
-* id
-* participant_id
-* assessment_id
-* score
-* correct_answers
-* incorrect_answers
-* time_taken
-* submitted_at
+- id
+- participant_id
+- assessment_id
+- score
+- correct_answers
+- incorrect_answers
+- time_taken
+- submitted_at
 
 ---
 
@@ -225,12 +225,12 @@ Stores submitted answers.
 
 Contains:
 
-* id
-* attempt_id
-* question_id
-* selected_answer
-* is_correct
-* answered_at
+- id
+- attempt_id
+- question_id
+- selected_answer
+- is_correct
+- answered_at
 
 ---
 
@@ -282,9 +282,9 @@ attempt
 
 This allows:
 
-* History
-* Statistics
-* Progress tracking
+- History
+- Statistics
+- Progress tracking
 
 ---
 
@@ -334,10 +334,10 @@ This minimizes AI costs.
 
 Assessment stores:
 
-* Timer
-* Code
-* Owner
-* Selected Question Bank
+- Timer
+- Code
+- Owner
+- Selected Question Bank
 
 Questions are never duplicated.
 
@@ -443,11 +443,11 @@ answers
 
 Every table must:
 
-* Enable Row Level Security.
-* Validate ownership.
-* Prevent unauthorized updates.
-* Prevent unauthorized deletion.
-* Restrict sensitive fields.
+- Enable Row Level Security.
+- Validate ownership.
+- Prevent unauthorized updates.
+- Prevent unauthorized deletion.
+- Restrict sensitive fields.
 
 ---
 
@@ -455,12 +455,12 @@ Every table must:
 
 Indexes required:
 
-* assessment_code
-* owner_id
-* question_bank_id
-* participant_id
-* source_hash
-* created_at
+- assessment_code
+- owner_id
+- question_bank_id
+- participant_id
+- source_hash
+- created_at
 
 ---
 
@@ -468,13 +468,13 @@ Indexes required:
 
 The schema should support:
 
-* Coding questions
-* Essay questions
-* Flashcards
-* AI tutor
-* Multiple attempts
-* Teams
-* Organizations
+- Coding questions
+- Essay questions
+- Flashcards
+- AI tutor
+- Multiple attempts
+- Teams
+- Organizations
 
 without redesigning existing tables.
 
@@ -484,11 +484,11 @@ without redesigning existing tables.
 
 AI agents must:
 
-* Never duplicate questions.
-* Reuse Question Banks.
-* Preserve relationships.
-* Respect foreign keys.
-* Never bypass security rules.
+- Never duplicate questions.
+- Reuse Question Banks.
+- Preserve relationships.
+- Respect foreign keys.
+- Never bypass security rules.
 
 ---
 
@@ -516,15 +516,15 @@ Before database changes:
 
 Depends on:
 
-* 00_PROJECT_OVERVIEW.md
-* 01_PRODUCT_REQUIREMENTS.md
-* 02_SYSTEM_ARCHITECTURE.md
-* 03_TECH_STACK.md
-* 04_PROJECT_STRUCTURE.md
+- 00_PROJECT_OVERVIEW.md
+- 01_PRODUCT_REQUIREMENTS.md
+- 02_SYSTEM_ARCHITECTURE.md
+- 03_TECH_STACK.md
+- 04_PROJECT_STRUCTURE.md
 
 Referenced by:
 
-* 06_API_SPECIFICATION.md
-* 07_SECURITY_ARCHITECTURE.md
-* 08_AI_ARCHITECTURE.md
-* Feature modules
+- 06_API_SPECIFICATION.md
+- 07_SECURITY_ARCHITECTURE.md
+- 08_AI_ARCHITECTURE.md
+- Feature modules

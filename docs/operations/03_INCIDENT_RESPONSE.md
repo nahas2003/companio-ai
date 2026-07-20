@@ -13,11 +13,11 @@ This document defines the standard incident response process for Companio.
 
 Its objectives are to:
 
-* Detect incidents quickly.
-* Minimize user impact.
-* Restore service safely.
-* Ensure consistent communication.
-* Capture lessons learned for continuous improvement.
+- Detect incidents quickly.
+- Minimize user impact.
+- Restore service safely.
+- Ensure consistent communication.
+- Capture lessons learned for continuous improvement.
 
 This guide applies to development, staging, and production environments, with the highest priority given to production incidents.
 
@@ -29,14 +29,14 @@ An incident is any unplanned event that negatively affects the availability, sec
 
 Examples include:
 
-* Application outage
-* Authentication failures
-* AI provider outage
-* Database connectivity issues
-* File upload failures
-* Data corruption
-* Performance degradation
-* Security events
+- Application outage
+- Authentication failures
+- AI provider outage
+- Database connectivity issues
+- File upload failures
+- Data corruption
+- Performance degradation
+- Security events
 
 ---
 
@@ -46,15 +46,15 @@ Examples include:
 
 Examples:
 
-* Production unavailable
-* Widespread authentication failure
-* Data loss
-* Active security breach
-* Major database failure
+- Production unavailable
+- Widespread authentication failure
+- Data loss
+- Active security breach
+- Major database failure
 
 Target response:
 
-* Immediate
+- Immediate
 
 ---
 
@@ -62,14 +62,14 @@ Target response:
 
 Examples:
 
-* Major feature unavailable
-* AI generation unavailable
-* Assessment workflow blocked
-* Notification system failure
+- Major feature unavailable
+- AI generation unavailable
+- Assessment workflow blocked
+- Notification system failure
 
 Target response:
 
-* As soon as possible
+- As soon as possible
 
 ---
 
@@ -77,14 +77,14 @@ Target response:
 
 Examples:
 
-* Individual feature malfunction
-* Performance degradation
-* Non-critical API failures
-* Administrative feature issues
+- Individual feature malfunction
+- Performance degradation
+- Non-critical API failures
+- Administrative feature issues
 
 Target response:
 
-* During normal operational response
+- During normal operational response
 
 ---
 
@@ -92,14 +92,14 @@ Target response:
 
 Examples:
 
-* Minor UI defects
-* Cosmetic issues
-* Documentation errors
-* Small usability improvements
+- Minor UI defects
+- Cosmetic issues
+- Documentation errors
+- Small usability improvements
 
 Target response:
 
-* Scheduled maintenance or future release
+- Scheduled maintenance or future release
 
 ---
 
@@ -123,14 +123,14 @@ Follow this sequence:
 
 Incidents may be identified through:
 
-* Monitoring systems
-* Error alerts
-* Health checks
-* User reports
-* Log analysis
-* Security monitoring
-* Automated tests
-* Deployment validation
+- Monitoring systems
+- Error alerts
+- Health checks
+- User reports
+- Log analysis
+- Security monitoring
+- Automated tests
+- Deployment validation
 
 ---
 
@@ -138,12 +138,12 @@ Incidents may be identified through:
 
 Immediately verify:
 
-* Is production affected?
-* Are users blocked?
-* Is data at risk?
-* Is security impacted?
-* Has the issue been reproduced?
-* Has the correct severity been assigned?
+- Is production affected?
+- Are users blocked?
+- Is data at risk?
+- Is security impacted?
+- Has the issue been reproduced?
+- Has the correct severity been assigned?
 
 Record the initial findings.
 
@@ -155,11 +155,11 @@ The objective is to prevent further impact.
 
 Possible actions:
 
-* Disable a feature using feature flags.
-* Roll back a recent deployment.
-* Temporarily disable affected integrations.
-* Isolate failing services.
-* Restrict administrative actions if required.
+- Disable a feature using feature flags.
+- Roll back a recent deployment.
+- Temporarily disable affected integrations.
+- Isolate failing services.
+- Restrict administrative actions if required.
 
 Containment should prioritize stability while preserving data integrity.
 
@@ -169,20 +169,20 @@ Containment should prioritize stability while preserving data integrity.
 
 Collect:
 
-* Error logs
-* Audit logs
-* Deployment history
-* Database events
-* AI provider responses
-* Monitoring metrics
-* User reports
+- Error logs
+- Audit logs
+- Deployment history
+- Database events
+- AI provider responses
+- Monitoring metrics
+- User reports
 
 Document:
 
-* Timeline
-* Root cause
-* Affected modules
-* Temporary mitigations
+- Timeline
+- Root cause
+- Affected modules
+- Temporary mitigations
 
 Avoid making assumptions before evidence is collected.
 
@@ -192,11 +192,11 @@ Avoid making assumptions before evidence is collected.
 
 After identifying the cause:
 
-* Apply the approved fix.
-* Restore affected services.
-* Validate system health.
-* Verify critical user workflows.
-* Confirm monitoring returns to expected levels.
+- Apply the approved fix.
+- Restore affected services.
+- Validate system health.
+- Verify critical user workflows.
+- Confirm monitoring returns to expected levels.
 
 Do not close the incident until recovery has been verified.
 
@@ -208,13 +208,13 @@ Maintain clear communication throughout the incident.
 
 Record:
 
-* Incident identifier
-* Start time
-* Current status
-* Affected services
-* Impact
-* Actions taken
-* Resolution time
+- Incident identifier
+- Start time
+- Current status
+- Affected services
+- Impact
+- Actions taken
+- Resolution time
 
 For significant incidents, provide periodic updates until resolved.
 
@@ -224,13 +224,13 @@ For significant incidents, provide periodic updates until resolved.
 
 After resolution, document:
 
-* Summary
-* Root cause
-* Timeline
-* User impact
-* Corrective actions
-* Preventive actions
-* Documentation updates required
+- Summary
+- Root cause
+- Timeline
+- User impact
+- Corrective actions
+- Preventive actions
+- Documentation updates required
 
 The objective is continuous improvement rather than assigning blame.
 
@@ -242,9 +242,9 @@ The objective is continuous improvement rather than assigning blame.
 
 Examples:
 
-* Login failures
-* Session issues
-* Authorization errors
+- Login failures
+- Session issues
+- Authorization errors
 
 ---
 
@@ -252,10 +252,10 @@ Examples:
 
 Examples:
 
-* Provider unavailable
-* Timeouts
-* Invalid responses
-* Quota exhaustion
+- Provider unavailable
+- Timeouts
+- Invalid responses
+- Quota exhaustion
 
 ---
 
@@ -263,10 +263,10 @@ Examples:
 
 Examples:
 
-* Connection failures
-* Migration issues
-* Slow queries
-* Data inconsistency
+- Connection failures
+- Migration issues
+- Slow queries
+- Data inconsistency
 
 ---
 
@@ -274,9 +274,9 @@ Examples:
 
 Examples:
 
-* Upload failures
-* Missing files
-* Storage quota exceeded
+- Upload failures
+- Missing files
+- Storage quota exceeded
 
 ---
 
@@ -284,9 +284,9 @@ Examples:
 
 Examples:
 
-* Email delivery failures
-* In-app notifications not generated
-* Notification delays
+- Email delivery failures
+- In-app notifications not generated
+- Notification delays
 
 ---
 
@@ -294,9 +294,9 @@ Examples:
 
 Examples:
 
-* Failed deployment
-* Configuration errors
-* Environment mismatch
+- Failed deployment
+- Configuration errors
+- Environment mismatch
 
 ---
 
@@ -304,14 +304,14 @@ Examples:
 
 Every incident should capture:
 
-* Unique incident ID
-* Date and time
-* Severity
-* Reporter
-* Assignee
-* Root cause
-* Resolution
-* Follow-up actions
+- Unique incident ID
+- Date and time
+- Severity
+- Reporter
+- Assignee
+- Root cause
+- Resolution
+- Follow-up actions
 
 Maintain incident records for future analysis and trend identification.
 
@@ -334,9 +334,9 @@ When assisting with an incident, the AI agent should:
 
 Review and update this guide whenever:
 
-* Incident management processes change.
-* New infrastructure or services are introduced.
-* Monitoring capabilities evolve.
-* Lessons learned lead to process improvements.
+- Incident management processes change.
+- New infrastructure or services are introduced.
+- Monitoring capabilities evolve.
+- Lessons learned lead to process improvements.
 
 This document should remain the authoritative reference for incident handling across the Companio platform.

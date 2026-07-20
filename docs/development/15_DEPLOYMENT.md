@@ -19,11 +19,11 @@ It covers the deployment lifecycle, environment management, release process, rol
 
 After implementing this deployment strategy:
 
-* Deployments are consistent across environments.
-* Releases are automated where possible.
-* Rollbacks are reliable.
-* Downtime is minimized.
-* Environment-specific configuration is managed securely.
+- Deployments are consistent across environments.
+- Releases are automated where possible.
+- Rollbacks are reliable.
+- Downtime is minimized.
+- Environment-specific configuration is managed securely.
 
 ---
 
@@ -35,15 +35,15 @@ Support the following environments:
 
 Purpose:
 
-* Daily development
-* Feature implementation
-* Debugging
+- Daily development
+- Feature implementation
+- Debugging
 
 Characteristics:
 
-* Local database or development Supabase project
-* Mock AI providers (optional)
-* Debug logging enabled
+- Local database or development Supabase project
+- Mock AI providers (optional)
+- Debug logging enabled
 
 ---
 
@@ -51,14 +51,14 @@ Characteristics:
 
 Purpose:
 
-* Team integration
-* Early feature validation
+- Team integration
+- Early feature validation
 
 Characteristics:
 
-* Shared environment
-* Test data
-* Frequent deployments
+- Shared environment
+- Test data
+- Frequent deployments
 
 ---
 
@@ -66,16 +66,16 @@ Characteristics:
 
 Purpose:
 
-* Pre-production validation
-* UAT (User Acceptance Testing)
-* Performance verification
+- Pre-production validation
+- UAT (User Acceptance Testing)
+- Performance verification
 
 Characteristics:
 
-* Production-like configuration
-* Controlled access
-* Real deployment process
-* No production user data
+- Production-like configuration
+- Controlled access
+- Real deployment process
+- No production user data
 
 ---
 
@@ -83,14 +83,14 @@ Characteristics:
 
 Purpose:
 
-* Live platform
+- Live platform
 
 Characteristics:
 
-* Stable releases
-* Monitoring enabled
-* Backup strategy active
-* Strict access control
+- Stable releases
+- Monitoring enabled
+- Backup strategy active
+- Strict access control
 
 ---
 
@@ -122,14 +122,14 @@ Every deployment should pass quality gates before reaching production.
 
 Deployment process should include:
 
-* Dependency installation
-* Environment validation
-* Build
-* Database migration
-* Asset generation
-* Application deployment
-* Health verification
-* Monitoring activation
+- Dependency installation
+- Environment validation
+- Build
+- Database migration
+- Asset generation
+- Application deployment
+- Health verification
+- Monitoring activation
 
 ---
 
@@ -139,14 +139,14 @@ Store configuration securely.
 
 Typical categories include:
 
-* Database
-* Authentication
-* AI Providers
-* Storage
-* Email
-* Logging
-* Monitoring
-* Feature flags
+- Database
+- Authentication
+- AI Providers
+- Storage
+- Email
+- Logging
+- Monitoring
+- Feature flags
 
 Never commit secrets to version control.
 
@@ -156,10 +156,10 @@ Never commit secrets to version control.
 
 Deployment should:
 
-* Run migrations
-* Verify migration success
-* Preserve data integrity
-* Support rollback if required
+- Run migrations
+- Verify migration success
+- Preserve data integrity
+- Support rollback if required
 
 Migration failures should stop deployment.
 
@@ -169,11 +169,11 @@ Migration failures should stop deployment.
 
 Verify:
 
-* Successful compilation
-* Type checking
-* Linting
-* Asset generation
-* Dependency resolution
+- Successful compilation
+- Type checking
+- Linting
+- Asset generation
+- Dependency resolution
 
 A failed build must block deployment.
 
@@ -183,12 +183,12 @@ A failed build must block deployment.
 
 After deployment verify:
 
-* Application startup
-* Database connectivity
-* Authentication service
-* Storage service
-* AI Orchestrator availability
-* API responsiveness
+- Application startup
+- Database connectivity
+- Authentication service
+- Storage service
+- AI Orchestrator availability
+- API responsiveness
 
 Deployments should not be marked successful until health checks pass.
 
@@ -198,10 +198,10 @@ Deployments should not be marked successful until health checks pass.
 
 Support rollback for:
 
-* Application release
-* Configuration changes
-* Database migrations (where safe)
-* Static assets
+- Application release
+- Configuration changes
+- Database migrations (where safe)
+- Static assets
 
 Document rollback procedures before every production release.
 
@@ -211,14 +211,14 @@ Document rollback procedures before every production release.
 
 After deployment verify:
 
-* Login
-* Dashboard
-* Source upload
-* AI processing
-* Question Bank
-* Assessment creation
-* Results
-* Leaderboard
+- Login
+- Dashboard
+- Source upload
+- AI processing
+- Question Bank
+- Assessment creation
+- Results
+- Leaderboard
 
 Use a standardized smoke test checklist.
 
@@ -228,12 +228,12 @@ Use a standardized smoke test checklist.
 
 Enable monitoring for:
 
-* Application uptime
-* Error rates
-* API latency
-* Database performance
-* AI workflow failures
-* Resource utilization
+- Application uptime
+- Error rates
+- API latency
+- Database performance
+- AI workflow failures
+- Resource utilization
 
 Alert on critical failures.
 
@@ -243,9 +243,9 @@ Alert on critical failures.
 
 Maintain backups for:
 
-* Database
-* Uploaded content
-* Configuration (where appropriate)
+- Database
+- Uploaded content
+- Configuration (where appropriate)
 
 Define backup frequency, retention, and recovery procedures.
 
@@ -255,10 +255,10 @@ Define backup frequency, retention, and recovery procedures.
 
 Ensure:
 
-* Secrets are encrypted.
-* Deployment credentials are restricted.
-* Least-privilege access is enforced.
-* Production deployments require appropriate authorization.
+- Secrets are encrypted.
+- Deployment credentials are restricted.
+- Least-privilege access is enforced.
+- Production deployments require appropriate authorization.
 
 ---
 
@@ -287,11 +287,11 @@ Only successful pipelines should reach production.
 
 Handle failures for:
 
-* Build
-* Migration
-* Deployment
-* Health checks
-* Configuration validation
+- Build
+- Migration
+- Deployment
+- Health checks
+- Configuration validation
 
 Failures should produce actionable logs and prevent partial releases where possible.
 
@@ -301,11 +301,11 @@ Failures should produce actionable logs and prevent partial releases where possi
 
 Deployment strategy is complete when:
 
-* Multiple environments are supported.
-* Releases are repeatable.
-* Rollbacks are documented.
-* Health checks are automated.
-* Deployments are monitored.
+- Multiple environments are supported.
+- Releases are repeatable.
+- Rollbacks are documented.
+- Health checks are automated.
+- Deployments are monitored.
 
 ---
 
@@ -313,11 +313,11 @@ Deployment strategy is complete when:
 
 Avoid:
 
-* Deploying without automated tests.
-* Skipping database migration validation.
-* Storing secrets in source code.
-* Ignoring rollback planning.
-* Releasing directly from local machines.
+- Deploying without automated tests.
+- Skipping database migration validation.
+- Storing secrets in source code.
+- Ignoring rollback planning.
+- Releasing directly from local machines.
 
 ---
 
@@ -325,11 +325,11 @@ Avoid:
 
 Deployment is considered complete when:
 
-* The application is running correctly.
-* Health checks pass.
-* Monitoring is active.
-* Rollback procedures are verified.
-* Production validation is successful.
+- The application is running correctly.
+- Health checks pass.
+- Monitoring is active.
+- Rollback procedures are verified.
+- Production validation is successful.
 
 ---
 
@@ -337,12 +337,12 @@ Deployment is considered complete when:
 
 The deployment strategy should support (or be adaptable to):
 
-* Web frontend hosting
-* Backend/API hosting
-* Managed PostgreSQL
-* Object storage
-* CDN
-* Monitoring platform
+- Web frontend hosting
+- Backend/API hosting
+- Managed PostgreSQL
+- Object storage
+- CDN
+- Monitoring platform
 
 Specific providers should remain configurable to avoid vendor lock-in.
 

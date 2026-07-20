@@ -21,12 +21,12 @@ Authentication is the foundation for all protected features in Companio.
 
 After completing this module:
 
-* Users can securely authenticate.
-* Guest users can participate where permitted.
-* Sessions are managed correctly.
-* Role-Based Access Control (RBAC) is operational.
-* Protected routes enforce permissions.
-* Authentication integrates with Supabase Auth.
+- Users can securely authenticate.
+- Guest users can participate where permitted.
+- Sessions are managed correctly.
+- Role-Based Access Control (RBAC) is operational.
+- Protected routes enforce permissions.
+- Authentication integrates with Supabase Auth.
 
 ---
 
@@ -34,16 +34,16 @@ After completing this module:
 
 Complete before starting:
 
-* 00_MASTER_DEVELOPMENT_PLAN.md
-* 01_PROJECT_SETUP.md
-* 02_DATABASE_SETUP.md
+- 00_MASTER_DEVELOPMENT_PLAN.md
+- 01_PROJECT_SETUP.md
+- 02_DATABASE_SETUP.md
 
 Review architecture:
 
-* 02_SYSTEM_ARCHITECTURE.md
-* 05_DATABASE_ARCHITECTURE.md
-* 16_AUTHENTICATION.md
-* 21_PROJECT_CONSTITUTION.md
+- 02_SYSTEM_ARCHITECTURE.md
+- 05_DATABASE_ARCHITECTURE.md
+- 16_AUTHENTICATION.md
+- 21_PROJECT_CONSTITUTION.md
 
 ---
 
@@ -57,28 +57,28 @@ Implement a secure authentication system using Supabase Authentication while kee
 
 A fully functional authentication system with:
 
-* Login
-* Registration
-* Logout
-* Session persistence
-* Protected routes
-* Role handling
-* Guest access
+- Login
+- Registration
+- Logout
+- Session persistence
+- Protected routes
+- Role handling
+- Guest access
 
 ## Files Allowed to Modify
 
-* Authentication feature folder
-* Routing configuration
-* Supabase client
-* Context providers
-* Environment configuration
+- Authentication feature folder
+- Routing configuration
+- Supabase client
+- Context providers
+- Environment configuration
 
 ## Files That Must NOT Be Modified
 
-* Unrelated feature modules
-* Question Bank
-* AI Engine
-* Assessment logic
+- Unrelated feature modules
+- Question Bank
+- AI Engine
+- Assessment logic
 
 ---
 
@@ -129,22 +129,22 @@ Do not skip steps.
 
 Create:
 
-* Login page
-* Registration page
-* Forgot password page (optional for MVP)
-* Loading indicators
-* Authentication forms
-* Error messages
-* Protected layout
-* Guest entry flow
+- Login page
+- Registration page
+- Forgot password page (optional for MVP)
+- Loading indicators
+- Authentication forms
+- Error messages
+- Protected layout
+- Guest entry flow
 
 Requirements:
 
-* Responsive UI
-* Accessible forms
-* Client-side validation
-* Loading states
-* Error feedback
+- Responsive UI
+- Accessible forms
+- Client-side validation
+- Loading states
+- Error feedback
 
 ---
 
@@ -152,12 +152,12 @@ Requirements:
 
 Configure:
 
-* Supabase Auth
-* Email authentication
-* Session persistence
-* Token refresh
-* Role retrieval
-* Profile synchronization
+- Supabase Auth
+- Email authentication
+- Session persistence
+- Token refresh
+- Role retrieval
+- Profile synchronization
 
 Implement secure communication between frontend and Supabase.
 
@@ -167,10 +167,10 @@ Implement secure communication between frontend and Supabase.
 
 Create or verify:
 
-* User profile table (if separate from Supabase Auth)
-* Role definitions
-* Profile metadata
-* User preferences (future-ready)
+- User profile table (if separate from Supabase Auth)
+- Role definitions
+- Profile metadata
+- User preferences (future-ready)
 
 Validate foreign keys and RLS policies.
 
@@ -180,12 +180,12 @@ Validate foreign keys and RLS policies.
 
 Authentication state should include:
 
-* Current user
-* Session
-* Authentication status
-* User role
-* Loading state
-* Error state
+- Current user
+- Session
+- Authentication status
+- User role
+- Loading state
+- Error state
 
 State should be globally accessible.
 
@@ -195,10 +195,10 @@ State should be globally accessible.
 
 Implement:
 
-* Public routes
-* Protected routes
-* Guest routes
-* Role-restricted routes
+- Public routes
+- Protected routes
+- Guest routes
+- Role-restricted routes
 
 Redirect users appropriately after authentication.
 
@@ -208,11 +208,11 @@ Redirect users appropriately after authentication.
 
 Validate:
 
-* Email format
-* Password requirements
-* Required fields
-* Duplicate accounts
-* Session validity
+- Email format
+- Password requirements
+- Required fields
+- Duplicate accounts
+- Session validity
 
 Display user-friendly error messages.
 
@@ -222,12 +222,12 @@ Display user-friendly error messages.
 
 Authentication must:
 
-* Never expose secret keys.
-* Never trust client-side roles.
-* Use Row Level Security.
-* Refresh expired sessions.
-* Sanitize user input.
-* Protect against unauthorized access.
+- Never expose secret keys.
+- Never trust client-side roles.
+- Use Row Level Security.
+- Refresh expired sessions.
+- Sanitize user input.
+- Protect against unauthorized access.
 
 ---
 
@@ -235,14 +235,14 @@ Authentication must:
 
 Verify:
 
-* Registration succeeds.
-* Login succeeds.
-* Invalid login fails gracefully.
-* Logout clears session.
-* Session persists after refresh.
-* Protected routes deny unauthorized users.
-* Role restrictions work.
-* Guest access behaves correctly.
+- Registration succeeds.
+- Login succeeds.
+- Invalid login fails gracefully.
+- Logout clears session.
+- Session persists after refresh.
+- Protected routes deny unauthorized users.
+- Role restrictions work.
+- Guest access behaves correctly.
 
 ---
 
@@ -250,12 +250,12 @@ Verify:
 
 This module is complete when:
 
-* Authentication works end-to-end.
-* Session persistence is verified.
-* Protected routes function correctly.
-* Role checks are enforced.
-* Tests pass.
-* Documentation is updated.
+- Authentication works end-to-end.
+- Session persistence is verified.
+- Protected routes function correctly.
+- Role checks are enforced.
+- Tests pass.
+- Documentation is updated.
 
 ---
 
@@ -263,11 +263,11 @@ This module is complete when:
 
 Avoid:
 
-* Hardcoding credentials.
-* Storing secrets in the frontend.
-* Mixing authentication logic with UI.
-* Skipping session validation.
-* Trusting client-side permissions.
+- Hardcoding credentials.
+- Storing secrets in the frontend.
+- Mixing authentication logic with UI.
+- Skipping session validation.
+- Trusting client-side permissions.
 
 ---
 
@@ -275,11 +275,11 @@ Avoid:
 
 The module is considered complete when:
 
-* All objectives are met.
-* Code follows project standards.
-* Security checks pass.
-* Manual testing succeeds.
-* AI agent outputs require no architectural changes.
+- All objectives are met.
+- Code follows project standards.
+- Security checks pass.
+- Manual testing succeeds.
+- AI agent outputs require no architectural changes.
 
 ---
 

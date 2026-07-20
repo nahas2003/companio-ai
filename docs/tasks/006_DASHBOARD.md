@@ -28,11 +28,11 @@ The dashboard should be informative without overwhelming the user.
 
 At the end of this task, authenticated users should be able to:
 
-* View a personalized dashboard.
-* Access major platform features.
-* See learning statistics.
-* Continue recent activities.
-* View recent assessments and practice sessions.
+- View a personalized dashboard.
+- Access major platform features.
+- See learning statistics.
+- Continue recent activities.
+- View recent assessments and practice sessions.
 
 ---
 
@@ -42,30 +42,30 @@ Implement:
 
 ### Dashboard Layout
 
-* Welcome section
-* User greeting
-* Quick action cards
+- Welcome section
+- User greeting
+- Quick action cards
 
 ### Statistics
 
-* Practice sessions completed
-* Assessments completed
-* Questions answered
-* Overall accuracy
+- Practice sessions completed
+- Assessments completed
+- Questions answered
+- Overall accuracy
 
 ### Recent Activity
 
-* Recent uploads
-* Recent practice sessions
-* Recent assessments
+- Recent uploads
+- Recent practice sessions
+- Recent assessments
 
 ### Quick Actions
 
-* Upload Learning Material
-* Start Practice
-* Create Assessment (Admin)
-* View Question Bank
-* View Results
+- Upload Learning Material
+- Start Practice
+- Create Assessment (Admin)
+- View Question Bank
+- View Results
 
 ---
 
@@ -73,15 +73,15 @@ Implement:
 
 Future versions may include:
 
-* AI recommendations
-* Learning streaks
-* Weekly progress
-* Study goals
-* Calendar
-* Team dashboards
-* Gamification
-* Achievement badges
-* Personalized widgets
+- AI recommendations
+- Learning streaks
+- Weekly progress
+- Study goals
+- Calendar
+- Team dashboards
+- Gamification
+- Achievement badges
+- Personalized widgets
 
 ---
 
@@ -89,11 +89,11 @@ Future versions may include:
 
 Do **not** implement:
 
-* AI generation
-* Upload processing
-* Practice functionality
-* Assessment logic
-* Results calculations
+- AI generation
+- Upload processing
+- Practice functionality
+- Assessment logic
+- Results calculations
 
 Use placeholder or mock data where dependent modules are not yet available.
 
@@ -103,17 +103,17 @@ Use placeholder or mock data where dependent modules are not yet available.
 
 ## Architecture
 
-* Dashboard architecture document
-* Master Project Specification
-* System Architecture
-* Project Constitution
+- Dashboard architecture document
+- Master Project Specification
+- System Architecture
+- Project Constitution
 
 ## Development
 
-* Coding Standards
-* Performance Guidelines
-* Error Handling
-* AI Agent Workflow
+- Coding Standards
+- Performance Guidelines
+- Error Handling
+- AI Agent Workflow
 
 ---
 
@@ -121,11 +121,11 @@ Use placeholder or mock data where dependent modules are not yet available.
 
 Complete:
 
-* 001 Project Setup
-* 002 Authentication
-* 003 User Profile
-* 004 RBAC
-* 005 App Layout
+- 001 Project Setup
+- 002 Authentication
+- 003 User Profile
+- 004 RBAC
+- 005 App Layout
 
 ---
 
@@ -133,12 +133,12 @@ Complete:
 
 The AI may modify:
 
-* Dashboard pages
-* Dashboard components
-* Dashboard services
-* Dashboard hooks
-* Shared dashboard UI
-* Dashboard routes
+- Dashboard pages
+- Dashboard components
+- Dashboard services
+- Dashboard hooks
+- Shared dashboard UI
+- Dashboard routes
 
 ---
 
@@ -146,12 +146,12 @@ The AI may modify:
 
 Do **not** implement:
 
-* Upload module
-* AI module
-* Question Bank
-* Practice module
-* Assessment module
-* Results module
+- Upload module
+- AI module
+- Question Bank
+- Practice module
+- Assessment module
+- Results module
 
 Use mock data until those modules are completed.
 
@@ -161,13 +161,13 @@ Use mock data until those modules are completed.
 
 Implement:
 
-* Dashboard page
-* Statistics cards
-* Quick actions
-* Activity feed
-* Empty states
-* Loading states
-* Responsive dashboard
+- Dashboard page
+- Statistics cards
+- Quick actions
+- Activity feed
+- Empty states
+- Loading states
+- Responsive dashboard
 
 ---
 
@@ -175,9 +175,9 @@ Implement:
 
 Implement only:
 
-* Dashboard data service
-* Statistics aggregation
-* Recent activity retrieval
+- Dashboard data service
+- Statistics aggregation
+- Recent activity retrieval
 
 Avoid business logic belonging to later tasks.
 
@@ -195,23 +195,23 @@ If additional dashboard views or helper queries are needed, keep them isolated a
 
 The AI must:
 
-* Keep dashboard components modular.
-* Separate presentation from data retrieval.
-* Handle missing data gracefully.
-* Avoid implementing unfinished modules.
-* Use placeholders where appropriate.
+- Keep dashboard components modular.
+- Separate presentation from data retrieval.
+- Handle missing data gracefully.
+- Avoid implementing unfinished modules.
+- Use placeholders where appropriate.
 
 ---
 
 # 15. Implementation Checklist
 
-* Dashboard page created
-* Statistics cards implemented
-* Quick actions added
-* Recent activity section added
-* Responsive layout verified
-* Loading states implemented
-* Empty states implemented
+- Dashboard page created
+- Statistics cards implemented
+- Quick actions added
+- Recent activity section added
+- Responsive layout verified
+- Loading states implemented
+- Empty states implemented
 
 ---
 
@@ -219,12 +219,12 @@ The AI must:
 
 Verify:
 
-* Dashboard loads after login.
-* Statistics display correctly.
-* Quick actions navigate correctly.
-* Empty state appears when no activity exists.
-* Responsive layout works across devices.
-* Unauthorized users cannot access the dashboard.
+- Dashboard loads after login.
+- Statistics display correctly.
+- Quick actions navigate correctly.
+- Empty state appears when no activity exists.
+- Responsive layout works across devices.
+- Unauthorized users cannot access the dashboard.
 
 ---
 
@@ -232,11 +232,11 @@ Verify:
 
 The task is complete when:
 
-* Authenticated users reach the dashboard after login.
-* Dashboard renders without errors.
-* Statistics and recent activity display correctly.
-* Quick actions are functional.
-* The implementation follows project standards.
+- Authenticated users reach the dashboard after login.
+- Dashboard renders without errors.
+- Statistics and recent activity display correctly.
+- Quick actions are functional.
+- The implementation follows project standards.
 
 ---
 
@@ -244,11 +244,11 @@ The task is complete when:
 
 The dashboard is complete when:
 
-* Core widgets are implemented.
-* Navigation is functional.
-* Placeholder integrations are ready for future modules.
-* Tests pass.
-* Documentation remains consistent.
+- Core widgets are implemented.
+- Navigation is functional.
+- Placeholder integrations are ready for future modules.
+- Tests pass.
+- Documentation remains consistent.
 
 ---
 
@@ -256,13 +256,13 @@ The dashboard is complete when:
 
 Expected outputs:
 
-* Dashboard page
-* Dashboard components
-* Statistics widgets
-* Activity feed
-* Quick action cards
-* Dashboard services
-* Supporting tests
+- Dashboard page
+- Dashboard components
+- Statistics widgets
+- Activity feed
+- Quick action cards
+- Dashboard services
+- Supporting tests
 
 ---
 

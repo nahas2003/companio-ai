@@ -34,11 +34,11 @@ Provide a structured, reusable, and searchable repository of high-quality questi
 
 At the end of this task:
 
-* Generated questions can be stored permanently.
-* Users can browse questions.
-* Questions can be searched and filtered.
-* Questions can be edited or archived.
-* Duplicate questions are minimized.
+- Generated questions can be stored permanently.
+- Users can browse questions.
+- Questions can be searched and filtered.
+- Questions can be edited or archived.
+- Duplicate questions are minimized.
 
 ---
 
@@ -48,39 +48,39 @@ Implement:
 
 ### Question Storage
 
-* Save validated questions
-* Store metadata
-* Preserve generation history
-* Associate questions with their source material
+- Save validated questions
+- Store metadata
+- Preserve generation history
+- Associate questions with their source material
 
 ### Question Management
 
-* View question details
-* Edit question content
-* Edit answer choices
-* Update correct answers
-* Archive questions
-* Restore archived questions
-* Delete questions (soft delete preferred)
+- View question details
+- Edit question content
+- Edit answer choices
+- Update correct answers
+- Archive questions
+- Restore archived questions
+- Delete questions (soft delete preferred)
 
 ### Search & Filtering
 
 Support filtering by:
 
-* Question type
-* Difficulty
-* Subject
-* Topic
-* Source document
-* Status (Active/Archived)
-* Creation date
+- Question type
+- Difficulty
+- Subject
+- Topic
+- Source document
+- Status (Active/Archived)
+- Creation date
 
 ### Bulk Operations
 
-* Bulk archive
-* Bulk delete
-* Bulk restore
-* Bulk tag assignment
+- Bulk archive
+- Bulk delete
+- Bulk restore
+- Bulk tag assignment
 
 ---
 
@@ -88,15 +88,15 @@ Support filtering by:
 
 Future versions may include:
 
-* Manual question creation
-* Question approval workflow
-* Version history
-* Collaborative editing
-* AI-assisted editing
-* Duplicate detection across libraries
-* Import/export
-* Public/private question libraries
-* Question ratings and feedback
+- Manual question creation
+- Question approval workflow
+- Version history
+- Collaborative editing
+- AI-assisted editing
+- Duplicate detection across libraries
+- Import/export
+- Public/private question libraries
+- Question ratings and feedback
 
 ---
 
@@ -104,11 +104,11 @@ Future versions may include:
 
 Do **not** implement:
 
-* Practice sessions
-* Assessment creation
-* Exam delivery
-* Results
-* Analytics
+- Practice sessions
+- Assessment creation
+- Exam delivery
+- Results
+- Analytics
 
 Only manage the question repository.
 
@@ -118,18 +118,18 @@ Only manage the question repository.
 
 ## Architecture
 
-* Question Bank specification
-* Database Architecture
-* Master Project Specification
-* System Architecture
+- Question Bank specification
+- Database Architecture
+- Master Project Specification
+- System Architecture
 
 ## Development
 
-* Coding Standards
-* Security Checklist
-* Error Handling
-* Performance Guidelines
-* AI Agent Workflow
+- Coding Standards
+- Security Checklist
+- Error Handling
+- Performance Guidelines
+- AI Agent Workflow
 
 ---
 
@@ -137,12 +137,12 @@ Only manage the question repository.
 
 Complete:
 
-* Tasks 001–010
+- Tasks 001–010
 
 Verify:
 
-* AI Question Generation produces validated output.
-* Question schema is finalized.
+- AI Question Generation produces validated output.
+- Question schema is finalized.
 
 ---
 
@@ -150,15 +150,15 @@ Verify:
 
 ### Input
 
-* Validated AI-generated questions
-* Future manually created questions
+- Validated AI-generated questions
+- Future manually created questions
 
 ### Output
 
-* Searchable Question Bank
-* Filtered question collections
-* Question metadata
-* APIs for Practice Mode and Assessments
+- Searchable Question Bank
+- Filtered question collections
+- Question metadata
+- APIs for Practice Mode and Assessments
 
 ---
 
@@ -166,13 +166,13 @@ Verify:
 
 The AI may modify:
 
-* Question Bank pages
-* Question management services
-* Search utilities
-* Filtering components
-* Database repositories
-* APIs
-* Shared question models
+- Question Bank pages
+- Question management services
+- Search utilities
+- Filtering components
+- Database repositories
+- APIs
+- Shared question models
 
 ---
 
@@ -180,10 +180,10 @@ The AI may modify:
 
 Do **not** implement:
 
-* Practice logic
-* Assessment logic
-* Results processing
-* Analytics
+- Practice logic
+- Assessment logic
+- Results processing
+- Analytics
 
 Prepare reusable question data only.
 
@@ -193,14 +193,14 @@ Prepare reusable question data only.
 
 Implement support for:
 
-* Question records
-* Metadata
-* Tags
-* Categories
-* Source document references
-* Soft delete
-* Archive status
-* Audit fields
+- Question records
+- Metadata
+- Tags
+- Categories
+- Source document references
+- Soft delete
+- Archive status
+- Audit fields
 
 Create appropriate indexes for efficient search and filtering.
 
@@ -210,16 +210,16 @@ Create appropriate indexes for efficient search and filtering.
 
 Implement:
 
-* Question list
-* Question detail page
-* Edit interface
-* Search bar
-* Advanced filters
-* Bulk selection
-* Bulk actions
-* Pagination
-* Empty states
-* Loading states
+- Question list
+- Question detail page
+- Edit interface
+- Search bar
+- Advanced filters
+- Bulk selection
+- Bulk actions
+- Pagination
+- Empty states
+- Loading states
 
 ---
 
@@ -227,14 +227,14 @@ Implement:
 
 Implement:
 
-* CRUD operations
-* Search service
-* Filter service
-* Bulk operations
-* Soft delete
-* Archive/restore
-* Validation
-* Audit logging
+- CRUD operations
+- Search service
+- Filter service
+- Bulk operations
+- Soft delete
+- Archive/restore
+- Validation
+- Audit logging
 
 ---
 
@@ -242,24 +242,24 @@ Implement:
 
 The AI must:
 
-* Accept only validated questions.
-* Preserve source references.
-* Use soft deletes where appropriate.
-* Separate storage from generation.
-* Keep APIs reusable for downstream modules.
+- Accept only validated questions.
+- Preserve source references.
+- Use soft deletes where appropriate.
+- Separate storage from generation.
+- Keep APIs reusable for downstream modules.
 
 ---
 
 # 17. Implementation Checklist
 
-* Question storage implemented
-* CRUD operations completed
-* Search implemented
-* Filters implemented
-* Bulk operations completed
-* Archive workflow implemented
-* Soft delete supported
-* Pagination added
+- Question storage implemented
+- CRUD operations completed
+- Search implemented
+- Filters implemented
+- Bulk operations completed
+- Archive workflow implemented
+- Soft delete supported
+- Pagination added
 
 ---
 
@@ -267,13 +267,13 @@ The AI must:
 
 Verify:
 
-* Questions save correctly.
-* Editing updates data accurately.
-* Search returns expected results.
-* Filters work independently and together.
-* Bulk actions operate correctly.
-* Archived questions are hidden from default views.
-* Soft delete behaves correctly.
+- Questions save correctly.
+- Editing updates data accurately.
+- Search returns expected results.
+- Filters work independently and together.
+- Bulk actions operate correctly.
+- Archived questions are hidden from default views.
+- Soft delete behaves correctly.
 
 ---
 
@@ -281,11 +281,11 @@ Verify:
 
 Task is complete when:
 
-* Questions can be stored and managed.
-* Search and filtering perform efficiently.
-* Editing works reliably.
-* Bulk operations function correctly.
-* The Question Bank is ready for Practice Mode and Assessments.
+- Questions can be stored and managed.
+- Search and filtering perform efficiently.
+- Editing works reliably.
+- Bulk operations function correctly.
+- The Question Bank is ready for Practice Mode and Assessments.
 
 ---
 
@@ -293,11 +293,11 @@ Task is complete when:
 
 The Question Bank is complete when:
 
-* CRUD functionality is stable.
-* Search and filters are operational.
-* Metadata is preserved.
-* APIs are reusable.
-* Tests pass.
+- CRUD functionality is stable.
+- Search and filters are operational.
+- Metadata is preserved.
+- APIs are reusable.
+- Tests pass.
 
 ---
 
@@ -305,12 +305,12 @@ The Question Bank is complete when:
 
 Expected outputs:
 
-* Question Bank module
-* Question management UI
-* CRUD APIs
-* Search and filtering services
-* Bulk operations
-* Supporting tests
+- Question Bank module
+- Question management UI
+- CRUD APIs
+- Search and filtering services
+- Bulk operations
+- Supporting tests
 
 ---
 

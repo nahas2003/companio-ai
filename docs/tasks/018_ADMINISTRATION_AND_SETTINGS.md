@@ -34,11 +34,11 @@ Provide administrators with a secure and centralized interface to configure, mon
 
 At the end of this task:
 
-* Administrators can manage platform settings.
-* System configuration is centralized.
-* User administration is available.
-* AI provider configuration is manageable.
-* Platform health can be monitored.
+- Administrators can manage platform settings.
+- System configuration is centralized.
+- User administration is available.
+- AI provider configuration is manageable.
+- Platform health can be monitored.
 
 ---
 
@@ -48,45 +48,45 @@ At the end of this task:
 
 Support:
 
-* View users
-* Search users
-* Filter users
-* Activate/deactivate accounts
-* Assign roles
-* Reset user passwords (through supported authentication workflows)
-* View user activity
+- View users
+- Search users
+- Filter users
+- Activate/deactivate accounts
+- Assign roles
+- Reset user passwords (through supported authentication workflows)
+- View user activity
 
 ## System Settings
 
 Manage:
 
-* Application name
-* Branding
-* Theme settings
-* Default language
-* Time zone
-* File upload limits
-* Session timeout
-* Feature flags
+- Application name
+- Branding
+- Theme settings
+- Default language
+- Time zone
+- File upload limits
+- Session timeout
+- Feature flags
 
 ## AI Configuration
 
 Configure:
 
-* Active AI provider
-* Default AI model
-* Generation limits
-* Request timeout
-* Retry policy
+- Active AI provider
+- Default AI model
+- Generation limits
+- Request timeout
+- Retry policy
 
 ## Storage Settings
 
 Manage:
 
-* Upload size limits
-* Allowed file types
-* Storage usage overview
-* Retention policies
+- Upload size limits
+- Allowed file types
+- Storage usage overview
+- Retention policies
 
 ---
 
@@ -94,13 +94,13 @@ Manage:
 
 Future versions may include:
 
-* Multi-tenant administration
-* Organization management
-* API key management
-* License management
-* Plugin marketplace
-* White-label branding
-* Audit policy configuration
+- Multi-tenant administration
+- Organization management
+- API key management
+- License management
+- Plugin marketplace
+- White-label branding
+- Audit policy configuration
 
 ---
 
@@ -108,10 +108,10 @@ Future versions may include:
 
 Do **not** implement:
 
-* Billing
-* Subscription management
-* Marketplace integrations
-* External identity providers beyond the chosen authentication architecture
+- Billing
+- Subscription management
+- Marketplace integrations
+- External identity providers beyond the chosen authentication architecture
 
 Focus on platform administration only.
 
@@ -121,19 +121,19 @@ Focus on platform administration only.
 
 ## Architecture
 
-* Administration specification
-* Settings specification
-* RBAC specification
-* AI Architecture
-* Master Project Specification
+- Administration specification
+- Settings specification
+- RBAC specification
+- AI Architecture
+- Master Project Specification
 
 ## Development
 
-* Coding Standards
-* Security Checklist
-* Error Handling
-* Logging Guidelines
-* AI Agent Workflow
+- Coding Standards
+- Security Checklist
+- Error Handling
+- Logging Guidelines
+- AI Agent Workflow
 
 ---
 
@@ -141,13 +141,13 @@ Focus on platform administration only.
 
 Complete:
 
-* Tasks 001–017
+- Tasks 001–017
 
 Verify:
 
-* RBAC is operational.
-* Notification system functions correctly.
-* AI Orchestrator is configurable.
+- RBAC is operational.
+- Notification system functions correctly.
+- AI Orchestrator is configurable.
 
 ---
 
@@ -155,18 +155,18 @@ Verify:
 
 ### Reads From
 
-* Authentication
-* RBAC
-* AI Orchestrator
-* Storage
-* Notification Preferences
+- Authentication
+- RBAC
+- AI Orchestrator
+- Storage
+- Notification Preferences
 
 ### Configures
 
-* Platform behavior
-* AI defaults
-* Feature availability
-* Security settings
+- Platform behavior
+- AI defaults
+- Feature availability
+- Security settings
 
 ---
 
@@ -174,13 +174,13 @@ Verify:
 
 The AI may modify:
 
-* Admin dashboard
-* Settings pages
-* User management pages
-* Configuration services
-* System settings APIs
-* AI configuration pages
-* Feature flag services
+- Admin dashboard
+- Settings pages
+- User management pages
+- Configuration services
+- System settings APIs
+- AI configuration pages
+- Feature flag services
 
 ---
 
@@ -188,10 +188,10 @@ The AI may modify:
 
 Do **not** modify:
 
-* Assessment logic
-* Practice logic
-* Question generation
-* Question Bank business rules
+- Assessment logic
+- Practice logic
+- Question generation
+- Question Bank business rules
 
 Only configure platform behavior.
 
@@ -201,12 +201,12 @@ Only configure platform behavior.
 
 Implement support for:
 
-* System settings
-* Feature flags
-* User administration metadata
-* Configuration history
-* Audit records
-* Storage settings
+- System settings
+- Feature flags
+- User administration metadata
+- Configuration history
+- Audit records
+- Storage settings
 
 ---
 
@@ -214,16 +214,16 @@ Implement support for:
 
 Implement:
 
-* Admin dashboard
-* User management
-* Settings pages
-* AI configuration
-* Storage settings
-* Feature flag management
-* Search
-* Filters
-* Loading states
-* Empty states
+- Admin dashboard
+- User management
+- Settings pages
+- AI configuration
+- Storage settings
+- Feature flag management
+- Search
+- Filters
+- Loading states
+- Empty states
 
 ---
 
@@ -231,12 +231,12 @@ Implement:
 
 Implement:
 
-* Settings service
-* User administration APIs
-* Configuration persistence
-* Audit logging
-* Feature flag management
-* Permission validation
+- Settings service
+- User administration APIs
+- Configuration persistence
+- Audit logging
+- Feature flag management
+- Permission validation
 
 ---
 
@@ -244,22 +244,22 @@ Implement:
 
 The AI must:
 
-* Restrict administrative actions to authorized roles.
-* Validate all configuration changes.
-* Log administrative operations.
-* Keep configuration modular.
-* Never expose sensitive credentials in the UI.
+- Restrict administrative actions to authorized roles.
+- Validate all configuration changes.
+- Log administrative operations.
+- Keep configuration modular.
+- Never expose sensitive credentials in the UI.
 
 ---
 
 # 17. Implementation Checklist
 
-* User management implemented
-* Settings pages completed
-* AI configuration implemented
-* Storage configuration implemented
-* Feature flags implemented
-* Audit logging enabled
+- User management implemented
+- Settings pages completed
+- AI configuration implemented
+- Storage configuration implemented
+- Feature flags implemented
+- Audit logging enabled
 
 ---
 
@@ -267,12 +267,12 @@ The AI must:
 
 Verify:
 
-* Only authorized administrators can access the module.
-* User management functions correctly.
-* Settings persist after updates.
-* Feature flags behave correctly.
-* AI configuration changes are applied safely.
-* Audit logs are generated.
+- Only authorized administrators can access the module.
+- User management functions correctly.
+- Settings persist after updates.
+- Feature flags behave correctly.
+- AI configuration changes are applied safely.
+- Audit logs are generated.
 
 ---
 
@@ -280,11 +280,11 @@ Verify:
 
 Task is complete when:
 
-* Administrators can manage platform configuration.
-* User administration works correctly.
-* AI settings are configurable.
-* System settings persist reliably.
-* Security restrictions are enforced.
+- Administrators can manage platform configuration.
+- User administration works correctly.
+- AI settings are configurable.
+- System settings persist reliably.
+- Security restrictions are enforced.
 
 ---
 
@@ -292,11 +292,11 @@ Task is complete when:
 
 Administration & Settings is complete when:
 
-* Administrative tools are operational.
-* Configuration management is reliable.
-* Audit logging is active.
-* Permissions are enforced.
-* Tests pass.
+- Administrative tools are operational.
+- Configuration management is reliable.
+- Audit logging is active.
+- Permissions are enforced.
+- Tests pass.
 
 ---
 
@@ -304,13 +304,13 @@ Administration & Settings is complete when:
 
 Expected outputs:
 
-* Administration dashboard
-* User management module
-* Settings module
-* AI configuration pages
-* Configuration APIs
-* Audit logging
-* Supporting tests
+- Administration dashboard
+- User management module
+- Settings module
+- AI configuration pages
+- Configuration APIs
+- Audit logging
+- Supporting tests
 
 ---
 

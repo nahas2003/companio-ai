@@ -18,14 +18,14 @@ Before writing or modifying any production code, every developer or AI coding ag
 
 This document defines:
 
-* How the project should be understood.
-* The order in which documentation should be read.
-* Development rules.
-* Coding workflow.
-* Task execution process.
-* Testing expectations.
-* Documentation responsibilities.
-* Definition of Done.
+- How the project should be understood.
+- The order in which documentation should be read.
+- Development rules.
+- Coding workflow.
+- Task execution process.
+- Testing expectations.
+- Documentation responsibilities.
+- Definition of Done.
 
 This guide is the authoritative reference for implementation.
 
@@ -41,10 +41,10 @@ Development should focus on implementing the documented design rather than redes
 
 If implementation reveals a genuine issue with the documentation:
 
-* Record the issue.
-* Discuss the change.
-* Update documentation before changing architecture.
-* Keep implementation and documentation synchronized.
+- Record the issue.
+- Discuss the change.
+- Update documentation before changing architecture.
+- Keep implementation and documentation synchronized.
 
 ---
 
@@ -52,17 +52,17 @@ If implementation reveals a genuine issue with the documentation:
 
 Always follow these principles:
 
-* Build incrementally.
-* Keep modules loosely coupled.
-* Write maintainable code.
-* Prefer readability over cleverness.
-* Avoid premature optimization.
-* Keep business logic separate from UI.
-* Minimize duplication.
-* Write reusable components.
-* Validate inputs.
-* Handle errors gracefully.
-* Keep code production-ready.
+- Build incrementally.
+- Keep modules loosely coupled.
+- Write maintainable code.
+- Prefer readability over cleverness.
+- Avoid premature optimization.
+- Keep business logic separate from UI.
+- Minimize duplication.
+- Write reusable components.
+- Validate inputs.
+- Handle errors gracefully.
+- Keep code production-ready.
 
 ---
 
@@ -72,15 +72,15 @@ Use the approved technology stack documented in the project architecture.
 
 Examples include:
 
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
-* Supabase
-* PostgreSQL
-* AI Orchestrator Layer
-* Server Actions / API Routes (as documented)
-* Appropriate testing framework
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- Supabase
+- PostgreSQL
+- AI Orchestrator Layer
+- Server Actions / API Routes (as documented)
+- Appropriate testing framework
 
 Do not replace core technologies without updating the architecture documentation.
 
@@ -177,12 +177,12 @@ Tasks should not be skipped unless explicitly approved.
 
 For every task:
 
-* Read the task document completely.
-* Identify dependencies.
-* Review related specifications.
-* Implement only the defined scope.
-* Avoid introducing unrelated features.
-* Ensure compatibility with previous tasks.
+- Read the task document completely.
+- Identify dependencies.
+- Review related specifications.
+- Implement only the defined scope.
+- Avoid introducing unrelated features.
+- Ensure compatibility with previous tasks.
 
 Do not implement future tasks prematurely.
 
@@ -192,20 +192,20 @@ Do not implement future tasks prematurely.
 
 Code should be:
 
-* Consistent.
-* Modular.
-* Typed where applicable.
-* Self-explanatory.
-* Properly formatted.
-* Well documented where necessary.
+- Consistent.
+- Modular.
+- Typed where applicable.
+- Self-explanatory.
+- Properly formatted.
+- Well documented where necessary.
 
 Avoid:
 
-* Dead code.
-* Large functions.
-* Deep nesting.
-* Hardcoded values.
-* Duplicate logic.
+- Dead code.
+- Large functions.
+- Deep nesting.
+- Hardcoded values.
+- Duplicate logic.
 
 ---
 
@@ -213,10 +213,10 @@ Avoid:
 
 UI implementation must follow:
 
-* UI Design Guidelines
-* Component Library
-* Accessibility guidance
-* Responsive design requirements
+- UI Design Guidelines
+- Component Library
+- Accessibility guidance
+- Responsive design requirements
 
 Prefer reusable components over page-specific implementations.
 
@@ -226,12 +226,12 @@ Prefer reusable components over page-specific implementations.
 
 Database changes must:
 
-* Follow the documented schema.
-* Use approved migrations.
-* Preserve data integrity.
-* Maintain foreign key relationships.
-* Respect audit fields.
-* Avoid manual production schema changes.
+- Follow the documented schema.
+- Use approved migrations.
+- Preserve data integrity.
+- Maintain foreign key relationships.
+- Respect audit fields.
+- Avoid manual production schema changes.
 
 ---
 
@@ -239,11 +239,11 @@ Database changes must:
 
 APIs must:
 
-* Follow documented contracts.
-* Return consistent response formats.
-* Validate inputs.
-* Handle errors consistently.
-* Enforce authentication and authorization.
+- Follow documented contracts.
+- Return consistent response formats.
+- Validate inputs.
+- Handle errors consistently.
+- Enforce authentication and authorization.
 
 Avoid undocumented API behavior.
 
@@ -253,11 +253,11 @@ Avoid undocumented API behavior.
 
 All AI functionality should:
 
-* Route through the AI orchestration layer.
-* Use approved prompt templates.
-* Validate AI responses.
-* Handle provider failures gracefully.
-* Log AI operations where appropriate.
+- Route through the AI orchestration layer.
+- Use approved prompt templates.
+- Validate AI responses.
+- Handle provider failures gracefully.
+- Log AI operations where appropriate.
 
 Provider-specific logic should remain isolated.
 
@@ -269,12 +269,12 @@ Every completed task should be verified through appropriate testing.
 
 Testing should include:
 
-* Functional validation.
-* Error handling.
-* Edge cases.
-* UI behavior.
-* API validation.
-* Integration verification.
+- Functional validation.
+- Error handling.
+- Edge cases.
+- UI behavior.
+- API validation.
+- Integration verification.
 
 Do not mark a task complete without testing.
 
@@ -298,13 +298,13 @@ Documentation should always reflect the implemented system.
 
 A task is complete only when:
 
-* Scope fully implemented.
-* Code reviewed.
-* Tests pass.
-* Documentation updated (if required).
-* No critical defects remain.
-* Build succeeds.
-* Acceptance criteria satisfied.
+- Scope fully implemented.
+- Code reviewed.
+- Tests pass.
+- Documentation updated (if required).
+- No critical defects remain.
+- Build succeeds.
+- Acceptance criteria satisfied.
 
 ---
 
@@ -320,10 +320,10 @@ For each completed task:
 
 Example commit messages:
 
-* `feat(auth): implement user authentication`
-* `feat(ai): add question generation service`
-* `fix(api): handle invalid request payload`
-* `refactor(ui): extract reusable form components`
+- `feat(auth): implement user authentication`
+- `feat(ai): add question generation service`
+- `fix(api): handle invalid request payload`
+- `refactor(ui): extract reusable form components`
 
 ---
 
@@ -331,14 +331,14 @@ Example commit messages:
 
 Every AI coding agent working on this repository must:
 
-* Read this guide before implementation.
-* Read only the documentation relevant to the current task.
-* Avoid unnecessary architectural changes.
-* Preserve existing code quality.
-* Explain significant implementation decisions.
-* Prefer maintainability over shortcuts.
-* Keep commits focused on a single task.
-* Stop and request clarification if documentation conflicts are discovered.
+- Read this guide before implementation.
+- Read only the documentation relevant to the current task.
+- Avoid unnecessary architectural changes.
+- Preserve existing code quality.
+- Explain significant implementation decisions.
+- Prefer maintainability over shortcuts.
+- Keep commits focused on a single task.
+- Stop and request clarification if documentation conflicts are discovered.
 
 ---
 
@@ -367,12 +367,12 @@ Continue implementing tasks until all planned implementation documents have been
 
 After the final implementation task:
 
-* Execute the complete testing strategy.
-* Perform security review.
-* Validate production readiness.
-* Complete deployment checklist.
-* Prepare release documentation.
-* Deploy according to the Deployment Runbook.
+- Execute the complete testing strategy.
+- Perform security review.
+- Validate production readiness.
+- Complete deployment checklist.
+- Prepare release documentation.
+- Deploy according to the Deployment Runbook.
 
 ---
 
