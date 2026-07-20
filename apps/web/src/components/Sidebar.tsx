@@ -13,6 +13,7 @@ import {
   Sparkles,
   GraduationCap,
   ChevronLeft,
+  UploadCloud,
 } from 'lucide-react'
 
 interface SidebarProps {
@@ -32,6 +33,12 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
         name: 'Dashboard',
         href: '/dashboard',
         icon: LayoutDashboard,
+        enabled: true,
+      },
+      {
+        name: 'Study Materials',
+        href: '/sources',
+        icon: UploadCloud,
         enabled: true,
       },
       {

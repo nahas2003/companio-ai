@@ -15,7 +15,7 @@ export function QuickActions() {
         title: 'Upload Study Material',
         description: 'Import PDFs or study notes to generate practice resources.',
         icon: UploadCloud,
-        href: '#upload',
+        href: '/sources',
         color: 'group-hover:text-blue-400 text-blue-500 bg-blue-500/10 border-blue-500/20',
       },
       {

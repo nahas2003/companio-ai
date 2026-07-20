@@ -23,6 +23,23 @@ model User {
   role        Role     @default(STUDENT)
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
+  sources     Source[]
 
   @@map("users")
+}
+
+model Source {
+  id          String   @id @default(uuid())
+  userId      String   @map("user_id")
+  fileName    String   @map("file_name")
+  fileKey     String   @map("file_key")
+  fileSize    Int      @map("file_size")
+  fileType    String   @map("file_type")
+  status      String   @default("PENDING")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sources")
 }
