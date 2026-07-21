@@ -15,6 +15,7 @@ import {
   Award,
   BookOpen,
   ArrowRight,
+  ArrowLeft,
   User,
   AlertTriangle,
   Building,
@@ -98,6 +99,16 @@ function JoinAssessmentForm() {
 
   return (
     <div className="max-w-md mx-auto space-y-6 text-text-primary text-left pb-12 animate-fade-in pt-12">
+      {/* Navigation exit */}
+      <div className="flex justify-start">
+        <button
+          onClick={() => router.push(user ? '/dashboard' : '/')}
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-text-secondary hover:text-text-primary transition duration-200 outline-none"
+        >
+          <ArrowLeft className="w-4 h-4" /> {user ? 'Back to Dashboard' : 'Back to Home'}
+        </button>
+      </div>
+
       {/* Header */}
       <div className="text-center space-y-3">
         <div className="w-16 h-16 rounded-large bg-primary/10 border border-primary/20 flex items-center justify-center text-primary mx-auto">

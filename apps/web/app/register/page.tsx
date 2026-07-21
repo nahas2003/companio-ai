@@ -2,6 +2,7 @@
 
 import * as React from 'react'
 import Link from 'next/link'
+import { ArrowLeft } from 'lucide-react'
 import { RegisterForm } from '@/features/auth/components/RegisterForm'
 import { GuestGuard } from '@/features/auth/components/GuestGuard'
 
@@ -9,6 +10,14 @@ export default function RegisterPage() {
   return (
     <GuestGuard>
       <div className="relative min-h-screen bg-slate-950 flex items-center justify-center p-6 overflow-hidden">
+        {/* Back button */}
+        <Link
+          href="/"
+          className="absolute top-6 left-6 inline-flex items-center gap-1.5 text-xs font-bold text-slate-400 hover:text-white transition duration-200"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back to Home
+        </Link>
+
         <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-blue-600/10 blur-[120px] pointer-events-none" />
         <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-violet-600/10 blur-[120px] pointer-events-none" />
 
