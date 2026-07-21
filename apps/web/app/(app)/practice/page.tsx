@@ -9,20 +9,18 @@ import {
   BookOpen,
   Play,
   RotateCcw,
-  Sparkles,
   HelpCircle,
   FileText,
   History,
   TrendingUp,
-  Award,
   ChevronRight,
   Clock,
-  ExternalLink,
   RefreshCw,
   AlertCircle,
   X,
   Sliders,
   Check,
+  Compass,
 } from 'lucide-react'
 
 export default function PracticeDashboardPage() {
@@ -111,17 +109,17 @@ export default function PracticeDashboardPage() {
   }
 
   const formatScoreColor = (score: number | null) => {
-    if (score === null) return 'text-slate-400 bg-slate-400/10 border-slate-400/20'
-    if (score >= 80) return 'text-teal-400 bg-teal-400/10 border-teal-400/20'
-    if (score >= 60) return 'text-amber-400 bg-amber-400/10 border-amber-400/20'
-    return 'text-red-400 bg-red-400/10 border-red-400/20'
+    if (score === null) return 'text-text-secondary bg-surface-secondary border-border'
+    if (score >= 80) return 'text-success bg-success/10 border-success/20'
+    if (score >= 60) return 'text-warning bg-warning/10 border-warning/20'
+    return 'text-danger bg-danger/10 border-danger/20'
   }
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center p-12 min-h-[400px] gap-3 text-slate-400 text-left">
-        <RefreshCw className="w-8 h-8 text-blue-500 animate-spin" />
-        <span className="text-sm font-semibold tracking-wide animate-pulse">
+      <div className="flex flex-col items-center justify-center p-12 min-h-[400px] gap-3 text-text-secondary text-left">
+        <RefreshCw className="w-8 h-8 text-primary animate-spin" />
+        <span className="text-xs font-semibold tracking-wide animate-pulse">
           Loading study panel...
         </span>
       </div>
@@ -129,58 +127,58 @@ export default function PracticeDashboardPage() {
   }
 
   return (
-    <div className="space-y-8 text-white text-left animate-fade-in max-w-7xl mx-auto pb-12">
+    <div className="space-y-6 text-text-primary text-left animate-fade-in max-w-7xl mx-auto pb-12">
       {/* Header */}
-      <div className="border-b border-white/5 pb-6">
-        <h1 className="text-3xl font-extrabold tracking-tight flex items-center gap-2.5">
-          <TrendingUp className="w-8 h-8 text-teal-400" /> Practice Zone Playroom
+      <div className="border-b border-border pb-5">
+        <h1 className="text-2xl font-extrabold tracking-tight flex items-center gap-2.5">
+          <TrendingUp className="w-7 h-7 text-primary" /> Practice Zone Playroom
         </h1>
-        <p className="text-slate-400 text-sm font-medium mt-1">
-          Review, test your knowledge, and study with AI-generated question banks.
+        <p className="text-text-secondary text-xs font-semibold mt-1">
+          Review, test your knowledge, and study with custom generated question banks.
         </p>
       </div>
 
       {errorMsg && (
-        <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-          <div className="text-sm text-red-200">{errorMsg}</div>
+        <div className="p-4 bg-danger/10 border border-danger/25 rounded-medium flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 text-danger flex-shrink-0 mt-0.5" />
+          <div className="text-xs font-bold text-danger">{errorMsg}</div>
         </div>
       )}
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Left Column: Play panel and bank selector */}
         <div className="lg:col-span-2 space-y-6">
           {/* Quick Start Shortcuts */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <Link
               href="/sources"
-              className="group p-5 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition duration-300 flex flex-col justify-between h-40"
+              className="group p-5 rounded-large border border-border bg-surface hover:bg-surface-secondary hover:shadow-soft hover:border-primary/20 transition duration-300 flex flex-col justify-between h-36"
             >
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition duration-300">
-                <FileText className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-medium bg-primary/10 border border-primary/20 flex items-center justify-center text-primary group-hover:scale-105 transition duration-300">
+                <FileText className="w-4.5 h-4.5" />
               </div>
-              <div>
-                <h3 className="font-bold text-slate-200 group-hover:text-white transition">
-                  PDF Study Ingestion
+              <div className="text-left">
+                <h3 className="font-bold text-xs text-text-primary group-hover:text-primary transition">
+                  Study Materials Ingestion
                 </h3>
-                <p className="text-xs text-slate-400 mt-1">
-                  Upload files to parse and generate interactive flashcards.
+                <p className="text-[10px] text-text-secondary mt-1">
+                  Upload files to parse and generate interactive practice exams.
                 </p>
               </div>
             </Link>
 
             <Link
               href="/generate"
-              className="group p-5 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition duration-300 flex flex-col justify-between h-40"
+              className="group p-5 rounded-large border border-border bg-surface hover:bg-surface-secondary hover:shadow-soft hover:border-primary/20 transition duration-300 flex flex-col justify-between h-36"
             >
-              <div className="w-10 h-10 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-400 group-hover:scale-110 transition duration-300">
-                <Sparkles className="w-5 h-5" />
+              <div className="w-9 h-9 rounded-medium bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-500 group-hover:scale-105 transition duration-300">
+                <Compass className="w-4.5 h-4.5" />
               </div>
-              <div>
-                <h3 className="font-bold text-slate-200 group-hover:text-white transition">
-                  AI Topic Practice
+              <div className="text-left">
+                <h3 className="font-bold text-xs text-text-primary group-hover:text-primary transition">
+                  Practice Builder
                 </h3>
-                <p className="text-xs text-slate-400 mt-1">
+                <p className="text-[10px] text-text-secondary mt-1">
                   Select formats and difficulty levels to build customized study lists.
                 </p>
               </div>
@@ -189,17 +187,19 @@ export default function PracticeDashboardPage() {
 
           {/* Question Banks */}
           <div className="space-y-4">
-            <h2 className="text-lg font-bold flex items-center gap-2">
-              <BookOpen className="w-5 h-5 text-indigo-400" /> Active Question Repositories (
+            <h2 className="text-base font-bold flex items-center gap-2 text-text-primary">
+              <BookOpen className="w-4.5 h-4.5 text-primary" /> Active Question Repositories (
               {banks.length})
             </h2>
 
             {banks.length === 0 ? (
-              <div className="p-8 border border-dashed border-white/10 rounded-2xl text-center space-y-3 bg-white/5">
-                <p className="text-sm text-slate-400">No question banks generated yet.</p>
+              <div className="p-8 border border-dashed border-border rounded-large text-center space-y-3 bg-surface shadow-sm">
+                <p className="text-xs text-text-secondary font-medium">
+                  No question banks generated yet.
+                </p>
                 <Link
                   href="/generate"
-                  className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-white font-bold transition"
+                  className="inline-flex items-center gap-1.5 text-xs text-primary hover:text-primary-hover font-bold transition"
                 >
                   Create one now <ChevronRight className="w-4 h-4" />
                 </Link>
@@ -209,22 +209,22 @@ export default function PracticeDashboardPage() {
                 {banks.map((b) => (
                   <div
                     key={b.id}
-                    className="p-5 rounded-2xl border border-white/10 bg-white/5 hover:border-white/20 transition duration-200 flex flex-col justify-between space-y-4"
+                    className="p-5 rounded-large border border-border bg-surface hover:border-primary/20 hover:shadow-soft transition duration-300 flex flex-col justify-between space-y-4 text-left"
                   >
                     <div>
-                      <h3 className="font-bold text-slate-200 line-clamp-1">{b.name}</h3>
-                      <p className="text-xs text-slate-400 mt-1 line-clamp-2 h-8">
+                      <h3 className="font-bold text-xs text-text-primary line-clamp-1">{b.name}</h3>
+                      <p className="text-[10px] text-text-secondary mt-1 line-clamp-2 h-7">
                         {b.description || 'No description provided.'}
                       </p>
                     </div>
 
-                    <div className="flex items-center justify-between pt-2 border-t border-white/5">
-                      <span className="text-[10px] font-bold text-indigo-400 bg-indigo-500/10 px-2 py-0.5 rounded-full">
+                    <div className="flex items-center justify-between pt-2.5 border-t border-border">
+                      <span className="text-[9px] font-bold text-primary bg-primary/10 px-2 py-0.5 rounded-pill">
                         {b.questionCount} Questions
                       </span>
                       <button
                         onClick={() => setActiveBankSetup(b)}
-                        className="flex items-center gap-1 text-xs font-bold text-teal-400 hover:text-teal-300 transition"
+                        className="flex items-center gap-1 text-xs font-bold text-success hover:text-success-hover transition duration-200"
                       >
                         Start <Play className="w-3 h-3 fill-current" />
                       </button>
@@ -238,13 +238,13 @@ export default function PracticeDashboardPage() {
 
         {/* Right Column: Attempts Log */}
         <div className="space-y-6">
-          <div className="p-6 rounded-2xl border border-white/10 bg-white/5 space-y-5">
-            <h2 className="text-lg font-bold flex items-center gap-2">
-              <History className="w-5 h-5 text-teal-400" /> Recent Attempts History
+          <div className="p-5 rounded-large border border-border bg-surface space-y-4 shadow-sm text-left">
+            <h2 className="text-base font-bold flex items-center gap-2 text-text-primary">
+              <History className="w-4.5 h-4.5 text-primary" /> Recent Attempts History
             </h2>
 
             {attempts.length === 0 ? (
-              <div className="text-center p-6 text-slate-400 text-xs">
+              <div className="text-center p-6 text-text-secondary text-xs font-semibold">
                 No recent attempts logs. Complete a quiz to see stats here.
               </div>
             ) : (
@@ -252,21 +252,24 @@ export default function PracticeDashboardPage() {
                 {attempts.map((s) => (
                   <div
                     key={s.id}
-                    className="p-3.5 rounded-xl bg-slate-900 border border-white/5 hover:border-white/10 transition duration-150 flex items-center justify-between gap-4"
+                    className="p-3 rounded-medium bg-surface border border-border/80 hover:border-primary/20 transition duration-200 flex items-center justify-between gap-4"
                   >
                     <div className="space-y-1 min-w-0">
-                      <div className="font-bold text-xs text-slate-200 truncate">{s.bankName}</div>
-                      <div className="flex items-center gap-3 text-[10px] text-slate-400">
+                      <div className="font-bold text-xs text-text-primary truncate">
+                        {s.bankName}
+                      </div>
+                      <div className="flex items-center gap-3 text-[10px] text-text-secondary">
                         <span className="flex items-center gap-1">
-                          <Clock className="w-3 h-3" /> {formatDuration(s.timeTaken)}
+                          <Clock className="w-3 h-3 text-text-secondary/50" />{' '}
+                          {formatDuration(s.timeTaken)}
                         </span>
                         <span>{new Date(s.createdAt).toLocaleDateString()}</span>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-3 flex-shrink-0">
+                    <div className="flex items-center gap-2 flex-shrink-0">
                       <span
-                        className={`text-xs font-bold px-2 py-0.5 rounded border ${formatScoreColor(
+                        className={`text-[9px] font-bold px-2 py-0.5 rounded border ${formatScoreColor(
                           s.score,
                         )}`}
                       >
@@ -275,14 +278,14 @@ export default function PracticeDashboardPage() {
                       {s.status === 'COMPLETED' ? (
                         <Link
                           href={`/practice/${s.id}/results`}
-                          className="p-1 rounded-lg bg-white/5 hover:bg-blue-600 text-slate-400 hover:text-white transition"
+                          className="p-1 rounded-medium bg-surface border border-border hover:bg-primary hover:text-white transition duration-200"
                         >
-                          <ChevronRight className="w-4 h-4" />
+                          <ChevronRight className="w-3.5 h-3.5" />
                         </Link>
                       ) : (
                         <Link
                           href={`/practice/${s.id}`}
-                          className="p-1 rounded-lg bg-white/5 hover:bg-amber-600 text-slate-400 hover:text-white transition"
+                          className="p-1 rounded-medium bg-surface border border-border hover:bg-warning hover:text-white transition duration-200"
                         >
                           <RotateCcw className="w-3.5 h-3.5" />
                         </Link>
@@ -298,36 +301,38 @@ export default function PracticeDashboardPage() {
 
       {/* PRACTICE SETUP CONFIGURATION MODAL */}
       {activeBankSetup && !resumePrompt && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 animate-fade-in">
-          <div className="bg-slate-900 border border-white/10 rounded-3xl p-6 max-w-md w-full space-y-5 shadow-2xl animate-in fade-in zoom-in-95 duration-150 text-left">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4 animate-fade-in">
+          <div className="bg-surface border border-border rounded-large p-5 max-w-md w-full space-y-4 shadow-soft animate-scale-up text-left">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-bold flex items-center gap-2 text-white">
-                <Sliders className="w-5 h-5 text-teal-400" /> Study Room Setup
+              <h3 className="text-base font-bold flex items-center gap-2 text-text-primary">
+                <Sliders className="w-5 h-5 text-primary" /> Study Room Setup
               </h3>
               <button
                 onClick={() => setActiveBankSetup(null)}
-                className="text-slate-400 hover:text-white transition"
+                className="text-text-secondary hover:text-text-primary transition duration-200"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="space-y-1">
-              <div className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">
+              <div className="text-[9px] text-text-secondary font-bold uppercase tracking-wider">
                 Repository
               </div>
-              <h4 className="font-bold text-slate-200 leading-tight">{activeBankSetup.name}</h4>
+              <h4 className="font-bold text-xs text-text-primary leading-tight">
+                {activeBankSetup.name}
+              </h4>
             </div>
 
             <div className="space-y-4">
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                <label className="text-xs font-bold text-text-secondary uppercase tracking-wide">
                   Filter by Difficulty
                 </label>
                 <select
                   value={difficultyFilter}
                   onChange={(e) => setDifficultyFilter(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-slate-950 text-white text-sm outline-none focus:border-teal-500/50"
+                  className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50"
                 >
                   <option value="">All Difficulties</option>
                   <option value="EASY">Easy</option>
@@ -337,13 +342,13 @@ export default function PracticeDashboardPage() {
               </div>
 
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                <label className="text-xs font-bold text-text-secondary uppercase tracking-wide">
                   Filter by Question Type
                 </label>
                 <select
                   value={typeFilter}
                   onChange={(e) => setTypeFilter(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-slate-950 text-white text-sm outline-none focus:border-teal-500/50"
+                  className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50"
                 >
                   <option value="">All Question Types</option>
                   <option value="MULTIPLE_CHOICE">Multiple Choice</option>
@@ -358,19 +363,19 @@ export default function PracticeDashboardPage() {
                 type="button"
                 onClick={() => setActiveBankSetup(null)}
                 disabled={launching}
-                className="flex-1 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-slate-400 hover:text-white font-semibold text-xs transition"
+                className="flex-1 py-2 bg-surface-secondary border border-border rounded-medium text-text-secondary hover:text-text-primary font-bold text-xs transition duration-200"
               >
                 Cancel
               </button>
               <button
                 onClick={() => handleStartSession(false)}
                 disabled={launching}
-                className="flex-1 py-2.5 bg-teal-600 hover:bg-teal-500 rounded-xl text-white font-bold text-xs flex items-center justify-center gap-2 transition"
+                className="flex-1 py-2 bg-primary hover:bg-primary-hover rounded-medium text-white font-bold text-xs flex items-center justify-center gap-1.5 transition duration-200"
               >
                 {launching ? (
                   <RefreshCw className="w-4 h-4 animate-spin" />
                 ) : (
-                  <Play className="w-4 h-4 fill-current" />
+                  <Play className="w-3.5 h-3.5 fill-current" />
                 )}
                 {launching ? 'Loading...' : 'Launch Practice'}
               </button>
@@ -381,15 +386,15 @@ export default function PracticeDashboardPage() {
 
       {/* RESUME SESSION PROMPT ALERT */}
       {resumePrompt && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4 animate-fade-in">
-          <div className="bg-slate-900 border border-white/10 rounded-3xl p-6 max-w-sm w-full space-y-4 shadow-2xl animate-in fade-in zoom-in-95 duration-150 text-center">
-            <div className="w-12 h-12 rounded-full bg-amber-500/10 border border-amber-500/20 text-amber-400 flex items-center justify-center mx-auto">
-              <RotateCcw className="w-6 h-6 animate-pulse" />
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4 animate-fade-in">
+          <div className="bg-surface border border-border rounded-large p-5 max-w-sm w-full space-y-4 shadow-soft animate-scale-up text-center">
+            <div className="w-12 h-12 rounded-full bg-warning/10 border border-warning/20 text-warning flex items-center justify-center mx-auto">
+              <RotateCcw className="w-5 h-5 animate-pulse" />
             </div>
 
             <div className="space-y-1">
-              <h3 className="font-bold text-white text-base">Unfinished Practice Found</h3>
-              <p className="text-xs text-slate-400 leading-relaxed">
+              <h3 className="font-bold text-text-primary text-sm">Unfinished Practice Found</h3>
+              <p className="text-xs text-text-secondary leading-relaxed font-semibold">
                 You have a study session in progress. Would you like to resume it, or start fresh?
               </p>
             </div>
@@ -397,7 +402,7 @@ export default function PracticeDashboardPage() {
             <div className="flex flex-col gap-2 pt-2">
               <button
                 onClick={() => router.push(`/practice/${resumePrompt.sessionId}`)}
-                className="w-full py-2.5 bg-amber-600 hover:bg-amber-500 rounded-xl text-white font-bold text-xs flex items-center justify-center gap-1.5 transition"
+                className="w-full py-2 bg-warning hover:bg-warning-hover rounded-medium text-white font-bold text-xs flex items-center justify-center gap-1.5 transition duration-200"
               >
                 <Check className="w-4 h-4" /> Resume Study Session
               </button>
@@ -406,7 +411,7 @@ export default function PracticeDashboardPage() {
                   setResumePrompt(null)
                   handleStartSession(true)
                 }}
-                className="w-full py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 rounded-xl text-slate-400 hover:text-white font-semibold text-xs transition"
+                className="w-full py-2 bg-surface-secondary hover:bg-border border border-border rounded-medium text-text-secondary hover:text-text-primary font-bold text-xs transition duration-200"
               >
                 Start Fresh Session
               </button>

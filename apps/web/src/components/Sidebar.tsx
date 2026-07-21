@@ -114,17 +114,17 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
               key={item.name}
               href={item.href}
               onClick={() => setMobileOpen(false)}
-              className={`flex items-center gap-3 px-4 py-3 rounded-medium transition duration-200 relative group border ${
+              className={`flex items-center gap-2.5 px-3.5 py-2.5 rounded-medium transition duration-200 relative group border ${
                 isActive
                   ? 'bg-primary/10 text-primary border-primary/20 font-bold'
                   : 'text-text-secondary hover:text-text-primary hover:bg-surface-secondary border-transparent'
               }`}
             >
               <Icon
-                className={`w-5 h-5 flex-shrink-0 ${isActive ? 'text-primary' : 'text-text-secondary group-hover:text-text-primary transition-colors'}`}
+                className={`w-4.5 h-4.5 flex-shrink-0 ${isActive ? 'text-primary' : 'text-text-secondary group-hover:text-text-primary transition-colors'}`}
               />
               {!collapsed && (
-                <span className="text-sm font-semibold flex-1 tracking-wide">{item.name}</span>
+                <span className="text-[13px] font-semibold flex-1 tracking-wide">{item.name}</span>
               )}
             </Link>
           )
@@ -136,7 +136,7 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
   return (
     <>
       <aside
-        className={`hidden md:block h-screen sticky top-0 z-40 transition-all duration-300 flex-shrink-0 ${collapsed ? 'w-20' : 'w-64'}`}
+        className={`hidden md:block h-screen sticky top-0 z-40 transition-all duration-300 flex-shrink-0 ${collapsed ? 'w-[72px]' : 'w-[230px]'}`}
       >
         {sidebarContent}
       </aside>
@@ -144,12 +144,12 @@ export function Sidebar({ collapsed, setCollapsed, mobileOpen, setMobileOpen }: 
       {mobileOpen && (
         <div
           onClick={() => setMobileOpen(false)}
-          className="md:hidden fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 transition-opacity"
+          className="md:hidden fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 transition-opacity"
         />
       )}
 
       <aside
-        className={`md:hidden fixed top-0 bottom-0 left-0 w-64 z-50 transition-transform duration-300 ease-in-out transform ${
+        className={`md:hidden fixed top-0 bottom-0 left-0 w-[230px] z-50 transition-transform duration-300 ease-in-out transform ${
           mobileOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >

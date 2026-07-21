@@ -18,12 +18,12 @@ import {
   BookOpen,
   Share2,
   Users,
-  Eye,
   Check,
   Clipboard,
   X,
   AlertCircle,
 } from 'lucide-react'
+import { Button } from '@companio/ui'
 
 export default function CreatorAssessmentsPage() {
   const { session } = useAuthStore()
@@ -159,9 +159,9 @@ export default function CreatorAssessmentsPage() {
 
   if (loading) {
     return (
-      <div className="flex flex-col items-center justify-center p-12 min-h-[400px] gap-3 text-slate-400">
-        <RefreshCw className="w-8 h-8 text-blue-500 animate-spin" />
-        <span className="text-sm font-semibold tracking-wide animate-pulse">
+      <div className="flex flex-col items-center justify-center p-12 min-h-[400px] gap-3 text-text-secondary">
+        <RefreshCw className="w-8 h-8 text-primary animate-spin" />
+        <span className="text-xs font-semibold tracking-wide animate-pulse">
           Loading assessments room...
         </span>
       </div>
@@ -169,14 +169,14 @@ export default function CreatorAssessmentsPage() {
   }
 
   return (
-    <div className="space-y-8 text-white text-left animate-fade-in max-w-7xl mx-auto pb-12">
+    <div className="space-y-6 text-text-primary text-left animate-fade-in max-w-7xl mx-auto pb-12">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-white/5 pb-6 gap-4">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between border-b border-border pb-5 gap-4">
         <div>
-          <h1 className="text-3xl font-extrabold tracking-tight flex items-center gap-2.5">
-            <GraduationCap className="w-8 h-8 text-violet-400" /> Assessment Creator
+          <h1 className="text-2xl font-extrabold tracking-tight flex items-center gap-2.5">
+            <GraduationCap className="w-7 h-7 text-primary" /> Assessment Creator
           </h1>
-          <p className="text-slate-400 text-sm font-medium mt-1">
+          <p className="text-text-secondary text-xs font-semibold mt-1">
             Build, publish, and track code-invitation exam sessions.
           </p>
         </div>
@@ -184,13 +184,13 @@ export default function CreatorAssessmentsPage() {
         <div className="flex items-center gap-3">
           <Link
             href="/assessments/join"
-            className="px-4 py-2.5 border border-white/10 hover:bg-white/5 rounded-xl text-xs font-semibold transition"
+            className="px-3.5 py-2 border border-border hover:bg-surface-secondary rounded-medium text-xs font-bold transition duration-200"
           >
             Enter Join Code
           </Link>
           <button
             onClick={() => setShowCreateModal(true)}
-            className="flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-xs font-semibold transition shadow-lg shadow-violet-500/10"
+            className="flex items-center gap-1.5 px-3.5 py-2 rounded-medium bg-primary hover:bg-primary-hover text-white text-xs font-bold transition duration-200 shadow-sm"
           >
             <Plus className="w-4 h-4" /> Create Template
           </button>
@@ -198,26 +198,28 @@ export default function CreatorAssessmentsPage() {
       </div>
 
       {errorMsg && (
-        <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-2xl flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-red-400 flex-shrink-0 mt-0.5" />
-          <div className="text-sm text-red-200">{errorMsg}</div>
+        <div className="p-4 bg-danger/10 border border-danger/25 rounded-medium flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 text-danger flex-shrink-0 mt-0.5" />
+          <div className="text-xs font-bold text-danger">{errorMsg}</div>
         </div>
       )}
 
       {/* Main layout */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <div className="lg:col-span-2 space-y-6">
-          <h2 className="text-lg font-bold flex items-center gap-2">
-            <GraduationCap className="w-5 h-5 text-violet-400" /> Active Assessment Configurations (
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="lg:col-span-2 space-y-5">
+          <h2 className="text-base font-bold flex items-center gap-2 text-text-primary">
+            <GraduationCap className="w-5 h-5 text-primary" /> Active Assessment Configurations (
             {templates.length})
           </h2>
 
           {templates.length === 0 ? (
-            <div className="p-12 border border-dashed border-white/10 rounded-3xl text-center space-y-3 bg-white/5">
-              <p className="text-sm text-slate-400">No assessment configurations created yet.</p>
+            <div className="p-12 border border-dashed border-border rounded-large text-center space-y-3 bg-surface shadow-sm">
+              <p className="text-xs text-text-secondary font-medium">
+                No assessment configurations created yet.
+              </p>
               <button
                 onClick={() => setShowCreateModal(true)}
-                className="text-xs text-blue-400 hover:text-white font-bold transition"
+                className="text-xs text-primary hover:text-primary-hover font-bold transition"
               >
                 Create your first template
               </button>
@@ -227,23 +229,23 @@ export default function CreatorAssessmentsPage() {
               {templates.map((t) => (
                 <div
                   key={t.id}
-                  className="p-6 rounded-2xl border border-white/10 bg-white/5 hover:border-white/20 transition duration-200 flex flex-col md:flex-row md:items-center justify-between gap-6"
+                  className="p-5 rounded-large border border-border bg-surface hover:border-primary/20 hover:shadow-soft transition duration-300 flex flex-col md:flex-row md:items-center justify-between gap-6"
                 >
-                  <div className="space-y-2 min-w-0">
-                    <h3 className="font-bold text-slate-100 line-clamp-1">{t.title}</h3>
-                    <p className="text-xs text-slate-400 line-clamp-2">
+                  <div className="space-y-2 min-w-0 text-left">
+                    <h3 className="font-bold text-sm text-text-primary line-clamp-1">{t.title}</h3>
+                    <p className="text-xs text-text-secondary line-clamp-2">
                       {t.description || 'No description provided.'}
                     </p>
-                    <div className="flex items-center gap-4 text-[10px] text-slate-400 font-bold">
+                    <div className="flex items-center gap-4 text-[10px] text-text-secondary font-bold">
                       <span className="flex items-center gap-1">
-                        <BookOpen className="w-3.5 h-3.5 text-indigo-400" /> {t.questionBankName}
+                        <BookOpen className="w-3.5 h-3.5 text-primary/70" /> {t.questionBankName}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Clock className="w-3.5 h-3.5 text-amber-400" />{' '}
+                        <Clock className="w-3.5 h-3.5 text-warning" />{' '}
                         {t.timer ? `${t.timer} mins` : 'Untimed'}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Award className="w-3.5 h-3.5 text-teal-400" /> Pass: {t.passingScore}%
+                        <Award className="w-3.5 h-3.5 text-success" /> Pass: {t.passingScore}%
                       </span>
                     </div>
                   </div>
@@ -255,20 +257,21 @@ export default function CreatorAssessmentsPage() {
                         {t.publishedCodes.map((p: any) => (
                           <div
                             key={p.id}
-                            className="flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-900 border border-white/5"
+                            className="flex items-center gap-2 px-3 py-1 rounded-medium bg-surface-secondary border border-border"
                           >
-                            <span className="text-[10px] text-slate-400 uppercase font-bold">
+                            <span className="text-[10px] text-text-secondary uppercase font-bold">
                               Code:
                             </span>
-                            <code className="text-xs font-bold text-violet-400 uppercase">
+                            <code className="text-xs font-bold text-primary uppercase">
                               {p.code}
                             </code>
                             <button
                               onClick={() => copyToClipboard(p.code)}
-                              className="text-slate-500 hover:text-white transition"
+                              className="text-text-secondary hover:text-text-primary transition duration-200"
+                              title="Copy code"
                             >
                               {copiedCode === p.code ? (
-                                <Check className="w-3.5 h-3.5 text-teal-400" />
+                                <Check className="w-3.5 h-3.5 text-success" />
                               ) : (
                                 <Clipboard className="w-3.5 h-3.5" />
                               )}
@@ -279,7 +282,7 @@ export default function CreatorAssessmentsPage() {
                     ) : (
                       <button
                         onClick={() => handlePublish(t.id)}
-                        className="px-3.5 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition flex items-center gap-1"
+                        className="px-3 py-1.5 rounded-medium bg-success hover:bg-success-hover text-white text-xs font-bold transition duration-200 flex items-center gap-1"
                       >
                         <Share2 className="w-3.5 h-3.5" /> Publish
                       </button>
@@ -287,7 +290,7 @@ export default function CreatorAssessmentsPage() {
 
                     <button
                       onClick={() => handleOpenReport(t)}
-                      className="px-3.5 py-2 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 text-slate-300 hover:text-white text-xs font-bold transition flex items-center gap-1"
+                      className="px-3 py-1.5 rounded-medium bg-surface border border-border text-text-secondary hover:text-text-primary text-xs font-bold transition duration-200 flex items-center gap-1"
                     >
                       <Users className="w-3.5 h-3.5" /> Reports
                     </button>
@@ -300,11 +303,11 @@ export default function CreatorAssessmentsPage() {
 
         {/* Right Info Sidebar */}
         <div className="space-y-6">
-          <div className="p-6 rounded-2xl border border-white/10 bg-white/5 space-y-4">
-            <h2 className="text-lg font-bold flex items-center gap-2 text-violet-300">
-              <Share2 className="w-5 h-5 text-violet-400" /> How to invite students
+          <div className="p-5 rounded-large border border-border bg-surface space-y-4 shadow-sm text-left">
+            <h2 className="text-sm font-bold flex items-center gap-2 text-primary">
+              <Share2 className="w-4.5 h-4.5" /> How to invite students
             </h2>
-            <div className="space-y-3 text-xs text-slate-400 leading-relaxed">
+            <div className="space-y-3 text-xs text-text-secondary leading-relaxed font-semibold">
               <p>
                 1. Click **Create Template** to customize passing percentages, shuffle options, and
                 durations.
@@ -315,8 +318,8 @@ export default function CreatorAssessmentsPage() {
               </p>
               <p>3. Share the 6-letter code with your students.</p>
               <p>
-                4. Students join via **Join Assessment** (using names/guest status) and attempt the
-                quiz. Results appear under **Reports** instantly.
+                4. Students join via **Join Assessment** and attempt the exam. Results appear under
+                **Reports** instantly.
               </p>
             </div>
           </div>
@@ -325,34 +328,34 @@ export default function CreatorAssessmentsPage() {
 
       {/* CREATE TEMPLATE MODAL */}
       {showCreateModal && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
-          <div className="bg-slate-900 border border-white/10 rounded-3xl p-6 max-w-md w-full space-y-4 shadow-2xl animate-in fade-in zoom-in duration-200">
-            <div className="flex items-center justify-between">
-              <h3 className="text-lg font-bold flex items-center gap-2 text-white">
-                <Plus className="w-5 h-5 text-violet-400" /> Configure Assessment
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4 animate-fade-in">
+          <div className="bg-surface border border-border rounded-large p-5 max-w-md w-full space-y-4 shadow-soft animate-scale-up">
+            <div className="flex items-center justify-between text-left">
+              <h3 className="text-base font-bold flex items-center gap-2 text-text-primary">
+                <Plus className="w-5 h-5 text-primary" /> Configure Assessment
               </h3>
               <button
                 onClick={() => setShowCreateModal(false)}
-                className="text-slate-400 hover:text-white transition"
+                className="text-text-secondary hover:text-text-primary transition duration-200"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {questionBanks.length === 0 ? (
-              <div className="text-center p-4 text-xs text-slate-400">
+              <div className="text-center p-4 text-xs text-text-secondary font-semibold">
                 You must have at least 1 Question Bank in your repository to build an assessment.
               </div>
             ) : (
               <form onSubmit={handleCreateTemplate} className="space-y-4 text-left">
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                  <label className="text-xs font-bold text-text-secondary uppercase tracking-wide">
                     Question Bank Source
                   </label>
                   <select
                     value={selectedBankId}
                     onChange={(e) => setSelectedBankId(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-slate-950 text-white text-sm outline-none focus:border-violet-500/50"
+                    className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50"
                   >
                     {questionBanks.map((q) => (
                       <option key={q.id} value={q.id}>
@@ -363,7 +366,7 @@ export default function CreatorAssessmentsPage() {
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                  <label className="text-xs font-bold text-text-secondary uppercase tracking-wide">
                     Assessment Title
                   </label>
                   <input
@@ -372,12 +375,12 @@ export default function CreatorAssessmentsPage() {
                     placeholder="e.g. Chapter 3 Calculus Exam"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-slate-950 text-white text-sm outline-none focus:border-violet-500/50"
+                    className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                  <label className="text-xs font-bold text-text-secondary uppercase tracking-wide">
                     Description (Optional)
                   </label>
                   <textarea
@@ -385,13 +388,13 @@ export default function CreatorAssessmentsPage() {
                     value={description}
                     onChange={(e) => setDescription(e.target.value)}
                     rows={3}
-                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-slate-950 text-white text-sm outline-none focus:border-violet-500/50 resize-none"
+                    className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50 resize-none"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                    <label className="text-xs font-bold text-text-secondary uppercase tracking-wide">
                       Timer limit (Minutes)
                     </label>
                     <input
@@ -400,12 +403,12 @@ export default function CreatorAssessmentsPage() {
                       placeholder="Untimed"
                       value={timer}
                       onChange={(e) => setTimer(parseInt(e.target.value) || 0)}
-                      className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-slate-950 text-white text-sm outline-none focus:border-violet-500/50"
+                      className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50"
                     />
                   </div>
 
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                  <div className="space-y-1.5 flex flex-col justify-end">
+                    <label className="text-xs font-bold text-text-secondary uppercase tracking-wide mb-1">
                       Passing Score ({passingScore}%)
                     </label>
                     <input
@@ -415,7 +418,7 @@ export default function CreatorAssessmentsPage() {
                       step={5}
                       value={passingScore}
                       onChange={(e) => setPassingScore(parseInt(e.target.value))}
-                      className="w-full h-10 accent-violet-500 cursor-pointer"
+                      className="w-full h-8 accent-primary cursor-pointer"
                     />
                   </div>
                 </div>
@@ -426,11 +429,11 @@ export default function CreatorAssessmentsPage() {
                     id="shuffle"
                     checked={shuffleQuestions}
                     onChange={(e) => setShuffleQuestions(e.target.checked)}
-                    className="rounded bg-slate-950 border-white/10 text-violet-500 focus:ring-0 cursor-pointer"
+                    className="rounded bg-surface border-border text-primary focus:ring-0 cursor-pointer"
                   />
                   <label
                     htmlFor="shuffle"
-                    className="text-xs font-bold text-slate-300 cursor-pointer select-none"
+                    className="text-xs font-bold text-text-secondary cursor-pointer select-none"
                   >
                     Shuffle Question delivery order
                   </label>
@@ -441,14 +444,14 @@ export default function CreatorAssessmentsPage() {
                     type="button"
                     onClick={() => setShowCreateModal(false)}
                     disabled={savingTemplate}
-                    className="flex-1 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-slate-400 hover:text-white font-semibold text-xs transition"
+                    className="flex-1 py-2 bg-surface-secondary border border-border rounded-medium text-text-secondary hover:text-text-primary font-bold text-xs transition duration-200"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={savingTemplate}
-                    className="flex-1 py-2.5 bg-violet-600 hover:bg-violet-500 rounded-xl text-white font-semibold text-xs flex items-center justify-center gap-2 transition"
+                    className="flex-1 py-2 bg-primary hover:bg-primary-hover rounded-medium text-white font-bold text-xs flex items-center justify-center gap-1.5 transition duration-200"
                   >
                     {savingTemplate ? (
                       <RefreshCw className="w-4 h-4 animate-spin" />
@@ -466,39 +469,41 @@ export default function CreatorAssessmentsPage() {
 
       {/* VIEW REPORT MODAL */}
       {viewingReport && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
-          <div className="bg-slate-900 border border-white/10 rounded-3xl p-6 max-w-3xl w-full space-y-4 shadow-2xl animate-in fade-in zoom-in duration-200">
-            <div className="flex items-center justify-between border-b border-white/5 pb-3">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4 animate-fade-in">
+          <div className="bg-surface border border-border rounded-large p-5 max-w-3xl w-full space-y-4 shadow-soft animate-scale-up">
+            <div className="flex items-center justify-between border-b border-border pb-3 text-left">
               <div>
-                <span className="text-[10px] font-bold text-violet-400 uppercase tracking-wide">
+                <span className="text-[9px] font-bold text-primary uppercase tracking-wide">
                   Template Report
                 </span>
-                <h3 className="text-lg font-bold text-white line-clamp-1">{viewingReport.title}</h3>
+                <h3 className="text-base font-bold text-text-primary line-clamp-1">
+                  {viewingReport.title}
+                </h3>
               </div>
               <button
                 onClick={() => setViewingReport(null)}
-                className="text-slate-400 hover:text-white transition"
+                className="text-text-secondary hover:text-text-primary transition duration-200"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             {reportLoading ? (
-              <div className="flex flex-col items-center justify-center p-8 gap-2 text-slate-400">
-                <RefreshCw className="w-6 h-6 animate-spin text-blue-500" />
+              <div className="flex flex-col items-center justify-center p-8 gap-2 text-text-secondary">
+                <RefreshCw className="w-6 h-6 animate-spin text-primary" />
                 <span className="text-xs font-semibold animate-pulse">
                   Loading attempt statistics...
                 </span>
               </div>
             ) : reportData.length === 0 ? (
-              <div className="text-center p-8 text-slate-400 text-xs">
+              <div className="text-center p-8 text-text-secondary text-xs font-semibold">
                 No participant records found for this assessment yet.
               </div>
             ) : (
-              <div className="overflow-x-auto max-h-[50vh]">
+              <div className="overflow-x-auto max-h-[50vh] border border-border rounded-medium">
                 <table className="w-full border-collapse text-left text-xs">
                   <thead>
-                    <tr className="border-b border-white/10 text-slate-400 font-bold uppercase bg-white/5">
+                    <tr className="border-b border-border text-text-secondary font-bold uppercase bg-surface-secondary">
                       <th className="p-3">Participant</th>
                       <th className="p-3 w-24">Invitation Code</th>
                       <th className="p-3 w-20">Score</th>
@@ -507,33 +512,37 @@ export default function CreatorAssessmentsPage() {
                       <th className="p-3 w-32">Date</th>
                     </tr>
                   </thead>
-                  <tbody className="divide-y divide-white/5">
+                  <tbody className="divide-y divide-border">
                     {reportData.map((a) => {
                       const isPass = a.score >= viewingReport.passingScore
                       return (
-                        <tr key={a.id} className="hover:bg-white/5">
-                          <td className="p-3 font-semibold text-slate-200">{a.participantName}</td>
-                          <td className="p-3 font-mono uppercase text-violet-400">{a.code}</td>
+                        <tr key={a.id} className="hover:bg-surface-secondary/50">
+                          <td className="p-3 font-semibold text-text-primary">
+                            {a.participantName}
+                          </td>
+                          <td className="p-3 font-mono uppercase text-primary">{a.code}</td>
                           <td className="p-3">
                             <span
-                              className={`font-bold ${isPass ? 'text-teal-400' : 'text-red-400'}`}
+                              className={`font-bold ${isPass ? 'text-success' : 'text-danger'}`}
                             >
                               {a.score !== null ? `${Math.round(a.score)}%` : 'N/A'}
                             </span>
                           </td>
                           <td className="p-3">
                             <span
-                              className={`px-1.5 py-0.5 rounded text-[9px] font-bold ${
+                              className={`px-1.5 py-0.5 rounded-pill text-[9px] font-bold ${
                                 a.status === 'COMPLETED'
-                                  ? 'bg-teal-500/10 text-teal-400'
-                                  : 'bg-amber-500/10 text-amber-400'
+                                  ? 'bg-success/10 text-success'
+                                  : 'bg-warning/10 text-warning'
                               }`}
                             >
                               {a.status}
                             </span>
                           </td>
-                          <td className="p-3 text-slate-400">{formatDuration(a.timeTaken)}</td>
-                          <td className="p-3 text-slate-400">
+                          <td className="p-3 text-text-secondary font-semibold">
+                            {formatDuration(a.timeTaken)}
+                          </td>
+                          <td className="p-3 text-text-secondary font-semibold">
                             {a.completedAt ? new Date(a.completedAt).toLocaleDateString() : '-'}
                           </td>
                         </tr>
@@ -544,10 +553,10 @@ export default function CreatorAssessmentsPage() {
               </div>
             )}
 
-            <div className="flex justify-end pt-3 border-t border-white/5">
+            <div className="flex justify-end pt-3 border-t border-border">
               <button
                 onClick={() => setViewingReport(null)}
-                className="px-4 py-2 bg-white/5 hover:bg-white/10 rounded-xl text-xs font-semibold transition"
+                className="px-3 py-1.5 bg-surface-secondary border border-border rounded-medium text-text-secondary hover:text-text-primary text-xs font-bold transition duration-200"
               >
                 Close Report
               </button>

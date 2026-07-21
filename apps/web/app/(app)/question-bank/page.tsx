@@ -24,7 +24,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Inbox,
-  AlertTriangle,
 } from 'lucide-react'
 
 export default function QuestionBankPage() {
@@ -195,34 +194,34 @@ export default function QuestionBankPage() {
   const totalPages = Math.ceil(totalCount / limit)
 
   return (
-    <div className="space-y-8 text-white text-left animate-fade-in max-w-7xl mx-auto pb-12">
-      <div className="border-b border-white/5 pb-6">
-        <h1 className="text-3xl font-extrabold tracking-tight flex items-center gap-2.5">
-          <FolderOpen className="w-8 h-8 text-violet-400" /> Question Repository Bank
+    <div className="space-y-6 text-text-primary text-left animate-fade-in max-w-7xl mx-auto pb-12">
+      <div className="border-b border-border pb-5">
+        <h1 className="text-2xl font-extrabold tracking-tight flex items-center gap-2.5">
+          <FolderOpen className="w-7 h-7 text-primary" /> Question Repository Bank
         </h1>
-        <p className="text-slate-400 text-sm font-medium mt-1">
+        <p className="text-text-secondary text-xs font-semibold mt-1">
           Search, filter, edit, archive, and manage all validated study questions.
         </p>
       </div>
 
       {/* Tabs for Active vs Archived */}
-      <div className="flex border-b border-white/10 gap-6">
+      <div className="flex border-b border-border gap-6">
         <button
           onClick={() => setStatusTab('active')}
-          className={`pb-3 text-sm font-bold tracking-wide uppercase transition ${
+          className={`pb-2.5 text-xs font-bold tracking-wide uppercase transition duration-200 ${
             statusTab === 'active'
-              ? 'text-blue-400 border-b-2 border-blue-500'
-              : 'text-slate-500 hover:text-slate-300'
+              ? 'text-primary border-b-2 border-primary'
+              : 'text-text-secondary hover:text-text-primary'
           }`}
         >
           Active Bank
         </button>
         <button
           onClick={() => setStatusTab('archived')}
-          className={`pb-3 text-sm font-bold tracking-wide uppercase transition ${
+          className={`pb-2.5 text-xs font-bold tracking-wide uppercase transition duration-200 ${
             statusTab === 'archived'
-              ? 'text-violet-400 border-b-2 border-violet-500'
-              : 'text-slate-500 hover:text-slate-300'
+              ? 'text-primary border-b-2 border-primary'
+              : 'text-text-secondary hover:text-text-primary'
           }`}
         >
           Archived Shelf
@@ -230,26 +229,26 @@ export default function QuestionBankPage() {
       </div>
 
       {/* Filter Options Bar */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-md">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 bg-surface border border-border rounded-large p-4 shadow-sm">
         {/* Search */}
         <div className="relative">
-          <Search className="absolute left-3.5 top-3 w-4 h-4 text-slate-400" />
+          <Search className="absolute left-3 top-2.5 w-4 h-4 text-text-secondary/60" />
           <input
             type="text"
             placeholder="Search questions..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full pl-10 pr-4 py-2 text-sm rounded-xl bg-slate-900 border border-white/10 text-white placeholder-slate-500 focus:outline-none focus:border-blue-500 transition"
+            className="w-full pl-9 pr-4 py-2 text-xs rounded-medium bg-surface border border-border text-text-primary placeholder-text-secondary/50 focus:outline-none focus:border-primary/50 transition duration-200"
           />
         </div>
 
         {/* Source Filter */}
         <div className="flex items-center gap-2">
-          <BookOpen className="w-4 h-4 text-slate-500 flex-shrink-0" />
+          <BookOpen className="w-4 h-4 text-text-secondary/50 flex-shrink-0" />
           <select
             value={selectedSourceId}
             onChange={(e) => setSelectedSourceId(e.target.value)}
-            className="w-full px-3 py-2 text-xs rounded-xl bg-slate-900 border border-white/10 text-white outline-none focus:border-blue-500"
+            className="w-full px-3 py-2 text-xs rounded-medium bg-surface border border-border text-text-primary outline-none focus:border-primary/50"
           >
             <option value="ALL">All Materials</option>
             {sources.map((s) => (
@@ -262,11 +261,11 @@ export default function QuestionBankPage() {
 
         {/* Format Type Filter */}
         <div className="flex items-center gap-2">
-          <HelpCircle className="w-4 h-4 text-slate-500 flex-shrink-0" />
+          <HelpCircle className="w-4 h-4 text-text-secondary/50 flex-shrink-0" />
           <select
             value={selectedType}
             onChange={(e) => setSelectedType(e.target.value)}
-            className="w-full px-3 py-2 text-xs rounded-xl bg-slate-900 border border-white/10 text-white outline-none focus:border-blue-500"
+            className="w-full px-3 py-2 text-xs rounded-medium bg-surface border border-border text-text-primary outline-none focus:border-primary/50"
           >
             <option value="ALL">All Formats</option>
             <option value="MULTIPLE_CHOICE">Multiple Choice</option>
@@ -277,11 +276,11 @@ export default function QuestionBankPage() {
 
         {/* Difficulty Filter */}
         <div className="flex items-center gap-2">
-          <Award className="w-4 h-4 text-slate-500 flex-shrink-0" />
+          <Award className="w-4 h-4 text-text-secondary/50 flex-shrink-0" />
           <select
             value={selectedDifficulty}
             onChange={(e) => setSelectedDifficulty(e.target.value)}
-            className="w-full px-3 py-2 text-xs rounded-xl bg-slate-900 border border-white/10 text-white outline-none focus:border-blue-500"
+            className="w-full px-3 py-2 text-xs rounded-medium bg-surface border border-border text-text-primary outline-none focus:border-primary/50"
           >
             <option value="ALL">All Difficulties</option>
             <option value="EASY">Easy</option>
@@ -293,29 +292,29 @@ export default function QuestionBankPage() {
 
       {/* Bulk action toolbar */}
       {selectedIds.length > 0 && (
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-blue-600/10 border border-blue-500/20 rounded-2xl gap-3 animate-in slide-in-from-top-4 duration-300">
-          <div className="text-sm font-semibold text-blue-300">
-            Selected <span className="text-white font-bold">{selectedIds.length}</span> questions
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between p-4 bg-primary/10 border border-primary/20 rounded-large gap-3 animate-fade-in">
+          <div className="text-xs font-bold text-primary">
+            Selected <span className="font-extrabold">{selectedIds.length}</span> questions
           </div>
           <div className="flex items-center gap-3">
             {statusTab === 'active' ? (
               <button
                 onClick={() => handleBulkAction('archive')}
-                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-violet-600 border border-white/10 text-slate-300 hover:text-white text-xs font-semibold transition"
+                className="flex items-center gap-1 px-3 py-1.5 rounded-medium bg-surface border border-border text-text-secondary hover:text-text-primary text-[10px] font-bold transition duration-200"
               >
                 <Archive className="w-3.5 h-3.5" /> Bulk Archive
               </button>
             ) : (
               <button
                 onClick={() => handleBulkAction('restore')}
-                className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-teal-600 border border-white/10 text-slate-300 hover:text-white text-xs font-semibold transition"
+                className="flex items-center gap-1 px-3 py-1.5 rounded-medium bg-surface border border-border text-text-secondary hover:text-text-primary text-[10px] font-bold transition duration-200"
               >
                 <RefreshCw className="w-3.5 h-3.5" /> Bulk Restore
               </button>
             )}
             <button
               onClick={() => handleBulkAction('delete')}
-              className="flex items-center gap-1 px-3 py-1.5 rounded-lg bg-red-950/30 hover:bg-red-600 border border-red-500/20 hover:border-transparent text-red-400 hover:text-white text-xs font-semibold transition"
+              className="flex items-center gap-1 px-3 py-1.5 rounded-medium bg-danger/15 hover:bg-danger text-danger hover:text-white border border-danger/20 hover:border-transparent text-[10px] font-bold transition duration-200"
             >
               <Trash2 className="w-3.5 h-3.5" /> Bulk Delete
             </button>
@@ -325,37 +324,37 @@ export default function QuestionBankPage() {
 
       {/* Table / List catalog */}
       {loading ? (
-        <div className="flex flex-col items-center justify-center p-12 bg-white/5 border border-white/10 rounded-3xl backdrop-blur-md gap-3 min-h-[300px] text-slate-400">
-          <RefreshCw className="w-8 h-8 text-blue-500 animate-spin" />
-          <span className="text-sm font-semibold tracking-wide animate-pulse">
+        <div className="flex flex-col items-center justify-center p-12 bg-surface border border-border rounded-large shadow-sm gap-3 min-h-[300px] text-text-secondary">
+          <RefreshCw className="w-7 h-7 text-primary animate-spin" />
+          <span className="text-xs font-semibold tracking-wide animate-pulse">
             Loading question records...
           </span>
         </div>
       ) : questions.length === 0 ? (
-        <div className="bg-white/5 border border-white/10 rounded-3xl p-12 backdrop-blur-md flex flex-col items-center justify-center text-center space-y-4 min-h-[300px]">
-          <div className="w-16 h-16 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center text-slate-500">
+        <div className="bg-surface border border-border rounded-large p-12 shadow-sm flex flex-col items-center justify-center text-center space-y-4 min-h-[300px]">
+          <div className="w-16 h-16 rounded-medium bg-surface-secondary border border-border flex items-center justify-center text-text-secondary">
             <Inbox className="w-8 h-8" />
           </div>
           <div className="space-y-1.5 max-w-sm">
-            <h3 className="font-bold text-lg text-white">Repository is empty</h3>
-            <p className="text-slate-400 text-sm leading-relaxed">
+            <h3 className="font-bold text-base text-text-primary">Repository is empty</h3>
+            <p className="text-text-secondary text-xs leading-relaxed font-semibold">
               No questions found matching your filter criteria. Go to Practice Generator to create
               some.
             </p>
           </div>
         </div>
       ) : (
-        <div className="space-y-6">
-          <div className="overflow-x-auto rounded-2xl border border-white/10 bg-white/5">
+        <div className="space-y-5">
+          <div className="overflow-x-auto rounded-large border border-border bg-surface shadow-sm">
             <table className="w-full text-left border-collapse">
               <thead>
-                <tr className="border-b border-white/10 bg-white/5 text-[10px] uppercase font-bold text-slate-400 tracking-wider">
+                <tr className="border-b border-border bg-surface-secondary text-[9px] uppercase font-bold text-text-secondary tracking-wider">
                   <th className="p-4 w-12 text-center">
                     <input
                       type="checkbox"
                       onChange={handleSelectAll}
                       checked={selectedIds.length === questions.length}
-                      className="rounded bg-slate-900 border-white/10 text-blue-500 focus:ring-0 cursor-pointer"
+                      className="rounded bg-surface border-border text-primary focus:ring-0 cursor-pointer"
                     />
                   </th>
                   <th className="p-4">Question detail</th>
@@ -365,15 +364,15 @@ export default function QuestionBankPage() {
                   <th className="p-4 w-28 text-right">Actions</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5 text-sm">
+              <tbody className="divide-y divide-border text-xs text-text-primary">
                 {questions.map((q) => {
                   const isChecked = selectedIds.includes(q.id)
 
                   return (
                     <tr
                       key={q.id}
-                      className={`hover:bg-white/5 transition duration-150 ${
-                        isChecked ? 'bg-blue-600/5' : ''
+                      className={`hover:bg-surface-secondary/40 transition duration-150 ${
+                        isChecked ? 'bg-primary/5' : ''
                       }`}
                     >
                       <td className="p-4 text-center">
@@ -381,55 +380,58 @@ export default function QuestionBankPage() {
                           type="checkbox"
                           checked={isChecked}
                           onChange={(e) => handleSelectOne(q.id, e.target.checked)}
-                          className="rounded bg-slate-900 border-white/10 text-blue-500 focus:ring-0 cursor-pointer"
+                          className="rounded bg-surface border-border text-primary focus:ring-0 cursor-pointer"
                         />
                       </td>
-                      <td className="p-4 font-semibold text-slate-200 max-w-md">
+                      <td className="p-4 font-bold text-text-primary max-w-md">
                         <div className="truncate">{q.title}</div>
                         {q.options && q.options.length > 0 && (
-                          <div className="text-[10px] text-slate-500 mt-1 font-medium truncate">
+                          <div className="text-[10px] text-text-secondary mt-1 font-semibold truncate">
                             Choices: {q.options.join(' | ')}
                           </div>
                         )}
                       </td>
                       <td className="p-4">
-                        <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase bg-slate-800 text-slate-400 border border-slate-700">
+                        <span className="px-2 py-0.5 rounded-pill text-[9px] font-bold tracking-wide uppercase bg-surface-secondary text-text-secondary border border-border">
                           {q.type.replace('_', ' ')}
                         </span>
                       </td>
                       <td className="p-4">
                         <span
-                          className={`px-2.5 py-0.5 rounded-full text-[10px] font-bold tracking-wide uppercase border ${
+                          className={`px-2.5 py-0.5 rounded-pill text-[9px] font-bold tracking-wide uppercase border ${
                             q.difficulty === 'HARD'
-                              ? 'bg-red-500/10 text-red-400 border-red-500/20'
+                              ? 'bg-danger/10 text-danger border-danger/20'
                               : q.difficulty === 'MEDIUM'
-                                ? 'bg-amber-500/10 text-amber-400 border-amber-500/20'
-                                : 'bg-teal-500/10 text-teal-400 border-teal-500/20'
+                                ? 'bg-warning/10 text-warning border-warning/20'
+                                : 'bg-success/10 text-success border-success/20'
                           }`}
                         >
                           {q.difficulty}
                         </span>
                       </td>
-                      <td className="p-4 text-xs text-slate-400 font-medium max-w-[150px] truncate">
+                      <td className="p-4 text-[10px] text-text-secondary font-semibold max-w-[150px] truncate">
                         {q.sourceName}
                       </td>
                       <td className="p-4 text-right">
                         <div className="flex items-center justify-end gap-2">
                           <button
                             onClick={() => handleStartEdit(q)}
-                            className="p-1.5 rounded-lg bg-white/5 hover:bg-blue-600 border border-white/5 text-slate-400 hover:text-white transition"
+                            className="p-1.5 rounded-medium bg-surface border border-border text-text-secondary hover:bg-surface-secondary hover:text-text-primary transition duration-200"
+                            title="Edit question"
                           >
                             <Edit2 className="w-3.5 h-3.5" />
                           </button>
                           <button
                             onClick={() => handleToggleArchive(q.id, q.archived)}
-                            className="p-1.5 rounded-lg bg-white/5 hover:bg-violet-600 border border-white/5 text-slate-400 hover:text-white transition"
+                            className="p-1.5 rounded-medium bg-surface border border-border text-text-secondary hover:bg-surface-secondary hover:text-text-primary transition duration-200"
+                            title="Archive question"
                           >
                             <Archive className="w-3.5 h-3.5" />
                           </button>
                           <button
                             onClick={() => handleDeleteOne(q.id)}
-                            className="p-1.5 rounded-lg bg-white/5 hover:bg-red-600 border border-white/5 text-slate-400 hover:text-red-400 hover:border-transparent transition"
+                            className="p-1.5 rounded-medium bg-surface border border-border text-text-secondary hover:bg-danger/10 hover:text-danger hover:border-danger/20 transition duration-200"
+                            title="Delete question"
                           >
                             <Trash2 className="w-3.5 h-3.5" />
                           </button>
@@ -445,24 +447,24 @@ export default function QuestionBankPage() {
           {/* Pagination bar */}
           {totalPages > 1 && (
             <div className="flex items-center justify-between pt-2">
-              <span className="text-xs text-slate-500 font-bold">
+              <span className="text-[10px] text-text-secondary font-bold">
                 Showing {questions.length} of {totalCount} questions
               </span>
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
                   disabled={page === 1}
-                  className="p-2 rounded-xl bg-white/5 hover:bg-white/10 disabled:opacity-50 text-white transition cursor-pointer"
+                  className="p-1.5 rounded-medium bg-surface border border-border disabled:opacity-50 text-text-primary hover:bg-surface-secondary transition duration-200 cursor-pointer"
                 >
                   <ChevronLeft className="w-4 h-4" />
                 </button>
-                <span className="text-xs font-bold text-slate-300">
+                <span className="text-xs font-bold text-text-secondary">
                   Page {page} of {totalPages}
                 </span>
                 <button
                   onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
                   disabled={page === totalPages}
-                  className="p-2 rounded-xl bg-white/5 hover:bg-white/10 disabled:opacity-50 text-white transition cursor-pointer"
+                  className="p-1.5 rounded-medium bg-surface border border-border disabled:opacity-50 text-text-primary hover:bg-surface-secondary transition duration-200 cursor-pointer"
                 >
                   <ChevronRight className="w-4 h-4" />
                 </button>
@@ -474,15 +476,15 @@ export default function QuestionBankPage() {
 
       {/* Edit modal popup */}
       {editingQuestion && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
-          <div className="bg-slate-900 border border-white/10 rounded-3xl p-6 max-w-xl w-full space-y-4 shadow-2xl animate-in fade-in zoom-in duration-200">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4 animate-fade-in">
+          <div className="bg-surface border border-border rounded-large p-5 max-w-xl w-full space-y-4 shadow-soft animate-scale-up text-left">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-bold flex items-center gap-2 text-white">
-                <Edit2 className="w-5 h-5 text-blue-400" /> Edit Question Details
+              <h3 className="text-base font-bold flex items-center gap-2 text-text-primary">
+                <Edit2 className="w-5 h-5 text-primary" /> Edit Question Details
               </h3>
               <button
                 onClick={() => setEditingQuestion(null)}
-                className="text-slate-400 hover:text-white transition"
+                className="text-text-secondary hover:text-text-primary transition duration-200"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -490,10 +492,10 @@ export default function QuestionBankPage() {
 
             <form
               onSubmit={handleSaveEdit}
-              className="space-y-4 text-left max-h-[75vh] overflow-y-auto pr-1"
+              className="space-y-4 text-left max-h-[70vh] overflow-y-auto pr-1"
             >
               <div className="space-y-1.5">
-                <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                <label className="text-xs font-bold text-text-secondary uppercase tracking-wide">
                   Question text
                 </label>
                 <textarea
@@ -501,20 +503,20 @@ export default function QuestionBankPage() {
                   rows={2}
                   value={editTitle}
                   onChange={(e) => setEditTitle(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-slate-950 text-white text-sm outline-none focus:border-blue-500/50 resize-none"
+                  className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50 resize-none"
                 />
               </div>
 
               {/* Render option list editing fields if MCQ or TF */}
               {editOptions && editOptions.length > 0 && (
                 <div className="space-y-3">
-                  <label className="text-xs font-bold text-slate-300 uppercase tracking-wide block">
+                  <label className="text-xs font-bold text-text-secondary uppercase tracking-wide block">
                     Answer options Choices
                   </label>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                     {editOptions.map((opt, idx) => (
                       <div key={idx} className="space-y-1">
-                        <span className="text-[10px] text-slate-500 font-bold uppercase">
+                        <span className="text-[9px] text-text-secondary font-bold uppercase">
                           Choice {String.fromCharCode(65 + idx)}
                         </span>
                         <input
@@ -526,20 +528,20 @@ export default function QuestionBankPage() {
                             newOptions[idx] = e.target.value
                             setEditOptions(newOptions)
                           }}
-                          className="w-full px-3 py-2 rounded-xl border border-white/5 bg-slate-950 text-white text-xs outline-none focus:border-blue-500/50"
+                          className="w-full px-3 py-1.5 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50"
                         />
                       </div>
                     ))}
                   </div>
 
                   <div className="space-y-1.5">
-                    <label className="text-xs font-bold text-slate-300 uppercase tracking-wide block">
+                    <label className="text-xs font-bold text-text-secondary uppercase tracking-wide block">
                       Correct Answer Selection
                     </label>
                     <select
                       value={editCorrectAnswer}
                       onChange={(e) => setEditCorrectAnswer(parseInt(e.target.value))}
-                      className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-slate-950 text-white text-sm outline-none focus:border-blue-500/50"
+                      className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50"
                     >
                       {editOptions.map((_, idx) => (
                         <option key={idx} value={idx}>
@@ -554,7 +556,7 @@ export default function QuestionBankPage() {
               {/* Render model answer editing text block if short answer */}
               {editingQuestion.type === 'SHORT_ANSWER' && (
                 <div className="space-y-1.5">
-                  <label className="text-xs font-bold text-slate-300 uppercase tracking-wide">
+                  <label className="text-xs font-bold text-text-secondary uppercase tracking-wide">
                     Model answer key
                   </label>
                   <textarea
@@ -562,7 +564,7 @@ export default function QuestionBankPage() {
                     rows={4}
                     value={editModelAnswer}
                     onChange={(e) => setEditModelAnswer(e.target.value)}
-                    className="w-full px-4 py-2.5 rounded-xl border border-white/10 bg-slate-950 text-white text-sm outline-none focus:border-blue-500/50 resize-none"
+                    className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50 resize-none"
                   />
                 </div>
               )}
@@ -572,14 +574,14 @@ export default function QuestionBankPage() {
                   type="button"
                   onClick={() => setEditingQuestion(null)}
                   disabled={savingEdit}
-                  className="flex-1 py-2.5 bg-white/5 hover:bg-white/10 rounded-xl text-slate-400 hover:text-white font-semibold text-xs transition"
+                  className="flex-1 py-2 bg-surface-secondary border border-border rounded-medium text-text-secondary hover:text-text-primary font-bold text-xs transition duration-200"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
                   disabled={savingEdit}
-                  className="flex-1 py-2.5 bg-blue-600 hover:bg-blue-500 rounded-xl text-white font-semibold text-xs flex items-center justify-center gap-2 transition"
+                  className="flex-1 py-2 bg-primary hover:bg-primary-hover rounded-medium text-white font-bold text-xs flex items-center justify-center gap-1.5 transition duration-200"
                 >
                   {savingEdit ? (
                     <RefreshCw className="w-4 h-4 animate-spin" />

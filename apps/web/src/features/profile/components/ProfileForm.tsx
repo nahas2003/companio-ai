@@ -107,51 +107,53 @@ export function ProfileForm() {
 
   if (fetching) {
     return (
-      <div className="flex flex-col items-center justify-center py-12 gap-3 text-slate-400">
-        <div className="w-8 h-8 rounded-full border-2 border-slate-700 border-t-blue-500 animate-spin" />
-        <p className="text-sm font-medium animate-pulse">Fetching profile details...</p>
+      <div className="flex flex-col items-center justify-center py-12 gap-3 text-text-secondary">
+        <div className="w-8 h-8 rounded-full border-2 border-border border-t-primary animate-spin" />
+        <p className="text-xs font-semibold animate-pulse">Fetching profile details...</p>
       </div>
     )
   }
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       <div className="flex items-center justify-between">
         <Link
           href="/dashboard"
-          className="inline-flex items-center gap-1.5 text-sm text-slate-400 hover:text-white transition duration-300 group"
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-text-secondary hover:text-text-primary transition duration-200 group"
         >
           <ChevronLeft className="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" />
           Back to Dashboard
         </Link>
         {isDirty && (
-          <span className="inline-flex items-center gap-1.5 text-xs text-amber-400 font-semibold px-2.5 py-0.5 rounded-full border border-amber-500/20 bg-amber-500/10">
+          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-pill border border-warning/20 bg-warning/10 text-[10px] font-bold text-warning">
             <ShieldAlert className="w-3.5 h-3.5" /> Unsaved Edits
           </span>
         )}
       </div>
 
-      <div className="bg-white/5 border border-white/10 rounded-3xl p-8 backdrop-blur-md shadow-2xl relative overflow-hidden text-left">
-        <div className="text-center md:text-left mb-8 border-b border-white/5 pb-6">
-          <h2 className="text-2xl font-bold mb-1 flex items-center justify-center md:justify-start gap-2">
-            <User className="w-6 h-6 text-violet-400" /> Account Profiles
+      <div className="bg-surface border border-border rounded-large p-6 shadow-sm relative overflow-hidden text-left">
+        <div className="text-center md:text-left mb-6 border-b border-border pb-5">
+          <h2 className="text-lg font-bold mb-1 flex items-center justify-center md:justify-start gap-2 text-text-primary">
+            <User className="w-5.5 h-5.5 text-primary" /> Account Profile
           </h2>
-          <p className="text-sm text-slate-400">Modify display details and metadata settings</p>
+          <p className="text-xs text-text-secondary font-semibold">
+            Modify display details and metadata settings
+          </p>
         </div>
 
-        <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
           {message && (
             <div
-              className={`flex items-center gap-3 p-4 rounded-xl border text-sm ${
+              className={`flex items-center gap-3 p-4 rounded-medium border text-xs font-bold ${
                 message.type === 'success'
-                  ? 'border-teal-500/30 bg-teal-500/10 text-teal-200'
-                  : 'border-red-500/30 bg-red-500/10 text-red-200'
+                  ? 'border-success/30 bg-success/10 text-success'
+                  : 'border-danger/30 bg-danger/10 text-danger'
               }`}
             >
               {message.type === 'success' ? (
-                <CheckCircle2 className="w-5 h-5 flex-shrink-0" />
+                <CheckCircle2 className="w-4.5 h-4.5 flex-shrink-0" />
               ) : (
-                <AlertCircle className="w-5 h-5 flex-shrink-0" />
+                <AlertCircle className="w-4.5 h-4.5 flex-shrink-0" />
               )}
               <span>{message.text}</span>
             </div>
@@ -159,33 +161,33 @@ export function ProfileForm() {
 
           <div className="space-y-4">
             <div className="space-y-1.5">
-              <label className="text-sm font-semibold text-slate-300 flex items-center gap-1.5">
-                <User className="w-4 h-4 text-slate-400" /> Display Name
+              <label className="text-xs font-bold text-text-secondary flex items-center gap-1.5">
+                <User className="w-4 h-4 text-text-secondary/60" /> Display Name
               </label>
               <input
                 type="text"
                 placeholder="John Doe"
                 disabled={saving}
                 {...register('displayName')}
-                className="w-full px-4 py-3 rounded-xl border border-white/10 bg-white/5 focus:bg-white/10 focus:border-blue-500/50 outline-none transition duration-300 text-white placeholder-slate-500 disabled:opacity-50"
+                className="w-full px-3 py-2 rounded-medium border border-border bg-surface focus:border-primary/50 outline-none transition duration-200 text-text-primary text-xs placeholder-text-secondary/50 disabled:opacity-50"
               />
               {errors.displayName && (
-                <p className="text-xs text-red-400 font-medium flex items-center gap-1">
+                <p className="text-xs text-danger font-medium flex items-center gap-1">
                   <AlertCircle className="w-3.5 h-3.5" /> {errors.displayName.message}
                 </p>
               )}
             </div>
 
             <div className="space-y-1.5">
-              <label className="text-sm font-semibold text-slate-300">Registered Email</label>
+              <label className="text-xs font-bold text-text-secondary">Registered Email</label>
               <input
                 type="text"
                 value={user?.email || ''}
                 disabled
-                className="w-full px-4 py-3 rounded-xl border border-white/5 bg-white/5 text-slate-500 cursor-not-allowed outline-none"
+                className="w-full px-3 py-2 rounded-medium border border-border bg-surface-secondary text-text-secondary/60 cursor-not-allowed outline-none text-xs"
               />
-              <p className="text-[11px] text-slate-500">
-                Email addresses are tied to Supabase Auth authentication login credentials.
+              <p className="text-[10px] text-text-secondary/70 font-semibold">
+                Email addresses are tied to authentication login credentials.
               </p>
             </div>
           </div>
@@ -193,14 +195,10 @@ export function ProfileForm() {
           <Button
             type="submit"
             disabled={saving || !isDirty}
-            className={`w-full h-11 transition duration-300 font-semibold ${
-              isDirty
-                ? 'bg-gradient-to-r from-blue-600 to-violet-600 hover:from-blue-500 hover:to-violet-500 text-white shadow-lg hover:shadow-blue-500/25'
-                : 'bg-slate-800 text-slate-500 cursor-not-allowed border border-slate-700/50'
-            }`}
+            className="w-full h-10 rounded-medium text-xs font-bold transition duration-200"
           >
             {saving ? (
-              <div className="w-5 h-5 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+              <div className="w-4 h-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
             ) : (
               'Save Changes'
             )}

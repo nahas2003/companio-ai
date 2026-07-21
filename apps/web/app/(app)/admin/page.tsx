@@ -46,38 +46,28 @@ export default function AdminPage() {
 
   return (
     <RoleGuard requiredPermission="admin:users">
-      <div className="min-h-screen bg-slate-950 text-white flex flex-col justify-between relative overflow-hidden">
-        {/* Background Radial Glows */}
-        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-600/10 blur-[120px] pointer-events-none" />
-        <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] rounded-full bg-violet-600/10 blur-[120px] pointer-events-none" />
+      <div className="space-y-6 text-text-primary text-left animate-fade-in max-w-7xl mx-auto pb-12">
+        {/* Header */}
+        <div className="border-b border-border pb-5">
+          <h1 className="text-2xl font-extrabold tracking-tight flex items-center gap-2.5">
+            <Shield className="w-7 h-7 text-primary" /> Admin Control Workspace
+          </h1>
+          <p className="text-text-secondary text-xs font-semibold mt-1">
+            Configure system preferences, manage student roles, inspect audit streams, and test
+            endpoints.
+          </p>
+        </div>
 
-        <header className="border-b border-white/10 bg-slate-900/60 backdrop-blur-md sticky top-0 z-30">
-          <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Shield className="w-6 h-6 text-blue-500" />
-              <span className="font-bold text-lg bg-gradient-to-r from-white to-slate-400 bg-clip-text text-transparent">
-                Companio Administration Workspace
-              </span>
-            </div>
-            <Link
-              href="/dashboard"
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-400 hover:text-white transition duration-300 bg-white/5 border border-white/5 hover:bg-white/10 px-3.5 py-2 rounded-xl"
-            >
-              <ArrowLeft className="w-4 h-4" /> Back to Dashboard
-            </Link>
-          </div>
-        </header>
-
-        <div className="max-w-7xl w-full mx-auto px-6 py-8 flex-1 grid grid-cols-1 lg:grid-cols-4 gap-8 relative z-10 text-left">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 items-start">
           {/* LEFT: Sidebar Navigation Tabs */}
           <div className="lg:col-span-1 space-y-2">
-            <div className="p-4 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md mb-4 flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center flex-shrink-0">
-                <Shield className="w-5 h-5" />
+            <div className="p-4 rounded-large bg-surface border border-border flex items-center gap-3 shadow-sm">
+              <div className="w-9 h-9 rounded-medium bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                <Shield className="w-4.5 h-4.5" />
               </div>
               <div>
-                <h3 className="font-bold text-sm text-slate-200">System Operator</h3>
-                <span className="text-[10px] text-slate-500 font-bold uppercase tracking-wider">
+                <h3 className="font-bold text-xs text-text-primary">System Operator</h3>
+                <span className="text-[9px] text-text-secondary font-bold uppercase tracking-wider">
                   Root Panel
                 </span>
               </div>
@@ -85,73 +75,73 @@ export default function AdminPage() {
 
             <button
               onClick={() => setActiveTab('users')}
-              className={`w-full text-left p-3.5 rounded-xl border flex items-center gap-3 font-semibold transition ${
+              className={`w-full text-left p-3 rounded-medium border flex items-center gap-3 font-bold transition duration-200 ${
                 activeTab === 'users'
-                  ? 'bg-blue-600/10 border-blue-500 text-white'
-                  : 'bg-slate-900/50 border-white/5 text-slate-400 hover:bg-white/5 hover:border-white/10'
+                  ? 'bg-primary/10 border-primary/20 text-primary'
+                  : 'bg-surface border-border text-text-secondary hover:bg-surface-secondary hover:text-text-primary'
               }`}
             >
-              <Users className="w-4.5 h-4.5" />
+              <Users className="w-4 h-4" />
               <span className="text-xs">User Directory</span>
             </button>
 
             <button
               onClick={() => setActiveTab('system')}
-              className={`w-full text-left p-3.5 rounded-xl border flex items-center gap-3 font-semibold transition ${
+              className={`w-full text-left p-3 rounded-medium border flex items-center gap-3 font-bold transition duration-200 ${
                 activeTab === 'system'
-                  ? 'bg-blue-600/10 border-blue-500 text-white'
-                  : 'bg-slate-900/50 border-white/5 text-slate-400 hover:bg-white/5 hover:border-white/10'
+                  ? 'bg-primary/10 border-primary/20 text-primary'
+                  : 'bg-surface border-border text-text-secondary hover:bg-surface-secondary hover:text-text-primary'
               }`}
             >
-              <Sliders className="w-4.5 h-4.5" />
+              <Sliders className="w-4 h-4" />
               <span className="text-xs">System Preferences</span>
             </button>
 
             <button
               onClick={() => setActiveTab('ai')}
-              className={`w-full text-left p-3.5 rounded-xl border flex items-center gap-3 font-semibold transition ${
+              className={`w-full text-left p-3 rounded-medium border flex items-center gap-3 font-bold transition duration-200 ${
                 activeTab === 'ai'
-                  ? 'bg-blue-600/10 border-blue-500 text-white'
-                  : 'bg-slate-900/50 border-white/5 text-slate-400 hover:bg-white/5 hover:border-white/10'
+                  ? 'bg-primary/10 border-primary/20 text-primary'
+                  : 'bg-surface border-border text-text-secondary hover:bg-surface-secondary hover:text-text-primary'
               }`}
             >
-              <Cpu className="w-4.5 h-4.5" />
-              <span className="text-xs">AI Gateway config</span>
+              <Cpu className="w-4 h-4" />
+              <span className="text-xs">AI Gateway Config</span>
             </button>
 
             <button
               onClick={() => setActiveTab('storage')}
-              className={`w-full text-left p-3.5 rounded-xl border flex items-center gap-3 font-semibold transition ${
+              className={`w-full text-left p-3 rounded-medium border flex items-center gap-3 font-bold transition duration-200 ${
                 activeTab === 'storage'
-                  ? 'bg-blue-600/10 border-blue-500 text-white'
-                  : 'bg-slate-900/50 border-white/5 text-slate-400 hover:bg-white/5 hover:border-white/10'
+                  ? 'bg-primary/10 border-primary/20 text-primary'
+                  : 'bg-surface border-border text-text-secondary hover:bg-surface-secondary hover:text-text-primary'
               }`}
             >
-              <Database className="w-4.5 h-4.5" />
-              <span className="text-xs">Storage settings</span>
+              <Database className="w-4 h-4" />
+              <span className="text-xs">Storage Settings</span>
             </button>
 
             <button
               onClick={() => setActiveTab('audit')}
-              className={`w-full text-left p-3.5 rounded-xl border flex items-center gap-3 font-semibold transition ${
+              className={`w-full text-left p-3 rounded-medium border flex items-center gap-3 font-bold transition duration-200 ${
                 activeTab === 'audit'
-                  ? 'bg-blue-600/10 border-blue-500 text-white'
-                  : 'bg-slate-900/50 border-white/5 text-slate-400 hover:bg-white/5 hover:border-white/10'
+                  ? 'bg-primary/10 border-primary/20 text-primary'
+                  : 'bg-surface border-border text-text-secondary hover:bg-surface-secondary hover:text-text-primary'
               }`}
             >
-              <History className="w-4.5 h-4.5" />
+              <History className="w-4 h-4" />
               <span className="text-xs">Audit Logs</span>
             </button>
 
             <button
               onClick={() => setActiveTab('diagnostics')}
-              className={`w-full text-left p-3.5 rounded-xl border flex items-center gap-3 font-semibold transition ${
+              className={`w-full text-left p-3 rounded-medium border flex items-center gap-3 font-bold transition duration-200 ${
                 activeTab === 'diagnostics'
-                  ? 'bg-blue-600/10 border-blue-500 text-white'
-                  : 'bg-slate-900/50 border-white/5 text-slate-400 hover:bg-white/5 hover:border-white/10'
+                  ? 'bg-primary/10 border-primary/20 text-primary'
+                  : 'bg-surface border-border text-text-secondary hover:bg-surface-secondary hover:text-text-primary'
               }`}
             >
-              <Terminal className="w-4.5 h-4.5" />
+              <Terminal className="w-4 h-4" />
               <span className="text-xs">System Diagnostics</span>
             </button>
           </div>
@@ -166,10 +156,6 @@ export default function AdminPage() {
             {activeTab === 'diagnostics' && <DiagnosticsTab session={session} />}
           </div>
         </div>
-
-        <footer className="border-t border-white/5 py-6 text-center text-xs text-slate-500 relative z-10">
-          <p>© 2026 Companio. Secured Admin Terminal.</p>
-        </footer>
       </div>
     </RoleGuard>
   )
