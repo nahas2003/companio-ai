@@ -21,6 +21,11 @@ export function useProctoring({ enabled = true, attemptId, onViolation }: UsePro
   const [warningMessage, setWarningMessage] = React.useState<string | null>(null)
   const [isMonitoring, setIsMonitoring] = React.useState(enabled)
 
+  // Sync external enabled prop state change dynamically
+  React.useEffect(() => {
+    setIsMonitoring(enabled)
+  }, [enabled])
+
   // Clear warning state helper
   const clearWarning = React.useCallback(() => {
     setWarningMessage(null)

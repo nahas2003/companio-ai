@@ -73,6 +73,13 @@ export default function AssessmentAttemptPage({ params }: { params: { attemptId:
     loadExamDetails()
   }, [loadExamDetails])
 
+  // Redirect to results immediately if attempt is already completed
+  React.useEffect(() => {
+    if (!loading && examState?.status === 'COMPLETED') {
+      router.replace(`/assessments/results/${params.attemptId}`)
+    }
+  }, [loading, examState, params.attemptId, router])
+
   // Consume the reusable proctoring hook
   const { blurCount, warningMessage, clearWarning, warningLevel } = useProctoring({
     enabled: !loading && !errorMsg && examState?.status === 'IN_PROGRESS',
@@ -192,66 +199,14 @@ export default function AssessmentAttemptPage({ params }: { params: { attemptId:
     )
   }
 
-  // COMPLETED STATE: Show report card immediately
+  // COMPLETED STATE: Render redirect loading state while transitioning
   if (examState.status === 'COMPLETED') {
-    const score = examState.score || 0
-    const isPass = score >= examState.passingScore
-
     return (
-      <div className="max-w-md mx-auto space-y-6 text-text-primary text-left pb-12 pt-12 animate-fade-in">
-        <div
-          className={`p-8 rounded-large border text-center space-y-5 bg-surface shadow-lg ${
-            isPass ? 'border-teal-500/20 bg-teal-500/5' : 'border-red-500/20 bg-red-500/5'
-          }`}
-        >
-          <div className="w-16 h-16 rounded-large bg-surface-secondary border border-border flex items-center justify-center text-teal-500 mx-auto shadow-sm">
-            <Award className="w-8 h-8" />
-          </div>
-          <div>
-            <span className="text-[10px] font-bold text-text-secondary uppercase tracking-wider">
-              Exam Results
-            </span>
-            <h1 className="text-xl font-bold mt-1 line-clamp-1 text-text-primary">
-              {examState.title}
-            </h1>
-            <p className="text-xs text-text-secondary mt-0.5">Attempt graded</p>
-          </div>
-
-          <div className="py-4 border-y border-border grid grid-cols-2 gap-4">
-            <div>
-              <span className="text-[10px] text-text-secondary font-bold block uppercase tracking-wide">
-                Final score
-              </span>
-              <span className="text-3xl font-extrabold block mt-0.5 text-text-primary">
-                {Math.round(score)}%
-              </span>
-            </div>
-            <div>
-              <span className="text-[10px] text-text-secondary font-bold block uppercase tracking-wide">
-                Status
-              </span>
-              <span
-                className={`text-lg font-bold block mt-1 uppercase tracking-wider ${
-                  isPass ? 'text-teal-500' : 'text-red-500'
-                }`}
-              >
-                {isPass ? 'PASSED' : 'FAILED'}
-              </span>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between text-xs text-text-secondary">
-            <span>Passing grade: {examState.passingScore}%</span>
-            <span>Duration: {formatTimer(examState.timeTaken || 0)}</span>
-          </div>
-
-          <button
-            onClick={() => router.push('/assessments/join')}
-            className="w-full py-3 bg-primary hover:bg-primary/90 text-white rounded-medium font-bold text-xs transition duration-200 shadow-md shadow-primary/10"
-          >
-            Leave Exam Hall
-          </button>
-        </div>
+      <div className="flex flex-col items-center justify-center p-12 min-h-[400px] gap-3 text-text-secondary w-full">
+        <RefreshCw className="w-8 h-8 text-primary animate-spin" />
+        <span className="text-sm font-semibold tracking-wide animate-pulse">
+          Exam submitted. Preparing performance reports...
+        </span>
       </div>
     )
   }
