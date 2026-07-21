@@ -1,6 +1,6 @@
 'use server'
 
-import { prisma } from '@companio/db'
+import { prisma, AttemptStatus } from '@companio/db'
 
 export async function getAssessmentResultDetailsAction(attemptId: string) {
   try {
@@ -30,7 +30,7 @@ export async function getAssessmentResultDetailsAction(attemptId: string) {
       return { success: false, error: 'Exam attempt record not found.', code: 'NOT_FOUND' }
     }
 
-    if (attempt.status !== 'COMPLETED') {
+    if (attempt.status === AttemptStatus.IN_PROGRESS || attempt.status === AttemptStatus.NOT_STARTED) {
       return {
         success: false,
         error: 'Assessment is still active in progress.',
@@ -123,7 +123,7 @@ export async function getAssessmentLeaderboardAction(attemptId: string) {
     const attempts = await prisma.assessmentAttempt.findMany({
       where: {
         publishedAssessmentId: pubId,
-        status: 'COMPLETED',
+        status: { in: [AttemptStatus.SUBMITTED, AttemptStatus.EXPIRED] },
       },
       include: {
         user: {

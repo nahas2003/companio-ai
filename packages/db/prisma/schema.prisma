@@ -24,6 +24,7 @@ enum SourceStatus {
 
 enum QuestionType {
   MULTIPLE_CHOICE
+  MULTIPLE_SELECT
   TRUE_FALSE
   SHORT_ANSWER
 }
@@ -250,6 +251,14 @@ model PublishedAssessment {
   @@map("published_assessments")
 }
 
+enum AttemptStatus {
+  NOT_STARTED
+  IN_PROGRESS
+  SUBMITTED
+  EXPIRED
+  ABANDONED
+}
+
 model AssessmentAttempt {
   id                    String               @id @default(uuid())
   publishedAssessmentId String               @map("published_assessment_id")
@@ -257,9 +266,11 @@ model AssessmentAttempt {
   guestName             String?              @map("guest_name")
   score                 Float?
   timeTaken             Int?                 @map("time_taken")
-  status                String               @default("IN_PROGRESS")
+  status                AttemptStatus        @default(IN_PROGRESS)
   startedAt             DateTime             @default(now()) @map("started_at")
   completedAt           DateTime?            @map("completed_at")
+  expiresAt             DateTime?            @map("expires_at")
+  currentQuestionId     String?              @map("current_question_id")
 
   publishedAssessment   PublishedAssessment  @relation(fields: [publishedAssessmentId], references: [id], onDelete: Cascade)
   user                  User?                @relation(fields: [userId], references: [id], onDelete: Cascade)
@@ -277,6 +288,7 @@ model AssessmentResponse {
   selectedOption Int?              @map("selected_option")
   modelResponse  String?           @map("model_response")
   isCorrect      Boolean?          @map("is_correct")
+  markedForReview Boolean           @default(false) @map("marked_for_review")
   createdAt      DateTime          @default(now()) @map("created_at")
 
   attempt        AssessmentAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)

@@ -531,7 +531,7 @@ export default function CreatorAssessmentsPage() {
                           <td className="p-3">
                             <span
                               className={`px-1.5 py-0.5 rounded-pill text-[9px] font-bold ${
-                                a.status === 'COMPLETED'
+                                a.status === 'SUBMITTED' || a.status === 'EXPIRED'
                                   ? 'bg-success/10 text-success'
                                   : 'bg-warning/10 text-warning'
                               }`}

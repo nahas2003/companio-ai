@@ -6,7 +6,7 @@ import { Check, X, Shield, AlertCircle } from 'lucide-react'
 export interface QuestionReviewItem {
   id: string
   title: string
-  type: 'MULTIPLE_CHOICE' | 'TRUE_FALSE' | 'SHORT_ANSWER'
+  type: 'MULTIPLE_CHOICE' | 'MULTIPLE_SELECT' | 'TRUE_FALSE' | 'SHORT_ANSWER'
   options: string[]
   correctAnswer?: number | null
   modelAnswer?: string | null
@@ -103,53 +103,75 @@ export function QuestionReview({ questions }: QuestionReviewProps) {
                   </div>
                 ) : (
                   <div className="space-y-2">
-                    {q.options.map((opt, oIdx) => {
-                      const isSelected = q.selectedOption === oIdx
-                      const isCorrectAnswer = q.correctAnswer === oIdx
-
-                      // Colored borders based on response accuracy
-                      let optionBg = 'bg-surface-secondary border-border text-text-secondary'
-                      let bulletBg = 'border-border text-text-secondary'
-
-                      if (isSelected) {
-                        if (q.isCorrect) {
-                          optionBg =
-                            'bg-teal-500/10 border-teal-500/20 text-teal-700 dark:text-teal-400 font-semibold'
-                          bulletBg = 'bg-teal-500 border-transparent text-white'
-                        } else {
-                          optionBg =
-                            'bg-red-500/10 border-red-500/20 text-red-700 dark:text-red-400 font-semibold'
-                          bulletBg = 'bg-red-500 border-transparent text-white'
-                        }
-                      } else if (isCorrectAnswer) {
-                        optionBg =
-                          'bg-teal-500/5 border-teal-500/10 text-teal-600 dark:text-teal-400 font-semibold'
-                        bulletBg = 'border-teal-500/20 text-teal-500'
+                    {(() => {
+                      let correctIndices: number[] = []
+                      let userIndices: number[] = []
+                      if (q.type === 'MULTIPLE_SELECT') {
+                        try {
+                          correctIndices = JSON.parse(q.modelAnswer || '[]')
+                        } catch {}
+                        try {
+                          userIndices = JSON.parse(q.modelResponse || '[]')
+                        } catch {}
                       }
 
-                      return (
-                        <div
-                          key={oIdx}
-                          className={`w-full p-3 rounded-medium border text-xs flex items-center gap-3 transition-colors ${optionBg}`}
-                        >
-                          <span
-                            className={`w-5 h-5 rounded-full border text-[9px] font-extrabold flex items-center justify-center ${bulletBg}`}
+                      return q.options.map((opt, oIdx) => {
+                        const isSelected = q.type === 'MULTIPLE_SELECT'
+                          ? userIndices.includes(oIdx)
+                          : q.selectedOption === oIdx
+                        const isCorrectAnswer = q.type === 'MULTIPLE_SELECT'
+                          ? correctIndices.includes(oIdx)
+                          : q.correctAnswer === oIdx
+
+                        // Colored borders based on response accuracy
+                        let optionBg = 'bg-surface-secondary border-border text-text-secondary'
+                        let bulletBg = 'border-border text-text-secondary'
+
+                        if (isSelected) {
+                          if (
+                            q.isCorrect ||
+                            (q.type === 'MULTIPLE_SELECT' && isCorrectAnswer)
+                          ) {
+                            optionBg =
+                              'bg-teal-500/10 border-teal-500/20 text-teal-700 dark:text-teal-400 font-semibold'
+                            bulletBg = 'bg-teal-500 border-transparent text-white'
+                          } else {
+                            optionBg =
+                              'bg-red-500/10 border-red-500/20 text-red-700 dark:text-red-400 font-semibold'
+                            bulletBg = 'bg-red-500 border-transparent text-white'
+                          }
+                        } else if (isCorrectAnswer) {
+                          optionBg =
+                            'bg-teal-500/5 border-teal-500/10 text-teal-600 dark:text-teal-400 font-semibold'
+                          bulletBg = 'border-teal-500/20 text-teal-500'
+                        }
+
+                        return (
+                          <div
+                            key={oIdx}
+                            className={`w-full p-3 rounded-medium border text-xs flex items-center gap-3 transition-colors ${optionBg}`}
                           >
-                            {String.fromCharCode(65 + oIdx)}
-                          </span>
-                          <span className="flex-1 text-left">{opt}</span>
-                          {isSelected && q.isCorrect && (
-                            <Check className="w-3.5 h-3.5 text-teal-500" />
-                          )}
-                          {isSelected && !q.isCorrect && <X className="w-3.5 h-3.5 text-red-500" />}
-                          {!isSelected && isCorrectAnswer && (
-                            <span className="text-[9px] font-extrabold uppercase tracking-wide text-teal-600 dark:text-teal-400">
-                              Correct Key
+                            <span
+                              className={`w-5 h-5 rounded-medium border text-[9px] font-extrabold flex items-center justify-center ${bulletBg}`}
+                            >
+                              {String.fromCharCode(65 + oIdx)}
                             </span>
-                          )}
-                        </div>
-                      )
-                    })}
+                            <span className="flex-1 text-left">{opt}</span>
+                            {isSelected && (q.isCorrect || (q.type === 'MULTIPLE_SELECT' && isCorrectAnswer)) && (
+                              <Check className="w-3.5 h-3.5 text-teal-500" />
+                            )}
+                            {isSelected && !q.isCorrect && !(q.type === 'MULTIPLE_SELECT' && isCorrectAnswer) && (
+                              <X className="w-3.5 h-3.5 text-red-500" />
+                            )}
+                            {!isSelected && isCorrectAnswer && (
+                              <span className="text-[9px] font-extrabold uppercase tracking-wide text-teal-600 dark:text-teal-400">
+                                Correct Key
+                              </span>
+                            )}
+                          </div>
+                        )
+                      })
+                    })()}
                   </div>
                 )}
               </div>

@@ -1,6 +1,6 @@
 'use server'
 
-import { prisma, GenerationMethod, Difficulty } from '@companio/db'
+import { prisma, GenerationMethod, Difficulty, AttemptStatus } from '@companio/db'
 import { getVerifiedUser } from './authUtils'
 import { isRateLimited } from './rateLimiter'
 
@@ -258,6 +258,12 @@ export async function getPublishedAssessmentDetailsAction(code: string) {
       throw new Error('Published assessment not found or inactive.')
     }
 
+    const userOrg = await prisma.userOrganization.findFirst({
+      where: { userId: published.template.creatorId },
+      include: { organization: true },
+    })
+    const orgName = userOrg?.organization.name || 'Individual Creator'
+
     return {
       success: true,
       publishedId: published.id,
@@ -266,6 +272,7 @@ export async function getPublishedAssessmentDetailsAction(code: string) {
       timer: published.template.timer,
       passingScore: published.template.passingScore,
       questionCount: published.template.questionBank.questions.length,
+      organizationName: orgName,
     }
   } catch (error: any) {
     console.error('Error fetching published assessment details:', error)
@@ -325,7 +332,7 @@ export async function joinAssessmentAction(
         where: {
           publishedAssessmentId: published.id,
           userId,
-          status: 'IN_PROGRESS',
+          status: AttemptStatus.IN_PROGRESS,
         },
       })
       if (activeAttempt) {
@@ -350,7 +357,10 @@ export async function joinAssessmentAction(
         publishedAssessmentId: published.id,
         userId,
         guestName: userId ? null : nameToUse,
-        status: 'IN_PROGRESS',
+        status: AttemptStatus.IN_PROGRESS,
+        expiresAt: published.template.timer
+          ? new Date(Date.now() + published.template.timer * 60 * 1000)
+          : null,
       },
     })
 
@@ -415,7 +425,11 @@ export async function submitAssessmentAttemptAction(
       },
     })
 
-    if (!attempt || attempt.status === 'COMPLETED') {
+    if (
+      !attempt ||
+      attempt.status === AttemptStatus.SUBMITTED ||
+      attempt.status === AttemptStatus.EXPIRED
+    ) {
       throw new Error('Attempt not found or already submitted.')
     }
 
@@ -424,6 +438,11 @@ export async function submitAssessmentAttemptAction(
     let correctCount = 0
 
     const results = await prisma.$transaction(async (tx) => {
+      // Clear auto-saved entries to avoid key collisions on final save
+      await tx.assessmentResponse.deleteMany({
+        where: { attemptId: attempt.id },
+      })
+
       for (const res of payload.responses) {
         const question = questions.find((q) => q.id === res.questionId)
         if (!question) continue
@@ -431,6 +450,18 @@ export async function submitAssessmentAttemptAction(
         let isCorrect = false
         if (question.type === 'MULTIPLE_CHOICE' || question.type === 'TRUE_FALSE') {
           isCorrect = question.correctAnswer === res.selectedOption
+        } else if (question.type === 'MULTIPLE_SELECT') {
+          let correctIndices: number[] = []
+          let userIndices: number[] = []
+          try {
+            correctIndices = JSON.parse(question.modelAnswer || '[]')
+          } catch {}
+          try {
+            userIndices = JSON.parse(res.modelResponse || '[]')
+          } catch {}
+          isCorrect =
+            correctIndices.length === userIndices.length &&
+            correctIndices.every((val) => userIndices.includes(val))
         } else if (question.type === 'SHORT_ANSWER') {
           const normUser = (res.modelResponse || '').trim().toLowerCase()
           const normCorrect = (question.modelAnswer || '').trim().toLowerCase()
@@ -443,9 +474,10 @@ export async function submitAssessmentAttemptAction(
           data: {
             attemptId: attempt.id,
             questionId: question.id,
-            selectedOption: res.selectedOption,
-            modelResponse: res.modelResponse,
+            selectedOption: res.selectedOption !== undefined ? res.selectedOption : null,
+            modelResponse: res.modelResponse || null,
             isCorrect,
+            markedForReview: false,
           },
         })
       }
@@ -458,7 +490,7 @@ export async function submitAssessmentAttemptAction(
         data: {
           score,
           timeTaken: payload.timeTaken,
-          status: 'COMPLETED',
+          status: AttemptStatus.SUBMITTED,
           completedAt: new Date(),
         },
       })
@@ -589,6 +621,41 @@ export async function getAssessmentAttemptAction(attemptId: string) {
     }
 
     const template = attempt.publishedAssessment.template
+
+    // Server-side timer expiry check
+    if (
+      attempt.status === AttemptStatus.IN_PROGRESS &&
+      attempt.expiresAt &&
+      Date.now() > new Date(attempt.expiresAt).getTime()
+    ) {
+      const questions = template.questionBank.questions
+      const responses = await prisma.assessmentResponse.findMany({
+        where: { attemptId },
+      })
+      let correctCount = 0
+      for (const res of responses) {
+        const question = questions.find((q) => q.id === res.questionId)
+        if (!question) continue
+        if (res.isCorrect) correctCount++
+      }
+      const score = questions.length > 0 ? (correctCount / questions.length) * 100 : 0
+      const limitSeconds = template.timer ? template.timer * 60 : 0
+
+      await prisma.assessmentAttempt.update({
+        where: { id: attempt.id },
+        data: {
+          status: AttemptStatus.EXPIRED,
+          score,
+          timeTaken: limitSeconds,
+          completedAt: attempt.expiresAt,
+        },
+      })
+
+      attempt.status = AttemptStatus.EXPIRED
+      attempt.score = score
+      attempt.timeTaken = limitSeconds
+    }
+
     const safetyQuestions = template.questionBank.questions.map((q) => ({
       id: q.id,
       title: q.title,
@@ -599,6 +666,16 @@ export async function getAssessmentAttemptAction(attemptId: string) {
     if (template.shuffleQuestions) {
       safetyQuestions.sort(() => Math.random() - 0.5)
     }
+
+    const responses = await prisma.assessmentResponse.findMany({
+      where: { attemptId },
+      select: {
+        questionId: true,
+        selectedOption: true,
+        modelResponse: true,
+        markedForReview: true,
+      },
+    })
 
     return {
       success: true,
@@ -613,9 +690,77 @@ export async function getAssessmentAttemptAction(attemptId: string) {
       guestName: attempt.guestName,
       userId: attempt.userId,
       startedAt: attempt.startedAt,
+      expiresAt: attempt.expiresAt,
+      currentQuestionId: attempt.currentQuestionId,
+      responses,
     }
   } catch (error: any) {
     console.error('Error fetching attempt details:', error)
     return { success: false, error: error.message || 'Failed to retrieve attempt details.' }
+  }
+}
+
+export async function saveAssessmentResponseAction(
+  accessToken: string | null,
+  payload: {
+    attemptId: string
+    questionId: string
+    selectedOption?: number
+    modelResponse?: string
+    markedForReview?: boolean
+    currentQuestionId?: string
+  },
+) {
+  try {
+    const attempt = await prisma.assessmentAttempt.findUnique({
+      where: { id: payload.attemptId },
+    })
+
+    if (!attempt || attempt.status !== AttemptStatus.IN_PROGRESS) {
+      throw new Error('Attempt is not active.')
+    }
+
+    // Throttled database upsert
+    const existing = await prisma.assessmentResponse.findFirst({
+      where: {
+        attemptId: attempt.id,
+        questionId: payload.questionId,
+      },
+    })
+
+    const isMarked = payload.markedForReview !== undefined ? payload.markedForReview : false
+
+    if (existing) {
+      await prisma.assessmentResponse.update({
+        where: { id: existing.id },
+        data: {
+          selectedOption: payload.selectedOption !== undefined ? payload.selectedOption : null,
+          modelResponse: payload.modelResponse || null,
+          markedForReview: isMarked,
+        },
+      })
+    } else {
+      await prisma.assessmentResponse.create({
+        data: {
+          attemptId: attempt.id,
+          questionId: payload.questionId,
+          selectedOption: payload.selectedOption !== undefined ? payload.selectedOption : null,
+          modelResponse: payload.modelResponse || null,
+          markedForReview: isMarked,
+        },
+      })
+    }
+
+    if (payload.currentQuestionId) {
+      await prisma.assessmentAttempt.update({
+        where: { id: attempt.id },
+        data: { currentQuestionId: payload.currentQuestionId },
+      })
+    }
+
+    return { success: true }
+  } catch (error: any) {
+    console.error('Error auto-saving assessment response:', error)
+    return { success: false, error: error.message }
   }
 }

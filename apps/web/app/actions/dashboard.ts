@@ -1,6 +1,6 @@
 'use server'
 
-import { prisma } from '@companio/db'
+import { prisma, AttemptStatus } from '@companio/db'
 import { getVerifiedUser } from './authUtils'
 
 export async function getDashboardDataAction(accessToken: string) {
@@ -21,7 +21,10 @@ export async function getDashboardDataAction(accessToken: string) {
 
     // 2. Fetch assessment stats
     const completedAssessments = await prisma.assessmentAttempt.findMany({
-      where: { userId: verifiedUser.id, status: 'COMPLETED' },
+      where: {
+        userId: verifiedUser.id,
+        status: { in: [AttemptStatus.SUBMITTED, AttemptStatus.EXPIRED] },
+      },
       include: {
         publishedAssessment: {
           include: {
@@ -131,7 +134,10 @@ export async function getDashboardDataAction(accessToken: string) {
         type: 'assessment',
         title: a.publishedAssessment.template.title,
         date: a.startedAt,
-        status: a.status === 'COMPLETED' ? 'Completed' : 'In Progress',
+        status:
+          a.status === AttemptStatus.SUBMITTED || a.status === AttemptStatus.EXPIRED
+            ? 'Completed'
+            : 'In Progress',
         details: a.score !== null ? `Score: ${Math.round(a.score)}%` : 'Not graded',
       })
     })
