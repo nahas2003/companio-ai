@@ -3,6 +3,8 @@ export interface DashboardStats {
   assessmentsCompleted: number
   questionsAnswered: number
   accuracyRate: number
+  aiRequests?: number
+  aiTotalTokens?: number
 }
 
 export interface ActivityItem {

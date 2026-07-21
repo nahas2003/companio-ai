@@ -33,6 +33,8 @@ export async function saveQuestionsToBankAction(
       throw new Error('Access denied. Material owner mismatch.')
     }
 
+    const topicValue = payload.bankName.toLowerCase().replace(/quiz:/i, '').trim()
+
     const result = await prisma.$transaction(async (tx) => {
       const bank = await tx.questionBank.create({
         data: {
@@ -52,6 +54,7 @@ export async function saveQuestionsToBankAction(
         options: q.options || [],
         correctAnswer: q.correctAnswer,
         modelAnswer: q.modelAnswer,
+        topic: topicValue,
       }))
 
       await tx.question.createMany({

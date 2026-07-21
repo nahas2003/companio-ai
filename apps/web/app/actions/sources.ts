@@ -4,6 +4,7 @@ import { prisma } from '@companio/db'
 import { createClient } from '@supabase/supabase-js'
 import { getVerifiedUser } from './authUtils'
 import { isRateLimited } from './rateLimiter'
+import { storageCleaner } from '@/features/sources/services/storageCleaner'
 
 const getSupabaseServer = () => {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL
@@ -209,10 +210,50 @@ export async function processDocument(accessToken: string, sourceId: string) {
       }),
     ])
 
+    // Immediately purge temporary file payload on success
+    await storageCleaner.deleteFile(source.fileKey)
+
+    // Notify user of successful ingestion parsing
+    try {
+      const { notificationDispatcher } =
+        await import('@/features/notifications/services/dispatcher')
+      await notificationDispatcher.sendProcessingCompleted(verifiedUser.id, {
+        sourceId: source.id,
+        fileName: source.fileName,
+        success: true,
+      })
+    } catch (notifErr) {
+      console.error('Failed to trigger document success notification:', notifErr)
+    }
+
     console.log(`Document ${sourceId} processed successfully: status COMPLETED`)
     return { success: true }
   } catch (error: any) {
     console.error(`Error processing document ${sourceId}:`, error)
+
+    // Purge temporary file payload on failure as well
+    try {
+      const srcRecord = await prisma.source.findUnique({ where: { id: sourceId } })
+      if (srcRecord) {
+        await storageCleaner.deleteFile(srcRecord.fileKey)
+
+        // Notify user of document parsing failure
+        try {
+          const { notificationDispatcher } =
+            await import('@/features/notifications/services/dispatcher')
+          await notificationDispatcher.sendProcessingCompleted(srcRecord.userId, {
+            sourceId,
+            fileName: srcRecord.fileName,
+            success: false,
+            errorMsg: error.message,
+          })
+        } catch (notifErr) {
+          console.error('Failed to trigger document failure notification:', notifErr)
+        }
+      }
+    } catch (cleanErr) {
+      console.error('Failed to clean storage or notify on failure:', cleanErr)
+    }
 
     try {
       await prisma.source.update({

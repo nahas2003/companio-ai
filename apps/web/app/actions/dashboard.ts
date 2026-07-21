@@ -139,13 +139,27 @@ export async function getDashboardDataAction(accessToken: string) {
     // Sort combined activities by date descending
     activities.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
+    // 6. Fetch AI Usage metrics
+    const aiLogs = await prisma.aiUsageLog.findMany({
+      where: { userId: verifiedUser.id },
+      select: { inputTokens: true, outputTokens: true },
+    })
+
+    const aiRequests = aiLogs.length
+    const aiTotalTokens = aiLogs.reduce(
+      (sum, log) => sum + (log.inputTokens || 0) + (log.outputTokens || 0),
+      0,
+    )
+
     return {
       success: true,
       stats: {
         practiceCompleted: completedPractices.length,
         assessmentsCompleted: completedAssessments.length,
         questionsAnswered: totalQuestionsAnswered,
-        accuracyRate,
+        accuracyRate: Math.round(accuracyRate),
+        aiRequests,
+        aiTotalTokens,
       },
       activities: activities.slice(0, 8),
     }

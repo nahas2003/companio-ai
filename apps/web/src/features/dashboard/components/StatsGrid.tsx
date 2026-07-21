@@ -1,7 +1,7 @@
 'use client'
 
 import * as React from 'react'
-import { GraduationCap, CheckCircle, HelpCircle, Trophy } from 'lucide-react'
+import { GraduationCap, CheckCircle, HelpCircle, Trophy, Cpu } from 'lucide-react'
 import type { DashboardStats } from '../types/dashboard.types'
 
 interface StatsGridProps {
@@ -38,10 +38,17 @@ export function StatsGrid({ stats }: StatsGridProps) {
       icon: CheckCircle,
       color: 'text-success bg-success/10 border-success/20',
     },
+    {
+      title: 'Engine Calculations',
+      value: stats.aiRequests ?? 0,
+      subtext: `${stats.aiTotalTokens ? Math.round(stats.aiTotalTokens / 1000) : 0}k operations`,
+      icon: Cpu,
+      color: 'text-amber-500 bg-amber-500/10 border-amber-500/20',
+    },
   ]
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 w-full">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 w-full">
       {cards.map((card) => {
         const Icon = card.icon
         return (

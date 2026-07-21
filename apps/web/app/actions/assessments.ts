@@ -318,6 +318,7 @@ export async function submitAssessmentAttemptAction(
     const attempt = await prisma.assessmentAttempt.findUnique({
       where: { id: payload.attemptId },
       include: {
+        user: { select: { displayName: true } },
         publishedAssessment: {
           include: {
             template: {
@@ -392,6 +393,26 @@ export async function submitAssessmentAttemptAction(
         totalQuestions: questions.length,
       }
     })
+
+    // Dispatch completion notification to the creator of the template asynchronously
+    try {
+      const { notificationDispatcher } =
+        await import('@/features/notifications/services/dispatcher')
+      const creatorId = attempt.publishedAssessment.template.questionBank.userId
+      const candidateName = attempt.userId
+        ? attempt.user?.displayName || 'Candidate'
+        : attempt.guestName || 'Guest Candidate'
+
+      notificationDispatcher
+        .sendAssessmentCompleted(creatorId, {
+          attemptId: attempt.id,
+          title: `${candidateName}'s attempt on ${attempt.publishedAssessment.template.title}`,
+          score: results.score,
+        })
+        .catch(console.error)
+    } catch (notifErr) {
+      console.error('Failed to trigger completion notification:', notifErr)
+    }
 
     if (attempt.userId) {
       try {
