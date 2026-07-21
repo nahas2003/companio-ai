@@ -27,11 +27,14 @@ export const providerRouter = {
 
     for (const config of sortedProviders) {
       const startTime = Date.now()
-      const providerInstance = providerFactory.createProvider(config.key)
-      const providerName = providerInstance.getName()
-      const modelName = providerInstance.getModel()
+      let providerName = 'Unknown'
+      let modelName = 'Unknown'
 
       try {
+        const providerInstance = providerFactory.createProvider(config.key)
+        providerName = providerInstance.getName()
+        modelName = providerInstance.getModel()
+
         console.log(`AI Router attempting [${config.key}] (${modelName})...`)
 
         // request execution with a 30s timeout guard
