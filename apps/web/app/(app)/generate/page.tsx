@@ -55,6 +55,9 @@ function GenerateContent() {
   const [loadingSources, setLoadingSources] = React.useState(true)
 
   // Form states
+  const [generationMethod, setGenerationMethod] = React.useState<'TOPIC' | 'DESCRIPTION' | 'DOCUMENT'>('DOCUMENT')
+  const [topic, setTopic] = React.useState('')
+  const [description, setDescription] = React.useState('')
   const [selectedSourceId, setSelectedSourceId] = React.useState('')
   const [difficulty, setDifficulty] = React.useState<Difficulty>('MEDIUM')
   const [questionType, setQuestionType] = React.useState<QuestionType>('MULTIPLE_CHOICE')
@@ -74,8 +77,15 @@ function GenerateContent() {
   const [bankDesc, setBankDesc] = React.useState('')
 
   const triggerSaveModal = () => {
-    const selectedSource = sources.find((s) => s.id === selectedSourceId)
-    const baseName = selectedSource ? selectedSource.fileName.split('.')[0] : 'Study Material'
+    let baseName = 'Practice Deck'
+    if (generationMethod === 'DOCUMENT') {
+      const selectedSource = sources.find((s) => s.id === selectedSourceId)
+      baseName = selectedSource ? selectedSource.fileName.split('.')[0] : 'Study Material'
+    } else if (generationMethod === 'TOPIC') {
+      baseName = topic.trim() || 'Topic Study'
+    } else if (generationMethod === 'DESCRIPTION') {
+      baseName = description.trim().substring(0, 30) || 'Custom Description'
+    }
     setBankName(`Quiz: ${baseName}`)
     setBankDesc(`Generated practice questions on ${baseName} (${questionType.replace('_', ' ')})`)
     setShowSaveModal(true)
@@ -83,12 +93,12 @@ function GenerateContent() {
 
   const handleSaveToBank = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!session || !selectedSourceId || generatedQuestions.length === 0 || !bankName.trim()) return
+    if (!session || generatedQuestions.length === 0 || !bankName.trim()) return
 
     try {
       setSaving(true)
       const res = await saveQuestionsToBankAction(session.access_token, {
-        sourceId: selectedSourceId,
+        sourceId: generationMethod === 'DOCUMENT' ? selectedSourceId : undefined,
         bankName: bankName.trim(),
         description: bankDesc.trim(),
         difficulty,
@@ -143,7 +153,20 @@ function GenerateContent() {
 
   const handleGenerate = async (e?: React.FormEvent) => {
     if (e) e.preventDefault()
-    if (!session || !selectedSourceId) return
+    if (!session) return
+
+    if (generationMethod === 'DOCUMENT' && !selectedSourceId) {
+      setErrorMsg('Please select a study material document first.')
+      return
+    }
+    if (generationMethod === 'TOPIC' && !topic.trim()) {
+      setErrorMsg('Please enter a topic title.')
+      return
+    }
+    if (generationMethod === 'DESCRIPTION' && !description.trim()) {
+      setErrorMsg('Please enter a description prompt.')
+      return
+    }
 
     try {
       setGenerating(true)
@@ -151,13 +174,20 @@ function GenerateContent() {
       setGeneratedQuestions([])
       setRevealedAnswers({})
 
-      setGenerationStep('Extracting plain text contents...')
-      await new Promise((r) => setTimeout(r, 600))
+      if (generationMethod === 'DOCUMENT') {
+        setGenerationStep('Extracting plain text contents...')
+        await new Promise((r) => setTimeout(r, 600))
+      } else {
+        setGenerationStep('Building structured prompts...')
+        await new Promise((r) => setTimeout(r, 600))
+      }
 
       setGenerationStep('Querying AI Orchestrator with templates...')
       const res = await generateQuestionsAction(session.access_token, {
-        method: 'DOCUMENT',
-        sourceId: selectedSourceId,
+        method: generationMethod,
+        sourceId: generationMethod === 'DOCUMENT' ? selectedSourceId : undefined,
+        topic: generationMethod === 'TOPIC' ? topic.trim() : undefined,
+        description: generationMethod === 'DESCRIPTION' ? description.trim() : undefined,
         count,
         type: questionType,
         difficulty,
@@ -190,7 +220,7 @@ function GenerateContent() {
           <Layers className="w-7 h-7 text-primary" /> Practice Builder
         </h1>
         <p className="text-text-secondary text-xs font-semibold mt-1">
-          Select any processed source document to generate custom practice assessments instantly.
+          Select a source document, a topic, or enter a prompt to generate custom practice assessments instantly.
         </p>
       </div>
 
@@ -202,36 +232,93 @@ function GenerateContent() {
           </h2>
 
           <form onSubmit={handleGenerate} className="space-y-5">
-            {/* Select Material */}
+            {/* Generation Mode Selector Tabs */}
             <div className="space-y-2">
-              <label className="text-xs font-bold text-text-secondary uppercase tracking-wide flex items-center gap-1.5">
-                <BookOpen className="w-4 h-4 text-text-secondary/60" /> 1. Select Material
+              <label className="text-[10px] font-bold text-text-secondary uppercase tracking-wide">
+                Generation Mode
               </label>
-              {loadingSources ? (
-                <div className="h-10 flex items-center px-3 bg-surface border border-border rounded-medium">
-                  <RefreshCw className="w-4 h-4 animate-spin text-text-secondary/50 mr-2" />
-                  <span className="text-xs text-text-secondary/60 font-semibold">
-                    Loading catalog...
-                  </span>
-                </div>
-              ) : sources.length === 0 ? (
-                <div className="p-3 bg-danger/10 border border-danger/25 rounded-medium text-xs text-danger font-semibold leading-relaxed">
-                  No processed materials found. Upload files in Study Materials first.
-                </div>
-              ) : (
-                <select
-                  value={selectedSourceId}
-                  onChange={(e) => setSelectedSourceId(e.target.value)}
-                  className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50"
-                >
-                  {sources.map((s) => (
-                    <option key={s.id} value={s.id}>
-                      {s.fileName} ({s.fileType.toUpperCase()})
-                    </option>
-                  ))}
-                </select>
-              )}
+              <div className="grid grid-cols-3 gap-1 p-1 bg-surface-secondary border border-border rounded-medium">
+                {(['DOCUMENT', 'TOPIC', 'DESCRIPTION'] as const).map((m) => (
+                  <button
+                    key={m}
+                    type="button"
+                    onClick={() => setGenerationMethod(m)}
+                    className={`py-1.5 rounded-small text-[10px] font-bold transition-all duration-200 ${
+                      generationMethod === m
+                        ? 'bg-surface text-text-primary border border-border/60 shadow-sm'
+                        : 'text-text-secondary hover:text-text-primary'
+                    }`}
+                  >
+                    {m === 'DOCUMENT' ? 'Document' : m === 'TOPIC' ? 'Topic' : 'Prompt'}
+                  </button>
+                ))}
+              </div>
             </div>
+
+            {/* Conditional input fields */}
+            {generationMethod === 'DOCUMENT' && (
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-text-secondary uppercase tracking-wide flex items-center gap-1.5">
+                  <BookOpen className="w-4 h-4 text-text-secondary/60" /> 1. Select Material
+                </label>
+                {loadingSources ? (
+                  <div className="h-10 flex items-center px-3 bg-surface border border-border rounded-medium">
+                    <RefreshCw className="w-4 h-4 animate-spin text-text-secondary/50 mr-2" />
+                    <span className="text-xs text-text-secondary/60 font-semibold">
+                      Loading catalog...
+                    </span>
+                  </div>
+                ) : sources.length === 0 ? (
+                  <div className="p-3 bg-danger/10 border border-danger/25 rounded-medium text-xs text-danger font-semibold leading-relaxed">
+                    No processed materials found. Upload files in Study Materials first.
+                  </div>
+                ) : (
+                  <select
+                    value={selectedSourceId}
+                    onChange={(e) => setSelectedSourceId(e.target.value)}
+                    className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50"
+                  >
+                    {sources.map((s) => (
+                      <option key={s.id} value={s.id}>
+                        {s.fileName} ({s.fileType.toUpperCase()})
+                      </option>
+                    ))}
+                  </select>
+                )}
+              </div>
+            )}
+
+            {generationMethod === 'TOPIC' && (
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-text-secondary uppercase tracking-wide flex items-center gap-1.5">
+                  <BookOpen className="w-4 h-4 text-text-secondary/60" /> 1. Topic Title
+                </label>
+                <input
+                  type="text"
+                  required
+                  placeholder="e.g. Python Basics, Machine Learning..."
+                  value={topic}
+                  onChange={(e) => setTopic(e.target.value)}
+                  className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50"
+                />
+              </div>
+            )}
+
+            {generationMethod === 'DESCRIPTION' && (
+              <div className="space-y-2">
+                <label className="text-xs font-bold text-text-secondary uppercase tracking-wide flex items-center gap-1.5">
+                  <BookOpen className="w-4 h-4 text-text-secondary/60" /> 1. Description / Prompt
+                </label>
+                <textarea
+                  required
+                  placeholder="Describe what you want to evaluate (topics covered, reference material snippets...)"
+                  rows={4}
+                  value={description}
+                  onChange={(e) => setDescription(e.target.value)}
+                  className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50 resize-none"
+                />
+              </div>
+            )}
 
             {/* Question Type selector */}
             <div className="space-y-2">
@@ -303,7 +390,7 @@ function GenerateContent() {
 
             <Button
               type="submit"
-              disabled={generating || sources.length === 0}
+              disabled={generating || (generationMethod === 'DOCUMENT' && sources.length === 0)}
               className="w-full h-10 rounded-medium text-xs font-bold flex items-center justify-center gap-2 transition duration-200"
             >
               {generating ? (

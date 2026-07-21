@@ -13,7 +13,7 @@ import { getVerifiedUser } from './authUtils'
 export async function saveQuestionsToBankAction(
   accessToken: string,
   payload: {
-    sourceId: string
+    sourceId?: string
     bankName: string
     description?: string
     difficulty: Difficulty
@@ -25,12 +25,16 @@ export async function saveQuestionsToBankAction(
     const verifiedUser = await getVerifiedUser(accessToken)
     const userId = verifiedUser.id
 
-    const source = await prisma.source.findUnique({
-      where: { id: payload.sourceId },
-    })
+    let sourceFileName = 'Topic/Prompt'
+    if (payload.sourceId) {
+      const source = await prisma.source.findUnique({
+        where: { id: payload.sourceId },
+      })
 
-    if (!source || source.userId !== userId) {
-      throw new Error('Access denied. Material owner mismatch.')
+      if (!source || source.userId !== userId) {
+        throw new Error('Access denied. Material owner mismatch.')
+      }
+      sourceFileName = source.fileName
     }
 
     const topicValue = payload.bankName.toLowerCase().replace(/quiz:/i, '').trim()
@@ -39,10 +43,10 @@ export async function saveQuestionsToBankAction(
       const bank = await tx.questionBank.create({
         data: {
           userId,
-          sourceId: payload.sourceId,
+          sourceId: payload.sourceId || null,
           name: payload.bankName,
           description:
-            payload.description || `Generated practice questions from ${source.fileName}`,
+            payload.description || `Generated practice questions from ${sourceFileName}`,
         },
       })
 
