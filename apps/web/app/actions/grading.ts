@@ -97,3 +97,58 @@ export async function getAssessmentResultDetailsAction(attemptId: string) {
     }
   }
 }
+
+export async function getAssessmentLeaderboardAction(attemptId: string) {
+  try {
+    const attempt = await prisma.assessmentAttempt.findUnique({
+      where: { id: attemptId },
+      select: { publishedAssessmentId: true },
+    })
+
+    if (!attempt) {
+      return { success: false, error: 'Exam attempt not found.' }
+    }
+
+    const pubId = attempt.publishedAssessmentId
+
+    const pubInfo = await prisma.publishedAssessment.findUnique({
+      where: { id: pubId },
+      include: {
+        template: {
+          select: { title: true },
+        },
+      },
+    })
+
+    const attempts = await prisma.assessmentAttempt.findMany({
+      where: {
+        publishedAssessmentId: pubId,
+        status: 'COMPLETED',
+      },
+      include: {
+        user: {
+          select: { displayName: true, email: true },
+        },
+      },
+      orderBy: [{ score: 'desc' }, { timeTaken: 'asc' }],
+    })
+
+    return {
+      success: true,
+      title: pubInfo?.template.title || 'Assessment Leaderboard',
+      entries: attempts.map((a) => ({
+        id: a.id,
+        participantName: a.userId
+          ? a.user?.displayName || a.user?.email.split('@')[0] || 'Authenticated User'
+          : a.guestName || 'Guest Candidate',
+        score: a.score ?? 0,
+        timeTaken: a.timeTaken ?? 0,
+        completedAt: a.completedAt || new Date(),
+        isCurrentUser: a.id === attemptId,
+      })),
+    }
+  } catch (error: any) {
+    console.error('Error fetching leaderboard:', error)
+    return { success: false, error: error.message || 'Failed to retrieve standings.' }
+  }
+}

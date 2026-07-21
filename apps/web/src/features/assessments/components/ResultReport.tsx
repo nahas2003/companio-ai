@@ -4,7 +4,7 @@ import * as React from 'react'
 import { useRouter } from 'next/navigation'
 import { ResultSummary } from './ResultSummary'
 import { QuestionReview, QuestionReviewItem } from './QuestionReview'
-import { ArrowLeft, RefreshCw } from 'lucide-react'
+import { ArrowLeft, ArrowRight, RefreshCw } from 'lucide-react'
 
 export interface ResultReportProps {
   attemptId: string
@@ -38,6 +38,12 @@ export function ResultReport({ attemptId, resultsData }: ResultReportProps) {
           className="inline-flex items-center gap-1.5 text-xs font-bold text-text-secondary hover:text-text-primary transition duration-200"
         >
           <ArrowLeft className="w-4 h-4" /> Exit Results Workspace
+        </button>
+        <button
+          onClick={() => router.push(`/assessments/results/${attemptId}/leaderboard`)}
+          className="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:text-primary/85 transition duration-200"
+        >
+          View Room Leaderboard <ArrowRight className="w-4 h-4" />
         </button>
       </div>
 

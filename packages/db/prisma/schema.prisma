@@ -337,3 +337,33 @@ model AdminAuditLog {
   @@index([adminId])
   @@map("admin_audit_logs")
 }
+
+model ProviderConfig {
+  key         String    @id @unique
+  name        String
+  enabled     Boolean   @default(true)
+  costFactor  Float     @default(1.0) @map("cost_factor")
+  priority    Int       @default(0)
+  status      String    @default("healthy") // healthy, unhealthy
+  retryAfter  DateTime? @map("retry_after")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+
+  @@map("provider_configs")
+}
+
+model ProviderLog {
+  id           String   @id @default(uuid())
+  provider     String
+  model        String
+  promptName   String   @map("prompt_name")
+  durationMs   Int      @map("duration_ms")
+  inputTokens  Int?     @map("input_tokens")
+  outputTokens Int?     @map("output_tokens")
+  cost         Float?
+  success      Boolean
+  errorMsg     String?  @map("error_msg")
+  createdAt    DateTime @default(now()) @map("created_at")
+
+  @@map("provider_logs")
+}

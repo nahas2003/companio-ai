@@ -1,7 +1,8 @@
 import { GoogleGenerativeAI } from '@google/generative-ai'
-import type { AiProvider, AiResponse } from '../types/ai.types'
+import { IAIProvider } from '../interfaces/IAIProvider'
+import { AiResponse } from '../types/ai.types'
 
-export class GeminiProviderAdapter implements AiProvider {
+export class GeminiProviderAdapter implements IAIProvider {
   private genAI: GoogleGenerativeAI
   private modelName: string = 'gemini-1.5-flash'
 
