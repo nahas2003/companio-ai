@@ -116,8 +116,10 @@ export async function generateQuestionsAction(
     } else {
       // 4. TOP-UP needed!
       const topUpCount = payload.count - pooledQuestions.length
+      // Generate a larger pool of questions from the AI to store in the reusable pool for future queries
+      const aiRequestCount = Math.min(Math.max(topUpCount + 5, 10), 20)
       console.log(
-        `Question Pool partial hit with ${pooledQuestions.length}/${payload.count} matches. Querying AI to top up remaining ${topUpCount} questions...`,
+        `Question Pool partial hit with ${pooledQuestions.length}/${payload.count} matches. Querying AI to generate a pool of ${aiRequestCount} questions...`,
       )
 
       let responseSchema: z.ZodType<any>
@@ -151,7 +153,7 @@ export async function generateQuestionsAction(
         result = await aiOrchestrator.executePrompt(
           'QUESTION_GENERATION',
           {
-            count: topUpCount.toString(),
+            count: aiRequestCount.toString(),
             type: typeLabel,
             difficulty: payload.difficulty,
             documentText: sourceContent,
@@ -163,7 +165,7 @@ export async function generateQuestionsAction(
         result = await aiOrchestrator.executePrompt(
           'TOPIC_QUESTION_GENERATION',
           {
-            count: topUpCount.toString(),
+            count: aiRequestCount.toString(),
             type: typeLabel,
             difficulty: payload.difficulty,
             topic: topicTag,
@@ -180,7 +182,7 @@ export async function generateQuestionsAction(
         result = await aiOrchestrator.executePrompt(
           'DESCRIPTION_QUESTION_GENERATION',
           {
-            count: topUpCount.toString(),
+            count: aiRequestCount.toString(),
             type: typeLabel,
             difficulty: payload.difficulty,
             description: payload.description || '',
@@ -206,7 +208,7 @@ export async function generateQuestionsAction(
         }
       }
 
-      // Save the new questions to the reusable pool asynchronously (only for topic/document)
+      // Save all the generated questions to the reusable pool asynchronously (only for topic/document)
       if (payload.method !== 'DESCRIPTION' && deduplicatedNewQuestions.length > 0) {
         poolManager
           .saveQuestionsToPool(
@@ -227,11 +229,16 @@ export async function generateQuestionsAction(
       finalQuestions = [...(pooledQuestions as GeneratedQuestion[]), ...deduplicatedNewQuestions]
     }
 
-    // 5. Populate cache for subsequent identical configurations
-    await intelligentCache.set(cacheHash, finalQuestions)
+    // We only take the requested count for the current session/caching
+    const returnedQuestions = finalQuestions.slice(0, payload.count)
 
-    console.log(`Successfully resolved ${finalQuestions.length} questions for user: ${userId}`)
-    return { success: true, questions: finalQuestions }
+    // 5. Populate cache for subsequent identical configurations
+    await intelligentCache.set(cacheHash, returnedQuestions)
+
+    console.log(
+      `Successfully resolved ${returnedQuestions.length} questions (extracted from a generated pool of ${finalQuestions.length}) for user: ${userId}`,
+    )
+    return { success: true, questions: returnedQuestions }
   } catch (error: any) {
     console.error('Failed to generate questions:', error)
     return { success: false, error: error.message || 'Failed to generate questions.' }
@@ -256,6 +263,44 @@ export async function regenerateSingleQuestionAction(
 
     if (isRateLimited(`regen-single:${userId}`, 10, 60000)) {
       throw new Error('Rate limit exceeded. Please wait a moment.')
+    }
+
+    // Try Pool lookup for single question reuse (skip for description method)
+    if (payload.method !== 'DESCRIPTION' && payload.topic) {
+      const topicTag = payload.topic.trim()
+      const normalizedExisting = payload.existingTitles.map((t) => t.trim().toLowerCase())
+
+      const pooledCandidates = await prisma.question.findMany({
+        where: {
+          topic: {
+            contains: topicTag,
+            mode: 'insensitive',
+          },
+          type: payload.type as any,
+          difficulty: payload.difficulty as any,
+          deleted: false,
+          archived: false,
+        },
+      })
+
+      const freshCandidate = pooledCandidates.find(
+        (q) => !normalizedExisting.includes(q.title.trim().toLowerCase()),
+      )
+
+      if (freshCandidate) {
+        console.log(
+          `Regeneration Pool HIT. Reusing stored question from pool instead of calling AI: "${freshCandidate.title}"`,
+        )
+        return {
+          success: true,
+          question: {
+            title: freshCandidate.title,
+            options: freshCandidate.options,
+            correctAnswer: freshCandidate.correctAnswer,
+            modelAnswer: freshCandidate.modelAnswer,
+          } as GeneratedQuestion,
+        }
+      }
     }
 
     let contextPrompt = ''
