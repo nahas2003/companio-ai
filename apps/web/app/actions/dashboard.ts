@@ -7,40 +7,74 @@ export async function getDashboardDataAction(accessToken: string) {
   try {
     const verifiedUser = await getVerifiedUser(accessToken)
 
-    // 1. Fetch practice stats
-    const completedPractices = await prisma.practiceSession.findMany({
-      where: { userId: verifiedUser.id, status: 'COMPLETED' },
-      include: {
-        questionBank: {
-          include: {
-            questions: { where: { deleted: false } },
+    // 1-6. Fetch all metrics and activities in parallel to reduce database roundtrip latency
+    const [
+      completedPractices,
+      completedAssessments,
+      recentUploads,
+      recentPractices,
+      recentAttempts,
+      aiLogs,
+    ] = await Promise.all([
+      prisma.practiceSession.findMany({
+        where: { userId: verifiedUser.id, status: 'COMPLETED' },
+        include: {
+          questionBank: {
+            include: {
+              questions: { where: { deleted: false } },
+            },
           },
         },
-      },
-    })
-
-    // 2. Fetch assessment stats
-    const completedAssessments = await prisma.assessmentAttempt.findMany({
-      where: {
-        userId: verifiedUser.id,
-        status: { in: [AttemptStatus.SUBMITTED, AttemptStatus.EXPIRED] },
-      },
-      include: {
-        publishedAssessment: {
-          include: {
-            template: {
-              include: {
-                questionBank: {
-                  include: {
-                    questions: { where: { deleted: false } },
+      }),
+      prisma.assessmentAttempt.findMany({
+        where: {
+          userId: verifiedUser.id,
+          status: { in: [AttemptStatus.SUBMITTED, AttemptStatus.EXPIRED] },
+        },
+        include: {
+          publishedAssessment: {
+            include: {
+              template: {
+                include: {
+                  questionBank: {
+                    include: {
+                      questions: { where: { deleted: false } },
+                    },
                   },
                 },
               },
             },
           },
         },
-      },
-    })
+      }),
+      prisma.source.findMany({
+        where: { userId: verifiedUser.id },
+        orderBy: { createdAt: 'desc' },
+        take: 5,
+      }),
+      prisma.practiceSession.findMany({
+        where: { userId: verifiedUser.id },
+        include: { questionBank: true },
+        orderBy: { createdAt: 'desc' },
+        take: 5,
+      }),
+      prisma.assessmentAttempt.findMany({
+        where: { userId: verifiedUser.id },
+        include: {
+          publishedAssessment: {
+            include: {
+              template: true,
+            },
+          },
+        },
+        orderBy: { startedAt: 'desc' },
+        take: 5,
+      }),
+      prisma.aiUsageLog.findMany({
+        where: { userId: verifiedUser.id },
+        select: { inputTokens: true, outputTokens: true },
+      }),
+    ])
 
     // Calculate questions answered
     let totalQuestionsAnswered = 0
@@ -66,35 +100,6 @@ export async function getDashboardDataAction(accessToken: string) {
     })
 
     const accuracyRate = scoreCount > 0 ? totalScoreSum / scoreCount : 0
-
-    // 3. Fetch recent uploads
-    const recentUploads = await prisma.source.findMany({
-      where: { userId: verifiedUser.id },
-      orderBy: { createdAt: 'desc' },
-      take: 5,
-    })
-
-    // 4. Fetch recent practices
-    const recentPractices = await prisma.practiceSession.findMany({
-      where: { userId: verifiedUser.id },
-      include: { questionBank: true },
-      orderBy: { createdAt: 'desc' },
-      take: 5,
-    })
-
-    // 5. Fetch recent assessments
-    const recentAttempts = await prisma.assessmentAttempt.findMany({
-      where: { userId: verifiedUser.id },
-      include: {
-        publishedAssessment: {
-          include: {
-            template: true,
-          },
-        },
-      },
-      orderBy: { startedAt: 'desc' },
-      take: 5,
-    })
 
     // Compile into recent activities list
     const activities: any[] = []
@@ -144,12 +149,6 @@ export async function getDashboardDataAction(accessToken: string) {
 
     // Sort combined activities by date descending
     activities.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-
-    // 6. Fetch AI Usage metrics
-    const aiLogs = await prisma.aiUsageLog.findMany({
-      where: { userId: verifiedUser.id },
-      select: { inputTokens: true, outputTokens: true },
-    })
 
     const aiRequests = aiLogs.length
     const aiTotalTokens = aiLogs.reduce(

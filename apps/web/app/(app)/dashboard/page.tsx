@@ -11,9 +11,14 @@ import { Calendar } from 'lucide-react'
 
 export default function DashboardPage() {
   const { user, session } = useAuthStore()
+  const [mounted, setMounted] = React.useState(false)
   const [loading, setLoading] = React.useState(true)
   const [stats, setStats] = React.useState<DashboardStats | null>(null)
   const [activities, setActivities] = React.useState<ActivityItem[]>([])
+
+  React.useEffect(() => {
+    setMounted(true)
+  }, [])
 
   React.useEffect(() => {
     async function loadDashboardData() {
@@ -31,25 +36,29 @@ export default function DashboardPage() {
         setLoading(false)
       }
     }
-    loadDashboardData()
-  }, [session])
+    if (mounted) {
+      loadDashboardData()
+    }
+  }, [session, mounted])
 
   const greeting = React.useMemo(() => {
+    if (!mounted) return 'Hello'
     const hour = new Date().getHours()
     if (hour < 12) return 'Good morning'
     if (hour < 18) return 'Good afternoon'
     return 'Good evening'
-  }, [])
+  }, [mounted])
 
   const formattedDate = React.useMemo(() => {
+    if (!mounted) return ''
     return new Date().toLocaleDateString(undefined, {
       weekday: 'long',
       month: 'short',
       day: 'numeric',
     })
-  }, [])
+  }, [mounted])
 
-  if (loading || !stats) {
+  if (!mounted || loading || !stats) {
     return (
       <div className="flex flex-col items-center justify-center min-h-[400px] gap-3 text-text-secondary">
         <div className="w-8 h-8 rounded-full border-2 border-border border-t-primary animate-spin" />
