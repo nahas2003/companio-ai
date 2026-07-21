@@ -364,28 +364,23 @@ function GenerateContent() {
 
             {/* Questions count */}
             <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <label className="text-xs font-bold text-text-secondary uppercase tracking-wide">
-                  4. Questions Count
-                </label>
-                <span className="text-[10px] font-bold text-primary bg-primary/15 px-2.5 py-0.5 rounded-full">
-                  {count} items
-                </span>
-              </div>
+              <label className="text-xs font-bold text-text-secondary uppercase tracking-wide">
+                4. Questions Count
+              </label>
               <input
-                type="range"
-                min="3"
-                max="15"
-                step="1"
+                type="number"
+                min="1"
+                max="30"
                 value={count}
-                onChange={(e) => setCount(parseInt(e.target.value))}
-                className="w-full h-1 bg-border rounded-medium appearance-none cursor-pointer accent-primary"
+                onChange={(e) => {
+                  const val = parseInt(e.target.value) || 0
+                  setCount(Math.min(Math.max(val, 1), 30))
+                }}
+                className="w-full px-3 py-2 rounded-medium border border-border bg-surface text-text-primary text-xs outline-none focus:border-primary/50"
               />
-              <div className="flex justify-between text-[9px] text-text-secondary font-bold">
-                <span>3</span>
-                <span>9</span>
-                <span>15</span>
-              </div>
+              <span className="text-[10px] text-text-secondary/60 font-semibold block mt-1">
+                Enter a number between 1 and 30.
+              </span>
             </div>
 
             <Button
