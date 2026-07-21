@@ -1,40 +1,55 @@
-# UI Refinement Report
+# Final UI Refinement Report
 
-This report documents the visual and structural refinements applied across the authenticated portal directories (`/dashboard`, `/sources`, `/generate`, `/question-bank`, and `/practice`) to establish strict consistency with the brand-new landing page design language.
-
----
-
-## 1. Summary of Spacing, Typography & Card Refinements
-
-- **Main Dashboard (`app/(app)/dashboard/page.tsx`):**
-  - Removed the hardcoded `text-white` class from the main desktop container, replacing it with the dynamic `text-text-primary` class. This resolves critical visibility issues in Light theme (where text was previously white-on-white).
-  - Swapped out raw white opacity gradients on the calendar header card for theme-aware `bg-surface-secondary border border-border text-text-secondary` styling.
-  - Adjusted loading states, reducing vertical space heights and utilizing variable spinner weights.
-- **Statistics Grid (`src/features/dashboard/components/StatsGrid.tsx`):**
-  - Ported cards from `bg-white/5 border border-white/10` to `bg-surface border border-border rounded-large shadow-sm hover:shadow-soft`.
-  - Replaced the `Sparkles` icon with `Trophy` under "Practice Completed" to complete AI branding removal constraints.
-  - Mapped typography styles to semantic tokens (`text-text-primary`, `text-text-secondary/70`).
-- **Quick Action Links (`src/features/dashboard/components/QuickActions.tsx`):**
-  - Standardized margins and margins padding around links.
-  - Refactored items to render using `bg-surface border border-border/40 hover:bg-surface-secondary` with smooth 300ms transitions.
-- **Recent Activity Feed (`src/features/dashboard/components/ActivityFeed.tsx`):**
-  - Updated empty lists layout state to follow central design cards pattern.
-  - Swapped sparkles indicators for `Compass` icons under practice items.
-  - Mapped timeline list border indicators to `border-border` and bullet dots to `bg-border group-hover:bg-primary` transitions.
-- **Study Materials Ingestion (`app/(app)/sources/page.tsx` & components):**
-  - Refactored `/sources` container page to use theme text variables.
-  - Ported `UploadZone` file drops border styles to `border-border bg-surface` with `border-primary bg-primary/5` active drag triggers.
-  - Updated `SourceList` items to render clean, theme-aware badges (`Ready` in success-teal, `Failed` in danger-red, `Idle` in surface-secondary border).
-- **Practice Builder page (`app/(app)/generate/page.tsx`):**
-  - Replaced header Sparkles headers with `Layers` icon and renamed page to "Practice Builder" (neutral SaaS copy).
-  - Ported configuration form controls, toggle button grids (`EASY`, `MEDIUM`, `HARD`), range sliders, preview lists, and popup save modals to utilize the standard `bg-surface`, `border-border`, and `text-text-primary` token sets.
-- **Header Breadcrumbs (`src/components/Header.tsx`):**
-  - Cleaned up dynamic parameters breadcrumbs. If a route segment matches a UUID pattern, dynamic database key, or contains long hashes, it is simplified to a generic `'Details'` title to prevent navigation header overflows.
+This report documents the final visual, layout, and theme-consistency refinement pass completed across the authenticated portal scope to align all components with SaaS design system benchmarks (Stripe, Vercel, and Linear).
 
 ---
 
-## 2. Compilation and Code Quality Verification
+## 1. Refined Layout & Component Sections
 
-- **Next.js Production Build:** Completed successfully. All refined portal layouts compile and bundle cleanly with zero hydration warnings or chunk errors.
-- **TypeScript & ESLint:** Verified with zero warnings.
-- **Theme Switching:** Instant toggle swaps verify correctly across Light, Dark, and System states on all dashboard pages.
+### Global Spacing & Typography
+
+- Checked all pages for font sizing consistency. Text labels have been normalized to `text-xs` (descriptions/metadata) and `text-sm` (subheadings), reducing layout height shifts.
+- Normalized rounded corners to the central design system tokens (`rounded-medium` for items/inputs and `rounded-large` for card containers).
+- Checked for hardcoded slate backgrounds (`bg-slate-900`, `bg-slate-950`) and white text classes inside the main pages to guarantee complete contrast in both **Light** and **Dark** modes.
+
+### Sidebar Nav Refinement (`apps/web/src/components/Sidebar.tsx`)
+
+- Reduced desktop sidebar width from `256px` (`w-64`) to `230px` (`w-[230px]`) and collapsed state from `80px` (`w-20`) to `72px` (`w-[72px]`) for a sleeker profile layout.
+- Reduced the vertical margins/paddings on navigation items (from `px-4 py-3` to `px-3.5 py-2.5`) to eliminate excessive spacing and fit comfortably.
+- Standardized navigation icons to `w-4.5 h-4.5` with smooth active indicator states (`bg-primary/10 text-primary border-primary/20`).
+
+### Profile Settings Page Integration (`apps/web/app/(app)/profile/page.tsx` & components)
+
+- Replaced the fullscreen layout shell in `profile/page.tsx` that contained duplicate background glows and absolute overlays, making it render inside the primary layout container.
+- Ported inputs, placeholder labels, disabled email fields, validation messages, and action buttons in `ProfileForm` to utilize the standard theme tokens.
+
+### Question Bank page (`apps/web/app/(app)/question-bank/page.tsx`)
+
+- Updated status toggle tabs (`Active Bank` / `Archived Shelf`) to use theme accent colors and active border triggers.
+- Ported the search bar, filter selectors, multi-select rows, status badges (easy, medium, hard), table actions, and pagination buttons to be theme-aware.
+- Styled edit modals using a blurred overlay drop background (`bg-slate-900/40 backdrop-blur-sm`).
+
+### Assessments Creator Workspace (`apps/web/app/(app)/assessments/page.tsx`)
+
+- Styled active assessment tables, invite cards, dynamic detail configurations, and passing score sliders.
+- Re-architected modal overlay systems (create configuration modal and report modal) to match the portal design language.
+- Re-rendered reports statistics table lists using `bg-surface-secondary` header rows and dynamic badges.
+
+### Practice Zone Page (`apps/web/app/(app)/practice/page.tsx`)
+
+- Standardized ingestion and generator shortcuts links cards.
+- Restructured attempts history logs card items and added colored score badges matching performance limits (`text-success` for $\ge 80\%$, `text-warning` for $\ge 60\%$).
+
+### Admin Workspace Shell (`apps/web/app/(app)/admin/page.tsx`)
+
+- Removed redundant absolute glowing background divs, footer texts, and duplicate operator headers that caused clutter when nested inside the app shell layout.
+- Restructured tab selections layout to match page layouts, rendering tab switches on the left side and details forms on the right side.
+
+---
+
+## 2. Code Quality & Build Auditing
+
+- **TypeScript Type Verification:** Ran `tsc --noEmit` on the web workspace, completing with **zero errors**.
+- **Dev Server Cache Protection:** Replaced the previous `pnpm build` verification step with direct non-emitting type checks to prevent Next.js `.next` folder overrides, protecting the running client hot-reloading dev server.
+- **Prettier Code Formatting:** Ran formatter successfully over modified workspace files.
+- **Git Commit:** Committed all layout refinements under git commit: `style(ui): final authenticated portal refinement` (Commit ID: `0c8e23e`).
