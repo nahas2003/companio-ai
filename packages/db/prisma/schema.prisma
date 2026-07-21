@@ -199,6 +199,15 @@ model PracticeAnswer {
   @@map("practice_answers")
 }
 
+enum GenerationMethod {
+  TOPIC
+  DESCRIPTION
+  DOCUMENT
+  QUESTION_BANK
+  MANUAL
+  IMPORT
+}
+
 model AssessmentTemplate {
   id               String                @id @default(uuid())
   creatorId        String                @map("creator_id")
@@ -210,6 +219,10 @@ model AssessmentTemplate {
   shuffleQuestions Boolean               @default(false) @map("shuffle_questions")
   shuffleOptions   Boolean               @default(false) @map("shuffle_options")
   archived         Boolean               @default(false)
+  generationMethod GenerationMethod      @default(DOCUMENT) @map("generation_method")
+  prompt           String?
+  topic            String?
+  documentReference String?               @map("document_reference")
   createdAt        DateTime              @default(now()) @map("created_at")
   updatedAt        DateTime              @updatedAt @map("updated_at")
 

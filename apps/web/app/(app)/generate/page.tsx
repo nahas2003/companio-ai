@@ -156,6 +156,7 @@ function GenerateContent() {
 
       setGenerationStep('Querying AI Orchestrator with templates...')
       const res = await generateQuestionsAction(session.access_token, {
+        method: 'DOCUMENT',
         sourceId: selectedSourceId,
         count,
         type: questionType,

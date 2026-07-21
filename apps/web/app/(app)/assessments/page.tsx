@@ -188,12 +188,12 @@ export default function CreatorAssessmentsPage() {
           >
             Enter Join Code
           </Link>
-          <button
-            onClick={() => setShowCreateModal(true)}
+          <Link
+            href="/assessments/create"
             className="flex items-center gap-1.5 px-3.5 py-2 rounded-medium bg-primary hover:bg-primary-hover text-white text-xs font-bold transition duration-200 shadow-sm"
           >
-            <Plus className="w-4 h-4" /> Create Template
-          </button>
+            <Plus className="w-4 h-4" /> Create Assessment
+          </Link>
         </div>
       </div>
 
@@ -217,12 +217,12 @@ export default function CreatorAssessmentsPage() {
               <p className="text-xs text-text-secondary font-medium">
                 No assessment configurations created yet.
               </p>
-              <button
-                onClick={() => setShowCreateModal(true)}
+              <Link
+                href="/assessments/create"
                 className="text-xs text-primary hover:text-primary-hover font-bold transition"
               >
-                Create your first template
-              </button>
+                Create your first assessment
+              </Link>
             </div>
           ) : (
             <div className="grid grid-cols-1 gap-4">

@@ -1,6 +1,6 @@
 'use server'
 
-import { prisma } from '@companio/db'
+import { prisma, GenerationMethod, Difficulty } from '@companio/db'
 import { getVerifiedUser } from './authUtils'
 import { isRateLimited } from './rateLimiter'
 
@@ -81,13 +81,24 @@ export async function getAssessmentsDashboardAction(accessToken: string) {
 export async function createAssessmentTemplateAction(
   accessToken: string,
   payload: {
-    questionBankId: string
+    questionBankId?: string
     title: string
     description?: string
     timer?: number // in minutes
     passingScore?: number // percentage e.g. 60
     shuffleQuestions?: boolean
     shuffleOptions?: boolean
+    generationMethod?: GenerationMethod
+    prompt?: string
+    topic?: string
+    documentReference?: string
+    difficulty?: Difficulty
+    questions?: {
+      title: string
+      options?: string[]
+      correctAnswer?: number
+      modelAnswer?: string
+    }[]
   },
 ) {
   try {
@@ -97,23 +108,90 @@ export async function createAssessmentTemplateAction(
       throw new Error('Assessment title is required.')
     }
 
-    const template = await prisma.assessmentTemplate.create({
-      data: {
-        creatorId: verifiedUser.id,
-        questionBankId: payload.questionBankId,
-        title: payload.title.trim(),
-        description: payload.description?.trim(),
-        timer: payload.timer || null,
-        passingScore: payload.passingScore ?? 60.0,
-        shuffleQuestions: payload.shuffleQuestions ?? false,
-        shuffleOptions: payload.shuffleOptions ?? false,
-      },
+    const template = await prisma.$transaction(async (tx) => {
+      let finalBankId = payload.questionBankId
+
+      // If custom questions array is provided, create an auto-generated QuestionBank first
+      if (payload.questions && payload.questions.length > 0) {
+        const bank = await tx.questionBank.create({
+          data: {
+            userId: verifiedUser.id,
+            name: `Bank: ${payload.title.trim()}`,
+            description: `Questions generated for ${payload.title.trim()}`,
+          },
+        })
+
+        for (const q of payload.questions) {
+          const qType =
+            q.options && q.options.length > 0
+              ? q.options.length === 2
+                ? 'TRUE_FALSE'
+                : 'MULTIPLE_CHOICE'
+              : 'SHORT_ANSWER'
+
+          await tx.question.create({
+            data: {
+              questionBankId: bank.id,
+              title: q.title.trim(),
+              options: q.options || [],
+              correctAnswer: q.correctAnswer !== undefined ? q.correctAnswer : null,
+              modelAnswer: q.modelAnswer || null,
+              type: qType,
+              difficulty: payload.difficulty || Difficulty.MEDIUM,
+              topic: payload.topic || payload.title.trim(),
+            },
+          })
+        }
+
+        finalBankId = bank.id
+      }
+
+      if (!finalBankId) {
+        throw new Error('Question bank context is missing.')
+      }
+
+      return await tx.assessmentTemplate.create({
+        data: {
+          creatorId: verifiedUser.id,
+          questionBankId: finalBankId,
+          title: payload.title.trim(),
+          description: payload.description?.trim(),
+          timer: payload.timer || null,
+          passingScore: payload.passingScore ?? 60.0,
+          shuffleQuestions: payload.shuffleQuestions ?? false,
+          shuffleOptions: payload.shuffleOptions ?? false,
+          generationMethod: payload.generationMethod || 'DOCUMENT',
+          prompt: payload.prompt || null,
+          topic: payload.topic || null,
+          documentReference: payload.documentReference || null,
+        },
+      })
     })
 
     return { success: true, templateId: template.id }
   } catch (error: any) {
     console.error('Error creating assessment template:', error)
     return { success: false, error: error.message || 'Failed to create template.' }
+  }
+}
+
+export async function createAndPublishAssessmentAction(
+  accessToken: string,
+  payload: Parameters<typeof createAssessmentTemplateAction>[1],
+) {
+  try {
+    const res = await createAssessmentTemplateAction(accessToken, payload)
+    if (!res.success || !res.templateId) {
+      throw new Error(res.error || 'Failed to create assessment.')
+    }
+    const pubRes = await publishAssessmentAction(accessToken, res.templateId)
+    if (!pubRes.success) {
+      throw new Error(pubRes.error || 'Failed to publish assessment.')
+    }
+    return { success: true, code: pubRes.code, templateId: res.templateId }
+  } catch (error: any) {
+    console.error('Error creating and publishing assessment:', error)
+    return { success: false, error: error.message }
   }
 }
 

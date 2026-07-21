@@ -8,8 +8,11 @@ export const intelligentCache = {
     count: number
     type: string
     language?: string
+    method?: string
+    bloomLevel?: string
+    customInstructions?: string
   }): string {
-    const inputStr = `${params.topic.toLowerCase().trim()}|${params.difficulty.toLowerCase().trim()}|${params.count}|${params.type.toLowerCase().trim()}|${(params.language || 'en').toLowerCase().trim()}`
+    const inputStr = `${params.topic.toLowerCase().trim()}|${params.difficulty.toLowerCase().trim()}|${params.count}|${params.type.toLowerCase().trim()}|${(params.language || 'en').toLowerCase().trim()}|${(params.method || '').toLowerCase()}|${(params.bloomLevel || '').toLowerCase()}|${(params.customInstructions || '').toLowerCase()}`
     return crypto.createHash('sha256').update(inputStr).digest('hex')
   },
 

@@ -22,6 +22,27 @@ export const promptTemplates: Record<string, PromptTemplate> = {
     template:
       'You are an expert academic evaluator. Extract knowledge from the provided source text and generate exactly {{count}} {{type}} questions. The difficulty level must be {{difficulty}}.\n\nReturn the output STRICTLY as a JSON array of question objects matching this structure:\n- If type is MULTIPLE_CHOICE: { "title": "...", "options": ["Option A", "Option B", "Option C", "Option D"], "correctAnswer": 0 } (0-indexed index of correct option)\n- If type is TRUE_FALSE: { "title": "...", "options": ["True", "False"], "correctAnswer": 0 } (0 for True, 1 for False)\n- If type is SHORT_ANSWER: { "title": "...", "modelAnswer": "..." }\n\nDo not return any markdown wrapper code. Respond only with valid parseable JSON array.\n\nTEXT:\n{{documentText}}',
   },
+  TOPIC_QUESTION_GENERATION: {
+    name: 'TOPIC_QUESTION_GENERATION',
+    version: '1.0',
+    description: 'Generates structured questions from a topic subject.',
+    template:
+      'You are an expert academic evaluator. Create exactly {{count}} {{type}} questions covering the topic: "{{topic}}". The difficulty level must be {{difficulty}}.\n{{bloomLevelPrompt}}{{languagePrompt}}{{customInstructionsPrompt}}\n\nReturn the output STRICTLY as a JSON array of question objects matching this structure:\n- If type is MULTIPLE_CHOICE: { "title": "...", "options": ["Option A", "Option B", "Option C", "Option D"], "correctAnswer": 0 } (0-indexed index of correct option)\n- If type is TRUE_FALSE: { "title": "...", "options": ["True", "False"], "correctAnswer": 0 } (0 for True, 1 for False)\n- If type is SHORT_ANSWER: { "title": "...", "modelAnswer": "..." }\n\nDo not return any markdown wrapper code. Respond only with valid parseable JSON array.',
+  },
+  DESCRIPTION_QUESTION_GENERATION: {
+    name: 'DESCRIPTION_QUESTION_GENERATION',
+    version: '1.0',
+    description: 'Generates structured questions based on a description prompt.',
+    template:
+      'You are an expert academic evaluator. Generate exactly {{count}} {{type}} questions by interpreting and following this description:\n\nDESCRIPTION:\n{{description}}\n\nThe difficulty level must be {{difficulty}}.\n{{languagePrompt}}\n\nReturn the output STRICTLY as a JSON array of question objects matching this structure:\n- If type is MULTIPLE_CHOICE: { "title": "...", "options": ["Option A", "Option B", "Option C", "Option D"], "correctAnswer": 0 } (0-indexed index of correct option)\n- If type is TRUE_FALSE: { "title": "...", "options": ["True", "False"], "correctAnswer": 0 } (0 for True, 1 for False)\n- If type is SHORT_ANSWER: { "title": "...", "modelAnswer": "..." }\n\nDo not return any markdown wrapper code. Respond only with valid parseable JSON array.',
+  },
+  SINGLE_QUESTION_REGENERATION: {
+    name: 'SINGLE_QUESTION_REGENERATION',
+    version: '1.0',
+    description: 'Generates a single replacement question avoiding a set of existing titles.',
+    template:
+      'You are an expert academic evaluator. Generate exactly 1 {{type}} question. The difficulty level must be {{difficulty}}.\n\nContext details:\n{{contextPrompt}}\n\nCRITICAL: Do NOT generate any questions matching or similar to these existing titles:\n{{existingTitles}}\n\nReturn the output STRICTLY as a single JSON object matching this structure:\n- If type is MULTIPLE_CHOICE: { "title": "...", "options": ["Option A", "Option B", "Option C", "Option D"], "correctAnswer": 0 }\n- If type is TRUE_FALSE: { "title": "...", "options": ["True", "False"], "correctAnswer": 0 }\n- If type is SHORT_ANSWER: { "title": "...", "modelAnswer": "..." }\n\nDo not return any markdown wrapper code. Respond only with valid parseable JSON object.',
+  },
 }
 
 export function compilePrompt(
