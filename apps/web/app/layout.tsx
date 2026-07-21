@@ -8,6 +8,7 @@ export const metadata: Metadata = {
 }
 
 import { AuthInitializer } from '@/components/AuthInitializer'
+import { Telemetry } from '@/components/Telemetry'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="antialiased min-h-screen bg-background text-text-primary">
         <ThemeProvider>
+          <Telemetry />
           <AuthInitializer>{children}</AuthInitializer>
         </ThemeProvider>
       </body>

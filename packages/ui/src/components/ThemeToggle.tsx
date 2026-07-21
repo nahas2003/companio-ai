@@ -51,12 +51,17 @@ function ThemeToggle({ className }: ThemeToggleProps) {
         className="h-9 w-9 rounded-medium text-text-secondary hover:text-text-primary hover:bg-surface-secondary transition duration-200 focus-visible:ring-1 focus-visible:ring-primary"
         title="Choose Theme"
         aria-label="Choose Theme"
+        aria-haspopup="true"
+        aria-expanded={open}
       >
         <ActiveIcon className="h-[18px] w-[18px] transition-all" />
       </Button>
 
       {open && (
-        <div className="absolute right-0 mt-2 w-36 origin-top-right rounded-medium border border-border bg-surface p-1 shadow-soft z-50 animate-fade-in focus:outline-none">
+        <div
+          className="absolute right-0 mt-2 w-36 origin-top-right rounded-medium border border-border bg-surface p-1 shadow-soft z-50 animate-fade-in focus:outline-none"
+          role="menu"
+        >
           <div className="space-y-0.5">
             {options.map((opt) => {
               const Icon = opt.icon
@@ -64,6 +69,7 @@ function ThemeToggle({ className }: ThemeToggleProps) {
               return (
                 <button
                   key={opt.value}
+                  role="menuitem"
                   onClick={() => {
                     setTheme(opt.value)
                     setOpen(false)

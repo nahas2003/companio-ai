@@ -280,3 +280,184 @@ export async function getAdminAuditLogsAction(accessToken: string) {
     return { success: false, error: error.message || 'Failed to load audit trail logs.' }
   }
 }
+
+export async function purgeStaleGuestAttemptsAction(accessToken: string) {
+  try {
+    const admin = await verifyAdminRole(accessToken)
+    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000)
+
+    const result = await prisma.assessmentAttempt.deleteMany({
+      where: {
+        userId: null,
+        completedAt: {
+          lt: thirtyDaysAgo,
+        },
+      },
+    })
+
+    await writeAuditLog(
+      admin.id,
+      'PURGE_GUEST_ATTEMPTS',
+      'ATTEMPTS',
+      `Purged guest attempts older than 30 days. Count: ${result.count}`,
+    )
+
+    return { success: true, count: result.count }
+  } catch (error: any) {
+    console.error('Error purging stale attempts:', error)
+    return { success: false, error: error.message || 'Failed to purge stale attempts.' }
+  }
+}
+
+export async function createOrganizationAction(accessToken: string, name: string) {
+  try {
+    const verifiedUser = await getVerifiedUser(accessToken)
+    if (!name || name.trim().length === 0) {
+      throw new Error('Organization name cannot be empty.')
+    }
+
+    const org = await prisma.$transaction(async (tx) => {
+      const o = await tx.organization.create({
+        data: { name: name.trim() },
+      })
+      await tx.userOrganization.create({
+        data: {
+          organizationId: o.id,
+          userId: verifiedUser.id,
+          role: 'OWNER',
+        },
+      })
+      return o
+    })
+
+    return { success: true, organizationId: org.id }
+  } catch (error: any) {
+    console.error('Error creating organization:', error)
+    return { success: false, error: error.message || 'Failed to create organization.' }
+  }
+}
+
+export async function getOrganizationMembersAction(accessToken: string, organizationId: string) {
+  try {
+    const verifiedUser = await getVerifiedUser(accessToken)
+
+    // Ensure user belongs to the organization
+    const mapping = await prisma.userOrganization.findFirst({
+      where: { organizationId, userId: verifiedUser.id },
+    })
+    if (!mapping) {
+      throw new Error('Access denied. You do not belong to this organization.')
+    }
+
+    const members = await prisma.userOrganization.findMany({
+      where: { organizationId },
+      include: {
+        user: {
+          select: { id: true, email: true, displayName: true },
+        },
+      },
+    })
+
+    return {
+      success: true,
+      members: members.map((m) => ({
+        id: m.id,
+        userId: m.userId,
+        email: m.user.email,
+        displayName: m.user.displayName,
+        role: m.role,
+        createdAt: m.createdAt,
+      })),
+    }
+  } catch (error: any) {
+    console.error('Error listing organization members:', error)
+    return { success: false, error: error.message || 'Failed to load organization members.' }
+  }
+}
+
+export async function addMemberToOrganizationAction(
+  accessToken: string,
+  payload: { organizationId: string; email: string; role: string },
+) {
+  try {
+    const verifiedUser = await getVerifiedUser(accessToken)
+
+    // Check if user is OWNER or ADMIN
+    const mapping = await prisma.userOrganization.findFirst({
+      where: { organizationId: payload.organizationId, userId: verifiedUser.id },
+    })
+    if (!mapping || (mapping.role !== 'OWNER' && mapping.role !== 'ADMIN')) {
+      throw new Error('Unauthorized. OWNER or ADMIN permissions required.')
+    }
+
+    const targetUser = await prisma.user.findUnique({
+      where: { email: payload.email.trim() },
+    })
+    if (!targetUser) {
+      throw new Error('User with this email does not exist.')
+    }
+
+    await prisma.userOrganization.create({
+      data: {
+        organizationId: payload.organizationId,
+        userId: targetUser.id,
+        role: payload.role.toUpperCase(),
+      },
+    })
+
+    return { success: true }
+  } catch (error: any) {
+    console.error('Error adding organization member:', error)
+    return { success: false, error: error.message || 'Failed to add organization member.' }
+  }
+}
+
+export async function removeMemberFromOrganizationAction(
+  accessToken: string,
+  organizationId: string,
+  memberUserId: string,
+) {
+  try {
+    const verifiedUser = await getVerifiedUser(accessToken)
+
+    // Check permissions: Must be OWNER or ADMIN
+    const mapping = await prisma.userOrganization.findFirst({
+      where: { organizationId, userId: verifiedUser.id },
+    })
+    if (!mapping || (mapping.role !== 'OWNER' && mapping.role !== 'ADMIN')) {
+      throw new Error('Unauthorized. OWNER or ADMIN permissions required.')
+    }
+
+    // OWNER can remove anyone. ADMIN cannot remove OWNER.
+    const targetMapping = await prisma.userOrganization.findUnique({
+      where: {
+        organizationId_userId: {
+          organizationId,
+          userId: memberUserId,
+        },
+      },
+    })
+
+    if (!targetMapping) throw new Error('Member not found in organization.')
+    if (targetMapping.role === 'OWNER') {
+      throw new Error('OWNER role cannot be removed from organization.')
+    }
+    if (targetMapping.role === 'ADMIN' && mapping.role !== 'OWNER') {
+      throw new Error('Only the OWNER can remove ADMIN members.')
+    }
+
+    await prisma.userOrganization.delete({
+      where: {
+        organizationId_userId: {
+          organizationId,
+          userId: memberUserId,
+        },
+      },
+    })
+
+    return { success: true }
+  } catch (error: any) {
+    console.error('Error removing organization member:', error)
+    return { success: false, error: error.message || 'Failed to remove member.' }
+  }
+}

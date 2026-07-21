@@ -1,20 +1,59 @@
-import { Role } from '@companio/db'
+import { Role, prisma } from '@companio/db'
 import { Permission, ROLE_PERMISSIONS } from '../types/rbac.types'
 
-const ROLE_RANK: Record<Role, number> = {
-  STUDENT: 1,
-  INSTRUCTOR: 2,
-  ADMIN: 3,
-  SUPER_ADMIN: 4,
+export type OrgRole = 'OWNER' | 'ADMIN' | 'INSTRUCTOR' | 'MEMBER'
+
+// Maintain existing global Role based permissions check
+export function hasPermission(role: Role, permission: Permission): boolean {
+  const permissions = ROLE_PERMISSIONS[role] || []
+  return permissions.includes(permission)
 }
 
-export function hasPermission(role: Role | null, permission: Permission): boolean {
-  if (!role) return false
-  const permissions = ROLE_PERMISSIONS[role]
-  return permissions ? permissions.includes(permission) : false
-}
+// Add new database organization-scoped RBAC checks
+export const rbac = {
+  async checkPermission(
+    userId: string,
+    organizationId: string,
+    minRole: OrgRole,
+  ): Promise<boolean> {
+    try {
+      const mapping = await prisma.userOrganization.findUnique({
+        where: {
+          organizationId_userId: {
+            organizationId,
+            userId,
+          },
+        },
+      })
 
-export function hasRole(role: Role | null, requiredRole: Role): boolean {
-  if (!role) return false
-  return ROLE_RANK[role] >= ROLE_RANK[requiredRole]
+      if (!mapping) return false
+
+      const roleHierarchy: Record<OrgRole, number> = {
+        OWNER: 4,
+        ADMIN: 3,
+        INSTRUCTOR: 2,
+        MEMBER: 1,
+      }
+
+      const userWeight = roleHierarchy[mapping.role as OrgRole] || 0
+      const minWeight = roleHierarchy[minRole]
+
+      return userWeight >= minWeight
+    } catch (err) {
+      console.error('RBAC validation check failed:', err)
+      return false
+    }
+  },
+
+  async getUserOrgs(userId: string) {
+    try {
+      return await prisma.userOrganization.findMany({
+        where: { userId },
+        include: { organization: true },
+      })
+    } catch (err) {
+      console.error('Failed to load user organizations:', err)
+      return []
+    }
+  },
 }
