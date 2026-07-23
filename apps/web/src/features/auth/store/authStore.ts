@@ -41,10 +41,17 @@ export const useAuthStore = create<AuthState>((set) => ({
         set({ session: null, user: null, role: null })
       }
 
+      set({ isLoading: false })
+
       supabase.auth.onAuthStateChange(async (event, currentSession) => {
+        if (event === 'INITIAL_SESSION') {
+          return // Skip duplicate initial trigger to prevent double syncUser calls on mount
+        }
+
         set({ session: currentSession, user: currentSession?.user ?? null })
 
         if (currentSession?.user) {
+          set({ isLoading: true })
           const syncResult = await syncUser(
             currentSession.user.id,
             currentSession.user.email || '',
@@ -53,11 +60,10 @@ export const useAuthStore = create<AuthState>((set) => ({
           if (syncResult.success && syncResult.user) {
             set({ role: syncResult.user.role as Role })
           }
+          set({ isLoading: false })
         } else {
           set({ role: null })
         }
-
-        set({ isLoading: false })
       })
     } catch (err: any) {
       console.error('Error initializing auth state:', err)
