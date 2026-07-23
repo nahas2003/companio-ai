@@ -21,7 +21,8 @@ export async function parseDocument(
     if (typeof module !== 'undefined' && !module.parent) {
       module.parent = { id: 'main' } as any
     }
-    const pdf = require('pdf-parse')
+    const pdfModule = require('pdf-parse')
+    const pdf = typeof pdfModule === 'function' ? pdfModule : pdfModule.default
     const data = await pdf(fileBuffer)
     rawText = data.text || ''
     pageCount = data.numpages || null
