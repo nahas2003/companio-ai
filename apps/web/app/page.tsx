@@ -260,19 +260,19 @@ export default function Home() {
         </motion.div>
 
         {/* Right Column: Floating Product Preview Mockup Grid */}
-        <div className="w-full lg:w-[52%] relative min-h-[440px] sm:min-h-[500px] flex items-center justify-center select-none">
+        <div className="w-full lg:w-[52%] relative min-h-[480px] sm:min-h-[540px] flex items-center justify-center select-none">
           {/* Card 1: Assessment Builder (Top Left) */}
           <motion.div
             initial={{ y: 0 }}
             animate={{ y: [0, -6, 0] }}
             transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
-            className="absolute top-0 left-0 w-full max-w-[280px] bg-surface border border-border p-4.5 rounded-large shadow-soft hover:-translate-y-1 hover:scale-[1.01] transition duration-300 z-30"
+            className="absolute top-0 left-0 w-full max-w-[280px] bg-surface border border-border p-5 rounded-large shadow-soft hover:-translate-y-1 hover:scale-[1.01] transition duration-300 z-30"
           >
-            <div className="flex items-center gap-2 mb-3.5">
+            <div className="flex items-center gap-2 mb-4">
               <FileText className="w-4 h-4 text-primary" />
               <span className="font-bold text-[11px] text-text-primary">Configure Assessment</span>
             </div>
-            <div className="space-y-2.5">
+            <div className="space-y-3">
               <div className="space-y-1">
                 <label className="text-[9px] font-bold text-text-secondary uppercase tracking-wider">
                   Subject Name
@@ -299,7 +299,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <Button size="sm" className="w-full h-8.5 rounded-medium text-[10px] font-bold">
+              <Button size="sm" className="w-full rounded-medium text-[10px] font-bold">
                 Generate Template
               </Button>
             </div>
@@ -310,7 +310,7 @@ export default function Home() {
             initial={{ y: 0 }}
             animate={{ y: [0, 8, 0] }}
             transition={{ repeat: Infinity, duration: 6, ease: 'easeInOut' }}
-            className="absolute top-10 right-0 w-full max-w-[240px] bg-surface border border-border p-4.5 rounded-large shadow-soft hover:-translate-y-1 hover:scale-[1.01] transition duration-300 z-20"
+            className="absolute top-10 right-0 w-full max-w-[240px] bg-surface border border-border p-5 rounded-large shadow-soft hover:-translate-y-1 hover:scale-[1.01] transition duration-300 z-20"
           >
             <div className="flex items-center gap-2 mb-3 border-b border-border pb-2.5">
               <Share2 className="w-4 h-4 text-primary" />
@@ -342,7 +342,7 @@ export default function Home() {
             initial={{ y: 0 }}
             animate={{ y: [0, -8, 0] }}
             transition={{ repeat: Infinity, duration: 5.5, ease: 'easeInOut' }}
-            className="absolute bottom-4 left-6 w-full max-w-[230px] bg-surface border border-border p-4.5 rounded-large shadow-soft hover:-translate-y-1 hover:scale-[1.01] transition duration-300 z-40"
+            className="absolute bottom-8 left-6 w-full max-w-[230px] bg-surface border border-border p-5 rounded-large shadow-soft hover:-translate-y-1 hover:scale-[1.01] transition duration-300 z-40"
           >
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-1.5">
@@ -355,7 +355,7 @@ export default function Home() {
                 Live
               </span>
             </div>
-            <div className="space-y-2.5">
+            <div className="space-y-3">
               <div className="flex items-end gap-1.5 h-16 pt-2 border-b border-border">
                 <div className="w-full bg-primary/20 rounded-t-small h-[40%]" />
                 <div className="w-full bg-primary/45 rounded-t-small h-[65%]" />
@@ -375,14 +375,14 @@ export default function Home() {
             initial={{ y: 0 }}
             animate={{ y: [0, 6, 0] }}
             transition={{ repeat: Infinity, duration: 4.8, ease: 'easeInOut' }}
-            className="absolute bottom-0 right-2 w-full max-w-[250px] bg-surface border border-border p-4.5 rounded-large shadow-soft hover:-translate-y-1 hover:scale-[1.01] transition duration-300 z-30"
+            className="absolute bottom-4 right-2 w-full max-w-[250px] bg-surface border border-border p-5 rounded-large shadow-soft hover:-translate-y-1 hover:scale-[1.01] transition duration-300 z-30"
           >
             <div className="flex items-center justify-between border-b border-border pb-2.5 mb-3">
               <span className="font-bold text-[11px] text-text-primary flex items-center gap-1.5">
                 <Trophy className="w-4 h-4 text-warning" /> Live Leaderboard
               </span>
             </div>
-            <div className="space-y-2.5">
+            <div className="space-y-3">
               <div className="flex items-center justify-between text-[10px] border-b border-border/40 pb-2">
                 <div className="flex items-center gap-2">
                   <span className="font-bold text-text-secondary">#1</span>
