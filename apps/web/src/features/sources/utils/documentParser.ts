@@ -18,6 +18,29 @@ export async function parseDocument(
   if (ext === 'txt' || ext === 'md') {
     rawText = fileBuffer.toString('utf-8')
   } else if (ext === 'pdf') {
+    if (typeof global !== 'undefined') {
+      if (!(global as any).DOMMatrix) {
+        (global as any).DOMMatrix = class DOMMatrix {
+          a = 1; b = 0; c = 0; d = 1; e = 0; f = 0;
+          constructor() {}
+          toString() {
+            return `matrix(${this.a}, ${this.b}, ${this.c}, ${this.d}, ${this.e}, ${this.f})`;
+          }
+        };
+      }
+      if (!(global as any).DOMPoint) {
+        (global as any).DOMPoint = class DOMPoint {
+          x = 0; y = 0; z = 0; w = 1;
+          constructor() {}
+        };
+      }
+      if (!(global as any).DOMRect) {
+        (global as any).DOMRect = class DOMRect {
+          x = 0; y = 0; width = 0; height = 0;
+          constructor() {}
+        };
+      }
+    }
     if (typeof module !== 'undefined' && !module.parent) {
       module.parent = { id: 'main' } as any
     }
