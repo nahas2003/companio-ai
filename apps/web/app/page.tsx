@@ -568,23 +568,29 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="space-y-3.5">
+        <div className="space-y-4">
           {faqData.map((faq, idx) => {
             const isOpen = activeFaq === idx
             return (
               <div
                 key={idx}
-                className="rounded-medium border border-border bg-surface-secondary overflow-hidden transition-all duration-300 cursor-pointer"
+                className={`rounded-medium border transition-all duration-300 cursor-pointer overflow-hidden ${
+                  isOpen
+                    ? 'border-primary/30 bg-surface shadow-md border-l-4 border-l-primary'
+                    : 'border-border bg-surface hover:border-primary/20 hover:shadow-sm'
+                }`}
                 onClick={() => setActiveFaq(isOpen ? null : idx)}
               >
-                <div className="p-4.5 flex items-center justify-between font-bold text-sm text-text-primary select-none">
+                <div className="py-4 px-6 flex items-center justify-between font-bold text-sm text-text-primary select-none">
                   <span>{faq.q}</span>
                   <ChevronDown
-                    className={`w-4 h-4 text-text-secondary transition-transform ${isOpen ? 'rotate-180' : ''}`}
+                    className={`w-4 h-4 text-text-secondary transition-transform duration-300 ${
+                      isOpen ? 'rotate-180 text-primary' : ''
+                    }`}
                   />
                 </div>
                 {isOpen && (
-                  <div className="px-4.5 pb-4.5 text-text-secondary text-xs leading-relaxed border-t border-border/60 pt-3.5 animate-fade-in">
+                  <div className="px-6 pb-5 text-text-secondary text-xs leading-relaxed border-t border-border/40 pt-4 animate-fade-in">
                     {faq.a}
                   </div>
                 )}
