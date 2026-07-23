@@ -1,4 +1,3 @@
-import pdf from 'pdf-parse'
 import mammoth from 'mammoth'
 
 export interface ParsedDocument {
@@ -19,6 +18,10 @@ export async function parseDocument(
   if (ext === 'txt' || ext === 'md') {
     rawText = fileBuffer.toString('utf-8')
   } else if (ext === 'pdf') {
+    if (typeof module !== 'undefined' && !module.parent) {
+      module.parent = { id: 'main' } as any
+    }
+    const pdf = require('pdf-parse')
     const data = await pdf(fileBuffer)
     rawText = data.text || ''
     pageCount = data.numpages || null
