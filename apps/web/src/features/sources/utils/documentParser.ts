@@ -22,10 +22,11 @@ export async function parseDocument(
       module.parent = { id: 'main' } as any
     }
     const pdfModule = require('pdf-parse')
-    const pdf = typeof pdfModule === 'function' ? pdfModule : pdfModule.default
-    const data = await pdf(fileBuffer)
+    const uint8Array = new Uint8Array(fileBuffer)
+    const parser = new pdfModule.PDFParse(uint8Array)
+    const data = await parser.getText()
     rawText = data.text || ''
-    pageCount = data.numpages || null
+    pageCount = data.total || null
   } else if (ext === 'docx') {
     const result = await mammoth.extractRawText({ buffer: fileBuffer })
     rawText = result.value || ''
