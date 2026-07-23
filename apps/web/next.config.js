@@ -1,3 +1,4 @@
+const path = require('path')
 const { PrismaPlugin } = require('@prisma/nextjs-monorepo-workaround-plugin')
 
 /** @type {import('next').NextConfig} */
@@ -11,6 +12,13 @@ const nextConfig = {
   },
   experimental: {
     serverComponentsExternalPackages: ['pdf-parse', 'pdfjs-dist'],
+    outputFileTracingRoot: path.join(__dirname, '../../'),
+    outputFileTracingIncludes: {
+      '/**/*': [
+        '../../node_modules/pdf-parse/**/*',
+        '../../node_modules/pdfjs-dist/**/*'
+      ]
+    }
   },
   webpack: (config, { isServer }) => {
     if (isServer) {
