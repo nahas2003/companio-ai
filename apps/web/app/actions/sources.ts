@@ -231,12 +231,10 @@ export async function processDocument(accessToken: string, sourceId: string) {
   } catch (error: any) {
     console.error(`Error processing document ${sourceId}:`, error)
 
-    // Purge temporary file payload on failure as well
+    // Send notification on failure
     try {
       const srcRecord = await prisma.source.findUnique({ where: { id: sourceId } })
       if (srcRecord) {
-        await storageCleaner.deleteFile(srcRecord.fileKey)
-
         // Notify user of document parsing failure
         try {
           const { notificationDispatcher } =
@@ -252,7 +250,7 @@ export async function processDocument(accessToken: string, sourceId: string) {
         }
       }
     } catch (cleanErr) {
-      console.error('Failed to clean storage or notify on failure:', cleanErr)
+      console.error('Failed to notify on failure:', cleanErr)
     }
 
     try {
