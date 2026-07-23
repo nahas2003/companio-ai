@@ -4,7 +4,7 @@ import { AiResponse } from '../types/ai.types'
 
 export class GeminiProviderAdapter implements IAIProvider {
   private genAI: GoogleGenerativeAI
-  private modelName: string = 'gemini-1.5-flash'
+  private modelName: string = 'gemini-2.0-flash'
 
   constructor(apiKey: string) {
     if (!apiKey) {
