@@ -37,10 +37,10 @@ export const providerRouter = {
 
         console.log(`AI Router attempting [${config.key}] (${modelName})...`)
 
-        // request execution with a 30s timeout guard
+        // request execution with a 60s timeout guard
         const requestPromise = providerInstance.generateText(prompt, options)
         const timeoutPromise = new Promise<never>((_, reject) =>
-          setTimeout(() => reject(new Error('AI Request timeout limit (30s)')), 30000),
+          setTimeout(() => reject(new Error('AI Request timeout limit (60s)')), 60000),
         )
 
         const response = await Promise.race([requestPromise, timeoutPromise])
