@@ -3,7 +3,7 @@ import { AiResponse } from '../types/ai.types'
 
 export class NvidiaProviderAdapter implements IAIProvider {
   private apiKey: string
-  private modelName: string = 'meta/llama-3.3-70b-instruct'
+  private modelName: string = 'meta/llama-3.1-8b-instruct'
 
   constructor(apiKey: string) {
     this.apiKey = apiKey
