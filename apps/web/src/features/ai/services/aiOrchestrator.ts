@@ -118,7 +118,7 @@ export const aiOrchestrator = {
           promptVersion: version,
           durationMs,
           success: false,
-          errorMsg: `Zod Validation Error: ${validationErr.message}\nRaw response: ${responseText}`.slice(0, 3000),
+          errorMsg: `Zod Validation Error: ${validationErr.message}`,
         },
       })
 
