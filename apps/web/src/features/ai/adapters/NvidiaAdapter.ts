@@ -26,7 +26,7 @@ export class NvidiaProviderAdapter implements IAIProvider {
       model: this.modelName,
       messages: [{ role: 'user', content: prompt }],
       temperature: options?.temperature ?? 0.2,
-      max_tokens: 1024,
+      max_tokens: 4096,
     }
 
     if (options?.jsonMode) {
