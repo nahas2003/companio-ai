@@ -79,6 +79,14 @@ export const aiOrchestrator = {
           .replace(/```/g, '')
           .trim()
         parsedData = JSON.parse(cleanJsonText)
+
+        // Automatically extract root array if wrapped inside a JSON object (OpenAI/Nvidia JSON Mode requirement)
+        if (!Array.isArray(parsedData) && typeof parsedData === 'object' && parsedData !== null) {
+          const arrayKey = Object.keys(parsedData).find((key) => Array.isArray(parsedData[key]))
+          if (arrayKey) {
+            parsedData = parsedData[arrayKey]
+          }
+        }
       }
 
       const validatedOutput = responseSchema.parse(parsedData)
