@@ -116,8 +116,8 @@ export async function generateQuestionsAction(
     } else {
       // 4. TOP-UP needed!
       const topUpCount = payload.count - pooledQuestions.length
-      // Always request the maximum reliable batch size (30 questions) in a single call to aggressively stock the pool
-      const aiRequestCount = 30
+      // Always request a safe and reliable batch size (at least 10, or payload.count) in a single call to prevent token limits truncation
+      const aiRequestCount = Math.max(payload.count, 10)
       console.log(
         `Question Pool partial hit with ${pooledQuestions.length}/${payload.count} matches. Querying AI to generate the maximum batch of ${aiRequestCount} questions...`,
       )
